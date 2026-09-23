@@ -32,6 +32,8 @@ ALERT_PCT = float(os.environ.get("VISTA_ALERT_PCT", "5"))
 UA = {"User-Agent": "Mozilla/5.0 (vista-newsbot)"}
 
 STOCKS = ["AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "GOOGL", "META", "SPY"]
+STOCK_NAMES = {"AAPL": "Apple", "MSFT": "Microsoft", "NVDA": "Nvidia", "TSLA": "Tesla",
+               "AMZN": "Amazon", "GOOGL": "Google", "META": "Meta", "SPY": "S&P 500 ETF"}
 CRYPTO_TECH = ["bitcoin", "ethereum"]
 
 FEEDS = {
@@ -476,6 +478,79 @@ def compose_alerts(lang, fresh):
     return "\n".join(L)
 
 
+def post_album(items, header=None):
+    """Posta le icone come album di foto. Scarica le immagini (CoinGecko per le
+    cripto, financialmodelingprep per le azioni) e le carica in multipart: piu'
+    affidabile del far scaricare gli URL a Telegram."""
+    media, files = [], {}
+    for i, (url, cap) in enumerate(items):
+        cap = cap or ""
+        if i == 0 and header:
+            cap = header + ("\n\n" + cap if cap else "")
+        try:
+            data = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30).read()
+        except Exception:
+            continue
+        name = f"p{i}.png"
+        files[name] = data
+        m = {"type": "photo", "media": f"attach://{name}"}
+        if cap:
+            m["caption"], m["parse_mode"] = cap[:1024], "HTML"
+        media.append(m)
+    if not media:
+        return False
+    b = "----vista" + str(int(time.time()))
+    out = []
+
+    def field(name, value):
+        out.append(f'--{b}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n{value}\r\n'.encode())
+
+    field("chat_id", CHAT)
+    field("media", json.dumps(media))
+    for name, data in files.items():
+        out.append(f'--{b}\r\nContent-Disposition: form-data; name="{name}"; filename="{name}"\r\n'
+                   f'Content-Type: image/png\r\n\r\n'.encode() + data + b"\r\n")
+    out.append(f"--{b}--\r\n".encode())
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{TOKEN}/sendMediaGroup", data=b"".join(out),
+        headers={"Content-Type": f"multipart/form-data; boundary={b}"})
+    try:
+        r = json.load(urllib.request.urlopen(req, timeout=60))
+    except urllib.error.HTTPError as e:
+        print("sendMediaGroup", e.code, e.read().decode()[:400], file=sys.stderr)
+        raise
+    return r["ok"]
+
+
+def icons_album(d, lang):
+    """5 cripto + azioni reali con la loro icona vera, come card foto."""
+    t = T[lang]
+    items = []
+    for c in (d.get("crypto") or [])[:5]:
+        if not c.get("image"):
+            continue
+        ch = c.get("price_change_percentage_24h")
+        cap = f"<b>{c['symbol'].upper()}</b> · {money(c['current_price'])}"
+        if ch is not None:
+            cap += f" · {arrow(ch)}{ch:+.2f}%"
+        items.append((c["image"], cap))
+    for s in STOCKS:
+        if len(items) >= 9:
+            break
+        st = (d.get("stocks") or {}).get(s)
+        if not st or st[0] is None:
+            continue
+        price, prev = st
+        ch = (price / prev - 1) * 100 if prev else None
+        cap = f"<b>{STOCK_NAMES.get(s, s)}</b> ({s}) · {money(price)}"
+        if ch is not None:
+            cap += f" · {arrow(ch)}{ch:+.2f}%"
+        items.append((f"https://financialmodelingprep.com/image-stock/{s}.png", cap))
+    head = ("🪙 Cripto & 📈 Azioni" if lang == "it" else "🪙 Crypto & 📈 Stocks")
+    head += " · " + datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M")
+    return items, head
+
+
 def post(text):
     body = urllib.parse.urlencode({
         "chat_id": CHAT, "text": text,
@@ -508,9 +583,12 @@ if __name__ == "__main__":
         if due:
             for lg in ("it", "en"):
                 post(compose(lg, d))
+            items, head = icons_album(d, "it")
+            if items:
+                post_album(items, head)
             with open(DIGEST_STATE, "w") as f:
                 json.dump({"last": datetime.now(timezone.utc).isoformat()}, f)
-            print("DIGEST: postato (IT+EN)")
+            print("DIGEST: postato (IT+EN) + icone", len(items))
         else:
             print(f"DIGEST: salto, ultimo {age:.1f}h fa (< {DIGEST_EVERY_H}h)")
         fresh, astate = fresh_movers(d, ALERT_PCT)
@@ -540,6 +618,14 @@ if __name__ == "__main__":
                 print("\nSENT:", post(txt))
         sys.exit(0)
 
+    if "--icons" in sys.argv:
+        items, head = icons_album(d, "it")
+        for u, c in items:
+            print(c.replace("<b>", "").replace("</b>", ""), u)
+        if send:
+            print("SENT:", post_album(items, head))
+        sys.exit(0)
+
     langs = ["it", "en"] if send else [sys.argv[1] if len(sys.argv) > 1 else "it"]
     for lg in langs:
         txt = compose(lg, d)
@@ -547,3 +633,7 @@ if __name__ == "__main__":
         print(txt)
         if send:
             print("\nSENT:", post(txt))
+    if send:
+        items, head = icons_album(d, "it")
+        if items:
+            print("ICONS:", post_album(items, head))
