@@ -26,6 +26,8 @@ VISTA = "https://richy77-tech.github.io/vista/"
 CHANNEL = "https://t.me/tradingnewsbot_richy"
 # Link referral (facoltativo): se impostato, compare nel footer dichiarato come referral.
 AFFILIATE = os.environ.get("VISTA_AFFILIATE", "")
+# Soglia alert prezzo (variazione % 24h). Default 5%.
+ALERT_PCT = float(os.environ.get("VISTA_ALERT_PCT", "5"))
 
 UA = {"User-Agent": "Mozilla/5.0 (vista-newsbot)"}
 
@@ -67,6 +69,12 @@ T = {
         "sources": "Fonti: CoinGecko · alternative.me · Yahoo Finance · RSS crypto",
         "aff": "🔗 Apri un exchange (link referral): {url}",
         "aff_note": "<i>Link referral: se ti iscrivi possiamo ricevere una commissione, senza costi per te.</i>",
+        "alerts_title": "🚨 <b>Alert di prezzo</b>",
+        "alert_up": "forte rialzo",
+        "alert_down": "forte ribasso",
+        "alert_note": "<i>Movimenti sopra la soglia. Numeri, non consigli. I rischi restano tuoi.</i>",
+        "movers": "🔥 <b>Top movimenti 24h</b>",
+        "movers_note": "<i>Numeri, non consigli.</i>",
     },
     "en": {
         "title": "📊 <b>Markets</b>",
@@ -93,6 +101,12 @@ T = {
         "sources": "Sources: CoinGecko · alternative.me · Yahoo Finance · crypto RSS",
         "aff": "🔗 Open an exchange (referral link): {url}",
         "aff_note": "<i>Referral link: if you sign up we may earn a commission, at no cost to you.</i>",
+        "alerts_title": "🚨 <b>Price alert</b>",
+        "alert_up": "sharp rise",
+        "alert_down": "sharp drop",
+        "alert_note": "<i>Moves above the threshold. Numbers, not advice. The risk is yours.</i>",
+        "movers": "🔥 <b>Top 24h movers</b>",
+        "movers_note": "<i>Numbers, not advice.</i>",
     },
 }
 
@@ -116,7 +130,7 @@ def get(url, headers=UA, tries=4):
 STABLES = {"USDT", "USDC", "DAI", "FDUSD", "TUSD", "USDE"}
 
 
-def crypto_prices(n=8):
+def crypto_prices(n=25):
     d = get("https://api.coingecko.com/api/v3/coins/markets"
             "?vs_currency=usd&order=market_cap_desc&per_page=25&page=1&sparkline=false")
     return [c for c in d if c["symbol"].upper() not in STABLES
@@ -335,13 +349,22 @@ def compose(lang, d):
     # cripto
     if d["crypto"]:
         L.append(t["crypto"])
-        for c in d["crypto"]:
+        for c in d["crypto"][:8]:
             s = c["symbol"].upper()
             p = c["price_change_percentage_24h"] or 0
             L.append(f"{arrow(p)} <b>{s}</b> {money(c['current_price'])} ({p:+.1f}%)")
     else:
         L.append(f"<i>crypto n/d</i>")
     L.append("")
+
+    # top movimenti 24h (tutti i 25 + azioni, non solo gli 8 mostrati)
+    tm = sorted(movers(d, 0), key=lambda x: -abs(x[2]))[:3]
+    if tm:
+        L.append(t["movers"])
+        for sym, price, p in tm:
+            L.append(f"{arrow(p)} <b>{sym}</b> {money(price)} ({p:+.1f}%)")
+        L.append(t["movers_note"])
+        L.append("")
 
     # azioni
     L.append(t["stocks"])
@@ -391,6 +414,66 @@ def compose(lang, d):
     return "\n".join(L)
 
 
+# ---------- alert di prezzo ----------
+
+ALERT_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "alert_state.json")
+
+
+def load_json(p):
+    try:
+        with open(p) as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def movers(d, pct):
+    """Cripto e azioni con variazione 24h oltre la soglia, ordinate per ampiezza."""
+    out = []
+    for c in d.get("crypto") or []:
+        p = c.get("price_change_percentage_24h") or 0
+        if abs(p) >= pct:
+            out.append((c["symbol"].upper(), c["current_price"], p))
+    for s, val in (d.get("stocks") or {}).items():
+        if val:
+            price, prev = val
+            p = (price / prev - 1) * 100 if price and prev else 0
+            if abs(p) >= pct:
+                out.append((s, price, p))
+    out.sort(key=lambda x: -abs(x[2]))
+    return out
+
+
+def fresh_movers(d, pct):
+    """Solo i movimenti nuovi: un simbolo viene ripostato quando entra in una
+    fascia piu' ampia (5%, 10%, 15%...), non a ogni heartbeat. Evita lo spam."""
+    st = load_json(ALERT_STATE)
+    fresh = []
+    for sym, price, p in movers(d, pct):
+        b = int(abs(p) // pct)
+        if b > st.get(sym, 0):
+            fresh.append((sym, price, p))
+        st[sym] = max(st.get(sym, 0), b)
+    return fresh, st
+
+
+def compose_alerts(lang, fresh):
+    t = T[lang]
+    if not fresh:
+        return None
+    ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M") + (" ora di Roma" if lang == "it" else " Rome time")
+    L = [f"{t['alerts_title']} · {ts}", ""]
+    for sym, price, p in fresh:
+        tag = t["alert_up"] if p > 0 else t["alert_down"]
+        L.append(f"{arrow(p)} <b>{sym}</b> {money(price)} ({p:+.1f}%) · {tag}")
+    L.append("")
+    L.append(t["alert_note"])
+    L.append(t["banner"].format(
+        ch=f'<a href="{CHANNEL}">@tradingnewsbot_richy</a>',
+        link=f'<a href="{VISTA}">Vista</a>'))
+    return "\n".join(L)
+
+
 def post(text):
     body = urllib.parse.urlencode({
         "chat_id": CHAT, "text": text,
@@ -405,10 +488,28 @@ if __name__ == "__main__":
     d = gather()
     if d["errors"]:
         print("ERRORS:", d["errors"], file=sys.stderr)
-    langs = ["it", "en"] if "--send" in sys.argv else [sys.argv[1] if len(sys.argv) > 1 else "it"]
+    send = "--send" in sys.argv
+
+    if "--alerts" in sys.argv:
+        fresh, st = fresh_movers(d, ALERT_PCT)
+        if not fresh:
+            print("ALERTS: nessun movimento nuovo sopra", ALERT_PCT, "%")
+            sys.exit(0)
+        if send:
+            with open(ALERT_STATE, "w") as f:
+                json.dump(st, f)
+        for lg in ("it", "en"):
+            txt = compose_alerts(lg, fresh)
+            print("=" * 20, "ALERT", lg.upper(), "=" * 20)
+            print(txt)
+            if send:
+                print("\nSENT:", post(txt))
+        sys.exit(0)
+
+    langs = ["it", "en"] if send else [sys.argv[1] if len(sys.argv) > 1 else "it"]
     for lg in langs:
         txt = compose(lg, d)
         print("=" * 20, lg.upper(), "=" * 20)
         print(txt)
-        if "--send" in sys.argv:
+        if send:
             print("\nSENT:", post(txt))
