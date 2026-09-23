@@ -10,6 +10,7 @@ v4: i dati si scaricano UNA volta sola e si rendono in due lingue.
     Ora c'e' anche retry con backoff sui 429.
 """
 import html
+import io
 import json
 import os
 import sys
@@ -17,8 +18,14 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
+
+try:
+    from PIL import Image, ImageDraw, ImageFont
+except Exception:  # Pillow assente: le card degradano alla sola foto
+    Image = None
 
 TOKEN = os.environ["TG_TOKEN"]
 CHAT = os.environ.get("TG_CHAT", "-1003559029410")
@@ -174,15 +181,34 @@ def stock_history(symbol, rng="6mo"):
     return closes, meta.get("regularMarketPrice"), (closes[-2] if len(closes) > 1 else None)
 
 
+def rss_direct(feed, k=8):
+    """Legge l'RSS cosi' com'e', senza passare da un proxy: il proxy (rss2json)
+    cachea i feed e le notizie arrivano in ritardo. Qui sono le ultime pubblicate."""
+    raw = urllib.request.urlopen(urllib.request.Request(feed, headers=UA), timeout=20).read()
+    root = ET.fromstring(raw)
+    out = []
+    for it in root.iter("item"):
+        title = (it.findtext("title") or "").strip()
+        link = (it.findtext("link") or "").strip()
+        if title and link:
+            out.append((html.unescape(title), link, (it.findtext("pubDate") or "").strip()))
+    return out[:k]
+
+
 def news(lang, k=4):
     out = []
     for feed in FEEDS[lang]:
-        u = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(feed, safe="")
+        got = []
         try:
-            for it in get(u, tries=2).get("items", [])[:k]:
-                out.append((it["title"], it["link"], it.get("pubDate", "")))
+            got = rss_direct(feed, k)
         except Exception:
-            pass
+            try:
+                u = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(feed, safe="")
+                got = [(it["title"], it["link"], it.get("pubDate", ""))
+                       for it in get(u, tries=2).get("items", [])[:k]]
+            except Exception:
+                pass
+        out += got
     out.sort(key=lambda x: x[2], reverse=True)
     return out[:k]
 
@@ -420,7 +446,37 @@ def compose(lang, d):
 
 ALERT_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "alert_state.json")
 DIGEST_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "digest_state.json")
+NEWS_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "news_state.json")
 DIGEST_EVERY_H = float(os.environ.get("VISTA_DIGEST_EVERY_H", "6"))
+# Le notizie invecchiano prima del digest: post dedicato ogni 2h, solo se c'e' roba nuova.
+NEWS_EVERY_H = float(os.environ.get("VISTA_NEWS_EVERY_H", "2"))
+
+
+def compose_news(fresh):
+    """Solo le notizie non ancora postate. Un messaggio, IT + EN."""
+    ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M") + " ora di Roma"
+    L = [f"🗞️ <b>Ultime notizie</b> · {ts}", ""]
+    for lg, label in (("it", "IT"), ("en", "EN")):
+        rows = [(t, l) for (g, t, l) in fresh if g == lg]
+        if not rows:
+            continue
+        L.append(f"<b>{label}</b>")
+        for title, link in rows[:4]:
+            L.append(f'• <a href="{html.escape(link)}">{html.escape(title)}</a>')
+        L.append("")
+    L.append(T["it"]["banner"].format(
+        ch=f'<a href="{CHANNEL}">@tradingnewsbot_richy</a>',
+        link=f'<a href="{VISTA}">Vista</a>'))
+    return "\n".join(L)
+
+
+def _hours_since(iso):
+    if not iso:
+        return 1e9
+    try:
+        return (datetime.now(timezone.utc) - datetime.fromisoformat(iso)).total_seconds() / 3600
+    except Exception:
+        return 1e9
 
 
 def load_json(p):
@@ -483,14 +539,17 @@ def post_album(items, header=None):
     cripto, financialmodelingprep per le azioni) e le carica in multipart: piu'
     affidabile del far scaricare gli URL a Telegram."""
     media, files = [], {}
-    for i, (url, cap) in enumerate(items):
+    for i, (src, cap) in enumerate(items):
         cap = cap or ""
         if i == 0 and header:
             cap = header + ("\n\n" + cap if cap else "")
-        try:
-            data = urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=30).read()
-        except Exception:
-            continue
+        if isinstance(src, bytes):
+            data = src
+        else:
+            try:
+                data = urllib.request.urlopen(urllib.request.Request(src, headers=UA), timeout=30).read()
+            except Exception:
+                continue
         name = f"p{i}.png"
         files[name] = data
         m = {"type": "photo", "media": f"attach://{name}"}
@@ -522,18 +581,69 @@ def post_album(items, header=None):
     return r["ok"]
 
 
+FONT_B = "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+FONT_R = "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf"
+_FONTS = {}
+
+
+def _font(path, size):
+    key = (path, size)
+    if key not in _FONTS:
+        try:
+            _FONTS[key] = ImageFont.truetype(path, size)
+        except Exception:
+            _FONTS[key] = ImageFont.load_default()
+    return _FONTS[key]
+
+
+def fetch_icon(url):
+    try:
+        return urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=25).read()
+    except Exception:
+        return None
+
+
+def make_card(icon_bytes, title, price, ch):
+    """Card: icona vera a sinistra, prezzo e variazione % a destra, accanto.
+    Verde/rosso in base al segno. Nessun consiglio, solo il numero."""
+    if Image is None:
+        return icon_bytes
+    W, H = 900, 260
+    img = Image.new("RGB", (W, H), (13, 17, 23))
+    dr = ImageDraw.Draw(img)
+    if icon_bytes:
+        try:
+            ic = Image.open(io.BytesIO(icon_bytes)).convert("RGBA")
+            side = 150
+            ic.thumbnail((side, side), Image.LANCZOS)
+            canvas = Image.new("RGBA", (side, side), (0, 0, 0, 0))
+            canvas.paste(ic, ((side - ic.width) // 2, (side - ic.height) // 2), ic)
+            img.paste(canvas, (48, (H - side) // 2), canvas)
+        except Exception:
+            pass
+    f_title, f_price, f_ch = _font(FONT_B, 38), _font(FONT_B, 60), _font(FONT_B, 50)
+    x = 245
+    dr.text((x, 48), title, font=f_title, fill=(170, 178, 190))
+    dr.text((x, 100), price, font=f_price, fill=(255, 255, 255))
+    if ch is not None:
+        col = (46, 204, 113) if ch >= 0 else (231, 76, 60)
+        px = x + dr.textlength(price, font=f_price) + 28
+        dr.text((px, 112), f"{ch:+.2f}%", font=f_ch, fill=col)
+    out = io.BytesIO()
+    img.save(out, "PNG")
+    return out.getvalue()
+
+
 def icons_album(d, lang):
-    """5 cripto + azioni reali con la loro icona vera, come card foto."""
-    t = T[lang]
+    """5 cripto + azioni reali: card con icona vera accanto a prezzo e variazione."""
     items = []
     for c in (d.get("crypto") or [])[:5]:
         if not c.get("image"):
             continue
         ch = c.get("price_change_percentage_24h")
-        cap = f"<b>{c['symbol'].upper()}</b> · {money(c['current_price'])}"
-        if ch is not None:
-            cap += f" · {arrow(ch)}{ch:+.2f}%"
-        items.append((c["image"], cap))
+        card = make_card(fetch_icon(c["image"]), c["symbol"].upper(), money(c["current_price"]), ch)
+        if card:
+            items.append((card, f"<b>{c['symbol'].upper()}</b>"))
     for s in STOCKS:
         if len(items) >= 9:
             break
@@ -542,10 +652,10 @@ def icons_album(d, lang):
             continue
         price, prev = st
         ch = (price / prev - 1) * 100 if prev else None
-        cap = f"<b>{STOCK_NAMES.get(s, s)}</b> ({s}) · {money(price)}"
-        if ch is not None:
-            cap += f" · {arrow(ch)}{ch:+.2f}%"
-        items.append((f"https://financialmodelingprep.com/image-stock/{s}.png", cap))
+        card = make_card(fetch_icon(f"https://financialmodelingprep.com/image-stock/{s}.png"),
+                         f"{STOCK_NAMES.get(s, s)} ({s})", money(price), ch)
+        if card:
+            items.append((card, f"<b>{STOCK_NAMES.get(s, s)}</b> ({s})"))
     head = ("🪙 Cripto & 📈 Azioni" if lang == "it" else "🪙 Crypto & 📈 Stocks")
     head += " · " + datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M")
     return items, head
@@ -591,6 +701,27 @@ if __name__ == "__main__":
             print("DIGEST: postato (IT+EN) + icone", len(items))
         else:
             print(f"DIGEST: salto, ultimo {age:.1f}h fa (< {DIGEST_EVERY_H}h)")
+
+        # Notizie: post dedicato, ogni NEWS_EVERY_H, solo se c'e' qualcosa di nuovo.
+        nst = load_json(NEWS_STATE)
+        if _hours_since(nst.get("last")) >= NEWS_EVERY_H:
+            seen = set(nst.get("seen", []))
+            fresh_n = [(lg, t, l) for lg in ("it", "en")
+                       for (t, l, _) in ((d.get("news") or {}).get(lg) or [])
+                       if l not in seen]
+            if fresh_n:
+                post(compose_news(fresh_n))
+                seen |= {l for _, _, l in fresh_n}
+                print("NEWS: postato", len(fresh_n))
+            else:
+                print("NEWS: nessuna novita")
+            nst["seen"] = list(seen)[-300:]
+            nst["last"] = datetime.now(timezone.utc).isoformat()
+            with open(NEWS_STATE, "w") as f:
+                json.dump(nst, f)
+        else:
+            print(f"NEWS: salto, ultimo {_hours_since(nst.get('last')):.1f}h fa")
+
         fresh, astate = fresh_movers(d, ALERT_PCT)
         if fresh:
             for lg in ("it", "en"):
@@ -616,6 +747,17 @@ if __name__ == "__main__":
             print(txt)
             if send:
                 print("\nSENT:", post(txt))
+        sys.exit(0)
+
+    if "--news" in sys.argv:
+        nst = load_json(NEWS_STATE)
+        seen = set(nst.get("seen", []))
+        fresh_n = [(lg, t, l) for lg in ("it", "en")
+                   for (t, l, _) in ((d.get("news") or {}).get(lg) or [])
+                   if l not in seen]
+        print(compose_news(fresh_n) if fresh_n else "NEWS: nessuna novita")
+        if send and fresh_n:
+            print("SENT:", post(compose_news(fresh_n)))
         sys.exit(0)
 
     if "--icons" in sys.argv:

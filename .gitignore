@@ -2,3 +2,5 @@ cache.json
 __pycache__/
 alert_state.json
 digest_state.json
+
+news_state.json
