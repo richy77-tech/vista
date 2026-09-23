@@ -417,6 +417,8 @@ def compose(lang, d):
 # ---------- alert di prezzo ----------
 
 ALERT_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "alert_state.json")
+DIGEST_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "digest_state.json")
+DIGEST_EVERY_H = float(os.environ.get("VISTA_DIGEST_EVERY_H", "6"))
 
 
 def load_json(p):
@@ -489,6 +491,38 @@ if __name__ == "__main__":
     if d["errors"]:
         print("ERRORS:", d["errors"], file=sys.stderr)
     send = "--send" in sys.argv
+
+    if "--auto" in sys.argv:
+        # Chiamato dai miei heartbeat: posta il digest solo se sono passate
+        # DIGEST_EVERY_H ore, e gli alert solo se un movimento e' nuovo.
+        # Cosi' il canale si aggiorna da solo senza che nessuno lo lanci a mano.
+        st = load_json(DIGEST_STATE)
+        last = st.get("last")
+        due, age = True, 0.0
+        if last:
+            try:
+                age = (datetime.now(timezone.utc) - datetime.fromisoformat(last)).total_seconds() / 3600
+                due = age >= DIGEST_EVERY_H
+            except Exception:
+                due = True
+        if due:
+            for lg in ("it", "en"):
+                post(compose(lg, d))
+            with open(DIGEST_STATE, "w") as f:
+                json.dump({"last": datetime.now(timezone.utc).isoformat()}, f)
+            print("DIGEST: postato (IT+EN)")
+        else:
+            print(f"DIGEST: salto, ultimo {age:.1f}h fa (< {DIGEST_EVERY_H}h)")
+        fresh, astate = fresh_movers(d, ALERT_PCT)
+        if fresh:
+            for lg in ("it", "en"):
+                post(compose_alerts(lg, fresh))
+            with open(ALERT_STATE, "w") as f:
+                json.dump(astate, f)
+            print("ALERT: postato", [m[0] for m in fresh])
+        else:
+            print("ALERT: nessuno nuovo")
+        sys.exit(0)
 
     if "--alerts" in sys.argv:
         fresh, st = fresh_movers(d, ALERT_PCT)
