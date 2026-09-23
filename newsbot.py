@@ -18,11 +18,14 @@ import urllib.error
 import urllib.parse
 import urllib.request
 from datetime import datetime, timezone
+from zoneinfo import ZoneInfo
 
 TOKEN = os.environ["TG_TOKEN"]
 CHAT = os.environ.get("TG_CHAT", "-1003559029410")
 VISTA = "https://richy77-tech.github.io/vista/"
 CHANNEL = "https://t.me/tradingnewsbot_richy"
+# Link referral (facoltativo): se impostato, compare nel footer dichiarato come referral.
+AFFILIATE = os.environ.get("VISTA_AFFILIATE", "")
 
 UA = {"User-Agent": "Mozilla/5.0 (vista-newsbot)"}
 
@@ -61,6 +64,9 @@ T = {
         "above": "sopra MA20 e MA50", "below": "sotto MA20 e MA50",
         "between": "tra le medie", "ob": "ipercomprato", "os": "ipervenduto",
         "banner": "📈 Segnali e news ogni giorno: {ch} · {link}",
+        "sources": "Fonti: CoinGecko · alternative.me · Yahoo Finance · RSS crypto",
+        "aff": "🔗 Apri un exchange (link referral): {url}",
+        "aff_note": "<i>Link referral: se ti iscrivi possiamo ricevere una commissione, senza costi per te.</i>",
     },
     "en": {
         "title": "📊 <b>Markets</b>",
@@ -84,6 +90,9 @@ T = {
         "above": "above MA20 and MA50", "below": "below MA20 and MA50",
         "between": "between the averages", "ob": "overbought", "os": "oversold",
         "banner": "📈 Daily signals and news: {ch} · {link}",
+        "sources": "Sources: CoinGecko · alternative.me · Yahoo Finance · crypto RSS",
+        "aff": "🔗 Open an exchange (referral link): {url}",
+        "aff_note": "<i>Referral link: if you sign up we may earn a commission, at no cost to you.</i>",
     },
 }
 
@@ -300,7 +309,7 @@ def money(x):
 
 def compose(lang, d):
     t = T[lang]
-    ts = datetime.now(timezone.utc).strftime("%d/%m %H:%M UTC")
+    ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M") + (" ora di Roma" if lang == "it" else " Rome time")
     L = [f"{t['title']} · {ts}", ""]
     if d.get("stale"):
         L.append("<i>alcuni dati sono l'ultimo aggiornamento disponibile</i>" if lang == "it"
@@ -370,6 +379,12 @@ def compose(lang, d):
             L.append(f'• <a href="{html.escape(link)}">{html.escape(title)}</a>')
         L.append("")
 
+    if AFFILIATE:
+        L.append(t["aff"].format(url=f'<a href="{html.escape(AFFILIATE)}">exchange</a>'))
+        L.append(t["aff_note"])
+        L.append("")
+
+    L.append(f"<i>{t['sources']}</i>")
     L.append(t["banner"].format(
         ch=f'<a href="{CHANNEL}">@tradingnewsbot_richy</a>',
         link=f'<a href="{VISTA}">Vista</a>'))
