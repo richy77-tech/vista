@@ -211,34 +211,78 @@ def read(closes, t):
 
 # ---------- raccolta dati (una volta) ----------
 
+CACHE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "cache.json")
+
+
+def load_cache():
+    try:
+        with open(CACHE) as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_cache(d):
+    try:
+        with open(CACHE, "w") as f:
+            json.dump(d, f)
+    except Exception:
+        pass
+
+
 def gather():
+    """Scarica tutto una volta. Se una fonte cade, riusa l'ultimo dato buono
+    dalla cache invece di stampare 'n/d' (le API gratuite ogni tanto throttlano)."""
+    c = load_cache()
     d = {"crypto": None, "sentiment": None, "stocks": {}, "series": {},
-         "news": {}, "errors": []}
+         "news": {}, "errors": [], "stale": []}
+
     try:
         d["crypto"] = crypto_prices()
     except Exception as e:
-        d["errors"].append(f"crypto:{type(e).__name__}")
+        d["crypto"] = c.get("crypto")
+        (d["stale"] if d["crypto"] else d["errors"]).append("crypto")
+        if not d["crypto"]:
+            d["errors"].append(type(e).__name__)
+    time.sleep(1)
+
     try:
         d["sentiment"] = sentiment()
     except Exception as e:
-        d["errors"].append(f"sentiment:{type(e).__name__}")
+        d["sentiment"] = c.get("sentiment")
+        (d["stale"] if d["sentiment"] else d["errors"]).append("sentiment")
+        if not d["sentiment"]:
+            d["errors"].append(type(e).__name__)
+    time.sleep(1)
+
     for s in STOCKS:
         try:
             closes, price, prev = stock_history(s)
             d["series"][s] = closes
             d["stocks"][s] = (price, prev)
         except Exception:
-            d["stocks"][s] = None
+            if s in c.get("series", {}):
+                d["series"][s] = c["series"][s]
+                d["stocks"][s] = c.get("stocks", {}).get(s)
+                d["stale"].append(s)
+            else:
+                d["stocks"][s] = None
+
     for cid in CRYPTO_TECH:
         try:
             d["series"][cid.upper()] = crypto_history(cid)
         except Exception:
-            pass
+            if cid.upper() in c.get("series", {}):
+                d["series"][cid.upper()] = c["series"][cid.upper()]
+                d["stale"].append(cid.upper())
+
     for lg in ("it", "en"):
         try:
             d["news"][lg] = news(lg)
         except Exception:
-            d["news"][lg] = []
+            d["news"][lg] = c.get("news", {}).get(lg, [])
+
+    save_cache({k: d[k] for k in ("crypto", "sentiment", "stocks", "series", "news")})
     return d
 
 
@@ -258,6 +302,10 @@ def compose(lang, d):
     t = T[lang]
     ts = datetime.now(timezone.utc).strftime("%d/%m %H:%M UTC")
     L = [f"{t['title']} · {ts}", ""]
+    if d.get("stale"):
+        L.append("<i>alcuni dati sono l'ultimo aggiornamento disponibile</i>" if lang == "it"
+                 else "<i>some data is the last available update</i>")
+        L.append("")
 
     # sentiment community
     if d["sentiment"]:
