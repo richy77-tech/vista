@@ -6,12 +6,17 @@ from .http import get_json
 
 # symbol, label, emoji
 GROUPS = {
-    "metals": [("GC=F", "GOLD", "🥇"), ("SI=F", "SILVER", "🥈")],
-    "energy": [("CL=F", "OIL", "⚡")],
+    "metals": [("GC=F", "GOLD", "🥇"), ("SI=F", "SILVER", "🥈"),
+               ("PL=F", "PLATINUM", "⚪"), ("HG=F", "COPPER", "🟠")],
+    "energy": [("CL=F", "WTI OIL", "🛢️"), ("BZ=F", "BRENT", "🛢️"),
+               ("NG=F", "NAT GAS", "🔥")],
     "forex": [("EURUSD=X", "EUR/USD", "💵"), ("GBPUSD=X", "GBP/USD", "💵"),
-              ("JPY=X", "USD/JPY", "💵"), ("DX-Y.NYB", "DXY", "💵")],
+              ("JPY=X", "USD/JPY", "💵"), ("AUDUSD=X", "AUD/USD", "💵"),
+              ("USDCAD=X", "USD/CAD", "💵"), ("DX-Y.NYB", "DXY", "💵")],
     "indices": [("^GSPC", "S&P 500", "📊"), ("^IXIC", "NASDAQ", "📊"),
-                ("^VIX", "VIX", "📊")],
+                ("^DJI", "DOW", "📊"), ("^RUT", "RUSSELL 2000", "📊"),
+                ("^FTSE", "FTSE 100", "📊"), ("^GDAXI", "DAX", "📊"),
+                ("^N225", "NIKKEI", "📊"), ("^VIX", "VIX", "📊")],
 }
 
 

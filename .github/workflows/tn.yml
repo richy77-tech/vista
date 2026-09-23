@@ -1,0 +1,51 @@
+name: TRADING NEWS AI
+
+# Il canale si aggiorna da solo, gratis, anche quando Nico non c'e'.
+# GitHub Actions su repo pubblico = minuti illimitati, nessun server, nessun costo.
+on:
+  schedule:
+    - cron: "0 * * * *"      # ogni ora: digest (ogni 6h), news (2h), alert, breaking
+  workflow_dispatch:          # pulsante "Run workflow" per forzare un giro
+
+permissions:
+  contents: write             # serve per salvare lo stato tra un giro e l'altro
+
+concurrency:
+  group: tn
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Dipendenze
+        run: pip install --quiet pillow
+
+      - name: Giro del bot
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+          VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
+        run: python newsbot.py --auto
+
+      - name: Salva lo stato (cosi' le frequenze sopravvivono al giro)
+        run: |
+          git config user.name "tn-bot"
+          git config user.email "tn-bot@users.noreply.github.com"
+          for f in alert_state.json digest_state.json news_state.json \
+                   brief_state.json event_state.json commands_state.json; do
+            [ -f "$f" ] && git add -f "$f"
+          done
+          if ! git diff --staged --quiet; then
+            git commit -m "state: $(date -u +%FT%TZ)"
+            git push
+          else
+            echo "stato invariato"
+          fi

@@ -62,9 +62,12 @@ ALERT_PCT = float(os.environ.get("VISTA_ALERT_PCT", "5"))
 
 UA = {"User-Agent": "Mozilla/5.0 (vista-newsbot)"}
 
-STOCKS = ["AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "GOOGL", "META", "SPY"]
+STOCKS = ["AAPL", "MSFT", "NVDA", "TSLA", "AMZN", "GOOGL", "META", "SPY",
+          "AMD", "NFLX", "JPM", "V", "WMT", "DIS", "COIN", "MSTR"]
 STOCK_NAMES = {"AAPL": "Apple", "MSFT": "Microsoft", "NVDA": "Nvidia", "TSLA": "Tesla",
-               "AMZN": "Amazon", "GOOGL": "Google", "META": "Meta", "SPY": "S&P 500 ETF"}
+               "AMZN": "Amazon", "GOOGL": "Google", "META": "Meta", "SPY": "S&P 500 ETF",
+               "AMD": "AMD", "NFLX": "Netflix", "JPM": "JPMorgan", "V": "Visa",
+               "WMT": "Walmart", "DIS": "Disney", "COIN": "Coinbase", "MSTR": "MicroStrategy"}
 CRYPTO_TECH = ["bitcoin", "ethereum"]
 
 FEEDS = {
