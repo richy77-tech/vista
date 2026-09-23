@@ -1,6 +1,11 @@
 cache.json
 __pycache__/
+*.pyc
+.env
 alert_state.json
 digest_state.json
-
 news_state.json
+brief_state.json
+event_state.json
+commands_state.json
+data/history.db

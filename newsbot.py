@@ -22,6 +22,30 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
 from zoneinfo import ZoneInfo
 
+# .env locale (facoltativo): tiene i secret fuori dal codice.
+def _load_env():
+    p = os.path.join(os.path.dirname(os.path.abspath(__file__)), ".env")
+    if not os.path.exists(p):
+        return
+    for line in open(p):
+        line = line.strip()
+        if not line or line.startswith("#") or "=" not in line:
+            continue
+        k, v = line.split("=", 1)
+        os.environ.setdefault(k.strip(), v.strip().strip('"').strip("'"))
+
+
+_load_env()
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from tn import calendar as tn_cal          # noqa: E402
+from tn import commands as tn_cmd          # noqa: E402
+from tn import marketdata as tn_md         # noqa: E402
+from tn import newsengine as tn_news       # noqa: E402
+from tn import store as tn_store           # noqa: E402
+
+BRAND = "⚡ <b>TRADING NEWS AI</b>\n<i>REAL-TIME MARKET INTELLIGENCE</i>"
+
 try:
     from PIL import Image, ImageDraw, ImageFont
 except Exception:  # Pillow assente: le card degradano alla sola foto
@@ -75,7 +99,7 @@ T = {
         "above": "sopra MA20 e MA50", "below": "sotto MA20 e MA50",
         "between": "tra le medie", "ob": "ipercomprato", "os": "ipervenduto",
         "banner": "📈 Segnali e news ogni giorno: {ch} · {link}",
-        "sources": "Fonti: CoinGecko · alternative.me · Yahoo Finance · RSS crypto",
+        "sources": "Fonti: CoinGecko · alternative.me · Yahoo Finance · Fed/ECB · RSS finanziari",
         "aff": "🔗 Apri un exchange (link referral): {url}",
         "aff_note": "<i>Link referral: se ti iscrivi possiamo ricevere una commissione, senza costi per te.</i>",
         "alerts_title": "🚨 <b>Alert di prezzo</b>",
@@ -107,7 +131,7 @@ T = {
         "above": "above MA20 and MA50", "below": "below MA20 and MA50",
         "between": "between the averages", "ob": "overbought", "os": "oversold",
         "banner": "📈 Daily signals and news: {ch} · {link}",
-        "sources": "Sources: CoinGecko · alternative.me · Yahoo Finance · crypto RSS",
+        "sources": "Sources: CoinGecko · alternative.me · Yahoo Finance · Fed/ECB · financial RSS",
         "aff": "🔗 Open an exchange (referral link): {url}",
         "aff_note": "<i>Referral link: if you sign up we may earn a commission, at no cost to you.</i>",
         "alerts_title": "🚨 <b>Price alert</b>",
@@ -337,6 +361,52 @@ def gather():
     return d
 
 
+def gather_extended(d):
+    """Aggiunge i dati del nuovo motore: multi-asset, calendario, news arricchite.
+    Ogni fonte e' isolata: se una cade, il resto del digest esce comunque."""
+    c = load_cache()
+    d.setdefault("errors", [])
+    d.setdefault("stale", [])
+
+    try:
+        d["market"], merr = tn_md.market_groups()
+        d["errors"] += merr
+    except Exception as e:
+        d["market"] = c.get("market", {})
+        d["errors"].append("market:" + type(e).__name__)
+
+    try:
+        d["events"], cerr = tn_cal.fetch_week()
+        if cerr:
+            d["errors"].append("calendar:" + cerr)
+    except Exception as e:
+        d["events"] = c.get("events", [])
+        d["errors"].append("calendar:" + type(e).__name__)
+
+    try:
+        d["news2"], nerr = tn_news.pipeline(per_source=8)
+        d["errors"] += ["news:" + e for e in nerr]
+    except Exception as e:
+        d["news2"] = c.get("news2", [])
+        d["errors"].append("news2:" + type(e).__name__)
+
+    # storico: news, eventi, snapshot di mercato
+    try:
+        tn_store.save_news([dict(n, published=False) for n in d["news2"]])
+        tn_store.save_events(d["events"])
+        snap = []
+        for g, qs in (d.get("market") or {}).items():
+            for q in qs:
+                snap.append((q["label"], q.get("price"), tn_md.change_pct(q), {"group": g}))
+        tn_store.save_market(snap)
+    except Exception as e:
+        d["errors"].append("store:" + type(e).__name__)
+
+    save_cache({k: d[k] for k in ("crypto", "sentiment", "stocks", "series", "news",
+                                  "market", "events", "news2")})
+    return d
+
+
 # ---------- composizione ----------
 
 def arrow(p):
@@ -352,7 +422,7 @@ def money(x):
 def compose(lang, d):
     t = T[lang]
     ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M") + (" ora di Roma" if lang == "it" else " Rome time")
-    L = [f"{t['title']} · {ts}", ""]
+    L = [BRAND, "", f"{t['title']} · {ts}", ""]
     if d.get("stale"):
         L.append("<i>alcuni dati sono l'ultimo aggiornamento disponibile</i>" if lang == "it"
                  else "<i>some data is the last available update</i>")
@@ -377,7 +447,7 @@ def compose(lang, d):
     # cripto
     if d["crypto"]:
         L.append(t["crypto"])
-        for c in d["crypto"][:8]:
+        for c in d["crypto"][:6]:
             s = c["symbol"].upper()
             p = c["price_change_percentage_24h"] or 0
             L.append(f"{arrow(p)} <b>{s}</b> {money(c['current_price'])} ({p:+.1f}%)")
@@ -392,6 +462,27 @@ def compose(lang, d):
         for sym, price, p in tm:
             L.append(f"{arrow(p)} <b>{sym}</b> {money(price)} ({p:+.1f}%)")
         L.append(t["movers_note"])
+        L.append("")
+
+    # multi-asset: metalli, forex, indici (Yahoo, gratis)
+    mk = d.get("market") or {}
+    group_titles = {
+        "it": {"metals": "🥇 <b>Metalli</b>", "energy": "⚡ <b>Energia</b>",
+               "forex": "💵 <b>Forex</b>", "indices": "📊 <b>Indici</b>"},
+        "en": {"metals": "🥇 <b>Metals</b>", "energy": "⚡ <b>Energy</b>",
+               "forex": "💵 <b>Forex</b>", "indices": "📊 <b>Indices</b>"},
+    }
+    for g in ("metals", "energy", "forex", "indices"):
+        qs = mk.get(g) or []
+        if not qs:
+            continue
+        L.append(group_titles[lang][g])
+        for q in qs:
+            ch = tn_md.change_pct(q)
+            p = q.get("price")
+            pstr = f"{p:,.2f}" if isinstance(p, (int, float)) else "n/d"
+            chs = f" ({ch:+.2f}%)" if ch is not None else ""
+            L.append(f"{arrow(ch or 0)} <b>{q.get('label')}</b> {pstr}{chs}")
         L.append("")
 
     # azioni
@@ -413,7 +504,7 @@ def compose(lang, d):
             tech.append(f"<b>{name}</b>: {rr}")
     if tech:
         L.append(t["tech"])
-        L += tech
+        L += tech[:6]
         L.append(t["tech_note"])
         L.append("")
 
@@ -429,6 +520,31 @@ def compose(lang, d):
         for title, link, _ in ns:
             L.append(f'• <a href="{html.escape(link)}">{html.escape(title)}</a>')
         L.append("")
+
+    # breaking + calendario (solo nel digest esteso)
+    news2 = d.get("news2") or []
+    if news2:
+        hot = [n for n in news2 if n["impact"] in ("HIGH", "CRITICAL")][:3]
+        if hot:
+            L.append("🚨 <b>BREAKING</b>")
+            for n in hot:
+                tag = "🔴" if n["impact"] == "CRITICAL" else "🟠"
+                L.append(f"{tag} <a href=\"{html.escape(n['url'])}\">{html.escape(n['title'])}</a>")
+            L.append("")
+
+    if d.get("events"):
+        ev = tn_cal.today(d["events"])
+        if ev:
+            L.append("📅 <b>Calendario economico oggi</b>" if lang == "it"
+                     else "📅 <b>Economic calendar today</b>")
+            for e in ev[:6]:
+                emo = {"HIGH": "🔴", "MEDIUM": "🟠", "LOW": "🟡"}.get(e["impact"], "⚪")
+                extra = ""
+                if e["forecast"] or e["previous"]:
+                    extra = f" · forecast {e['forecast'] or 'n/d'} / prev {e['previous'] or 'n/d'}"
+                L.append(f"{emo} {e['ts'][11:16]} <b>{e['country']}</b> "
+                         f"{html.escape(e['title'])}{extra}")
+            L.append("")
 
     if AFFILIATE:
         L.append(t["aff"].format(url=f'<a href="{html.escape(AFFILIATE)}">exchange</a>'))
@@ -671,16 +787,208 @@ def post(text):
     return r["ok"]
 
 
+# ---------- sentiment per asset + daily brief ----------
+
+BRIEF_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brief_state.json")
+EVENT_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "event_state.json")
+
+
+def _tech_score(closes):
+    r = rsi(closes or [])
+    return None if r is None else max(0, min(100, r))
+
+
+def asset_sentiment(asset, d):
+    """Punteggio 0-100 da due componenti dichiarate: news (rule-based o AI) e
+    tecnica (RSI). E' un'interpretazione, non un fatto. Se manca una parte,
+    si usa solo l'altra; se mancano entrambe, None."""
+    news_scores = [n["sentiment"]["score"] for n in (d.get("news2") or [])
+                   if asset in (n.get("assets") or []) or n.get("category") == asset]
+    news_s = sum(news_scores) / len(news_scores) if news_scores else None
+
+    tech = None
+    mk = d.get("market") or {}
+    if asset == "BTC":
+        tech = _tech_score(d.get("series", {}).get("BITCOIN"))
+    elif asset == "GOLD":
+        tech = next((_tech_score(q.get("closes")) for q in mk.get("metals", [])
+                     if q.get("label") == "GOLD"), None)
+    elif asset == "USD":
+        tech = next((_tech_score(q.get("closes")) for q in mk.get("forex", [])
+                     if q.get("label") == "DXY"), None)
+    elif asset in ("SP500", "EQUITIES"):
+        tech = next((_tech_score(q.get("closes")) for q in mk.get("indices", [])
+                     if q.get("label") == "S&P 500"), None)
+
+    parts = [s for s in (news_s, tech) if s is not None]
+    overall = sum(parts) / len(parts) if parts else None
+    return {"news": news_s, "technical": tech, "macro": None, "overall": overall}
+
+
+def _label(score, lang):
+    if score is None:
+        return "DATA NOT AVAILABLE"
+    it = score >= 65 and "moderatamente rialzista" or score <= 35 and "moderatamente ribassista" or "neutro"
+    en = score >= 65 and "moderately bullish" or score <= 35 and "moderately bearish" or "neutral"
+    return (it if lang == "it" else en) + f" ({score:.0f}/100)"
+
+
+def compose_brief(lang, d):
+    """Report giornaliero: dati + eventi + sentiment (interpretazione) + rischi."""
+    ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m/%Y %H:%M")
+    L = [BRAND, "", f"🌅 <b>DAILY MARKET BRIEF</b> · {ts}", ""]
+
+    mk = d.get("market") or {}
+    def find(group, label):
+        return next((q for q in mk.get(group, []) if q.get("label") == label), None)
+
+    for label, group in (("GOLD", "metals"), ("DXY", "forex"), ("S&P 500", "indices"),
+                         ("NASDAQ", "indices")):
+        q = find(group, label)
+        if q:
+            ch = tn_md.change_pct(q)
+            p = q.get("price")
+            L.append(f"{q.get('emoji','')} <b>{label}</b> {p:,.2f}" +
+                     (f" ({ch:+.2f}%)" if ch is not None else ""))
+    # BTC dal blocco cripto
+    btc = next((c for c in (d.get("crypto") or []) if c["symbol"].upper() == "BTC"), None)
+    if btc:
+        p = btc.get("price_change_percentage_24h") or 0
+        L.append(f"₿ <b>BTC</b> {money(btc['current_price'])} ({p:+.1f}%)")
+    L.append("")
+
+    if d.get("events"):
+        ev = tn_cal.today(d["events"])
+        if ev:
+            L.append("📅 <b>Eventi di oggi</b>" if lang == "it" else "📅 <b>Today's events</b>")
+            for e in ev[:8]:
+                emo = {"HIGH": "🔴", "MEDIUM": "🟠", "LOW": "🟡"}.get(e["impact"], "⚪")
+                L.append(f"{emo} {e['ts'][11:16]} {e['country']} {html.escape(e['title'])}")
+            L.append("")
+
+    L.append("🤖 <b>Market sentiment</b> <i>(AI interpretation, non un fatto)</i>")
+    for a in ("BTC", "GOLD", "USD", "EQUITIES"):
+        s = asset_sentiment(a, d)
+        L.append(f"• {a}: {_label(s['overall'], lang)}")
+    L.append("")
+
+    risks = [n for n in (d.get("news2") or []) if n["impact"] in ("HIGH", "CRITICAL")][:3]
+    if risks:
+        L.append("⚠️ <b>Rischi / Risk</b>" if lang == "it" else "⚠️ <b>Market risks</b>")
+        for n in risks:
+            L.append(f"• {html.escape(n['title'])}")
+        L.append("")
+
+    L.append("<i>Informazioni a scopo informativo ed educativo. Non costituiscono "
+             "consulenza finanziaria né raccomandazione di investimento. I mercati "
+             "finanziari comportano rischi.</i>")
+    L.append(t_banner())
+    return "\n".join(L)
+
+
+def t_banner():
+    return T["it"]["banner"].format(
+        ch=f'<a href="{CHANNEL}">@tradingnewsbot_richy</a>',
+        link=f'<a href="{VISTA}">Vista</a>')
+
+
+def compose_breaking(news):
+    """Un breaking per notizia ad alto impatto, formato richiesto."""
+    n = news
+    assets = " ".join({"BTC": "₿ BTC", "GOLD": "🥇 GOLD", "USD": "💵 USD",
+                       "EQUITIES": "📈 EQUITIES"}.get(a, a) for a in (n.get("assets") or []))
+    srcs = "\n".join(f"<a href=\"{html.escape(u)}\">{html.escape(n.get('source','source'))}</a>"
+                      for u in [n["url"]] + (n.get("extra_urls") or [])[:3])
+    L = ["🚨 <b>BREAKING NEWS</b>", "", f"<b>{html.escape(n['title'])}"+"</b>",
+         f"🔴 IMPACT: {n['impact']}"]
+    if assets:
+        L.append(f"Relevant assets: {assets}")
+    if n.get("ai_analysis"):
+        L.append(f"🤖 <i>{html.escape(n['ai_analysis'])}</i>")
+    L += ["", "Source:", srcs]
+    return "\n".join(L)
+
+
+def compose_event_alert(e, lang):
+    mins = int((datetime.fromisoformat(e["ts"]) - datetime.now(ZoneInfo("Europe/Rome"))
+                ).total_seconds() // 60)
+    head = f"⏰ <b>{mins} MINUTES TO {e['country']} {html.escape(e['title']).upper()}</b>"
+    if lang == "it":
+        head = f"⏰ <b>{mins} MINUTI A {e['country']} {html.escape(e['title']).upper()}</b>"
+    L = [head, f"{ '🔴' if e['impact']=='HIGH' else '🟠'} IMPACT: {e['impact']}", "",
+         f"Forecast: {e['forecast'] or 'n/d'}", f"Previous: {e['previous'] or 'n/d'}", ""]
+    L.append("Potenzialmente coinvolti:" if lang == "it" else "Potentially affected:")
+    L.append("USD / GOLD / BTC / EQUITIES")
+    L.append("")
+    L.append("<i>Dato atteso, non una previsione di prezzo. I rischi restano tuoi.</i>")
+    return "\n".join(L)
+
+
+def _status(d):
+    return {
+        "News Engine": bool(d.get("news2")),
+        "Market Data": bool(d.get("market")),
+        "AI": bool(os.environ.get("AI_API_KEY")) or True,  # True = motore a regole attivo
+        "Telegram": bool(TOKEN and CHAT),
+        "Database": bool(tn_store.conn()),
+    }
+
+
+def _ctx(d):
+    return {"market": d.get("market"), "stocks": d.get("stocks"),
+            "news": d.get("news2") or [], "events": d.get("events"),
+            "status": _status(d)}
+
+
 if __name__ == "__main__":
     d = gather()
+    send = "--send" in sys.argv
+    modes = set(sys.argv[1:])
+    need_extended = ({"--auto", "--brief", "--breaking", "--commands"} & modes) or \
+        (send and not ({"--alerts", "--icons", "--news"} & modes))
+    if need_extended:
+        gather_extended(d)
     if d["errors"]:
         print("ERRORS:", d["errors"], file=sys.stderr)
-    send = "--send" in sys.argv
+
+    if "--commands" in sys.argv:
+        tn_cmd.set_commands(TOKEN)
+        n = tn_cmd.poll_once(TOKEN, _ctx(d), os.path.join(os.path.dirname(
+            os.path.abspath(__file__)), "commands_state.json"))
+        print("COMMANDS: risposto a", n)
+        sys.exit(0)
+
+    if "--calendar" in sys.argv:
+        ev = tn_cal.today(d.get("events"))
+        print("📅 eventi oggi:", len(ev))
+        for e in ev:
+            print(" ", e["ts"][11:16], e["country"], e["impact"], e["title"],
+                  "|", e["forecast"], e["previous"])
+        sys.exit(0)
+
+    if "--breaking" in sys.argv:
+        hot = [n for n in (d.get("news2") or []) if n["impact"] in ("HIGH", "CRITICAL")]
+        print("BREAKING:", len(hot))
+        for n in hot[:8]:
+            print(" ", n["impact"], n["title"][:80], n["sources"])
+        if send and hot:
+            for n in hot[:3]:
+                print("SENT:", post(compose_breaking(n)))
+        sys.exit(0)
+
+    if "--brief" in sys.argv:
+        for lg in ("it", "en"):
+            txt = compose_brief(lg, d)
+            print("=" * 20, "BRIEF", lg.upper(), "=" * 20)
+            print(txt)
+            if send:
+                print("SENT:", post(txt))
+        sys.exit(0)
 
     if "--auto" in sys.argv:
-        # Chiamato dai miei heartbeat: posta il digest solo se sono passate
-        # DIGEST_EVERY_H ore, e gli alert solo se un movimento e' nuovo.
-        # Cosi' il canale si aggiorna da solo senza che nessuno lo lanci a mano.
+        # Chiamato dai miei heartbeat: digest + icone + news + alert + breaking +
+        # calendario + comandi. Ogni pezzo rispetta la sua frequenza, cosi' il
+        # canale si aggiorna da solo senza che nessuno lo lanci a mano.
         st = load_json(DIGEST_STATE)
         last = st.get("last")
         due, age = True, 0.0
@@ -702,10 +1010,29 @@ if __name__ == "__main__":
         else:
             print(f"DIGEST: salto, ultimo {age:.1f}h fa (< {DIGEST_EVERY_H}h)")
 
-        # Notizie: post dedicato, ogni NEWS_EVERY_H, solo se c'e' qualcosa di nuovo.
+        # Daily brief: una volta al giorno (default 24h).
+        bst = load_json(BRIEF_STATE)
+        if _hours_since(bst.get("last")) >= float(os.environ.get("VISTA_BRIEF_EVERY_H", "24")):
+            for lg in ("it", "en"):
+                post(compose_brief(lg, d))
+            with open(BRIEF_STATE, "w") as f:
+                json.dump({"last": datetime.now(timezone.utc).isoformat()}, f)
+            print("BRIEF: postato")
+        else:
+            print(f"BRIEF: salto, ultimo {_hours_since(bst.get('last')):.1f}h fa")
+
+        # Breaking: solo notizie HIGH/CRITICAL nuove.
         nst = load_json(NEWS_STATE)
+        seen = set(nst.get("seen", []))
+        hot = [n for n in (d.get("news2") or [])
+               if n["impact"] in ("HIGH", "CRITICAL") and n["id"] not in seen]
+        for n in hot[:3]:
+            post(compose_breaking(n))
+            seen.add(n["id"])
+        print("BREAKING: postati", len(hot[:3]))
+
+        # Notizie: post dedicato, ogni NEWS_EVERY_H, solo se c'e' qualcosa di nuovo.
         if _hours_since(nst.get("last")) >= NEWS_EVERY_H:
-            seen = set(nst.get("seen", []))
             fresh_n = [(lg, t, l) for lg in ("it", "en")
                        for (t, l, _) in ((d.get("news") or {}).get(lg) or [])
                        if l not in seen]
@@ -715,13 +1042,28 @@ if __name__ == "__main__":
                 print("NEWS: postato", len(fresh_n))
             else:
                 print("NEWS: nessuna novita")
-            nst["seen"] = list(seen)[-300:]
             nst["last"] = datetime.now(timezone.utc).isoformat()
-            with open(NEWS_STATE, "w") as f:
-                json.dump(nst, f)
         else:
             print(f"NEWS: salto, ultimo {_hours_since(nst.get('last')):.1f}h fa")
+        nst["seen"] = list(seen)[-500:]
+        with open(NEWS_STATE, "w") as f:
+            json.dump(nst, f)
 
+        # Alert pre-evento: 30 minuti a eventi MEDIUM/HIGH, una volta ciascuno.
+        est = load_json(EVENT_STATE)
+        fired = set(est.get("fired", []))
+        for e in tn_cal.soon(30, d.get("events")):
+            if e["id"] in fired:
+                continue
+            for lg in ("it", "en"):
+                post(compose_event_alert(e, lg))
+            fired.add(e["id"])
+            print("EVENT ALERT:", e["country"], e["title"])
+        est["fired"] = list(fired)[-200:]
+        with open(EVENT_STATE, "w") as f:
+            json.dump(est, f)
+
+        # Alert di prezzo (soglia %).
         fresh, astate = fresh_movers(d, ALERT_PCT)
         if fresh:
             for lg in ("it", "en"):
@@ -731,6 +1073,20 @@ if __name__ == "__main__":
             print("ALERT: postato", [m[0] for m in fresh])
         else:
             print("ALERT: nessuno nuovo")
+
+        # Comandi Telegram pendenti.
+        try:
+            n = tn_cmd.poll_once(TOKEN, _ctx(d), os.path.join(os.path.dirname(
+                os.path.abspath(__file__)), "commands_state.json"))
+            print("COMMANDS: risposto a", n)
+        except Exception as e:
+            print("COMMANDS: errore", type(e).__name__)
+
+        # Storico su JSON (committabile): cosi' le news sopravvivono alla sandbox.
+        try:
+            print("STORE: snapshot", tn_store.export_snapshot())
+        except Exception:
+            pass
         sys.exit(0)
 
     if "--alerts" in sys.argv:

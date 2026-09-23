@@ -1,0 +1,1 @@
+"""TRADING NEWS AI - package."""
