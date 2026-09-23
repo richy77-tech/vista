@@ -19,9 +19,16 @@ def prices(n=8):
     return d[:n]
 
 
+FEEDS = (
+    "https://cryptonomist.ch/feed/",
+    "https://www.criptovaluta.it/feed",
+    "https://it.beincrypto.com/feed/",
+)
+
+
 def news(k=3):
     out = []
-    for feed in ("https://cointelegraph.com/rss", "https://decrypt.co/feed"):
+    for feed in FEEDS:
         u = "https://api.rss2json.com/v1/api.json?rss_url=" + urllib.parse.quote(feed, safe="")
         try:
             for it in get(u).get("items", [])[:k]:
@@ -40,13 +47,13 @@ def compose():
     ps = prices()
     ns = news()
     ts = datetime.now(timezone.utc).strftime("%d/%m %H:%M UTC")
-    lines = [f"📊 *Crypto* · {ts}", ""]
+    lines = [f"📊 *Cripto* · {ts}", ""]
     for c in ps:
         s, p = c["symbol"].upper(), c["price_change_percentage_24h"] or 0
         price = f"${c['current_price']:,.2f}" if c["current_price"] >= 1 else f"${c['current_price']:.4f}"
         lines.append(f"{arrow(p)} {s} {price} ({p:+.1f}%)")
     if ns:
-        lines += ["", "📰 *News*"]
+        lines += ["", "📰 *Notizie*"]
         for t, l, _ in ns:
             lines.append(f"• [{t}]({l})")
     lines += ["", f"🔎 Tutto su Vista: {VISTA}", "_Non è consulenza finanziaria._"]
