@@ -4,7 +4,9 @@ name: TRADING NEWS AI
 # GitHub Actions su repo pubblico = minuti illimitati, nessun server, nessun costo.
 on:
   schedule:
-    - cron: "0 * * * *"      # ogni ora: digest (ogni 6h), news (2h), alert, breaking
+    # GitHub droppa i cron al minuto 0 (ora di punta). Uso minuti sfasati:
+    # cosi' i giri partono davvero invece di essere rimandati/saltati.
+    - cron: "7,27,47 * * * *"
   workflow_dispatch:          # pulsante "Run workflow" per forzare un giro
 
 permissions:
@@ -33,6 +35,8 @@ jobs:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
+          VISTA_DIGEST_EVERY_H: "3"
+          VISTA_NEWS_EVERY_H: "2"
         run: python newsbot.py --auto
 
       - name: Salva lo stato (cosi' le frequenze sopravvivono al giro)
