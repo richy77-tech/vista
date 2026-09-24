@@ -2,12 +2,15 @@ name: TRADING NEWS AI
 
 # Il canale si aggiorna da solo, gratis, anche quando Nico non c'e'.
 # GitHub Actions su repo pubblico = minuti illimitati, nessun server, nessun costo.
+#
+# Perche' un loop e non solo un cron: lo scheduler gratuito di GitHub droppa i cron
+# (specie al minuto 0) e per questo repo si e' fermato per ore. Quindi ogni job gira
+# ~5h30 facendo un giro del bot ogni 20 minuti, e alla fine rilancia da solo il job
+# successivo. Il cron resta come rete di sicurezza se la catena si rompe.
 on:
   schedule:
-    # GitHub droppa i cron al minuto 0 (ora di punta). Uso minuti sfasati:
-    # cosi' i giri partono davvero invece di essere rimandati/saltati.
     - cron: "7,27,47 * * * *"
-  workflow_dispatch:          # pulsante "Run workflow" per forzare un giro
+  workflow_dispatch:
 
 permissions:
   contents: write             # serve per salvare lo stato tra un giro e l'altro
@@ -19,7 +22,7 @@ concurrency:
 jobs:
   run:
     runs-on: ubuntu-latest
-    timeout-minutes: 25
+    timeout-minutes: 350
     steps:
       - uses: actions/checkout@v4
 
@@ -30,26 +33,39 @@ jobs:
       - name: Dipendenze
         run: pip install --quiet pillow
 
-      - name: Giro del bot
+      - name: Loop del bot (giro ogni 20 min, ~5h30)
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
           VISTA_DIGEST_EVERY_H: "3"
           VISTA_NEWS_EVERY_H: "2"
-        run: python newsbot.py --auto
-
-      - name: Salva lo stato (cosi' le frequenze sopravvivono al giro)
         run: |
           git config user.name "tn-bot"
           git config user.email "tn-bot@users.noreply.github.com"
-          for f in alert_state.json digest_state.json news_state.json \
-                   brief_state.json event_state.json commands_state.json; do
-            [ -f "$f" ] && git add -f "$f"
+          end=$(( $(date +%s) + 19800 ))   # 5h30
+          while [ "$(date +%s)" -lt "$end" ]; do
+            echo "== giro $(date -u +%FT%TZ) =="
+            python newsbot.py --auto || echo "giro fallito, continuo"
+            for f in alert_state.json digest_state.json news_state.json \
+                     brief_state.json event_state.json commands_state.json; do
+              [ -f "$f" ] && git add -f "$f"
+            done
+            if ! git diff --staged --quiet; then
+              git commit -m "state: $(date -u +%FT%TZ)" && git push || echo "push saltato"
+            fi
+            sleep 1200
           done
-          if ! git diff --staged --quiet; then
-            git commit -m "state: $(date -u +%FT%TZ)"
-            git push
-          else
-            echo "stato invariato"
-          fi
+
+      - name: Rilancia il prossimo job (catena)
+        if: always()
+        env:
+          GH_PAT: ${{ secrets.TN_DISPATCH_TOKEN }}
+        run: |
+          code=$(curl -s -o /dev/null -w "%{http_code}" -X POST \
+            -H "Authorization: token $GH_PAT" \
+            -H "Accept: application/vnd.github+json" \
+            -H "User-Agent: tn-bot" \
+            "https://api.github.com/repos/richy77-tech/vista/actions/workflows/365501849/dispatches" \
+            -d '{"ref":"main"}')
+          echo "dispatch -> $code"
