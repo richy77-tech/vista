@@ -1,0 +1,59 @@
+name: channel-setup
+
+# One-shot: sistema descrizione + messaggio fissato del canale.
+# Lanciato a mano via workflow_dispatch. Riusa il secret TELEGRAM_BOT_TOKEN.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Update channel description and pinned message
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+        run: |
+          python3 - <<'PY'
+          import os, json, urllib.parse, urllib.request
+          TOKEN = os.environ["TG_TOKEN"]
+          CHAT = os.environ["TG_CHAT"]
+
+          def api(method, **params):
+              data = urllib.parse.urlencode(params).encode()
+              req = urllib.request.Request(
+                  "https://api.telegram.org/bot%s/%s" % (TOKEN, method), data=data)
+              try:
+                  return json.load(urllib.request.urlopen(req, timeout=20))
+              except urllib.error.HTTPError as e:
+                  return json.load(e)
+
+          DESC = ("TRADING NEWS AI - real-time market intelligence. "
+                  "News, prezzi e calendario economico, in italiano e inglese. "
+                  "Nessun segnale, nessun copy trading, nessuna consulenza: solo informazione.")
+          print("desc:", api("setChatDescription", chat_id=CHAT, description=DESC).get("ok"))
+
+          WELCOME = ("<b>TRADING NEWS AI</b>\n"
+                     "Real-time market intelligence - news, non segnali.\n\n"
+                     "Ogni giorno:\n"
+                     "- Breaking news\n"
+                     "- Crypto e Gold\n"
+                     "- Forex, Stocks, Indici\n"
+                     "- Calendario economico\n"
+                     "- Daily market brief (IT + EN)\n\n"
+                     "<b>Cosa non trovi</b>\n"
+                     "Nessun segnale, nessun copy trading, nessuna consulenza finanziaria. "
+                     "Solo informazione. I rischi restano di chi legge.\n\n"
+                     "Dashboard: https://richy77-tech.github.io/vista/")
+          r = api("sendMessage", chat_id=CHAT, text=WELCOME,
+                  parse_mode="HTML", disable_web_page_preview="true")
+          print("send:", r.get("ok"))
+          if r.get("ok"):
+              mid = r["result"]["message_id"]
+              print("pin:", api("pinChatMessage", chat_id=CHAT, message_id=mid,
+                                disable_notification="true").get("ok"))
+          PY
