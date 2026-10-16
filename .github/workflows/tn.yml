@@ -38,21 +38,35 @@ jobs:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
-          VISTA_DIGEST_EVERY_H: "3"
-          VISTA_NEWS_EVERY_H: "2"
+          VISTA_DIGEST_EVERY_H: "2"
+          VISTA_NEWS_EVERY_H: "1"
         run: |
           git config user.name "tn-bot"
           git config user.email "tn-bot@users.noreply.github.com"
+          # Guardia anti-leak: prima di ogni commit, rifiuta di pushare se nello
+          # staged compare qualcosa che sembra un token. Il 28/09 un .env col token
+          # del bot e' finito nel repo pubblico: questo passo impedisce il bis.
+          guard() {
+            if git diff --staged | grep -Eq '[0-9]{8,10}:AA[A-Za-z0-9_-]{30,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|sk-[A-Za-z0-9]{20,}'; then
+              echo "SECRET GUARD: possibile token nei file staged, commit annullato"; return 1
+            fi
+            return 0
+          }
           end=$(( $(date +%s) + 19800 ))   # 5h30
           while [ "$(date +%s)" -lt "$end" ]; do
             echo "== giro $(date -u +%FT%TZ) =="
             python newsbot.py --auto || echo "giro fallito, continuo"
             for f in alert_state.json digest_state.json news_state.json \
-                     brief_state.json event_state.json commands_state.json; do
+                     brief_state.json event_state.json commands_state.json \
+                     weekly_state.json; do
               [ -f "$f" ] && git add -f "$f"
             done
             if ! git diff --staged --quiet; then
-              git commit -m "state: $(date -u +%FT%TZ)" && git push || echo "push saltato"
+              if guard; then
+                git commit -m "state: $(date -u +%FT%TZ)" && git push || echo "push saltato"
+              else
+                git reset -q
+              fi
             fi
             sleep 1200
           done

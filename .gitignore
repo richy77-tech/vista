@@ -8,4 +8,5 @@ news_state.json
 brief_state.json
 event_state.json
 commands_state.json
+weekly_state.json
 data/history.db

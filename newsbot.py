@@ -43,6 +43,7 @@ from tn import commands as tn_cmd          # noqa: E402
 from tn import marketdata as tn_md         # noqa: E402
 from tn import newsengine as tn_news       # noqa: E402
 from tn import store as tn_store           # noqa: E402
+from tn import weekly as tn_weekly         # noqa: E402
 
 BRAND = "⚡ <b>TRADING NEWS AI</b>\n<i>REAL-TIME MARKET INTELLIGENCE</i>"
 
@@ -794,6 +795,7 @@ def post(text):
 
 BRIEF_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brief_state.json")
 EVENT_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "event_state.json")
+WEEKLY_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "weekly_state.json")
 
 
 def _tech_score(closes):
@@ -875,6 +877,14 @@ def compose_brief(lang, d):
         L.append(f"• {a}: {_label(s['overall'], lang)}")
     L.append("")
 
+    bar = tn_weekly.barometer(d)
+    if bar:
+        L.append("🧭 <b>TRADING NEWS AI BAROMETER</b> · "
+                 f"<b>{bar['score']:.0f}/100</b> · {tn_weekly._band(bar['score'], lang)}")
+        L.append("<i>Composito euristico, non un fatto.</i>" if lang == "it"
+                 else "<i>Heuristic composite, not a fact.</i>")
+        L.append("")
+
     risks = [n for n in (d.get("news2") or []) if n["impact"] in ("HIGH", "CRITICAL")][:3]
     if risks:
         L.append("⚠️ <b>Rischi / Risk</b>" if lang == "it" else "⚠️ <b>Market risks</b>")
@@ -947,7 +957,8 @@ if __name__ == "__main__":
     d = gather()
     send = "--send" in sys.argv
     modes = set(sys.argv[1:])
-    need_extended = ({"--auto", "--brief", "--breaking", "--commands"} & modes) or \
+    need_extended = ({"--auto", "--brief", "--breaking", "--commands",
+                      "--weekly"} & modes) or \
         (send and not ({"--alerts", "--icons", "--news"} & modes))
     if need_extended:
         gather_extended(d)
@@ -988,6 +999,15 @@ if __name__ == "__main__":
                 print("SENT:", post(txt))
         sys.exit(0)
 
+    if "--weekly" in sys.argv:
+        for lg in ("it", "en"):
+            txt = tn_weekly.compose_weekly(lg, d)
+            print("=" * 20, "WEEKLY", lg.upper(), "=" * 20)
+            print(txt)
+            if send:
+                print("SENT:", post(txt))
+        sys.exit(0)
+
     if "--auto" in sys.argv:
         # Chiamato dai miei heartbeat: digest + icone + news + alert + breaking +
         # calendario + comandi. Ogni pezzo rispetta la sua frequenza, cosi' il
@@ -1023,6 +1043,24 @@ if __name__ == "__main__":
             print("BRIEF: postato")
         else:
             print(f"BRIEF: salto, ultimo {_hours_since(bst.get('last')):.1f}h fa")
+
+        # Riepilogo settimanale + settimana entrante: una volta a settimana.
+        # Finestra: lunedi' mattina (Roma) quando il calendario ha gia' girato,
+        # oppure 7 giorni dopo se la fonte espone gia' >=3 catalizzatori.
+        wst = load_json(WEEKLY_STATE)
+        wh = _hours_since(wst.get("last"))
+        now_ro = datetime.now(ZoneInfo("Europe/Rome"))
+        ahead = tn_weekly.week_ahead(d.get("events"))
+        due_weekly = ((now_ro.weekday() == 0 and 6 <= now_ro.hour <= 11 and wh >= 18)
+                      or (wh >= 24 * 7 and len(ahead) >= 3))
+        if due_weekly:
+            for lg in ("it", "en"):
+                post(tn_weekly.compose_weekly(lg, d))
+            with open(WEEKLY_STATE, "w") as f:
+                json.dump({"last": datetime.now(timezone.utc).isoformat()}, f)
+            print("WEEKLY: postato (IT+EN)")
+        else:
+            print(f"WEEKLY: salto ({wh:.1f}h fa, {len(ahead)} catalizzatori)")
 
         # Breaking: solo notizie HIGH/CRITICAL nuove.
         nst = load_json(NEWS_STATE)
