@@ -63,7 +63,8 @@ jobs:
             done
             if ! git diff --staged --quiet; then
               if guard; then
-                git commit -m "state: $(date -u +%FT%TZ)" && git push || echo "push saltato"
+                git commit -m "state: $(date -u +%FT%TZ)" \
+                  && { git pull --rebase --autostash -q || true; git push || echo "push saltato"; }
               else
                 git reset -q
               fi

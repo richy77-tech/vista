@@ -840,8 +840,19 @@ def _label(score, lang):
 
 def compose_brief(lang, d):
     """Report giornaliero: dati + eventi + sentiment (interpretazione) + rischi."""
-    ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m/%Y %H:%M")
+    now_ro = datetime.now(ZoneInfo("Europe/Rome"))
+    ts = now_ro.strftime("%d/%m/%Y %H:%M")
     L = [BRAND, "", f"🌅 <b>DAILY MARKET BRIEF</b> · {ts}", ""]
+
+    # Weekend: azioni, indici, commodity e forex sono chiusi. Meglio dirlo che
+    # far sembrare una chiusura di venerdi' come il movimento di oggi. Cripto 24/7.
+    weekend = now_ro.weekday() >= 5
+    if weekend:
+        L.append("🔒 <b>Weekend</b>: azioni, indici, commodity e forex chiusi. "
+                 "I prezzi sotto sono l'ultima chiusura (venerdì). Cripto 24/7." if lang == "it"
+                 else "🔒 <b>Weekend</b>: stocks, indices, commodities and forex are "
+                      "closed. Prices below are the last close (Friday). Crypto trades 24/7.")
+        L.append("")
 
     mk = d.get("market") or {}
     def find(group, label):
