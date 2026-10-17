@@ -44,6 +44,7 @@ from tn import marketdata as tn_md         # noqa: E402
 from tn import newsengine as tn_news       # noqa: E402
 from tn import store as tn_store           # noqa: E402
 from tn import weekly as tn_weekly         # noqa: E402
+from tn import extras as tn_extras         # noqa: E402
 
 BRAND = "⚡ <b>TRADING NEWS AI</b>\n<i>REAL-TIME MARKET INTELLIGENCE</i>"
 
@@ -912,6 +913,8 @@ def post(text):
 BRIEF_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "brief_state.json")
 EVENT_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "event_state.json")
 WEEKLY_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "weekly_state.json")
+CLOSE_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "close_state.json")
+SUNDAY_STATE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sunday_state.json")
 
 
 def _tech_score(closes):
@@ -1194,6 +1197,32 @@ if __name__ == "__main__":
             print("WEEKLY: postato (IT+EN)")
         else:
             print(f"WEEKLY: salto ({wh:.1f}h fa, {len(ahead)} catalizzatori)")
+
+        # Preview domenica sera: cosa guardare lunedi'. Una volta, 18-21 Roma.
+        sut = load_json(SUNDAY_STATE)
+        if tn_extras.due_sunday(now_ro, _hours_since(sut.get("last"))):
+            for lg in ("it", "en"):
+                txt = tn_extras.compose_sunday_preview(lg, d)
+                if txt:
+                    post(txt)
+            with open(SUNDAY_STATE, "w") as f:
+                json.dump({"last": datetime.now(timezone.utc).isoformat()}, f)
+            print("SUNDAY: postato (IT+EN)")
+        else:
+            print("SUNDAY: salto")
+
+        # Mini-recap a chiusura USA: feriali, ~22 Roma, una volta al giorno.
+        cst = load_json(CLOSE_STATE)
+        if tn_extras.due_close(now_ro, _hours_since(cst.get("last"))):
+            for lg in ("it", "en"):
+                txt = tn_extras.compose_close_recap(lg, d)
+                if txt:
+                    post(txt)
+            with open(CLOSE_STATE, "w") as f:
+                json.dump({"last": datetime.now(timezone.utc).isoformat()}, f)
+            print("CLOSE: postato (IT+EN)")
+        else:
+            print("CLOSE: salto")
 
         # Breaking: solo notizie HIGH/CRITICAL nuove.
         nst = load_json(NEWS_STATE)

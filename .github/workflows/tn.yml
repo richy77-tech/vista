@@ -58,7 +58,7 @@ jobs:
             python newsbot.py --auto || echo "giro fallito, continuo"
             for f in alert_state.json digest_state.json news_state.json \
                      brief_state.json event_state.json commands_state.json \
-                     weekly_state.json; do
+                     weekly_state.json close_state.json sunday_state.json; do
               [ -f "$f" ] && git add -f "$f"
             done
             if ! git diff --staged --quiet; then

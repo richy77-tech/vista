@@ -10,3 +10,5 @@ event_state.json
 commands_state.json
 weekly_state.json
 data/history.db
+close_state.json
+sunday_state.json
