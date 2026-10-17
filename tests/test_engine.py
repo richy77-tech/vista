@@ -53,6 +53,29 @@ def test_calendar_normalize():
     assert all({"id", "ts", "country", "title", "impact"} <= set(e) for e in ev)
 
 
+def test_weekend_fresh_prefers_crypto_general():
+    from tn import newsengine as ne
+    news = [
+        {"id": "a", "title": "Nasdaq slides on earnings", "url": "u/a",
+         "lang": "en", "categories": ["STOCKS", "INDICES"]},
+        {"id": "b", "title": "Bitcoin ETF inflows hit record", "url": "u/b",
+         "lang": "en", "categories": ["BTC", "ETF"]},
+        {"id": "c", "title": "OPEC warns on supply", "url": "u/c",
+         "lang": "en", "categories": ["ENERGY"]},
+    ]
+    got = ne.weekend_fresh(news, seen=set())
+    urls = [u for _, _, u in got]
+    assert "u/a" not in urls, "azioni/indici fuori dal weekend"
+    assert urls == ["u/b", "u/c"], urls  # cripto prima, poi generali
+
+
+def test_weekend_fresh_skips_seen():
+    from tn import newsengine as ne
+    news = [{"id": "b", "title": "BTC up", "url": "u/b", "lang": "en",
+             "categories": ["CRYPTO"]}]
+    assert ne.weekend_fresh(news, seen={"b"}) == []
+
+
 if __name__ == "__main__":
     fns = [v for k, v in sorted(globals().items()) if k.startswith("test_")]
     ok = 0

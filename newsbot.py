@@ -432,6 +432,14 @@ def compose(lang, d):
                  else "<i>some data is the last available update</i>")
         L.append("")
 
+    # Weekend: le piazze sono chiuse. Cripto 24/7 e notizie generali guidano.
+    if is_weekend():
+        L.append("🔒 <b>Weekend</b>: borse, indici e commodity chiusi (l'ultima chiusura "
+                 "è quella di venerdì). Cripto 24/7 e notizie generali." if lang == "it"
+                 else "🔒 <b>Weekend</b>: stocks, indices and commodities are closed "
+                      "(the last close is Friday's). Crypto 24/7, plus general news.")
+        L.append("")
+
     # sentiment community
     if d["sentiment"]:
         v, cls, btcdom, mcap = d["sentiment"]
@@ -597,6 +605,11 @@ def _hours_since(iso):
         return (datetime.now(timezone.utc) - datetime.fromisoformat(iso)).total_seconds() / 3600
     except Exception:
         return 1e9
+
+
+def is_weekend():
+    """Sabato/domenica a Roma: borse chiuse, cripto 24/7."""
+    return datetime.now(ZoneInfo("Europe/Rome")).weekday() >= 5
 
 
 def load_json(p):
@@ -1084,14 +1097,22 @@ if __name__ == "__main__":
         print("BREAKING: postati", len(hot[:3]))
 
         # Notizie: post dedicato, ogni NEWS_EVERY_H, solo se c'e' qualcosa di nuovo.
-        if _hours_since(nst.get("last")) >= NEWS_EVERY_H:
-            fresh_n = [(lg, t, l) for lg in ("it", "en")
-                       for (t, l, _) in ((d.get("news") or {}).get(lg) or [])
-                       if l not in seen]
+        # Weekend: il mercato e' chiuso, quindi si spinge su cripto (24/7) e notizie
+        # generali, e si frequenta di piu' (meta' intervallo). Il resto della
+        # settimana resta com'e'.
+        weekend = is_weekend()
+        news_every = NEWS_EVERY_H / 2 if weekend else NEWS_EVERY_H
+        if _hours_since(nst.get("last")) >= news_every:
+            if weekend:
+                fresh_n = tn_news.weekend_fresh(d.get("news2"), seen)
+            else:
+                fresh_n = [(lg, t, l) for lg in ("it", "en")
+                           for (t, l, _) in ((d.get("news") or {}).get(lg) or [])
+                           if l not in seen]
             if fresh_n:
                 post(compose_news(fresh_n))
                 seen |= {l for _, _, l in fresh_n}
-                print("NEWS: postato", len(fresh_n))
+                print("NEWS: postato", len(fresh_n), "(weekend)" if weekend else "")
             else:
                 print("NEWS: nessuna novita")
             nst["last"] = datetime.now(timezone.utc).isoformat()

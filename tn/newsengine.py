@@ -99,3 +99,29 @@ def pipeline(per_source=12, dedup_thr=0.6):
     news.sort(key=lambda x: ({"CRITICAL": 3, "HIGH": 2, "MEDIUM": 1, "LOW": 0}[x["impact"]],
                              x["ts"]), reverse=True)
     return news, errors
+
+
+# Weekend: borse, indici, commodity e forex chiusi. Il bot resta vivo su cripto
+# (24/7) e notizie generali (macro, geopolitica, energia, regole). I listini
+# delle piazze chiuse non sono una notizia: su weekend non guidano il post.
+WEEKEND_ORDER = {"BTC": 0, "CRYPTO": 1, "ETF": 2, "REGULATION": 3,
+                 "GEOPOLITICS": 4, "ENERGY": 5, "CENTRAL BANKS": 6,
+                 "MACRO": 7, "FOREX": 8}
+WEEKEND_CATS = set(WEEKEND_ORDER)
+
+
+def weekend_fresh(news, seen):
+    """Notizie nuove adatte al weekend: cripto + generali, ordinate per tema.
+    Ritorna (lang, titolo, link). Niente azioni/indici: quei mercati sono chiusi."""
+    rows = []
+    for n in news or []:
+        if n.get("id") in seen:
+            continue
+        cats = n.get("categories") or [n.get("category")]
+        hit = [c for c in cats if c in WEEKEND_CATS]
+        if not hit:
+            continue
+        lg = n.get("lang") if n.get("lang") in ("it", "en") else "en"
+        rows.append((min(WEEKEND_ORDER[c] for c in hit), lg, n["title"], n["url"]))
+    rows.sort(key=lambda x: x[0])
+    return [(lg, t, u) for _, lg, t, u in rows]
