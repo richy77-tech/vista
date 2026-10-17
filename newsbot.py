@@ -794,6 +794,109 @@ def icons_album(d, lang):
     return items, head
 
 
+def _badge(dr, x, y, size, text, f):
+    """Quadrato arrotondato scuro con dentro il ticker: da' un appiglio visivo
+    anche dove non esiste un logo libero (oro, indici, VIX)."""
+    dr.rounded_rectangle([x, y, x + size, y + size], radius=14, fill=(28, 34, 44))
+    tw = dr.textlength(text, font=f)
+    dr.text((x + (size - tw) / 2, y + (size - 34) / 2), text, font=f, fill=(210, 218, 230))
+
+
+def hero_rows(d):
+    """I numeri che aprono il digest, in ordine di lettura: BTC, ETH, oro,
+    S&P, Nasdaq, VIX. Niente dati inventati: se manca, la riga salta."""
+    rows = []
+    cr = {}
+    for c in (d.get("crypto") or []):
+        for key in (c.get("id"), c.get("symbol")):
+            if key:
+                cr[str(key).lower()] = c
+    for cid, sym in (("bitcoin", "BTC"), ("btc", "BTC"), ("ethereum", "ETH"), ("eth", "ETH")):
+        c = cr.get(cid)
+        if not c or c.get("current_price") is None:
+            continue
+        short = (c.get("symbol") or sym).upper()[:5]
+        if any(r[0] == short for r in rows):
+            continue
+        rows.append((short, short, c["current_price"], c.get("price_change_percentage_24h")))
+    mk = d.get("market") or {}
+
+    def pick(group, label):
+        for q in mk.get(group) or []:
+            if q.get("label") == label:
+                return q
+        return None
+
+    for group, label, short in (("metals", "GOLD", "GOLD"),
+                                ("indices", "S&P 500", "S&P"),
+                                ("indices", "NASDAQ", "NDQ"),
+                                ("indices", "VIX", "VIX")):
+        q = pick(group, label)
+        if q and q.get("price") is not None:
+            rows.append((short, label, q["price"], tn_md.change_pct(q)))
+    return rows
+
+
+def hero_card(d, lang):
+    """Una sola immagine con i numeri guida del digest: si legge in un colpo,
+    prima del testo. Logo dove esiste, badge col ticker dove non esiste."""
+    if Image is None:
+        return None
+    rows = hero_rows(d)
+    if not rows:
+        return None
+    W = 1000
+    top, rh = 118, 96
+    H = top + rh * len(rows) + 24
+    img = Image.new("RGB", (W, H), (13, 17, 23))
+    dr = ImageDraw.Draw(img)
+    f_head = _font(FONT_B, 34)
+    f_name = _font(FONT_B, 34)
+    f_price = _font(FONT_B, 40)
+    f_ch = _font(FONT_B, 34)
+    f_badge = _font(FONT_B, 24)
+    title = "Il mercato adesso" if lang == "it" else "The market right now"
+    ts = datetime.now(ZoneInfo("Europe/Rome")).strftime("%d/%m %H:%M")
+    dr.text((44, 40), title, font=f_head, fill=(255, 255, 255))
+    dr.text((44 + dr.textlength(title, font=f_head) + 22, 48), ts, font=f_badge, fill=(140, 148, 160))
+    for i, (short, label, price, ch) in enumerate(rows):
+        y = top + i * rh
+        _badge(dr, 44, y + 12, 68, short, f_badge)
+        dr.text((140, y + 26), label, font=f_name, fill=(200, 208, 220))
+        pstr = f"{price:,.2f}"
+        dr.text((560, y + 22), pstr, font=f_price, fill=(255, 255, 255))
+        if ch is not None:
+            col = (46, 204, 113) if ch >= 0 else (231, 76, 60)
+            dr.text((860, y + 28), f"{ch:+.2f}%", font=f_ch, fill=col)
+    out = io.BytesIO()
+    img.save(out, "PNG")
+    return out.getvalue()
+
+
+def post_photo(png, caption=None):
+    """sendPhoto con upload multipart: l'immagine nasce qui, non da un URL."""
+    if not png:
+        return False
+    b = "----vista" + str(int(time.time() * 1000))
+    out = []
+
+    def field(name, value):
+        out.append(f'--{b}\r\nContent-Disposition: form-data; name="{name}"\r\n\r\n{value}\r\n'.encode())
+
+    field("chat_id", CHAT)
+    if caption:
+        field("caption", caption[:1024])
+        field("parse_mode", "HTML")
+    out.append(f'--{b}\r\nContent-Disposition: form-data; name="photo"; filename="hero.png"\r\n'
+               f'Content-Type: image/png\r\n\r\n'.encode() + png + b"\r\n")
+    out.append(f"--{b}--\r\n".encode())
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{TOKEN}/sendPhoto", data=b"".join(out),
+        headers={"Content-Type": f"multipart/form-data; boundary={b}"})
+    r = json.load(urllib.request.urlopen(req, timeout=60))
+    return r["ok"]
+
+
 def post(text):
     body = urllib.parse.urlencode({
         "chat_id": CHAT, "text": text,
@@ -1046,6 +1149,12 @@ if __name__ == "__main__":
             except Exception:
                 due = True
         if due:
+            hero = hero_card(d, "it")
+            if hero:
+                try:
+                    post_photo(hero)
+                except Exception as e:
+                    print("HERO: errore", type(e).__name__, file=sys.stderr)
             for lg in ("it", "en"):
                 post(compose(lg, d))
             items, head = icons_album(d, "it")
