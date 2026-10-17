@@ -170,11 +170,17 @@ def compose_weekly(lang, d):
     L = ["⚡ <b>TRADING NEWS AI</b>", "<i>REAL-TIME MARKET INTELLIGENCE</i>", "",
          (f"🗓️ <b>RIEPILOGO SETTIMANALE</b> · settimana {week_lbl}" if it
           else f"🗓️ <b>WEEKLY RECAP</b> · week {week_lbl}"), ""]
+    L.append(("È il momento di fare il punto: come è andata questa settimana e cosa "
+              "aspettarci dalla prossima. In parole semplici, solo quello che conta."
+              if it else
+              "Time to take stock: how this week went and what to watch next week. "
+              "Plain words, only what matters."))
+    L.append("")
 
     rows = week_recap(d)
     if rows:
-        L.append("📉 <b>La settimana che si chiude</b>" if it
-                 else "📉 <b>The week that closed</b>")
+        L.append("📉 <b>Come è andata questa settimana</b>" if it
+                 else "📉 <b>How the week went</b>")
         for r in rows:
             p = r["price"]
             pstr = (f"{p:,.2f}" if p is not None and p >= 1 else
@@ -241,6 +247,9 @@ def compose_weekly(lang, d):
     L.append("<i>Scenari meccanici dai dati, non previsioni di prezzo. I rischi restano tuoi.</i>"
              if it else
              "<i>Mechanical scenarios from data, not price forecasts. The risk is yours.</i>")
+    L.append("")
+    L.append("Buon weekend. Lunedì il calendario riparte e ricominciamo da qui." if it
+             else "Have a good weekend. Monday the calendar resets and we start again.")
     L.append("")
     L.append("<i>Informazioni a scopo informativo ed educativo. Non costituiscono "
              "consulenza finanziaria ne' raccomandazione di investimento.</i>")
