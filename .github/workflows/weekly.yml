@@ -1,0 +1,31 @@
+name: weekly-post
+
+# One-shot manuale: manda ORA il riepilogo settimanale (IT+EN) sul canale.
+# Serve quando la finestra automatica di domenica 06-11 e' gia' passata
+# (es. la weekly era uscita prima di un aggiornamento e va rimandata).
+# Non tocca weekly_state.json: la prossima domenica parte comunque.
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  weekly:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Dipendenze
+        run: pip install --quiet pillow
+
+      - name: Posta il riepilogo settimanale (IT+EN)
+        env:
+          TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TG_CHAT: ${{ secrets.TG_CHAT }}
+        run: python newsbot.py --weekly --send
