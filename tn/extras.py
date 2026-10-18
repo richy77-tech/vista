@@ -122,6 +122,45 @@ def compose_sunday_preview(lang, d):
         L.append("<i>Composito euristico, non un fatto né una previsione.</i>" if it
                  else "<i>Heuristic composite, not a fact nor a forecast.</i>")
         L.append("")
+
+    # dove guardare, mercato per mercato: copre tutti i mercati, non solo il macro
+    mkw = wk.market_week(d)
+    if mkw:
+        L.append("🧭 <b>Dove guardare, mercato per mercato</b>" if it
+                 else "🧭 <b>Where to watch, market by market</b>")
+        for blk in mkw:
+            bits = []
+            for r in blk["rows"]:
+                if r["chg"] is None:
+                    continue
+                t = wk._tech_str(r["tech"], lang)
+                bits.append(f"{r['label']} {r['chg']:+.2f}%" + (f" ({t})" if t else ""))
+            if bits:
+                L.append(f"• <b>{blk['it'] if it else blk['en']}</b>: " + " · ".join(bits))
+        L.append("<i>Stato a fine settimana: variazione e lettura meccanica, non un consiglio.</i>"
+                 if it else
+                 "<i>End-of-week state: change and mechanical read, not advice.</i>")
+        L.append("")
+
+    cbest, cworst = wk.crypto_week(d)
+    if cbest:
+        L.append("🪙 <b>Cripto: chi si muove (7g)</b>" if it
+                 else "🪙 <b>Crypto movers (7d)</b>")
+        L.append("🟢 " + " · ".join(f"{r['sym']} {r['chg']:+.1f}%" for r in cbest))
+        if cworst:
+            L.append("🔻 " + " · ".join(f"{r['sym']} {r['chg']:+.1f}%" for r in cworst))
+        L.append("")
+
+    sw = wk.stock_week(d)
+    if sw:
+        L.append("📈 <b>Azioni: chi si muove (5 sedute)</b>" if it
+                 else "📈 <b>Stock movers (5 sessions)</b>")
+        L.append("🟢 " + " · ".join(f"{r['sym']} {r['chg']:+.1f}%" for r in sw[:4]))
+        if len(sw) > 4:
+            L.append("🔴 " + " · ".join(f"{r['sym']} {r['chg']:+.1f}%"
+                                          for r in sw[-4:][::-1]))
+        L.append("")
+
     L.append(("Buona domenica. Lunedì si riparte." if it
               else "Have a good Sunday. Back at it Monday."))
     L.append("")

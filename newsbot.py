@@ -170,7 +170,8 @@ STABLES = {"USDT", "USDC", "DAI", "FDUSD", "TUSD", "USDE"}
 
 def crypto_prices(n=25):
     d = get("https://api.coingecko.com/api/v3/coins/markets"
-            "?vs_currency=usd&order=market_cap_desc&per_page=25&page=1&sparkline=false")
+            "?vs_currency=usd&order=market_cap_desc&per_page=25&page=1"
+            "&sparkline=false&price_change_percentage=7d")
     return [c for c in d if c["symbol"].upper() not in STABLES
             and "_" not in c["symbol"] and len(c["symbol"]) <= 5][:n]
 

@@ -25,6 +25,102 @@ WEEKLY = [
 ]
 
 
+# mappa settimanale: copre tutti i mercati del bot, non solo i 7 principali
+MARKET_MAP = [
+    ("indices", "Azioni e indici", "Stocks & indices",
+     ["S&P 500", "NASDAQ", "DOW", "RUSSELL 2000", "FTSE 100", "DAX", "NIKKEI"]),
+    ("metals", "Metalli", "Metals",
+     ["GOLD", "SILVER", "PLATINUM", "COPPER"]),
+    ("energy", "Energia", "Energy",
+     ["WTI OIL", "BRENT", "NAT GAS"]),
+    ("forex", "Valute", "Currencies",
+     ["EUR/USD", "GBP/USD", "USD/JPY", "AUD/USD", "USD/CAD", "DXY"]),
+]
+
+
+def _tech(closes):
+    """Solo numeri: posizione vs medie + RSI. Nessun consiglio."""
+    if not closes or len(closes) < 21:
+        return {}
+    price = closes[-1]
+    m20, m50 = md.ma(closes, 20), md.ma(closes, 50)
+    t = None
+    if m20 and m50:
+        t = ("above" if price > m20 > m50 else
+             "below" if price < m20 < m50 else "between")
+    return {"trend": t, "rsi": md.rsi(closes)}
+
+
+def _tech_str(t, lang):
+    if not t:
+        return None
+    it = lang == "it"
+    bits = []
+    tr = t.get("trend")
+    if tr:
+        bits.append({"above": "sopra trend" if it else "above trend",
+                     "below": "sotto trend" if it else "below trend",
+                     "between": "tra le medie" if it else "between averages"}[tr])
+    r = t.get("rsi")
+    if r is not None:
+        tag = (("ipercomprato" if it else "overbought") if r >= 70 else
+               ("ipervenduto" if it else "oversold") if r <= 30 else "")
+        bits.append(f"RSI {r:.0f}" + (f" {tag}" if tag else ""))
+    return ", ".join(bits) or None
+
+
+def market_week(d):
+    """Un blocco per gruppo: variazione a ~5 sedute + lettura meccanica."""
+    out = []
+    for group, it_lbl, en_lbl, labels in MARKET_MAP:
+        rows = []
+        for label in labels:
+            q = _q(d, group, label)
+            if not q:
+                continue
+            rows.append({"label": label, "chg": _pct(q.get("closes"), 5),
+                         "tech": _tech(q.get("closes"))})
+        if any(r["chg"] is not None for r in rows):
+            out.append({"group": group, "it": it_lbl, "en": en_lbl, "rows": rows})
+    return out
+
+
+def crypto_week(d, n=5):
+    """Cripto: migliori e peggiori a 7 giorni sul listino. Solo cio' che esiste."""
+    rows = []
+    for c in (d.get("crypto") or []):
+        ch = c.get("price_change_percentage_7d_in_currency")
+        if ch is None:
+            ch = c.get("price_change_percentage_7d")
+        if ch is None:
+            continue
+        rows.append({"sym": (c.get("symbol") or "?").upper(),
+                     "price": c.get("current_price"), "chg": float(ch)})
+    if not rows:
+        return [], []
+    rows.sort(key=lambda r: r["chg"], reverse=True)
+    best = rows[:n]
+    rest = rows[n:]
+    worst = list(reversed(rest[-n:])) if rest else []
+    return best, worst
+
+
+def stock_week(d, n=8):
+    """Azioni seguite dal bot: variazione a ~5 sedute, ordinate. Il paniere
+    settimanale, non solo i soliti 7."""
+    skip = {"BITCOIN", "ETHEREUM"}
+    rows = []
+    for sym, closes in (d.get("series") or {}).items():
+        if sym in skip or not closes:
+            continue
+        ch = _pct(closes, 5)
+        if ch is None:
+            continue
+        rows.append({"sym": sym, "chg": ch, "tech": _tech(closes)})
+    rows.sort(key=lambda r: r["chg"], reverse=True)
+    return rows[:n]
+
+
 def _pct(closes, back):
     """Variazione % su `back` sedute. None se i dati non bastano."""
     if not closes or len(closes) <= back:
@@ -207,6 +303,39 @@ def compose_weekly(lang, d):
                  "Not a fact, not a forecast.</i>")
         L.append("")
 
+    # dove guardare, mercato per mercato (copertura ampia, cifre non consigli)
+    mkw = market_week(d)
+    if mkw:
+        L.append("🧭 <b>Dove guardare, mercato per mercato</b>" if it
+                 else "🧭 <b>Where to watch, market by market</b>")
+        for blk in mkw:
+            bits = [f"{r['label']} {_chg(r['chg'])}" for r in blk["rows"]
+                    if r["chg"] is not None]
+            if bits:
+                L.append(f"• <b>{blk['it'] if it else blk['en']}</b>: " + " · ".join(bits))
+        L.append("<i>Variazione a ~5 sedute. Lettura meccanica, non un consiglio.</i>" if it
+                 else "<i>~5-session change. Mechanical read, not advice.</i>")
+        L.append("")
+
+    cbest, cworst = crypto_week(d)
+    if cbest:
+        L.append("🪙 <b>Cripto: chi si muove (7g)</b>" if it
+                 else "🪙 <b>Crypto movers (7d)</b>")
+        L.append("🟢 " + " · ".join(f"{r['sym']} {_chg(r['chg'])}" for r in cbest))
+        if cworst:
+            L.append("🔻 " + " · ".join(f"{r['sym']} {_chg(r['chg'])}" for r in cworst))
+        L.append("")
+
+    sw = stock_week(d)
+    if sw:
+        L.append("📈 <b>Azioni: chi si muove (5 sedute)</b>" if it
+                 else "📈 <b>Stock movers (5 sessions)</b>")
+        L.append("🟢 " + " · ".join(f"{r['sym']} {_chg(r['chg'])}" for r in sw[:4]))
+        if len(sw) > 4:
+            L.append("🔴 " + " · ".join(f"{r['sym']} {_chg(r['chg'])}"
+                                          for r in sw[-4:][::-1]))
+        L.append("")
+
     ahead = week_ahead(d.get("events"))
     L.append("📅 <b>Settimana entrante: catalizzatori</b>" if it
              else "📅 <b>Week ahead: catalysts</b>")
@@ -238,6 +367,20 @@ def compose_weekly(lang, d):
                     if s >= 45 else
                     "cautious backdrop: the market is pricing more risk than reward.")
         L.append(f"• {tone}")
+    above, below = [], []
+    for blk in mkw:
+        for r in blk["rows"]:
+            tr = (r.get("tech") or {}).get("trend")
+            if tr == "above":
+                above.append(r["label"])
+            elif tr == "below":
+                below.append(r["label"])
+    if above:
+        L.append(("• Sopra il trend: " if it else "• Above trend: ")
+                 + ", ".join(above[:9]) + ".")
+    if below:
+        L.append(("• Sotto il trend: " if it else "• Below trend: ")
+                 + ", ".join(below[:9]) + ".")
     if ahead:
         top = [e for e in ahead if e["impact"] == "HIGH"][:3]
         for e in top:
@@ -251,6 +394,8 @@ def compose_weekly(lang, d):
     L.append("Buon weekend. Lunedì il calendario riparte e ricominciamo da qui." if it
              else "Have a good weekend. Monday the calendar resets and we start again.")
     L.append("")
-    L.append("<i>Informazioni a scopo informativo ed educativo. Non costituiscono "
-             "consulenza finanziaria ne' raccomandazione di investimento.</i>")
+    L.append(("<i>Informazioni a scopo informativo ed educativo. Non costituiscono "
+              "consulenza finanziaria ne' raccomandazione di investimento.</i>" if it else
+              "<i>For information and education only. Not financial advice and not an "
+              "investment recommendation.</i>"))
     return "\n".join(L)
