@@ -137,17 +137,16 @@ def _ai_analyze(it):
         "interpretation (una frase, mai un consiglio di acquisto/vendita).\n\n"
         f"Titolo: {it.get('title','')}\nSommario: {it.get('summary','')[:400]}"
     )
-    body = json.dumps({
+    payload = {
         "model": model, "temperature": 0,
         "messages": [{"role": "user", "content": prompt}],
         "response_format": {"type": "json_object"},
-    }).encode()
+    }
     try:
-        from .http import fetch
-        raw = fetch(base + "/chat/completions", headers={
-            "Content-Type": "application/json", "Authorization": "Bearer " + key},
-            timeout=40, tries=2)
-        data = json.loads(raw)["choices"][0]["message"]["content"]
+        from .http import post_json
+        d = post_json(base + "/chat/completions", payload,
+                      headers={"Authorization": "Bearer " + key}, timeout=40, tries=2)
+        data = d["choices"][0]["message"]["content"]
         return json.loads(data)
     except Exception:
         return None

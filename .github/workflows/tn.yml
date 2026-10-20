@@ -38,6 +38,8 @@ jobs:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
           VISTA_DIGEST_EVERY_H: "2"
           VISTA_NEWS_EVERY_H: "0.5"
@@ -48,7 +50,7 @@ jobs:
           # staged compare qualcosa che sembra un token. Il 28/09 un .env col token
           # del bot e' finito nel repo pubblico: questo passo impedisce il bis.
           guard() {
-            if git diff --staged | grep -Eq '[0-9]{8,10}:AA[A-Za-z0-9_-]{30,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|sk-[A-Za-z0-9]{20,}'; then
+            if git diff --staged | grep -Eq '[0-9]{8,10}:AA[A-Za-z0-9_-]{30,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|sk-[A-Za-z0-9]{20,}|gsk_[A-Za-z0-9]{30,}'; then
               echo "SECRET GUARD: possibile token nei file staged, commit annullato"; return 1
             fi
             return 0

@@ -186,17 +186,16 @@ def _llm(question, ctx):
         "con i numeri del contesto, mai inventandone. Non dai consigli di "
         "investimento e non prometti rendimenti. Dottrina operativa:\n" + DOCTRINE
     )
-    body = json.dumps({
+    payload = {
         "model": model, "temperature": 0,
         "messages": [{"role": "system", "content": sys_prompt},
                      {"role": "user", "content": f"CONTESTO:\n{ctx}\n\nDOMANDA: {question}"}],
-    }).encode()
+    }
     try:
-        from .http import fetch
-        raw = fetch(base + "/chat/completions", headers={
-            "Content-Type": "application/json", "Authorization": "Bearer " + key},
-            timeout=40, tries=2)
-        return json.loads(raw)["choices"][0]["message"]["content"].strip()
+        from .http import post_json
+        d = post_json(base + "/chat/completions", payload,
+                      headers={"Authorization": "Bearer " + key}, timeout=40, tries=2)
+        return d["choices"][0]["message"]["content"].strip()
     except Exception:
         return None
 
