@@ -59,7 +59,7 @@ jobs:
           done
 
       - name: Rilancia il loop
-        if: always()
+        if: success() || cancelled()
         run: |
           curl -s -X POST \
             -H "Authorization: token ${{ secrets.TN_DISPATCH_TOKEN }}" \

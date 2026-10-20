@@ -73,7 +73,7 @@ jobs:
           done
 
       - name: Rilancia il prossimo job (catena)
-        if: always()
+        if: success() || cancelled()
         env:
           GH_PAT: ${{ secrets.TN_DISPATCH_TOKEN }}
         run: |
