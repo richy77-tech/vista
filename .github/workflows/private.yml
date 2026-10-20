@@ -42,20 +42,27 @@ jobs:
             return 0
           }
           end=$(( $(date +%s) + 19800 ))
+          n=0
           while [ "$(date +%s)" -lt "$end" ]; do
-            echo "== giro $(date -u +%FT%TZ) =="
-            python -m tn.private --auto || echo "giro fallito, continuo"
-            for f in private_state.json paper_state.json; do
-              [ -f "$f" ] && git add -f "$f" || true
-            done
-            if ! git diff --cached --quiet; then
-              if guard; then
-                git commit -m "private state $(date -u +%FT%TZ)" || true
-                git pull --rebase --autostash --quiet || true
-                git push --quiet || echo "push fallito, riprovo al giro dopo"
+            # Risposta ai messaggi ogni ~40s: l'agente deve rispondere subito,
+            # non al giro dei 20 minuti.
+            python -m tn.private --poll || true
+            n=$((n + 1))
+            if [ $((n % 30)) -eq 0 ]; then
+              echo "== giro $(date -u +%FT%TZ) =="
+              python -m tn.private --auto || echo "giro fallito, continuo"
+              for f in private_state.json paper_state.json; do
+                [ -f "$f" ] && git add -f "$f" || true
+              done
+              if ! git diff --cached --quiet; then
+                if guard; then
+                  git commit -m "private state $(date -u +%FT%TZ)" || true
+                  git pull --rebase --autostash --quiet || true
+                  git push --quiet || echo "push fallito, riprovo al giro dopo"
+                fi
               fi
             fi
-            sleep 1200
+            sleep 40
           done
 
       - name: Rilancia il loop

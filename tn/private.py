@@ -244,7 +244,11 @@ def main():
         return 1
     chat = cfg()["chat_id"]
     mode = sys.argv[1] if len(sys.argv) > 1 else "--auto"
-    if mode == "--brief":
+    if mode == "--poll":
+        # Solo risposta ai messaggi, veloce: cosi' l'agente risponde in pochi
+        # secondi invece di aspettare il giro dei 20 minuti.
+        poll(token, chat)
+    elif mode == "--brief":
         send(token, chat, build_brief())
         send_photo(token, chat, build_brief_image())
     else:
