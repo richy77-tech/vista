@@ -18,6 +18,7 @@ from datetime import datetime, timezone
 from . import marketdata as md
 from . import calendar as cal
 from . import paper
+from . import card
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -63,6 +64,32 @@ def send(token, chat, text):
         "chat_id": chat, "text": text, "parse_mode": "HTML",
         "disable_web_page_preview": "true",
     })
+
+
+def send_photo(token, chat, png, caption=""):
+    """Invia una card immagine (multipart, senza dipendenze esterne)."""
+    import uuid
+    boundary = "----tn" + uuid.uuid4().hex
+    parts = []
+    for k, v in (("chat_id", str(chat)), ("caption", caption), ("parse_mode", "HTML")):
+        parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n\r\n{v}\r\n".encode())
+    parts.append(
+        f'--{boundary}\r\nContent-Disposition: form-data; name="photo"; '
+        f'filename="brief.png"\r\nContent-Type: image/png\r\n\r\n'.encode() + png + b"\r\n")
+    parts.append(f"--{boundary}--\r\n".encode())
+    body = b"".join(parts)
+    req = urllib.request.Request(
+        f"https://api.telegram.org/bot{token}/sendPhoto", data=body,
+        headers={"Content-Type": f"multipart/form-data; boundary={boundary}"})
+    return json.load(urllib.request.urlopen(req, timeout=30))
+
+
+def build_brief_image():
+    c = cfg()
+    rows = card.brief_rows(c["symbols"], labels())
+    sub = datetime.now(timezone.utc).strftime("%d/%m %H:%M UTC")
+    return card.render(rows, subtitle=sub,
+                       footer="Paper register. Non e' un consiglio finanziario.")
 
 
 def _fmt_price(p, cur):
@@ -177,6 +204,7 @@ def auto(token, chat):
         return
     if now.hour >= c["brief_hour_utc"] and s.get("last_brief") != today:
         send(token, chat, build_brief())
+        send_photo(token, chat, build_brief_image())
         s["last_brief"] = today
         save_state(s)
 
@@ -190,6 +218,7 @@ def main():
     mode = sys.argv[1] if len(sys.argv) > 1 else "--auto"
     if mode == "--brief":
         send(token, chat, build_brief())
+        send_photo(token, chat, build_brief_image())
     else:
         auto(token, chat)
     return 0
