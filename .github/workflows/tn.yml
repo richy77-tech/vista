@@ -37,6 +37,7 @@ jobs:
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
           VISTA_DIGEST_EVERY_H: "2"
           VISTA_NEWS_EVERY_H: "0.5"
