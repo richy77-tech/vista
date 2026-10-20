@@ -1,0 +1,190 @@
+"""Bot privato di Richy: stesso motore del canale, ma in DM.
+
+Differenza dal canale:
+- non e' un broadcast, e' una conversazione 1:1
+- niente segnali: un brief all'ora scelta + alert solo sui break
+- paper first: le operazioni si registrano, non si eseguono soldi veri
+
+Config in private_cfg.json (asset, ora del brief). Stato in private_state.json.
+Token dal secret PRIVATE_BOT_TOKEN. Il chat_id non e' un segreto.
+"""
+import json
+import os
+import sys
+import urllib.parse
+import urllib.request
+from datetime import datetime, timezone
+
+from . import marketdata as md
+from . import calendar as cal
+
+HERE = os.path.dirname(os.path.abspath(__file__))
+ROOT = os.path.dirname(HERE)
+CFG = os.path.join(ROOT, "private_cfg.json")
+STATE = os.path.join(ROOT, "private_state.json")
+
+DEFAULT_CFG = {
+    "symbols": ["GC=F", "BTC-USD", "EURUSD=X"],
+    "brief_hour_utc": 7,
+    "chat_id": 6440475833,
+}
+
+
+def cfg():
+    try:
+        with open(CFG, encoding="utf-8") as f:
+            return {**DEFAULT_CFG, **json.load(f)}
+    except Exception:
+        return dict(DEFAULT_CFG)
+
+
+def state():
+    try:
+        with open(STATE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_state(s):
+    with open(STATE, "w", encoding="utf-8") as f:
+        json.dump(s, f, ensure_ascii=False, indent=1)
+
+
+def api(token, method, payload):
+    body = urllib.parse.urlencode(payload).encode()
+    req = urllib.request.Request(f"https://api.telegram.org/bot{token}/{method}", data=body)
+    return json.load(urllib.request.urlopen(req, timeout=20))
+
+
+def send(token, chat, text):
+    return api(token, "sendMessage", {
+        "chat_id": chat, "text": text, "parse_mode": "HTML",
+        "disable_web_page_preview": "true",
+    })
+
+
+def _fmt_price(p, cur):
+    if p is None:
+        return "n/d"
+    if p >= 1000:
+        s = f"{p:,.0f}"
+    elif p >= 10:
+        s = f"{p:,.2f}"
+    else:
+        s = f"{p:.4f}"
+    return f"{s} {cur or ''}".strip()
+
+
+def line_for(sym, labels):
+    try:
+        q = md.yahoo(sym)
+    except Exception as e:
+        return f"• {labels.get(sym, sym)}: fonte giu ({type(e).__name__})"
+    ch = md.change_pct(q)
+    r = md.rsi(q.get("closes") or [])
+    arrow = "▲" if (ch or 0) > 0 else ("▼" if (ch or 0) < 0 else "=")
+    parts = [f"• <b>{labels.get(sym, sym)}</b> {_fmt_price(q.get('price'), q.get('currency'))}"]
+    if ch is not None:
+        parts.append(f"{arrow} {ch:+.2f}%")
+    if r is not None:
+        tag = "ipercomprato" if r >= 70 else ("ipervenduto" if r <= 30 else "neutro")
+        parts.append(f"RSI {r:.0f} ({tag})")
+    return "  ".join(parts)
+
+
+def labels():
+    out = {}
+    for g in md.GROUPS.values():
+        for sym, lab, _ in g:
+            out[sym] = lab
+    out["BTC-USD"] = "BITCOIN"
+    out["ETH-USD"] = "ETHEREUM"
+    return out
+
+
+def build_brief():
+    c = cfg()
+    lab = labels()
+    L = ["<b>BRIEF PRIVATO</b> — " + datetime.now(timezone.utc).strftime("%d/%m %H:%M UTC"), ""]
+    for s in c["symbols"]:
+        L.append(line_for(s, lab))
+    L.append("")
+    events, err = cal.fetch_week()
+    today = datetime.now(cal.ROME).date()
+    todays = [e for e in events if e["ts"][:10] == today.isoformat()
+              and e.get("impact") in ("HIGH", "MEDIUM")]
+    if todays:
+        L.append("<b>Oggi sul calendario</b>")
+        for e in todays[:5]:
+            t = e["ts"][11:16]
+            L.append(f"• {t} {e['country']} · {e['title']} ({e['impact'].lower()})")
+    elif err:
+        L.append(f"Calendario non raggiungibile ({err}).")
+    else:
+        L.append("Calendario: nessun evento rilevante oggi.")
+    L.append("")
+    L.append("<i>Paper register. Non e' consiglio finanziario.</i>")
+    return "\n".join(L)
+
+
+HELP = ("Comandi: /brief (manda ora il brief) · /asset (lista gli asset seguiti) · "
+        "/stop (sospendi il brief giornaliero)")
+
+
+def poll(token, chat):
+    """Risponde ai comandi. Ritorna il numero di update consumati."""
+    try:
+        data = api(token, "getUpdates", {"timeout": 0})
+    except Exception:
+        return 0
+    ups = data.get("result") or []
+    for u in ups:
+        m = u.get("message") or {}
+        txt = (m.get("text") or "").strip().lower()
+        if not txt:
+            continue
+        if txt.startswith("/brief"):
+            send(token, chat, build_brief())
+        elif txt.startswith("/asset"):
+            send(token, chat, "Asset seguiti: " + ", ".join(cfg()["symbols"]))
+        elif txt.startswith("/stop"):
+            s = state(); s["paused"] = True; save_state(s)
+            send(token, chat, "Brief giornaliero sospeso. /brief per averlo a mano.")
+        elif txt.startswith("/start") or txt.startswith("/help"):
+            send(token, chat, "Attivo. " + HELP)
+    if ups:
+        api(token, "getUpdates", {"offset": ups[-1]["update_id"] + 1})
+    return len(ups)
+
+
+def auto(token, chat):
+    """Poll dei comandi + brief giornaliero una volta al giorno, all'ora scelta."""
+    poll(token, chat)
+    c, s = cfg(), state()
+    now = datetime.now(timezone.utc)
+    today = now.date().isoformat()
+    if s.get("paused"):
+        return
+    if now.hour >= c["brief_hour_utc"] and s.get("last_brief") != today:
+        send(token, chat, build_brief())
+        s["last_brief"] = today
+        save_state(s)
+
+
+def main():
+    token = os.environ.get("PRIVATE_BOT_TOKEN")
+    if not token:
+        print("PRIVATE_BOT_TOKEN mancante")
+        return 1
+    chat = cfg()["chat_id"]
+    mode = sys.argv[1] if len(sys.argv) > 1 else "--auto"
+    if mode == "--brief":
+        send(token, chat, build_brief())
+    else:
+        auto(token, chat)
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

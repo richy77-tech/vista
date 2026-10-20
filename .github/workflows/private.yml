@@ -1,0 +1,63 @@
+name: Private brief
+
+# Bot privato di Richy. Stesso motore del canale, ma in DM (@Richytrading_aibot).
+# Gira gratis su GitHub Actions: nessun server, nessun costo.
+# Segreto richiesto: PRIVATE_BOT_TOKEN (token del bot privato).
+on:
+  schedule:
+    - cron: "13,33,53 * * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: private
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Loop del bot privato (giro ogni 20 min, ~5h30)
+        env:
+          PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
+        run: |
+          git config user.name "tn-bot"
+          git config user.email "tn-bot@users.noreply.github.com"
+          guard() {
+            if git diff --staged | grep -Eq '[0-9]{8,10}:AA[A-Za-z0-9_-]{30,}|ghp_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{40,}|sk-[A-Za-z0-9]{20,}'; then
+              echo "SECRET GUARD: possibile token nei file staged, commit annullato"; return 1
+            fi
+            return 0
+          }
+          end=$(( $(date +%s) + 19800 ))
+          while [ "$(date +%s)" -lt "$end" ]; do
+            echo "== giro $(date -u +%FT%TZ) =="
+            python -m tn.private --auto || echo "giro fallito, continuo"
+            if ! git diff --quiet -- private_state.json; then
+              git add private_state.json
+              if guard; then
+                git commit -m "private state $(date -u +%FT%TZ)" || true
+                git pull --rebase --autostash --quiet || true
+                git push --quiet || echo "push fallito, riprovo al giro dopo"
+              fi
+            fi
+            sleep 1200
+          done
+
+      - name: Rilancia il loop
+        if: always()
+        run: |
+          curl -s -X POST \
+            -H "Authorization: token ${{ secrets.TN_DISPATCH_TOKEN }}" \
+            -H "Accept: application/vnd.github+json" \
+            https://api.github.com/repos/${{ github.repository }}/actions/workflows/private.yml/dispatches \
+            -d '{"ref":"main"}' || true
