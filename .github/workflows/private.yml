@@ -26,6 +26,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Dipendenze
+        run: pip install --quiet pillow
+
       - name: Loop del bot privato (giro ogni 20 min, ~5h30)
         env:
           PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
@@ -42,7 +45,9 @@ jobs:
           while [ "$(date +%s)" -lt "$end" ]; do
             echo "== giro $(date -u +%FT%TZ) =="
             python -m tn.private --auto || echo "giro fallito, continuo"
-            git add -A -- private_state.json paper_state.json
+            for f in private_state.json paper_state.json; do
+              [ -f "$f" ] && git add -f "$f" || true
+            done
             if ! git diff --cached --quiet; then
               if guard; then
                 git commit -m "private state $(date -u +%FT%TZ)" || true
