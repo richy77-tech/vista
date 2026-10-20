@@ -42,8 +42,8 @@ jobs:
           while [ "$(date +%s)" -lt "$end" ]; do
             echo "== giro $(date -u +%FT%TZ) =="
             python -m tn.private --auto || echo "giro fallito, continuo"
-            if ! git diff --quiet -- private_state.json; then
-              git add private_state.json
+            git add -A -- private_state.json paper_state.json
+            if ! git diff --cached --quiet; then
               if guard; then
                 git commit -m "private state $(date -u +%FT%TZ)" || true
                 git pull --rebase --autostash --quiet || true

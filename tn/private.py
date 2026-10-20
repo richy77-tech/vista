@@ -17,6 +17,7 @@ from datetime import datetime, timezone
 
 from . import marketdata as md
 from . import calendar as cal
+from . import paper
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -124,6 +125,8 @@ def build_brief():
     else:
         L.append("Calendario: nessun evento rilevante oggi.")
     L.append("")
+    L.append("<i>" + paper.report() + "</i>")
+    L.append("")
     L.append("<i>Paper register. Non e' consiglio finanziario.</i>")
     return "\n".join(L)
 
@@ -159,9 +162,15 @@ def poll(token, chat):
 
 
 def auto(token, chat):
-    """Poll dei comandi + brief giornaliero una volta al giorno, all'ora scelta."""
+    """Poll dei comandi + un giro paper + brief giornaliero all'ora scelta."""
     poll(token, chat)
     c, s = cfg(), state()
+    try:
+        _, ev = paper.step(c["symbols"])
+        for e in ev:
+            send(token, chat, "paper · " + e)
+    except Exception as e:
+        print("paper giro fallito:", type(e).__name__)
     now = datetime.now(timezone.utc)
     today = now.date().isoformat()
     if s.get("paused"):
