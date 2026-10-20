@@ -21,6 +21,7 @@ from . import paper
 from . import card
 from . import newsengine as ne
 from . import newstrigger as nt
+from . import chat
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -40,6 +41,11 @@ def cfg():
             return {**DEFAULT_CFG, **json.load(f)}
     except Exception:
         return dict(DEFAULT_CFG)
+
+
+def save_cfg(c):
+    with open(CFG, "w", encoding="utf-8") as f:
+        json.dump(c, f, ensure_ascii=False, indent=1)
 
 
 def state():
@@ -161,7 +167,9 @@ def build_brief():
 
 
 HELP = ("Comandi: /brief (manda ora il brief) · /asset (lista gli asset seguiti) · "
-        "/stop (sospendi il brief giornaliero)")
+        "/stop (sospendi il brief giornaliero)\n"
+        "Oppure scrivimi in italiano normale: \"come sta il mercato\", \"quanto sta "
+        "il bitcoin\", \"notizie\", \"come vanno le operazioni\", \"chiudi tutto\".")
 
 
 def poll(token, chat):
@@ -185,6 +193,17 @@ def poll(token, chat):
             send(token, chat, "Brief giornaliero sospeso. /brief per averlo a mano.")
         elif txt.startswith("/start") or txt.startswith("/help"):
             send(token, chat, "Attivo. " + HELP)
+        elif txt.startswith("/riprendi") or "riprendi" in txt or "riattiva" in txt:
+            s = state(); s["paused"] = False; save_state(s)
+            send(token, chat, "Ripreso. Il brief torna all'ora scelta.")
+        elif not txt.startswith("/"):
+            c = cfg()
+            try:
+                ans = chat.reply(m.get("text"), c)
+                save_cfg(c)
+                send(token, chat, ans[:4000])
+            except Exception as e:
+                send(token, chat, f"Qualcosa non torna qui ({type(e).__name__}). Riprovo al prossimo giro.")
     if ups:
         api(token, "getUpdates", {"offset": ups[-1]["update_id"] + 1})
     return len(ups)
