@@ -20,6 +20,7 @@ from . import marketdata as md
 from . import calendar as cal
 from . import paper
 from . import newsengine as ne
+from . import knowledge as kb
 
 DOCTRINE = (
     "Come uso le news:\n"
@@ -167,6 +168,8 @@ HELP_TEXT = (
     "• \"chiudi tutto\" → chiude il paper (i soldi veri restano fermi)\n"
     "• \"aggiungi il gas\" / \"togli l'oro\" → cambia gli asset seguiti\n"
     "• \"come usi le notizie\" → la dottrina\n"
+    "• qualunque cosa di trading (ATR, leva, RSI, stop, funding, futures, CPI...) → "
+    "te la spiego come un manuale\n"
     "Se scrivi altro, rispondo con quello che so, o lo dico che non lo so."
 )
 
@@ -217,7 +220,7 @@ def reply(text, cfg):
         return _add_asset(cfg, t)
     if t.startswith(("togli", "rimuovi", "leva")):
         return _remove_asset(cfg, t)
-    if any(k in t for k in ("stop", "fermati", "pausa", "sospendi")):
+    if any(k in t for k in ("fermati", "pausa", "sospendi")) or t.strip() in ("stop", "stop bot"):
         return "PAUSA: scrivimi 'riprendi' quando vuoi ripartire."
     if any(k in t for k in ("cosa sai fare", "cosa fai", "aiuto", "help", "chi sei", "come funzioni")):
         return HELP_TEXT
@@ -237,14 +240,22 @@ def reply(text, cfg):
     if syms:
         return "\n".join(_price_line(s, lab.get(s, s)) for s in syms[:4])
 
-    # 3) AI (solo con chiave), con contesto reale
+    # 3) enciclopedia: definizioni e meccanica del trading, senza chiave
+    entry = kb.lookup(text)
+    if entry:
+        return entry
+
+    # 4) AI (solo con chiave), con contesto reale
     ctx = "Prezzi:\n" + "\n".join(_price_line(s, lab.get(s, s)) for s in cfg["symbols"][:6])
     ctx += "\n" + paper.report()
     if any(k in t for k in ("notizi", "news", "perche", "perché", "mercato", "cosa")):
         ctx += "\n" + _news(4)
+    known = kb.lookup(text, limit=3)
+    if known:
+        ctx += "\n\nVoci di manuale pertinenti:\n" + re.sub(r"<[^>]+>", "", known)
     ans = _llm(text, ctx)
     if ans:
         return ans
 
-    # 4) non lo so: dico cosa so fare
+    # 5) non lo so: dico cosa so fare
     return "Questa non la capisco. " + HELP_TEXT
