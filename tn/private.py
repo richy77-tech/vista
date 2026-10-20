@@ -19,6 +19,8 @@ from . import marketdata as md
 from . import calendar as cal
 from . import paper
 from . import card
+from . import newsengine as ne
+from . import newstrigger as nt
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -198,6 +200,13 @@ def auto(token, chat):
             send(token, chat, "paper · " + e)
     except Exception as e:
         print("paper giro fallito:", type(e).__name__)
+    try:
+        news, _err = ne.pipeline(per_source=8)
+        _, nev = nt.run(c["symbols"], news)
+        for e in nev:
+            send(token, chat, "paper · " + e)
+    except Exception as e:
+        print("news trigger fallito:", type(e).__name__)
     now = datetime.now(timezone.utc)
     today = now.date().isoformat()
     if s.get("paused"):
