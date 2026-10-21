@@ -41,7 +41,8 @@ def ohlc(sym, rng="6mo"):
         h, l, o = q["high"][i], q["low"][i], q["open"][i]
         if None in (c, h, l, o):
             continue
-        rows.append({"o": o, "h": h, "l": l, "c": c})
+        v = (q.get("volume") or [None] * (i + 1))[i]
+        rows.append({"o": o, "h": h, "l": l, "c": c, "v": v})
     return rows
 
 

@@ -24,6 +24,10 @@ from . import indicators as ind
 from . import newstrigger as nt
 from . import exec as ex
 from . import llm
+from . import briefs
+
+ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+TRAIN_LOG = os.path.join(ROOT, "desk_log.jsonl")
 
 MAX_OPEN = 3          # quante operazioni paper aperte insieme al massimo
 CONF_MIN = 0.55       # sotto questa confidenza dichiarata, il convalidatore salta
@@ -62,6 +66,12 @@ SUP_SYS = (
 )
 
 ROLE_ORDER = ("verificatore news", "lettore grafico", "convalidatore")
+
+# Ogni ruolo riceve il proprio dossier di mestiere (tn/briefs.py): cosa fa, come
+# ragiona, dove sbaglia. Non sostituisce il prompt, lo istruisce.
+NEWS_SYS = NEWS_SYS + "\n\n" + briefs.brief("news")
+CHART_SYS = CHART_SYS + "\n\n" + briefs.brief("chart")
+SUP_SYS = SUP_SYS + "\n\n" + briefs.brief("validator")
 
 
 def _parse(raw):
@@ -120,9 +130,18 @@ def _snapshot(sym, lab=None):
     n = len(rows)
     hi = max(r["h"] for r in rows[-20:]) if n >= 20 else (rows[-1]["h"] if rows else None)
     lo = min(r["l"] for r in rows[-20:]) if n >= 20 else (rows[-1]["l"] if rows else None)
+    # Volumi reali: rapporto tra l'ultimo e la media delle ultime barre. Se il dato
+    # non c'e' (alcuni simboli non lo danno), resta None e NON si inventa.
+    vols = [r.get("v") for r in rows[-21:] if r.get("v") is not None]
+    avgv = (sum(vols[:-1]) / len(vols[:-1])) if len(vols) > 1 else None
+    lastv = rows[-1].get("v") if rows else None
+    vol_ratio = (lastv / avgv) if (avgv and lastv) else None
+    prev_h = rows[-2]["h"] if n >= 2 else None
+    prev_l = rows[-2]["l"] if n >= 2 else None
     return {"sym": sym, "lab": lab or sym, "price": q.get("price"),
             "change": md.change_pct(q), "rsi": rsi, "trend": reg.get("state"),
-            "atr_pct": atr, "hi20": hi, "lo20": lo, "closes": closes, "rows": rows}
+            "atr_pct": atr, "hi20": hi, "lo20": lo, "closes": closes, "rows": rows,
+            "vol_ratio": vol_ratio, "prev_h": prev_h, "prev_l": prev_l}
 
 
 # ---------------------------------------------------------------- ruolo 1: news
@@ -212,6 +231,9 @@ def chart_agent(sym, side, lab=None):
             f"RSI {s['rsi']:.0f} · trend {s['trend']} · ATR {s['atr_pct']:.2f}% · "
             f"max20 {_ps(s['hi20'])} · min20 {_ps(s['lo20'])} · posizione nel range 20g: "
             f"{_range_pos(entry, s['lo20'], s['hi20'])}\n"
+            f"livelli: max giorno prima {_ps(s.get('prev_h'))} · min giorno prima "
+            f"{_ps(s.get('prev_l'))} · volumi ultima barra vs media "
+            f"{('n/d' if s.get('vol_ratio') is None else format(s['vol_ratio'], '.2f') + 'x')}\n"
             f"TESI: {side.upper()} — {'la notizia spinge su' if side == 'long' else 'la notizia spinge giu'}")
     d = _ask(CHART_SYS, user)
     if isinstance(d, dict) and isinstance(d.get("confirm"), bool):
@@ -265,12 +287,13 @@ def _open_count(st):
     return len(st.get("open") or {})
 
 
-def run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
+def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     """Un giro completo dei tre ruoli. Apre al massimo una posizione paper.
     Ritorna (stato, eventi, traccia) — la traccia e' cosa ha detto ogni ruolo."""
     st = paper.load()
-    if _open_count(st) >= max_open:
-        return st, [], {"skip": f"gia' {_open_count(st)} operazioni aperte (max {max_open})"}
+    # Anche a tetto raggiunto i tre ruoli ragionano e la decisione si registra:
+    # e' materiale di addestramento, non esposizione. Si salta solo l'apertura.
+    can_open = _open_count(st) < max_open
 
     nv = news_agent(news, symbols, lab)
     trace = {"news": nv}
@@ -289,6 +312,9 @@ def run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
 
     sym = nv["sym"]
     if sym in st["open"]:
+        return st, [], trace
+    if not can_open:
+        trace["cap"] = f"{_open_count(st)} aperte (max {max_open}): valutata, non aperta"
         return st, [], trace
     from datetime import datetime, timezone
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -309,6 +335,38 @@ def run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     ev = [f"{sym}: aperta {nv['side']} @ {_ps(cv['entry'])} — {sv.get('why')}"
           f" [{cv.get('setup')}]"]
     return st, ev, trace
+
+
+def run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
+    """Il giro, piu' la riga di addestramento. Ogni giro — anche uno che salta —
+    lascia una traccia in desk_log.jsonl: cosa ha visto ogni ruolo e cosa ha
+    deciso. Quel file e' il materiale con cui si correggono i prompt: senza
+    registrare anche i 'no', non si impara nulla dai rifiuti."""
+    st, ev, trace = _run(symbols, news, lab=lab, dry=dry, max_open=max_open)
+    _record("open" if ev else "skip", trace, opened=bool(ev))
+    return st, ev, trace
+
+
+def _record(kind, trace, opened=False):
+    try:
+        from datetime import datetime, timezone
+        nv = trace.get("news") or {}
+        cv = trace.get("chart") or {}
+        sv = trace.get("verdict") or {}
+        rec = {"ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+               "kind": kind, "opened": bool(opened),
+               "news": {"sym": nv.get("sym"), "side": nv.get("side"),
+                        "conf": nv.get("confidence"), "why": (nv.get("why") or "")[:160],
+                        "rule": nv.get("rule")},
+               "chart": {k: cv.get(k) for k in ("confirm", "setup", "why", "rule")},
+               "verdict": {"action": sv.get("action"), "why": (sv.get("why") or "")[:160],
+                           "rule": sv.get("rule")}}
+        if not trace.get("news") and trace.get("skip"):
+            rec["note"] = str(trace["skip"])[:160]
+        with open(TRAIN_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
 
 
 def review(symbols, dry=False):

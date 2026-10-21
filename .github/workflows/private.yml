@@ -66,7 +66,7 @@ jobs:
             timeout 90 python -m tn.private --poll || true
             n=$((n + 1))
             date -u +%FT%TZ > hb_private.txt
-            if [ $((n % 12)) -eq 0 ]; then
+            if [ $((n % 6)) -eq 0 ]; then
               echo "== giro $(date -u +%FT%TZ) =="
               # Se su main c'e' codice piu' nuovo del mio checkout, esco: una run
               # nuova fara' il giro col codice aggiornato.
@@ -76,10 +76,12 @@ jobs:
                 exit 0
               fi
               timeout 420 python -m tn.private --auto || echo "giro fallito, continuo"
-              for f in private_state.json paper_state.json ai_cache.json hb_private.txt; do
+              # desk_log.jsonl e' il quaderno di addestramento: ogni giro dei tre
+              # ruoli ci scrive cosa ha visto e cosa ha deciso. Va versionato.
+              for f in private_state.json paper_state.json ai_cache.json desk_log.jsonl hb_private.txt; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
-              if ! git diff --cached --quiet; then
+              if [ $((n % 12)) -eq 0 ] && ! git diff --cached --quiet; then
                 if guard; then
                   timeout 60 git commit -m "private state $(date -u +%FT%TZ)" || true
                   timeout 90 git pull --rebase --autostash --quiet || { git rebase --abort 2>/dev/null || true; }
