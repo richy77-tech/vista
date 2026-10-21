@@ -355,11 +355,9 @@ def _desk_rules(cfg, question):
 
 
 def _desk(cfg, question):
-    """Desk con modello se c'e', altrimenti desk a regole. Mai silenzio."""
-    key = os.environ.get("AI_API_KEY")
-    if not key or ai_blocked():
-        # Nessun modello: non raccolgo il contesto pesante (prezzi+news+calendario)
-        # per niente, rispondo subito a regole.
+    """Desk con modello se c'e' (chiave o Pollinations), altrimenti a regole.
+    Mai silenzio."""
+    if ai_blocked() and not os.environ.get("AI_API_KEY"):
         return _desk_rules(cfg, question)
     ctx = _desk_context(cfg)
     known = kb.lookup(question, limit=3)
@@ -372,27 +370,17 @@ def _desk(cfg, question):
 
 
 def _llm(question, ctx):
-    """Desk AI opzionale. Senza chiave si torna alle regole, senza fingere."""
-    key = os.environ.get("AI_API_KEY")
-    if not key or ai_blocked():
+    """Desk AI: endpoint con chiave, poi Pollinations senza chiave.
+    Se nessuno risponde si torna alle regole, senza fingere."""
+    from . import llm
+    if ai_blocked() and not os.environ.get("AI_API_KEY"):
         return None
-    base = os.environ.get("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-    model = os.environ.get("AI_MODEL", "gpt-4o-mini")
-    payload = {
-        "model": model, "temperature": 0,
-        "messages": [{"role": "system", "content": DESK_SYS},
-                     {"role": "user", "content": f"CONTESTO:\n{ctx}\n\nDOMANDA: {question}"}],
-    }
-    try:
-        from .http import post_json
-        d = post_json(base + "/chat/completions", payload,
-                      headers={"Authorization": "Bearer " + key}, timeout=45, tries=2)
-        out = d["choices"][0]["message"]["content"].strip()
+    ans = llm.chat(DESK_SYS, f"CONTESTO:\n{ctx}\n\nDOMANDA: {question}", timeout=45)
+    if ans:
         note_ai(True)
-        return out
-    except Exception:
-        note_ai(False)
-        return None
+        return ans.strip()
+    note_ai(False)
+    return None
 
 
 def reply(text, cfg):

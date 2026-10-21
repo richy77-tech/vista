@@ -187,31 +187,25 @@ def _memo_put(key, val):
 
 
 def _ai_analyze(it):
-    """Hook LLM opzionale, endpoint OpenAI-compatibile. Non testato senza chiave:
-    se manca o fallisce, si torna alle regole. Non inventa numeri."""
-    key = os.environ.get("AI_API_KEY")
-    if not key or ai_blocked():
+    """Hook LLM opzionale. Prima l'endpoint con chiave, poi Pollinations
+    (nessuna chiave). Se nessuno risponde, si torna alle regole."""
+    from . import llm
+    if ai_blocked():
         return None
-    base = os.environ.get("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-    model = os.environ.get("AI_MODEL", "gpt-4o-mini")
-    prompt = (
+    system = (
         "Sei un analista di mercati. Rispondi SOLO con JSON valido con chiavi: "
         "categories (lista tra BREAKING,BTC,CRYPTO,GOLD,SILVER,FOREX,STOCKS,INDICES,"
         "MACRO,CENTRAL BANKS,ENERGY,GEOPOLITICS,ETF,REGULATION), assets (lista), "
         "impact (LOW|MEDIUM|HIGH|CRITICAL), sentiment_score (0-100), "
-        "interpretation (una frase, mai un consiglio di acquisto/vendita).\n\n"
-        f"Titolo: {it.get('title','')}\nSommario: {it.get('summary','')[:400]}"
+        "interpretation (una frase, mai un consiglio di acquisto/vendita)."
     )
-    payload = {
-        "model": model, "temperature": 0,
-        "messages": [{"role": "user", "content": prompt}],
-        "response_format": {"type": "json_object"},
-    }
+    user = (f"Titolo: {it.get('title','')}\n"
+            f"Sommario: {it.get('summary','')[:400]}")
+    data = llm.chat(system, user, json_mode=True, timeout=40)
+    if not data:
+        note_ai(False)
+        return None
     try:
-        from .http import post_json
-        d = post_json(base + "/chat/completions", payload,
-                      headers={"Authorization": "Bearer " + key}, timeout=40, tries=2)
-        data = d["choices"][0]["message"]["content"]
         out = json.loads(data)
         note_ai(True)
         return out
