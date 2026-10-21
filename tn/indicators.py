@@ -54,6 +54,32 @@ def atr_pct(rows, n=14):
     return a / rows[-1]["c"] * 100.0
 
 
+def cci(rows, n=20):
+    """Commodity Channel Index: quanto il prezzo e' lontano dalla sua media tipica.
+    Oltre +-100 = movimento sopra/sotto la norma, +-200 = estremo."""
+    if len(rows) < n:
+        return None
+    tps = [(r["h"] + r["l"] + r["c"]) / 3 for r in rows[-n:]]
+    m = sum(tps) / n
+    dev = sum(abs(t - m) for t in tps) / n
+    if dev == 0:
+        return 0.0
+    return (tps[-1] - m) / (0.015 * dev)
+
+
+def macd(closes, fast=12, slow=26, signal=9):
+    """MACD: differenza fra EMA veloce e lenta, piu' la sua media di segnale.
+    hist>0 = spinta rialzista, <0 = ribassista."""
+    ef, es = ema_series(closes, fast), ema_series(closes, slow)
+    if not ef or not es:
+        return None
+    n = min(len(ef), len(es))
+    line = [ef[-n + i] - es[-n + i] for i in range(n)]
+    sig = ema_series(line, signal) if len(line) >= signal else []
+    return {"line": line[-1], "signal": sig[-1] if sig else None,
+            "hist": (line[-1] - sig[-1]) if sig else None}
+
+
 def regime(closes, fast=50, slow=200, n=10):
     """Stato del mercato, dichiarato: su / giu' / piatto / n/d.
 
@@ -72,3 +98,4 @@ def regime(closes, fast=50, slow=200, n=10):
     else:
         state = "piatto"
     return {"state": state, "ema_fast": ef, "ema_slow": es, "slope": sg}
+

@@ -204,6 +204,10 @@ def poll(token, cid):
         try:
             if low.startswith("/brief"):
                 send(token, cid, build_brief())
+            elif low.startswith("/metriche") or low.startswith("/metrica"):
+                from . import metrics
+                send(token, cid, metrics.handle(txt, cfg(),
+                     lambda s: chat._find_symbols(s.lower())))
             elif low.startswith("/asset"):
                 send(token, cid, "Asset seguiti: " + ", ".join(cfg()["symbols"]))
             elif low.startswith("/stop"):

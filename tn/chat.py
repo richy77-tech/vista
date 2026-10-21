@@ -442,6 +442,12 @@ def reply(text, cfg):
     if (any(k in t for k in ("come va", "posizion", "operazioni", "paper", "registro", "aperte"))
             or re.search(r"\bprese\b", t) or "che operazioni" in t or "non prese" in t):
         return paper.screen(symbols=cfg.get("symbols"))
+    if any(k in t for k in ("metriche", "metrica", "comunanza", "volume medio", "supporti",
+                            "resistenz", "beta", "volatilit", "macd", "cci",
+                            "gestione del denaro", "money management", "backtest",
+                            "backward test", "open interest", "correlazione")):
+        from . import metrics
+        return metrics.handle(text, cfg, lambda s: _find_symbols(s.lower()))
     if any(k in t for k in ("agenti", "tre agenti", "chi decide", "come decidete",
                             "ruoli", "chi apre", "chi convalida")):
         return _roles()

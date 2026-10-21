@@ -13,16 +13,27 @@ Se il motore perde o la fonte cade, il simbolo resta assente. mai inventato.
 """
 import json
 import os
+import re
 import sys
 from datetime import datetime, timezone
 
 from .http import get_json
 from . import indicators as ind
+from . import marketdata as md
 from . import tunables as T
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 STATE = os.path.join(ROOT, "paper_state.json")
+
+# Nome leggibile di ogni asset: nel bot si legge "ARGENTO", non "SI=F".
+LABELS = {sym: lab for g in md.GROUPS.values() for sym, lab, _ in g}
+LABELS["BTC-USD"] = "BITCOIN"
+LABELS["ETH-USD"] = "ETHEREUM"
+
+
+def label(sym):
+    return LABELS.get(sym, sym)
 
 # Parametri: un posto solo (tn/tunables.py). Moduli leggono da li, non da qui.
 ATR_N = T.p("atr_n", 14)
@@ -72,16 +83,64 @@ def _r(entry, exit_, stop, side):
     return pnl / risk
 
 
+_TREND_TXT = {"su": "tendenza in salita", "giu": "tendenza in discesa",
+              "piatto": "tendenza incerta", "n/d": "tendenza non leggibile"}
+
+
+def pretty_reason(reason):
+    """Le voci salvate prima del 21/10 sono in gergo. Qui tornano frasi."""
+    if not reason or " | " not in reason:
+        return reason
+    out = []
+    for part in reason.split(" | "):
+        p = part.strip()
+        if p.startswith("rottura"):
+            v = "rialzo" if p.split(" ieri")[0].endswith("max") else "ribasso"
+            what = "il massimo" if v == "rialzo" else "il minimo"
+            px = re.findall(r"[\d.,]+", p)
+            b = px[0] if px else "?"
+            c = px[1] if len(px) > 1 else "?"
+            out.append(f"ha superato {what} di ieri ({b}) e ha chiuso a {c}: segnale al {v}")
+        elif p.startswith("trend"):
+            out.append(_TREND_TXT.get(p.split()[-1], "tendenza incerta"))
+        elif p.startswith("RSI"):
+            try:
+                r = float(re.findall(r"[\d.]+", p)[0])
+                lbl = "comprato" if r >= 70 else ("venduto" if r <= 30 else "neutro")
+                out.append(f"RSI {r:.0f}, {lbl}")
+            except Exception:
+                out.append(p)
+        elif p.startswith("volatil"):
+            try:
+                v = float(re.findall(r"[\d.]+", p)[0])
+                out.append(f"si muove del {v:.1f}% al giorno")
+            except Exception:
+                out.append(p)
+        else:
+            out.append(p)
+    return "; ".join(out)
+
+
 def describe(side, prev, last, reg, r_now, apct):
-    """Perche' e' entrata, in parole leggibili. Scritta all'apertura, non dopo."""
+    """Perche' e' entrata, in parole semplici. Scritta all'apertura, non dopo."""
     brk = prev["h"] if side == "long" else prev["l"]
-    bits = [f"rottura {'max' if side == 'long' else 'min'} ieri {_fmt(brk)} -> chiusura {_fmt(last['c'])}"]
-    bits.append(f"trend {reg['state']}")
+    move = "rialzo" if side == "long" else "ribasso"
+    what = "il massimo" if side == "long" else "il minimo"
+    bits = [f"ha superato {what} di ieri ({_fmt(brk)}) e ha chiuso a {_fmt(last['c'])}: segnale al {move}"]
+    trend = {"su": "tendenza in salita", "giu": "tendenza in discesa",
+             "piatto": "tendenza incerta", "n/d": "tendenza non leggibile"}.get(
+                 reg.get("state"), "tendenza incerta")
+    bits.append(trend)
     if r_now is not None:
-        bits.append(f"RSI {r_now:.0f}")
+        if r_now >= 70:
+            bits.append(f"RSI {r_now:.0f}, comprato")
+        elif r_now <= 30:
+            bits.append(f"RSI {r_now:.0f}, venduto")
+        else:
+            bits.append(f"RSI {r_now:.0f}, neutro")
     if apct is not None:
-        bits.append(f"volatilita' {apct:.2f}%")
-    return " | ".join(bits)
+        bits.append(f"si muove del {apct:.1f}% al giorno")
+    return "; ".join(bits)
 
 
 def step(symbols, s=None, dry=False):
@@ -124,7 +183,11 @@ def step(symbols, s=None, dry=False):
                             "r": round(_r(pos["entry"], exit_, pos["stop"], pos["side"]), 3)})
                 s["closed"].append(pos)
                 del s["open"][sym]
-                events.append(f"{sym}: chiusa {pos['side']} @ {exit_:.4f} -> {pos['r']:+.2f}R ({why})")
+                why_txt = {"stop": "stop scattato", "target": "obiettivo raggiunto",
+                           "time": "tempo scaduto"}.get(why, why)
+                verso = "rialzo" if pos["side"] == "long" else "ribasso"
+                events.append(f"{label(sym)}: chiusa al {verso} a {_fmt(exit_)} "
+                              f"\u2192 {pos['r']:+.2f}R ({why_txt})")
             continue
 
         # nessuna posizione: cerco una rottura della barra precedente,
@@ -141,10 +204,12 @@ def step(symbols, s=None, dry=False):
         else:
             continue
         if apct is not None and apct < T.p("min_atr_pct", 0.10):
-            events.append(f"{sym}: segnale {side} scartato (ATR {apct:.2f}% piatto)")
+            events.append(f"{label(sym)}: segnale al {('rialzo' if side == 'long' else 'ribasso')} "
+                          f"scartato (prezzo troppo fermo, {apct:.2f}%)")
             continue
         if T.p("trend_filter", True) and reg["state"] != ("su" if side == "long" else "giu"):
-            events.append(f"{sym}: segnale {side} scartato (trend {reg['state']})")
+            events.append(f"{label(sym)}: segnale al {('rialzo' if side == 'long' else 'ribasso')} "
+                          f"scartato (tendenza {reg['state']})")
             continue
 
         entry = last["c"]
@@ -158,7 +223,9 @@ def step(symbols, s=None, dry=False):
             "context": {"trend": reg["state"], "ema_fast": reg["ema_fast"],
                         "ema_slow": reg["ema_slow"], "rsi": r_now, "atr_pct": apct},
         }
-        events.append(f"{sym}: aperta {side} @ {entry:.4f} stop {stop:.4f} target {tgt:.4f} | {s['open'][sym]['reason']}")
+        events.append(f"{label(sym)}: aperta al {('rialzo' if side == 'long' else 'ribasso')} "
+                      f"a {_fmt(entry)}; perdita massima {_fmt(stop)}, obiettivo {_fmt(tgt)}. "
+                      f"{s['open'][sym]['reason']}")
 
     if not dry:
         save(s)
@@ -196,21 +263,23 @@ def _money(capital=None, risk_pct=None):
 
 
 def screen(s=None, symbols=None, capital=None, risk_pct=None):
-    """Schermata operazioni, chiara e completa: badge verde/rosso, P/L aggiornato,
-    tutte le info (entrata, prezzo ora, stop, target, barre, R, %, data)."""
+    """Schermata operazioni in parole semplici: cosa ho preso, cosa aspetto,
+    com'e' andata. Zero gergo."""
     s = s or load()
     open_ = s.get("open") or {}
     closed = s.get("closed") or []
     cap, rpct, eur = _money(capital, risk_pct)
-    L = ["<b>\U0001f4cb OPERAZIONI</b> \u00b7 registro paper (soldi veri fermi, nessun ordine vero)", ""]
-    L.append("<b>Regola</b>: entro sulla rottura del max/min del giorno prima, "
-             "ATR non piatto \u00b7 stop 1,5\u00d7ATR \u00b7 target 3\u00d7ATR \u00b7 "
-             "chiudo a stop, target o dopo 5 barre \u00b7 una posizione per asset.")
-    L.append(f"<b>Denaro</b>: simulazione su capitale {cap:.0f}\u20ac, rischio "
-             f"{rpct:.1f}% a operazione = {eur:.2f}\u20ac. Non e' un conto: sono 0\u20ac veri.")
+    L = ["<b>\U0001f4cb OPERAZIONI</b> \u00b7 simulazione su prezzi veri "
+         "(nessun ordine vero, soldi veri: 0)", ""]
+    L.append("<b>Come decido</b>: compro quando il prezzo supera il massimo di ieri, "
+             "vendo allo scoperto quando scende sotto il minimo di ieri. Metto uno "
+             "stop a 1,5 volte il movimento medio, un obiettivo a 3 volte, e chiudo "
+             "da solo se in 5 giorni non succede niente. Una sola operazione per asset.")
+    L.append(f"<b>Quanto rischio</b>: su un capitale finto di {cap:.0f}\u20ac rischio "
+             f"{rpct:.1f}% a operazione, cioe' {eur:.2f}\u20ac. Numeri di prova, non un conto vero.")
     L.append("")
 
-    L.append(f"<b>\U0001f7e2 PRESE \u2014 aperte ora: {len(open_)}</b>")
+    L.append(f"<b>\U0001f7e2 OPERAZIONI APERTE ORA: {len(open_)}</b>")
     if not open_:
         L.append("\u2022 nessuna")
     else:
@@ -223,30 +292,26 @@ def screen(s=None, symbols=None, capital=None, risk_pct=None):
             r_now = None if cur is None else _r(p["entry"], cur, p["stop"], p["side"])
             pc = _pct(p["entry"], cur, p["side"])
             emo = _pl_emoji(r_now)
-            side = "LONG" if p["side"] == "long" else "SHORT"
-            L.append(f"{emo} <b>{sym}</b> {side}")
-            L.append(f"   entrata {_fmt(p['entry'])} \u2192 ora {_fmt(cur)}")
-            L.append(f"   stop {_fmt(p['stop'])} \u00b7 target {_fmt(p['target'])} \u00b7 "
-                     f"{p.get('bars', 0)}/5 barre")
-            pl = []
+            verso = "al RIALZO" if p["side"] == "long" else "al RIBASSO"
+            L.append(f"{emo} <b>{label(sym)}</b> \u00b7 {verso}")
+            L.append(f"   sono entrato a {_fmt(p['entry'])}, ora vale {_fmt(cur)}")
+            L.append(f"   perdita massima (stop) {_fmt(p['stop'])} \u00b7 obiettivo {_fmt(p['target'])}")
+            bars = p.get("bars", 0)
+            L.append(f"   giorni in corso: {bars} di 5 (chiudo da solo al quinto)")
             if r_now is not None:
-                pl.append(f"{r_now:+.2f}R")
-                pl.append(f"{r_now * eur:+.2f}\u20ac su {cap:.0f}\u20ac")
-            if pc is not None:
-                pl.append(f"{pc:+.2f}%")
-            if pl:
-                L.append("   P/L ora: " + " \u00b7 ".join(pl))
+                stato = "sta guadagnando" if r_now > 0 else ("sta perdendo" if r_now < 0 else "in pari")
+                L.append(f"   {stato}: {r_now * eur:+.2f}\u20ac (su {cap:.0f}\u20ac provati) \u00b7 {pc:+.2f}%")
             if p.get("reason"):
-                L.append(f"   perche': {p['reason']}")
-            L.append(f"   aperta {p.get('entry_ts', '')}")
+                L.append(f"   perche' sono entrato: {pretty_reason(p['reason'])}")
+            L.append(f"   aperta il {p.get('entry_ts', '')[:16].replace('T', ' ')}")
     L.append("")
 
     watch = [x for x in (symbols or []) if x not in open_]
-    L.append(f"<b>\U0001f7e1 NON PRESE \u2014 seguite, in attesa di segnale: {len(watch)}</b>")
-    L.append("\u2022 " + (", ".join(watch) if watch else "nessuna"))
+    L.append(f"<b>\U0001f7e1 SEGUO, NON HO ANCORA COMPRATO: {len(watch)}</b>")
+    L.append("\u2022 " + (", ".join(label(x) for x in watch) if watch else "nessuno"))
     L.append("")
 
-    L.append(f"<b>Chiuse: {len(closed)}</b>")
+    L.append(f"<b>CHIUSE: {len(closed)}</b>")
     if not closed:
         L.append("\u2022 nessuna")
     else:
@@ -254,20 +319,20 @@ def screen(s=None, symbols=None, capital=None, risk_pct=None):
         wins = [r for r in rs if r > 0]
         tot = sum(rs)
         sim = tot * eur
-        L.append(f"\u2022 {len(rs)} totali \u00b7 {len(wins)} vinte (\U0001f7e2) \u00b7 "
-                 f"{len(rs) - len(wins)} perse (\U0001f534) \u00b7 hit {len(wins) / len(rs) * 100:.0f}%")
-        L.append(f"\u2022 risultato {tot:+.2f}R \u00b7 expectancy {tot / len(rs):+.2f}R")
-        L.append(f"\u2022 su {cap:.0f}\u20ac, rischiando {eur:.2f}\u20ac a operazione: "
-                 f"{sim:+.2f}\u20ac ({sim / cap * 100:+.2f}% del capitale). Simulazione.")
+        L.append(f"\u2022 {len(rs)} in tutto: {len(wins)} in utile, "
+                 f"{len(rs) - len(wins)} in perdita ({len(wins) / len(rs) * 100:.0f}% indovinate)")
+        L.append(f"\u2022 risultato {sim:+.2f}\u20ac su {cap:.0f}\u20ac provati "
+                 f"({sim / cap * 100:+.2f}%), cioe' {tot:+.2f} volte il rischio di una singola operazione")
         for t in closed[-8:]:
             emo = _pl_emoji(t["r"])
-            side = "LONG" if t["side"] == "long" else "SHORT"
-            why = t.get("exit_reason") or t.get("reason", "")
-            L.append(f"{emo} {t['symbol']} {side} {_fmt(t['entry'])}\u2192{_fmt(t.get('exit'))} "
-                     f"{t['r']:+.2f}R ({why})")
+            verso = "rialzo" if t["side"] == "long" else "ribasso"
+            why = {"stop": "stop", "target": "obiettivo", "time": "tempo scaduto"}.get(
+                t.get("exit_reason"), t.get("exit_reason") or "")
+            L.append(f"{emo} {label(t['symbol'])} al {verso}: {_fmt(t['entry'])}\u2192{_fmt(t.get('exit'))} "
+                     f"\u00b7 {t['r'] * eur:+.2f}\u20ac ({why})")
     L.append("")
-    L.append("<i>Paper: simulazione su prezzi reali. Non e' un consiglio finanziario. "
-             "Soldi veri: 0.</i>")
+    L.append("<i>Simulazione su prezzi veri, non e' un consiglio e non ho mosso soldi. "
+             "Serve a misurare se la regola funziona, prima di rischiare davvero.</i>")
     return "\n".join(L)
 
 
@@ -275,7 +340,7 @@ def report(s=None):
     s = s or load()
     closed = s["closed"]
     if not closed:
-        return "Registro paper: 0 operazioni chiuse."
+        return "Simulazione: 0 operazioni chiuse."
     rs = [t["r"] for t in closed]
     wins = [r for r in rs if r > 0]
     exp = sum(rs) / len(rs)
@@ -287,9 +352,9 @@ def report(s=None):
         dd = min(dd, eq - peak)
     why = [t.get("exit_reason") or t.get("reason", "") for t in closed]
     time_ex = sum(1 for x in why if x == "time")
-    return (f"Registro paper: {len(rs)} chiuse, hit {len(wins)/len(rs)*100:.0f}%, "
-            f"totale {sum(rs):+.2f}R, expectancy {exp:+.2f}R, "
-            f"max drawdown {dd:.2f}R, uscite sul tempo {time_ex}/{len(rs)}, "
+    return (f"Simulazione: {len(rs)} chiuse, {len(wins) / len(rs) * 100:.0f}% in utile, "
+            f"totale {sum(rs):+.2f} volte il rischio, attesa {exp:+.2f} per operazione, "
+            f"perdita massima dal picco {dd:.2f}, chiuse per tempo {time_ex}/{len(rs)}, "
             f"aperte {len(s['open'])}")
 
 
@@ -301,7 +366,7 @@ def earnings(s=None, capital=None, risk_pct=None):
     cap, rpct, eur = _money(capital, risk_pct)
     closed = s["closed"]
     if not closed:
-        return ("Guadagno: 0. Nessuna operazione chiusa nel registro paper. "
+        return ("Guadagno: 0. Nessuna operazione chiusa nella simulazione. "
                 "Soldi veri: 0.")
     rs = [t["r"] for t in closed]
     wins = [r for r in rs if r > 0]
@@ -310,14 +375,16 @@ def earnings(s=None, capital=None, risk_pct=None):
     return (
         "<b>Stima del guadagno</b>\n"
         "Soldi veri guadagnati dal bot: <b>0</b> (nessun ordine, nessun conto collegato).\n"
-        f"Registro paper: {len(rs)} chiuse, {len(wins)} in utile, hit {len(wins)/len(rs)*100:.0f}%.\n"
-        f"Risultato: <b>{tot:+.2f}R</b> (expectancy {tot/len(rs):+.3f}R per operazione).\n"
-        f"Capitale simulato {cap:.0f}\u20ac, rischio {rpct:.1f}% a operazione "
-        f"({eur:.2f}\u20ac): risultato <b>{sim:+.2f}\u20ac</b> ({sim/cap*100:+.2f}% del capitale). "
+        f"Nella simulazione: {len(rs)} operazioni chiuse, {len(wins)} in utile "
+        f"({len(wins)/len(rs)*100:.0f}%).\n"
+        f"Risultato: <b>{tot:+.2f} volte il rischio di una singola operazione</b> "
+        f"({tot/len(rs):+.3f} per operazione).\n"
+        f"Su un capitale finto di {cap:.0f}\u20ac, rischiando {rpct:.1f}% "
+        f"({eur:.2f}\u20ac) a operazione: <b>{sim:+.2f}\u20ac</b> ({sim/cap*100:+.2f}% del capitale). "
         "Simulazione, non soldi reali.\n"
         "Aperte ora: " + str(len(s["open"])) + "\n"
         "Verdetto: " + ("positivo, ma piccolo campione" if tot > 0
-                        else "negativo. Con questo campione non e' un edge.")
+                        else "negativo. Con questo campione non e' un vantaggio reale.")
     )
 
 
