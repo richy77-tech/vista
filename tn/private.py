@@ -168,9 +168,10 @@ def build_brief():
     else:
         L.append("Calendario: nessun evento rilevante oggi.")
     L.append("")
-    L.append("<i>" + paper.report() + "</i>")
-    L.append("")
-    L.append("<i>Paper register. Non e' consiglio finanziario.</i>")
+    # Le operazioni finiscono nel brief stesso, non solo dietro il comando
+    # "operazioni": prese/apette col pallino, P/L ora, stop/target, chiuse con
+    # l'esito. Richy ha chiesto di non vedere "sempre la stessa schermata".
+    L.append(paper.screen(symbols=c["symbols"]))
     return "\n".join(L)
 
 
