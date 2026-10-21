@@ -356,6 +356,11 @@ def _desk_rules(cfg, question):
 
 def _desk(cfg, question):
     """Desk con modello se c'e', altrimenti desk a regole. Mai silenzio."""
+    key = os.environ.get("AI_API_KEY")
+    if not key or ai_blocked():
+        # Nessun modello: non raccolgo il contesto pesante (prezzi+news+calendario)
+        # per niente, rispondo subito a regole.
+        return _desk_rules(cfg, question)
     ctx = _desk_context(cfg)
     known = kb.lookup(question, limit=3)
     if known:
