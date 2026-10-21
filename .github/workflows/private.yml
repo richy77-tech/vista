@@ -44,24 +44,36 @@ jobs:
             fi
             return 0
           }
+          # Ogni comando di rete ha un tetto di tempo: un git push bloccato non
+          # deve congelare il loop (e' quello che e' successo stanotte: due catene
+          # mute per ore mentre la run risultava "in_progress").
           end=$(( $(date +%s) + 19800 ))
           n=0
           while [ "$(date +%s)" -lt "$end" ]; do
             # Risposta ai messaggi ogni ~40s: l'agente deve rispondere subito,
             # non al giro dei 20 minuti.
-            python -m tn.private --poll || true
+            timeout 180 python -m tn.private --poll || true
             n=$((n + 1))
+            date -u +%FT%TZ > hb_private.txt
             if [ $((n % 30)) -eq 0 ]; then
               echo "== giro $(date -u +%FT%TZ) =="
-              python -m tn.private --auto || echo "giro fallito, continuo"
-              for f in private_state.json paper_state.json ai_cache.json; do
+              # Se su main c'e' codice piu' nuovo del mio checkout, esco: una run
+              # nuova fara' il giro col codice aggiornato. Cosi' un deploy non
+              # resta invisibile per 5 ore dietro una catena vecchia.
+              timeout 60 git fetch --quiet origin main || true
+              if ! timeout 30 git diff --quiet HEAD origin/main -- tn newsbot.py .github/workflows 2>/dev/null; then
+                echo "checkout vecchio: esco per lasciare il posto a una run nuova"
+                exit 0
+              fi
+              timeout 600 python -m tn.private --auto || echo "giro fallito, continuo"
+              for f in private_state.json paper_state.json ai_cache.json hb_private.txt; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
               if ! git diff --cached --quiet; then
                 if guard; then
-                  git commit -m "private state $(date -u +%FT%TZ)" || true
-                  git pull --rebase --autostash --quiet || true
-                  git push --quiet || echo "push fallito, riprovo al giro dopo"
+                  timeout 60 git commit -m "private state $(date -u +%FT%TZ)" || true
+                  timeout 90 git pull --rebase --autostash --quiet || { git rebase --abort 2>/dev/null || true; }
+                  timeout 90 git push --quiet || echo "push fallito, riprovo al giro dopo"
                 fi
               fi
             fi

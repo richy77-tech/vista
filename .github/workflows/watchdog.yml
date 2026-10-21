@@ -1,9 +1,10 @@
 name: Watchdog
 
 # Rete di sicurezza: il bot news e il bot privato non devono MAI restare fermi.
-# Ogni 15 minuti controllo se esiste una run viva della catena; se no, la riavvio.
-# Cosi' se il loop muore (cron droppato, run cancellata, errore), il canale
-# riparte da solo senza che nessuno debba toccare niente.
+# Ogni 15 minuti controllo il battito VERO (hb_tn.txt / hb_private.txt), non lo
+# stato "in_progress" della run: una run puo' restare in_progress per ore mentre
+# il loop e' congelato su un git bloccato, e il battito e' l'unica prova che gira.
+# Se il battito e' vecchio, cancello le run attive e ne lancio una nuova.
 on:
   schedule:
     - cron: "*/15 * * * *"
@@ -21,18 +22,53 @@ jobs:
         env:
           GH_PAT: ${{ secrets.TN_DISPATCH_TOKEN }}
         run: |
-          for wf in tn.yml private.yml; do
-            n=$(curl -s -H "Authorization: token $GH_PAT" -H "User-Agent: watchdog" \
-              "https://api.github.com/repos/richy77-tech/vista/actions/workflows/$wf/runs?per_page=20" \
-              | python3 -c "import sys,json;d=json.load(sys.stdin);r=d.get('workflow_runs',[]);print(sum(1 for x in r if x['status'] in ('queued','in_progress','pending')))")
-            if [ "${n:-0}" -eq 0 ]; then
-              echo "$wf fermo, lo riavvio"
-              curl -s -o /dev/null -w "$wf dispatch -> %{http_code}\n" -X POST \
-                -H "Authorization: token $GH_PAT" \
-                -H "Accept: application/vnd.github+json" \
-                "https://api.github.com/repos/richy77-tech/vista/actions/workflows/$wf/dispatches" \
-                -d '{"ref":"main"}'
+          REPO=richy77-tech/vista
+          LIMIT=50   # minuti oltre i quali si considera fermo
+          burn() {   # cancella tutte le run attive di un workflow
+            wf=$1
+            curl -s -H "Authorization: token $GH_PAT" -H "User-Agent: watchdog" \
+              "https://api.github.com/repos/$REPO/actions/workflows/$wf/runs?per_page=30" \
+              | python3 -c "import sys,json;[print(x['id']) for x in json.load(sys.stdin).get('workflow_runs',[]) if x['status'] in ('in_progress','queued','pending','requested','waiting')]" \
+              | while read -r id; do
+                  curl -s -o /dev/null -X POST -H "Authorization: token $GH_PAT" -H "User-Agent: watchdog" \
+                    "https://api.github.com/repos/$REPO/actions/runs/$id/cancel"
+                  echo "  cancel $id"
+                done
+          }
+          active() { # quante run vive per un workflow
+            wf=$1
+            curl -s -H "Authorization: token $GH_PAT" -H "User-Agent: watchdog" \
+              "https://api.github.com/repos/$REPO/actions/workflows/$wf/runs?per_page=30" \
+              | python3 -c "import sys,json;d=json.load(sys.stdin);print(sum(1 for x in d.get('workflow_runs',[]) if x['status'] in ('in_progress','queued','pending','requested','waiting')))"
+          }
+          dispatch() {
+            curl -s -o /dev/null -w "$1 dispatch -> %{http_code}\n" -X POST \
+              -H "Authorization: token $GH_PAT" -H "Accept: application/vnd.github+json" \
+              -H "User-Agent: watchdog" \
+              "https://api.github.com/repos/$REPO/actions/workflows/$1/dispatches" \
+              -d '{"ref":"main"}'
+          }
+          for pair in "tn.yml:hb_tn.txt" "private.yml:hb_private.txt"; do
+            wf=${pair%%:*}; hb=${pair##*:}
+            ts=$(curl -s -H "Authorization: token $GH_PAT" -H "User-Agent: watchdog" \
+              "https://api.github.com/repos/$REPO/commits?path=$hb&per_page=1" \
+              | python3 -c "import sys,json;d=json.load(sys.stdin);print(d[0]['commit']['committer']['date'] if d else '')")
+            age=$(HB="$ts" python3 -c "import datetime,os;t=os.environ.get('HB','');t=datetime.datetime.fromisoformat(t.replace('Z','+00:00')) if t else None;print(int((datetime.datetime.now(datetime.timezone.utc)-t).total_seconds()//60) if t else 99999)")
+            echo "$wf: ultimo battito $ts (${age} min fa)"
+            n=$(active "$wf")
+            if [ "${age:-99999}" -gt "$LIMIT" ]; then
+              echo "$wf fermo da ${age} min (run attive: ${n}). Cancello e riparto."
+              [ "${n:-0}" -gt 0 ] && burn "$wf"
+              sleep 25
+              if [ "$(active "$wf")" -gt 0 ]; then
+                echo "$wf: c'e' ancora una run in coda, aspetto il prossimo giro del watchdog"
+              else
+                dispatch "$wf"
+              fi
+            elif [ "${n:-0}" -eq 0 ]; then
+              echo "$wf: battito ok ma nessuna run viva, lo riavvio"
+              dispatch "$wf"
             else
-              echo "$wf vivo ($n run attive)"
+              echo "$wf vivo (battito ${age} min, run attive ${n})"
             fi
           done

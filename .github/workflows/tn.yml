@@ -58,19 +58,27 @@ jobs:
           end=$(( $(date +%s) + 19800 ))   # 5h30
           while [ "$(date +%s)" -lt "$end" ]; do
             echo "== giro $(date -u +%FT%TZ) =="
-            python newsbot.py --auto || echo "giro fallito, continuo"
+            # Se su main c'e' codice piu' nuovo del mio checkout, esco: una run
+            # nuova fara' il giro col codice aggiornato.
+            timeout 60 git fetch --quiet origin main || true
+            if ! timeout 30 git diff --quiet HEAD origin/main -- tn newsbot.py .github/workflows 2>/dev/null; then
+              echo "checkout vecchio: esco per lasciare il posto a una run nuova"
+              exit 0
+            fi
+            timeout 900 python newsbot.py --auto || echo "giro fallito, continuo"
+            date -u +%FT%TZ > hb_tn.txt
             for f in alert_state.json digest_state.json news_state.json \
                      ai_cache.json \
                      brief_state.json event_state.json commands_state.json \
-                     weekly_state.json close_state.json sunday_state.json; do
+                     weekly_state.json close_state.json sunday_state.json hb_tn.txt; do
               [ -f "$f" ] && git add -f "$f"
             done
             if ! git diff --staged --quiet; then
               if guard; then
-                git commit -m "state: $(date -u +%FT%TZ)" \
-                  && { git pull --rebase --autostash -q || true; git push || echo "push saltato"; }
+                timeout 60 git commit -m "state: $(date -u +%FT%TZ)" \
+                  && { timeout 90 git pull --rebase --autostash -q || { git rebase --abort 2>/dev/null || true; }; timeout 90 git push || echo "push saltato"; }
               else
-                git reset -q
+                timeout 30 git reset -q
               fi
             fi
             sleep 1200
