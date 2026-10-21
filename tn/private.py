@@ -177,7 +177,8 @@ def build_brief():
 HELP = ("Comandi: /brief (manda ora il brief) · /asset (lista gli asset seguiti) · "
         "/stop (sospendi il brief giornaliero)\n"
         "Oppure scrivimi in italiano normale: \"come sta il mercato\", \"quanto sta "
-        "il bitcoin\", \"notizie\", \"come vanno le operazioni\", \"chiudi tutto\".")
+        "il bitcoin\", \"notizie\", \"operazioni\" (cosa fa e quali ha preso), "
+        "\"chiudi tutto\".")
 
 
 def poll(token, chat):
@@ -210,13 +211,18 @@ def poll(token, chat):
                 send(token, chat, "Ripreso. Il brief torna all'ora scelta.")
             elif not low.startswith("/"):
                 c = cfg()
-                ans = chat.reply(txt, c)
+                ans = chat.reply(txt, c) or ""
                 save_cfg(c)
+                if not ans.strip():
+                    ans = "Su questo non ho una risposta. " + chat.HELP_TEXT
                 send(token, chat, ans[:4000])
         except Exception as e:
             # Un messaggio che rompe non deve far cadere il resto della coda.
+            import traceback
+            traceback.print_exc()
             try:
-                send(token, chat, f"Qualcosa non torna qui ({type(e).__name__}).")
+                send(token, chat, f"Non sono riuscito a rispondere ({type(e).__name__}). "
+                                   "Riprova, o scrivi /help.")
             except Exception:
                 pass
         # Ricevuta leggibile: prova che il bot ha letto davvero, visibile nel file di stato.

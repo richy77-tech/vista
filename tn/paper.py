@@ -139,6 +139,58 @@ def step(symbols, s=None, dry=False):
     return s, events
 
 
+def _fmt(x):
+    if x is None:
+        return "n/d"
+    ax = abs(x)
+    return f"{x:,.4f}" if ax < 10 else (f"{x:,.2f}" if ax < 1000 else f"{x:,.0f}")
+
+
+def screen(s=None, symbols=None):
+    """Schermata operazioni, chiara: cosa fa, quali ha preso, quali no."""
+    s = s or load()
+    open_ = s.get("open") or {}
+    closed = s.get("closed") or []
+    L = ["<b>OPERAZIONI</b> \u2014 registro paper (soldi veri fermi, nessun ordine vero)", ""]
+    L.append("<b>Cosa fa</b>")
+    L.append("\u2022 entra quando il prezzo rompe il massimo/minimo del giorno prima")
+    L.append("\u2022 stop 1.5xATR \u00b7 target 3xATR \u00b7 chiude a target, a stop o dopo 5 barre")
+    L.append("\u2022 una posizione per asset, mai piramidare")
+    L.append("")
+    L.append(f"<b>Prese (aperte ora): {len(open_)}</b>")
+    if not open_:
+        L.append("\u2022 nessuna")
+    else:
+        for sym, p in open_.items():
+            cur = None
+            try:
+                cur = ohlc(sym, rng="5d")[-1]["c"]
+            except Exception:
+                pass
+            r = (" \u00b7 ora %+.2fR" % _r(p["entry"], cur, p["stop"], p["side"])) if cur else ""
+            L.append(f"\u2022 <b>{sym}</b> {p['side']} @ {_fmt(p['entry'])} \u00b7 "
+                     f"stop {_fmt(p['stop'])} \u00b7 target {_fmt(p['target'])}"
+                     f" \u00b7 {p.get('bars', 0)} barre{r}")
+    L.append("")
+    watch = [x for x in (symbols or []) if x not in open_]
+    L.append(f"<b>Non prese (seguite, in attesa di segnale): {len(watch)}</b>")
+    L.append("\u2022 " + (", ".join(watch) if watch else "nessuna"))
+    L.append("")
+    L.append("<b>Chiuse</b>")
+    if not closed:
+        L.append("\u2022 nessuna")
+    else:
+        rs = [t["r"] for t in closed]
+        wins = [r for r in rs if r > 0]
+        tot = sum(rs)
+        L.append(f"\u2022 {len(rs)} totali \u00b7 {len(wins)} in utile \u00b7 {len(rs) - len(wins)} in perdita")
+        L.append(f"\u2022 risultato {tot:+.2f}R \u00b7 expectancy {tot / len(rs):+.2f}R")
+        L.append("\u2022 ultime: " + ", ".join(f"{t['symbol']} {t['r']:+.2f}R" for t in closed[-5:]))
+    L.append("")
+    L.append("<i>Paper: simulazione su prezzi reali. Non e' un consiglio finanziario.</i>")
+    return "\n".join(L)
+
+
 def report(s=None):
     s = s or load()
     closed = s["closed"]

@@ -165,7 +165,7 @@ HELP_TEXT = (
     "• \"quanto sta il bitcoin\" / \"l'oro?\" → prezzo, variazione, RSI\n"
     "• \"cosa e' successo\" / \"notizie\" → le notizie del momento\n"
     "• \"calendario di oggi\" → eventi macro\n"
-    "• \"come vanno le operazioni\" → registro paper\n"
+    "• \"operazioni\" / \"che operazioni hai preso\" → cosa fa e quali ha preso, quali no\n"
     "• \"quanto ha guadagnato\" → stima onesta del guadagno (in R e in euro simulati)\n"
     "• \"chiudi tutto\" → chiude il paper (i soldi veri restano fermi)\n"
     "• \"aggiungi il gas\" / \"togli l'oro\" → cambia gli asset seguiti\n"
@@ -231,8 +231,9 @@ def reply(text, cfg):
     if any(k in t for k in ("quanto ha guadagnato", "quanto guadagn", "guadagn", "pnl",
                             "profitto", "soldi", "p&l", "rendimento", "bilancio")):
         return paper.earnings()
-    if any(k in t for k in ("come va", "posizion", "operazioni", "paper", "registro", "aperte")):
-        return paper.report()
+    if (any(k in t for k in ("come va", "posizion", "operazioni", "paper", "registro", "aperte"))
+            or re.search(r"\bprese\b", t) or "che operazioni" in t or "non prese" in t):
+        return paper.screen(symbols=cfg.get("symbols"))
     if any(k in t for k in ("calendario", "calendar", "eventi di oggi", "dati di oggi")):
         return _calendar()
     if any(k in t for k in ("notizi", "news", "cosa e' successo", "cosa è successo", "ultime", "breaking")):
