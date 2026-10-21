@@ -20,7 +20,7 @@ SOURCES = [
     {"name": "WSJ Markets", "url": "https://feeds.a.dj.com/rss/RSSMarketsMain.xml", "lang": "en", "tier": 2},
     {"name": "MarketWatch", "url": "https://feeds.content.dowjones.io/public/rss/mw_topstories", "lang": "en", "tier": 2},
     {"name": "CNBC", "url": "https://www.cnbc.com/id/100003114/device/rss/rss.html", "lang": "en", "tier": 2},
-    {"name": "Yahoo Finance", "url": "https://finance.yahoo.com/news/rssindex", "lang": "en", "tier": 2},
+    {"name": "FT", "url": "https://www.ft.com/rss/home", "lang": "en", "tier": 2},
     {"name": "Investing.com", "url": "https://www.investing.com/rss/news_25.rss", "lang": "en", "tier": 2},
     {"name": "Cointelegraph", "url": "https://cointelegraph.com/rss", "lang": "en", "tier": 2},
     {"name": "CoinDesk", "url": "https://www.coindesk.com/arc/outboundfeeds/rss/", "lang": "en", "tier": 2},
