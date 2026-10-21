@@ -4,6 +4,7 @@ verificati. Le fonti ufficiali (Fed, ECB) hanno tier 1 e pesano di piu'.
 """
 import hashlib
 import html
+import os
 import time
 import xml.etree.ElementTree as ET
 from datetime import datetime, timezone
@@ -90,14 +91,46 @@ def fetch_all(per_source=12):
     return items, errors
 
 
+def precollapse(items):
+    """Stessa notizia da piu' fonti: ne resta una sola. Il testo e' quello della
+    prima fonte vista, le altre finiscono in 'sources'."""
+    out = []
+    for it in items:
+        for kept in out:
+            if ai.is_dup(it["title"], kept["title"]):
+                if it.get("source") not in kept["sources"]:
+                    kept["sources"].append(it.get("source"))
+                    kept.setdefault("extra_urls", []).append(it["url"])
+                break
+        else:
+            it = dict(it)
+            it["sources"] = [it.get("source")]
+            out.append(it)
+    return out
+
+
+# Quante news al ciclo mando al modello. Un feed da 13 fonti ne porta ~100: a
+# raffica il modello gratuito chiude la porta (429) e l'analisi AI muore per
+# tutte. Il modello vede la testa della lista, quella che poi finisce nel post;
+# le regole coprono tutto il resto.
+AI_TOP = int(os.environ.get("AI_TOP", "8"))
+_RANK = {"CRITICAL": 3, "HIGH": 2, "MEDIUM": 1, "LOW": 0}
+
+
+def _rank(x):
+    return (_RANK[x["impact"]], x["ts"])
+
+
 def pipeline(per_source=12, dedup_thr=0.6):
     """Esegue l'intera catena e restituisce (news, errori)."""
     raw, errors = fetch_all(per_source)
-    for it in raw:
-        it.update(ai.enrich(it))
+    raw = [ai.rules(it) for it in raw]
+    raw = precollapse(raw)
     news = ai.dedup(raw)
-    news.sort(key=lambda x: ({"CRITICAL": 3, "HIGH": 2, "MEDIUM": 1, "LOW": 0}[x["impact"]],
-                             x["ts"]), reverse=True)
+    news.sort(key=_rank, reverse=True)
+    for it in news[:AI_TOP]:
+        it.update(ai.overlay(it))
+    news.sort(key=_rank, reverse=True)
     return news, errors
 
 

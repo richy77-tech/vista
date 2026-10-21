@@ -8,9 +8,31 @@ Se e' configurata una chiave AI (AI_API_KEY, endpoint OpenAI-compatibile) si usa
 il modello; altrimenti si usa il classificatore a regole, che funziona sempre e
 non inventa nulla. L'interpretazione AI non e' mai una previsione di prezzo.
 """
+import hashlib
 import json
 import os
 import re
+import time
+
+# Il modello gratuito risponde a raffica, poi chiude la porta (429). Se fallisce
+# tre volte di fila smetto di provarci per un quarto d'ora: le regole restano
+# accese e il giro successivo riprova da solo.
+_AI_FAILS = 0
+_AI_UNTIL = 0.0
+
+
+def ai_blocked():
+    return time.time() < _AI_UNTIL
+
+
+def note_ai(ok):
+    global _AI_FAILS, _AI_UNTIL
+    if ok:
+        _AI_FAILS, _AI_UNTIL = 0, 0.0
+    else:
+        _AI_FAILS += 1
+        if _AI_FAILS >= 3:
+            _AI_FAILS, _AI_UNTIL = 0, time.time() + 900
 
 CATEGORIES = {
     "BREAKING": ["breaking", "urgent", "flash", "just in", "ultim'ora"],
@@ -121,11 +143,54 @@ def rule_sentiment(it):
     return {"score": score, "label": label}
 
 
+# Il modello gratuito ha un tetto di token al giorno (200k su Groq). Un feed da
+# 13 fonti riporta le stesse notizie ogni 20 minuti: senza memoria l'analisi
+# brucia il tetto in un'ora e per il resto del giorno tace. Qui tengo da parte
+# il verdetto di ogni notizia gia' vista, su file, cosi' il ciclo successivo
+# non la richiede.
+MEMO_PATH = os.environ.get(
+    "AI_MEMO",
+    os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                 "ai_cache.json"))
+MEMO_MAX = 500
+_MEMO = None
+
+
+def _memo_key(it):
+    raw = (it.get("title", "") + "|" + (it.get("summary") or "")[:200])
+    return hashlib.sha1(raw.encode("utf-8", "ignore")).hexdigest()[:20]
+
+
+def _memo_load():
+    global _MEMO
+    if _MEMO is None:
+        try:
+            with open(MEMO_PATH) as f:
+                _MEMO = json.load(f)
+        except Exception:
+            _MEMO = {}
+    return _MEMO
+
+
+def _memo_put(key, val):
+    m = _memo_load()
+    m[key] = val
+    while len(m) > MEMO_MAX:            # via le voci piu' vecchie
+        m.pop(next(iter(m)), None)
+    try:
+        tmp = MEMO_PATH + ".tmp"
+        with open(tmp, "w") as f:
+            json.dump(m, f, ensure_ascii=False)
+        os.replace(tmp, MEMO_PATH)
+    except Exception:
+        pass
+
+
 def _ai_analyze(it):
     """Hook LLM opzionale, endpoint OpenAI-compatibile. Non testato senza chiave:
     se manca o fallisce, si torna alle regole. Non inventa numeri."""
     key = os.environ.get("AI_API_KEY")
-    if not key:
+    if not key or ai_blocked():
         return None
     base = os.environ.get("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
     model = os.environ.get("AI_MODEL", "gpt-4o-mini")
@@ -147,33 +212,56 @@ def _ai_analyze(it):
         d = post_json(base + "/chat/completions", payload,
                       headers={"Authorization": "Bearer " + key}, timeout=40, tries=2)
         data = d["choices"][0]["message"]["content"]
-        return json.loads(data)
+        out = json.loads(data)
+        note_ai(True)
+        return out
     except Exception:
+        note_ai(False)
         return None
+
+
+def rules(it):
+    """Livello regole: offline, gratis, sempre acceso. Non inventa nulla."""
+    cats = rule_categories(it)
+    it = dict(it)
+    it.update({"category": cats[0], "categories": cats, "assets": rule_assets(it),
+               "impact": rule_impact(it, cats), "sentiment": rule_sentiment(it),
+               "ai_analysis": ""})
+    return it
+
+
+def overlay(it):
+    """Livello AI su un item gia' passato dalle regole. Senza chiave (o con il
+    modello in pausa) l'item torna esattamente com'e'."""
+    key = _memo_key(it)
+    a = _memo_load().get(key)
+    if a is None:
+        a = _ai_analyze(it)
+        if a:
+            _memo_put(key, a)
+    if not a:
+        return it
+    cats = [c for c in (a.get("categories") or it["categories"]) if c in CATEGORIES] \
+        or it["categories"]
+    assets = a.get("assets") or it["assets"]
+    impact = a.get("impact") if a.get("impact") in ("LOW", "MEDIUM", "HIGH", "CRITICAL") \
+        else it["impact"]
+    sent = it["sentiment"]
+    if isinstance(a.get("sentiment_score"), int):
+        s = max(0, min(100, a["sentiment_score"]))
+        sent = {"score": s, "label": "bullish" if s >= 65
+                else "bearish" if s <= 35 else "neutral"}
+    it = dict(it)
+    it.update({"category": cats[0], "categories": cats, "assets": assets,
+               "impact": impact, "sentiment": sent,
+               "ai_analysis": a.get("interpretation", "")})
+    return it
 
 
 def enrich(it):
     """Pipeline completa su una news: categorie, asset, impatto, sentiment.
     Ritorna il dict arricchito. 'ai_analysis' resta separato dal fatto."""
-    cats = rule_categories(it)
-    assets = rule_assets(it)
-    impact = rule_impact(it, cats)
-    sent = rule_sentiment(it)
-    ai = _ai_analyze(it)
-    analysis = ""
-    if ai:
-        cats = [c for c in (ai.get("categories") or cats) if c in CATEGORIES] or cats
-        assets = ai.get("assets") or assets
-        impact = ai.get("impact") if ai.get("impact") in ("LOW", "MEDIUM", "HIGH", "CRITICAL") else impact
-        if isinstance(ai.get("sentiment_score"), int):
-            sent = {"score": max(0, min(100, ai["sentiment_score"])),
-                    "label": "bullish" if ai["sentiment_score"] >= 65
-                    else "bearish" if ai["sentiment_score"] <= 35 else "neutral"}
-        analysis = ai.get("interpretation", "")
-    it = dict(it)
-    it.update({"category": cats[0], "categories": cats, "assets": assets,
-               "impact": impact, "sentiment": sent, "ai_analysis": analysis})
-    return it
+    return overlay(rules(it))
 
 
 def norm_title(t):
@@ -208,6 +296,6 @@ def dedup(items):
                 break
         else:
             it = dict(it)
-            it["sources"] = [it.get("source")]
+            it["sources"] = list(it.get("sources") or [it.get("source")])
             out.append(it)
     return out

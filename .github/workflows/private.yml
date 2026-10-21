@@ -54,7 +54,7 @@ jobs:
             if [ $((n % 30)) -eq 0 ]; then
               echo "== giro $(date -u +%FT%TZ) =="
               python -m tn.private --auto || echo "giro fallito, continuo"
-              for f in private_state.json paper_state.json; do
+              for f in private_state.json paper_state.json ai_cache.json; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
               if ! git diff --cached --quiet; then

@@ -21,6 +21,7 @@ from . import calendar as cal
 from . import paper
 from . import newsengine as ne
 from . import knowledge as kb
+from .ai import ai_blocked, note_ai
 
 DOCTRINE = (
     "Come uso le news:\n"
@@ -177,7 +178,7 @@ HELP_TEXT = (
 def _llm(question, ctx):
     """Hook AI opzionale. Non testato senza chiave: se manca, si torna alle regole."""
     key = os.environ.get("AI_API_KEY")
-    if not key:
+    if not key or ai_blocked():
         return None
     base = os.environ.get("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
     model = os.environ.get("AI_MODEL", "gpt-4o-mini")
@@ -195,8 +196,11 @@ def _llm(question, ctx):
         from .http import post_json
         d = post_json(base + "/chat/completions", payload,
                       headers={"Authorization": "Bearer " + key}, timeout=40, tries=2)
-        return d["choices"][0]["message"]["content"].strip()
+        out = d["choices"][0]["message"]["content"].strip()
+        note_ai(True)
+        return out
     except Exception:
+        note_ai(False)
         return None
 
 
