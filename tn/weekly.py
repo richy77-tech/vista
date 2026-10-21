@@ -391,9 +391,11 @@ def compose_weekly(lang, d):
              if it else
              "<i>Mechanical scenarios from data, not price forecasts. The risk is yours.</i>")
     L.append("")
-    L.append("Buon weekend. Lunedì il calendario riparte e ricominciamo da qui." if it
-             else "Have a good weekend. Monday the calendar resets and we start again.")
-    L.append("")
+    # La chiusura da weekend ha senso solo se il recap esce nel weekend.
+    if datetime.now().weekday() >= 5:
+        L.append("Buon weekend. Lunedì il calendario riparte e ricominciamo da qui." if it
+                 else "Have a good weekend. Monday the calendar resets and we start again.")
+        L.append("")
     L.append(("<i>Informazioni a scopo informativo ed educativo. Non costituiscono "
               "consulenza finanziaria ne' raccomandazione di investimento.</i>" if it else
               "<i>For information and education only. Not financial advice and not an "
