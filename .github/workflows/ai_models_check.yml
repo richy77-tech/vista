@@ -1,0 +1,40 @@
+name: ai-models-check
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Prova GitHub Models (catalogo + una chiamata)
+        env:
+          GH_MODELS_TOKEN: ${{ secrets.GH_MODELS_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json, os, urllib.request
+          tok = os.environ["GH_MODELS_TOKEN"]
+          def call(url, data=None):
+              req = urllib.request.Request(url, data=json.dumps(data).encode() if data else None,
+                  headers={"Authorization": "Bearer " + tok, "Content-Type": "application/json",
+                           "Accept": "application/vnd.github+json"})
+              try:
+                  r = urllib.request.urlopen(req, timeout=40)
+                  return r.status, r.read()[:800]
+              except Exception as e:
+                  return "ERR", (str(e)[:300]).encode()
+          base = "https://models.github.ai/inference"
+          s, b = call("https://models.github.ai/catalog/models")
+          print("CATALOG", s, b[:400])
+          try:
+              ids = [m["id"] for m in json.loads(b)][:60]
+              print("MODELS", ids)
+          except Exception:
+              ids = []
+          for m in (["openai/gpt-4o-mini", "gpt-4o-mini"] + ids[:3]):
+              s, b = call(base + "/chat/completions",
+                  {"model": m, "temperature": 0,
+                   "messages": [{"role": "user", "content": "reply with exactly: pong"}]})
+              print("CHAT", m, s, b[:400])
+          PY
