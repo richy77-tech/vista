@@ -21,6 +21,7 @@ from . import calendar as cal
 from . import paper
 from . import newsengine as ne
 from . import knowledge as kb
+from . import indicators as ind
 from .ai import ai_blocked, note_ai
 
 DOCTRINE = (
@@ -176,27 +177,121 @@ HELP_TEXT = (
 )
 
 
+# Prompt del desk. Ricalca il metodo dei framework multi-agente di trading
+# (TauricResearch/TradingAgents): piu' ruoli su cui il modello si sposta a turno,
+# e un risk manager che puo' dire no. Il modello ragiona, i numeri restano quelli
+# del contesto: se il contesto non li ha, li dichiara mancanti invece di inventarli.
+DESK_SYS = (
+    "Sei il desk di trading dell'agente di Richy. Ragioni a ruoli, in italiano, "
+    "asciutto, senza cerimonie. REGOLE FERME:\n"
+    "1. Usi SOLO i numeri del CONTESTO. Se un dato manca, scrivi 'non ce l'ho', "
+    "non inventarlo mai.\n"
+    "2. Non dai consigli di investimento e non prometti rendimenti. Descrivi, non "
+    "ordini. Nessuna size in denaro vero: al massimo in % di rischio.\n"
+    "3. Il risk manager ha l'ultimo veto: se il quadro e' confuso o il costo/beneficio "
+    "non c'e', la conclusione e' 'niente operazione'.\n"
+    "4. Distingui sempre FATTO (numero) da LETTURA (tua interpretazione).\n"
+    "Formato della risposta, sezioni brevi (max 2 righe l'una):\n"
+    "🎯 QUADRO — una riga su cosa fa il mercato adesso.\n"
+    "📐 TECNICO — trend, RSI, ATR dai dati.\n"
+    "📰 NEWS — solo cio' che sposta, con impatto; se non c'e', dillo.\n"
+    "🌍 MACRO — calendario/contesto; se non c'e', dillo.\n"
+    "🛡️ RISCHIO — cosa puo' andare storto, dove sta lo stop logico.\n"
+    "✅ VERDETTO — operazione si'/no/aspetta, con motivo in una riga.\n"
+    "❓ NON SO — i buchi del contesto.\n"
+    "Dottrina operativa:\n" + DOCTRINE
+)
+
+
+def _tech(sym, lab):
+    """Una riga tecnica su un asset: prezzo, RSI, trend (EMA), ATR%. Dati reali."""
+    try:
+        # 1y di barre: EMA200 ha bisogno di piu' di 3 mesi, altrimenti il trend
+        # esce sempre 'n/d' (bug visto il 21/10).
+        q = md.yahoo(sym, rng="1y")
+    except Exception:
+        return None
+    closes = q.get("closes") or []
+    if not closes:
+        return None
+    p = q.get("price")
+    ps = (f"{p:,.0f}" if p is not None and p >= 1000
+          else f"{p:,.2f}" if p is not None and p >= 10
+          else f"{p:.4f}" if p is not None else "n/d")
+    s = f"{lab} {ps}"
+    r = md.rsi(closes)
+    reg = ind.regime(closes)
+    if r is not None:
+        s += f", RSI {r:.0f}"
+    s += f", trend {reg['state']}"
+    try:
+        a = ind.atr_pct(paper.ohlc(sym))
+        if a is not None:
+            s += f", ATR {a:.2f}%"
+    except Exception:
+        pass
+    return s
+
+
+def _desk_context(cfg):
+    """Contesto reale per il desk: prezzi+indicatori, paper, news, calendario."""
+    lab = _labels()
+    out = ["PREZZI E STATO (barre giornaliere reali):"]
+    for s in cfg.get("symbols", [])[:8]:
+        t = _tech(s, lab.get(s, s))
+        if t:
+            out.append("• " + t)
+    out.append("")
+    out.append("REGISTRO PAPER (nessun denaro vero):")
+    try:
+        out.append(re.sub(r"<[^>]+>", "", paper.report()))
+    except Exception:
+        out.append("registro non disponibile")
+    try:
+        items, _err = ne.pipeline(per_source=5)
+        items.sort(key=lambda x: {"CRITICAL": 0, "HIGH": 1, "MEDIUM": 2, "LOW": 3}.get(x.get("impact"), 4))
+        hot = [it for it in items if it.get("impact") in ("HIGH", "CRITICAL")][:5]
+        out.append("")
+        out.append("NEWS CHE SPOSTANO:")
+        if hot:
+            out.extend(f"• [{it['impact']}] {it['title']} ({it.get('source','')})" for it in hot)
+        else:
+            out.append("• nessuna ad alto impatto")
+    except Exception:
+        out.append("")
+        out.append("NEWS: fonte non raggiungibile")
+    try:
+        events, _e = cal.fetch_week()
+        from datetime import datetime
+        today = datetime.now(cal.ROME).date().isoformat()
+        tod = [e for e in events if e["ts"][:10] == today and e.get("impact") in ("HIGH", "MEDIUM")]
+        out.append("")
+        out.append("CALENDARIO OGGI:")
+        if tod:
+            out.extend(f"• {e['ts'][11:16]} {e['country']} {e['title']} ({e['impact']})" for e in tod[:6])
+        else:
+            out.append("• nulla di rilevante")
+    except Exception:
+        pass
+    return "\n".join(out)
+
+
 def _llm(question, ctx):
-    """Hook AI opzionale. Non testato senza chiave: se manca, si torna alle regole."""
+    """Desk AI opzionale. Senza chiave si torna alle regole, senza fingere."""
     key = os.environ.get("AI_API_KEY")
     if not key or ai_blocked():
         return None
     base = os.environ.get("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
     model = os.environ.get("AI_MODEL", "gpt-4o-mini")
-    sys_prompt = (
-        "Sei l'agente dentro il bot privato di Richy. Rispondi in italiano, breve, "
-        "con i numeri del contesto, mai inventandone. Non dai consigli di "
-        "investimento e non prometti rendimenti. Dottrina operativa:\n" + DOCTRINE
-    )
     payload = {
         "model": model, "temperature": 0,
-        "messages": [{"role": "system", "content": sys_prompt},
+        "messages": [{"role": "system", "content": DESK_SYS},
                      {"role": "user", "content": f"CONTESTO:\n{ctx}\n\nDOMANDA: {question}"}],
     }
     try:
         from .http import post_json
         d = post_json(base + "/chat/completions", payload,
-                      headers={"Authorization": "Bearer " + key}, timeout=40, tries=2)
+                      headers={"Authorization": "Bearer " + key}, timeout=45, tries=2)
         out = d["choices"][0]["message"]["content"].strip()
         note_ai(True)
         return out
@@ -253,11 +348,8 @@ def reply(text, cfg):
     if entry:
         return entry
 
-    # 4) AI (solo con chiave), con contesto reale
-    ctx = "Prezzi:\n" + "\n".join(_price_line(s, lab.get(s, s)) for s in cfg["symbols"][:6])
-    ctx += "\n" + paper.report()
-    if any(k in t for k in ("notizi", "news", "perche", "perché", "mercato", "cosa")):
-        ctx += "\n" + _news(4)
+    # 4) desk AI (solo con chiave), con contesto reale e indicatori
+    ctx = _desk_context(cfg)
     known = kb.lookup(text, limit=3)
     if known:
         ctx += "\n\nVoci di manuale pertinenti:\n" + re.sub(r"<[^>]+>", "", known)

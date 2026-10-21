@@ -186,9 +186,13 @@ def poll(token, chat):
     """Risponde ai comandi. Ritorna il numero di update consumati."""
     try:
         data = api(token, "getUpdates", {"timeout": 0})
-    except Exception:
+    except Exception as e:
+        # 409 = webhook attivo o altro poller: la causa numero uno del 'non risponde'.
+        print("getUpdates fallita:", type(e).__name__, getattr(e, "reason", ""), flush=True)
         return 0
     ups = data.get("result") or []
+    if ups:
+        print("poll:", len(ups), "update", flush=True)
     for u in ups:
         m = u.get("message") or {}
         txt = (m.get("text") or "").strip()
@@ -275,6 +279,28 @@ def auto(token, chat):
         save_state(s)
 
 
+def doctor(token):
+    """Due righe di verita' sulla chat, da leggere nei log: c'e' un webhook che
+    blocca getUpdates? il token vede il bot giusto? Senza questo, un bot muto si
+    diagnostica solo a intuito."""
+    try:
+        w = api(token, "getWebhookInfo", {})
+        print("doctor webhook:", json.dumps(w.get("result", {}))[:300], flush=True)
+    except Exception as e:
+        print("doctor webhook err:", type(e).__name__, flush=True)
+    try:
+        api(token, "deleteWebhook", {"drop_pending_updates": "false"})
+        print("doctor: webhook assente (getUpdates libero)", flush=True)
+    except Exception as e:
+        print("doctor deleteWebhook err:", type(e).__name__, flush=True)
+    try:
+        me = api(token, "getMe", {})
+        r = me.get("result") or {}
+        print("doctor bot:", r.get("username"), "id", r.get("id"), flush=True)
+    except Exception as e:
+        print("doctor getMe err:", type(e).__name__, flush=True)
+
+
 def main():
     token = os.environ.get("PRIVATE_BOT_TOKEN")
     if not token:
@@ -282,7 +308,9 @@ def main():
         return 1
     chat = cfg()["chat_id"]
     mode = sys.argv[1] if len(sys.argv) > 1 else "--auto"
-    if mode == "--poll":
+    if mode == "--doctor":
+        doctor(token)
+    elif mode == "--poll":
         # Solo risposta ai messaggi, veloce: cosi' l'agente risponde in pochi
         # secondi invece di aspettare il giro dei 20 minuti.
         poll(token, chat)
