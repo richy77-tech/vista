@@ -17,15 +17,18 @@ import sys
 from datetime import datetime, timezone
 
 from .http import get_json
+from . import indicators as ind
+from . import tunables as T
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 STATE = os.path.join(ROOT, "paper_state.json")
 
-ATR_N = 14
-STOP_ATR = 1.5
-TARGET_ATR = 3.0
-MAX_BARS = 5
+# Parametri: un posto solo (tn/tunables.py). Moduli leggono da li, non da qui.
+ATR_N = T.p("atr_n", 14)
+STOP_ATR = T.p("stop_atr", 1.5)
+TARGET_ATR = T.p("target_atr", 3.0)
+MAX_BARS = T.p("max_bars", 5)
 
 
 def ohlc(sym, rng="6mo"):
@@ -43,14 +46,7 @@ def ohlc(sym, rng="6mo"):
 
 
 def atr(rows, n=ATR_N):
-    if len(rows) < n + 1:
-        return None
-    trs = []
-    for i in range(1, len(rows)):
-        p, r = rows[i - 1]["c"], rows[i]
-        trs.append(max(r["h"] - r["l"], abs(r["h"] - p), abs(r["l"] - p)))
-    w = trs[-n:]
-    return sum(w) / len(w)
+    return ind.atr(rows, n)
 
 
 def load():
@@ -75,6 +71,18 @@ def _r(entry, exit_, stop, side):
     return pnl / risk
 
 
+def describe(side, prev, last, reg, r_now, apct):
+    """Perche' e' entrata, in parole leggibili. Scritta all'apertura, non dopo."""
+    brk = prev["h"] if side == "long" else prev["l"]
+    bits = [f"rottura {'max' if side == 'long' else 'min'} ieri {_fmt(brk)} -> chiusura {_fmt(last['c'])}"]
+    bits.append(f"trend {reg['state']}")
+    if r_now is not None:
+        bits.append(f"RSI {r_now:.0f}")
+    if apct is not None:
+        bits.append(f"volatilita' {apct:.2f}%")
+    return " | ".join(bits)
+
+
 def step(symbols, s=None, dry=False):
     """Un giro: prima chiude quello che va chiuso, poi apre le nuove rotture."""
     s = s or load()
@@ -83,7 +91,7 @@ def step(symbols, s=None, dry=False):
 
     for sym in symbols:
         try:
-            rows = ohlc(sym)
+            rows = ohlc(sym, rng="2y")  # 2y: serve per EMA200 vera, non finta
         except Exception as e:
             events.append(f"{sym}: fonte giu ({type(e).__name__})")
             continue
@@ -97,42 +105,59 @@ def step(symbols, s=None, dry=False):
 
         if pos:
             pos["bars"] = pos.get("bars", 0) + 1
-            exit_ = None
+            exit_, why = None, None
             if pos["side"] == "long":
                 if last["l"] <= pos["stop"]:
-                    exit_ = pos["stop"]
+                    exit_, why = pos["stop"], "stop"
                 elif last["h"] >= pos["target"]:
-                    exit_ = pos["target"]
+                    exit_, why = pos["target"], "target"
             else:
                 if last["h"] >= pos["stop"]:
-                    exit_ = pos["stop"]
+                    exit_, why = pos["stop"], "stop"
                 elif last["l"] <= pos["target"]:
-                    exit_ = pos["target"]
+                    exit_, why = pos["target"], "target"
             if exit_ is None and pos["bars"] >= MAX_BARS:
-                exit_ = last["c"]
-                pos["reason"] = "time"
+                exit_, why = last["c"], "time"
             if exit_ is not None:
-                pos.update({"exit": exit_, "exit_ts": now,
+                pos.update({"exit": exit_, "exit_ts": now, "exit_reason": why,
                             "r": round(_r(pos["entry"], exit_, pos["stop"], pos["side"]), 3)})
-                pos.setdefault("reason", "stop/target")
                 s["closed"].append(pos)
                 del s["open"][sym]
-                events.append(f"{sym}: chiusa {pos['side']} @ {exit_:.4f} -> {pos['r']:+.2f}R ({pos['reason']})")
+                events.append(f"{sym}: chiusa {pos['side']} @ {exit_:.4f} -> {pos['r']:+.2f}R ({why})")
             continue
 
-        # nessuna posizione: cerco una rottura della barra precedente
+        # nessuna posizione: cerco una rottura della barra precedente,
+        # ma solo se il contesto non la contraddice (filtri in tunables.py)
+        closes = [r["c"] for r in rows]
+        reg = ind.regime(closes, T.p("ema_fast", 50), T.p("ema_slow", 200), T.p("slope_n", 10))
+        r_now = ind.rsi(closes, 14)
+        apct = ind.atr_pct(rows, ATR_N)
+
         if last["c"] > prev["h"]:
-            side, entry, stop, tgt = "long", last["c"], last["c"] - STOP_ATR * a, last["c"] + TARGET_ATR * a
+            side = "long"
         elif last["c"] < prev["l"]:
-            side, entry, stop, tgt = "short", last["c"], last["c"] + STOP_ATR * a, last["c"] - TARGET_ATR * a
+            side = "short"
         else:
             continue
+        if apct is not None and apct < T.p("min_atr_pct", 0.10):
+            events.append(f"{sym}: segnale {side} scartato (ATR {apct:.2f}% piatto)")
+            continue
+        if T.p("trend_filter", True) and reg["state"] != ("su" if side == "long" else "giu"):
+            events.append(f"{sym}: segnale {side} scartato (trend {reg['state']})")
+            continue
+
+        entry = last["c"]
+        stop = entry - STOP_ATR * a if side == "long" else entry + STOP_ATR * a
+        tgt = entry + TARGET_ATR * a if side == "long" else entry - TARGET_ATR * a
         s["open"][sym] = {
             "symbol": sym, "side": side, "entry": entry,
             "stop": stop, "target": tgt, "atr": a, "bars": 0,
-            "entry_ts": now, "reason": "",
+            "entry_ts": now,
+            "reason": describe(side, prev, last, reg, r_now, apct),
+            "context": {"trend": reg["state"], "ema_fast": reg["ema_fast"],
+                        "ema_slow": reg["ema_slow"], "rsi": r_now, "atr_pct": apct},
         }
-        events.append(f"{sym}: aperta {side} @ {entry:.4f} stop {stop:.4f} target {tgt:.4f}")
+        events.append(f"{sym}: aperta {side} @ {entry:.4f} stop {stop:.4f} target {tgt:.4f} | {s['open'][sym]['reason']}")
 
     if not dry:
         save(s)
@@ -166,8 +191,9 @@ def screen(s=None, symbols=None, risk_eur=100.0):
     open_ = s.get("open") or {}
     closed = s.get("closed") or []
     L = ["<b>\U0001f4cb OPERAZIONI</b> \u00b7 registro paper (soldi veri fermi, nessun ordine vero)", ""]
-    L.append("<b>Regola</b>: entro sulla rottura del max/min del giorno prima \u00b7 "
-             "stop 1,5\u00d7ATR \u00b7 target 3\u00d7ATR \u00b7 chiudo a target, a stop o dopo 5 barre \u00b7 "
+    L.append("<b>Regola</b>: entro sulla rottura del max/min del giorno prima, "
+             "solo col trend a favore (EMA50/200 e pendenza) e ATR non piatto \u00b7 "
+             "stop 1,5\u00d7ATR \u00b7 target 3\u00d7ATR \u00b7 chiudo a stop, target o dopo 5 barre \u00b7 "
              "una posizione per asset.")
     L.append("")
 
@@ -197,6 +223,8 @@ def screen(s=None, symbols=None, risk_eur=100.0):
                 pl.append(f"{pc:+.2f}%")
             if pl:
                 L.append("   P/L ora: " + " \u00b7 ".join(pl))
+            if p.get("reason"):
+                L.append(f"   perche': {p['reason']}")
             L.append(f"   aperta {p.get('entry_ts', '')}")
     L.append("")
 
@@ -219,8 +247,9 @@ def screen(s=None, symbols=None, risk_eur=100.0):
         for t in closed[-8:]:
             emo = _pl_emoji(t["r"])
             side = "LONG" if t["side"] == "long" else "SHORT"
+            why = t.get("exit_reason") or t.get("reason", "")
             L.append(f"{emo} {t['symbol']} {side} {_fmt(t['entry'])}\u2192{_fmt(t.get('exit'))} "
-                     f"{t['r']:+.2f}R ({t.get('reason', '')})")
+                     f"{t['r']:+.2f}R ({why})")
     L.append("")
     L.append("<i>Paper: simulazione su prezzi reali. Non e' un consiglio finanziario. "
              "Soldi veri: 0.</i>")
@@ -241,9 +270,12 @@ def report(s=None):
         eq += r
         peak = max(peak, eq)
         dd = min(dd, eq - peak)
+    why = [t.get("exit_reason") or t.get("reason", "") for t in closed]
+    time_ex = sum(1 for x in why if x == "time")
     return (f"Registro paper: {len(rs)} chiuse, hit {len(wins)/len(rs)*100:.0f}%, "
             f"totale {sum(rs):+.2f}R, expectancy {exp:+.2f}R, "
-            f"max drawdown {dd:.2f}R, aperte {len(s['open'])}")
+            f"max drawdown {dd:.2f}R, uscite sul tempo {time_ex}/{len(rs)}, "
+            f"aperte {len(s['open'])}")
 
 
 def earnings(s=None, risk_eur=100.0):
