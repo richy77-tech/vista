@@ -68,10 +68,18 @@ def api(token, method, payload):
 
 
 def send(token, chat, text):
-    return api(token, "sendMessage", {
-        "chat_id": chat, "text": text, "parse_mode": "HTML",
-        "disable_web_page_preview": "true",
-    })
+    try:
+        return api(token, "sendMessage", {
+            "chat_id": chat, "text": text, "parse_mode": "HTML",
+            "disable_web_page_preview": "true",
+        })
+    except Exception:
+        # Se il testo non e' HTML valido (es. "S&P 500"), Telegram lo rifiuta:
+        # lo rimando in chiaro invece di far cadere la risposta.
+        return api(token, "sendMessage", {
+            "chat_id": chat, "text": text,
+            "disable_web_page_preview": "true",
+        })
 
 
 def send_photo(token, chat, png, caption=""):
@@ -181,31 +189,48 @@ def poll(token, chat):
     ups = data.get("result") or []
     for u in ups:
         m = u.get("message") or {}
-        txt = (m.get("text") or "").strip().lower()
+        txt = (m.get("text") or "").strip()
+        low = txt.lower()
         if not txt:
             continue
-        if txt.startswith("/brief"):
-            send(token, chat, build_brief())
-        elif txt.startswith("/asset"):
-            send(token, chat, "Asset seguiti: " + ", ".join(cfg()["symbols"]))
-        elif txt.startswith("/stop"):
-            s = state(); s["paused"] = True; save_state(s)
-            send(token, chat, "Brief giornaliero sospeso. /brief per averlo a mano.")
-        elif txt.startswith("/start") or txt.startswith("/help"):
-            send(token, chat, "Attivo. " + HELP)
-        elif txt.startswith("/riprendi") or "riprendi" in txt or "riattiva" in txt:
-            s = state(); s["paused"] = False; save_state(s)
-            send(token, chat, "Ripreso. Il brief torna all'ora scelta.")
-        elif not txt.startswith("/"):
-            c = cfg()
-            try:
-                ans = chat.reply(m.get("text"), c)
+        try:
+            if low.startswith("/brief"):
+                send(token, chat, build_brief())
+            elif low.startswith("/asset"):
+                send(token, chat, "Asset seguiti: " + ", ".join(cfg()["symbols"]))
+            elif low.startswith("/stop"):
+                s = state(); s["paused"] = True; save_state(s)
+                send(token, chat, "Brief giornaliero sospeso. /brief per averlo a mano.")
+            elif low.startswith("/start") or low.startswith("/help"):
+                send(token, chat, "Attivo. " + HELP)
+            elif low.startswith("/ping"):
+                send(token, chat, "pong · " + datetime.now(timezone.utc).strftime("%H:%M UTC"))
+            elif low.startswith("/riprendi") or "riprendi" in low or "riattiva" in low:
+                s = state(); s["paused"] = False; save_state(s)
+                send(token, chat, "Ripreso. Il brief torna all'ora scelta.")
+            elif not low.startswith("/"):
+                c = cfg()
+                ans = chat.reply(txt, c)
                 save_cfg(c)
                 send(token, chat, ans[:4000])
-            except Exception as e:
-                send(token, chat, f"Qualcosa non torna qui ({type(e).__name__}). Riprovo al prossimo giro.")
+        except Exception as e:
+            # Un messaggio che rompe non deve far cadere il resto della coda.
+            try:
+                send(token, chat, f"Qualcosa non torna qui ({type(e).__name__}).")
+            except Exception:
+                pass
+        # Ricevuta leggibile: prova che il bot ha letto davvero, visibile nel file di stato.
+        try:
+            s = state()
+            s["last_in"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            save_state(s)
+        except Exception:
+            pass
     if ups:
-        api(token, "getUpdates", {"offset": ups[-1]["update_id"] + 1})
+        try:
+            api(token, "getUpdates", {"offset": ups[-1]["update_id"] + 1})
+        except Exception:
+            pass
     return len(ups)
 
 
