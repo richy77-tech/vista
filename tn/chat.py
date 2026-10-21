@@ -166,6 +166,7 @@ HELP_TEXT = (
     "• \"cosa e' successo\" / \"notizie\" → le notizie del momento\n"
     "• \"calendario di oggi\" → eventi macro\n"
     "• \"come vanno le operazioni\" → registro paper\n"
+    "• \"quanto ha guadagnato\" → stima onesta del guadagno (in R e in euro simulati)\n"
     "• \"chiudi tutto\" → chiude il paper (i soldi veri restano fermi)\n"
     "• \"aggiungi il gas\" / \"togli l'oro\" → cambia gli asset seguiti\n"
     "• \"come usi le notizie\" → la dottrina\n"
@@ -227,6 +228,9 @@ def reply(text, cfg):
         return "PAUSA: scrivimi 'riprendi' quando vuoi ripartire."
     if any(k in t for k in ("cosa sai fare", "cosa fai", "aiuto", "help", "chi sei", "come funzioni")):
         return HELP_TEXT
+    if any(k in t for k in ("quanto ha guadagnato", "quanto guadagn", "guadagn", "pnl",
+                            "profitto", "soldi", "p&l", "rendimento", "bilancio")):
+        return paper.earnings()
     if any(k in t for k in ("come va", "posizion", "operazioni", "paper", "registro", "aperte")):
         return paper.report()
     if any(k in t for k in ("calendario", "calendar", "eventi di oggi", "dati di oggi")):

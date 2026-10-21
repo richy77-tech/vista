@@ -154,7 +154,34 @@ def report(s=None):
         peak = max(peak, eq)
         dd = min(dd, eq - peak)
     return (f"Registro paper: {len(rs)} chiuse, hit {len(wins)/len(rs)*100:.0f}%, "
-            f"expectancy {exp:+.2f}R, max drawdown {dd:.2f}R, aperte {len(s['open'])}")
+            f"totale {sum(rs):+.2f}R, expectancy {exp:+.2f}R, "
+            f"max drawdown {dd:.2f}R, aperte {len(s['open'])}")
+
+
+def earnings(s=None, risk_eur=100.0):
+    """Stima onesta del guadagno. Il registro e' simulato: qui il risultato in R
+    (multipli del rischio) e la stessa cifra se ogni operazione avesse rischiato
+    `risk_eur`, dichiarata come simulazione. Soldi veri: non ne ha mossi nessuno."""
+    s = s or load()
+    closed = s["closed"]
+    if not closed:
+        return ("Guadagno: 0. Nessuna operazione chiusa nel registro paper. "
+                "Soldi veri: 0.")
+    rs = [t["r"] for t in closed]
+    wins = [r for r in rs if r > 0]
+    tot = sum(rs)
+    sim = tot * risk_eur
+    return (
+        "<b>Stima del guadagno</b>\n"
+        "Soldi veri guadagnati dal bot: <b>0</b> (nessun ordine, nessun conto collegato).\n"
+        f"Registro paper: {len(rs)} chiuse, {len(wins)} in utile, hit {len(wins)/len(rs)*100:.0f}%.\n"
+        f"Risultato: <b>{tot:+.2f}R</b> (expectancy {tot/len(rs):+.3f}R per operazione).\n"
+        f"Se ogni operazione avesse rischiato {risk_eur:.0f}\u20ac: <b>{sim:+.0f}\u20ac</b> "
+        "(simulazione, non soldi reali).\n"
+        "Aperte ora: " + str(len(s["open"])) + "\n"
+        "Verdetto: " + ("positivo, ma piccolo campione" if tot > 0
+                        else "negativo. Con questo campione non e' un edge.")
+    )
 
 
 if __name__ == "__main__":
