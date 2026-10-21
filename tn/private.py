@@ -67,27 +67,27 @@ def api(token, method, payload):
     return json.load(urllib.request.urlopen(req, timeout=20))
 
 
-def send(token, chat, text):
+def send(token, cid, text):
     try:
         return api(token, "sendMessage", {
-            "chat_id": chat, "text": text, "parse_mode": "HTML",
+            "chat_id": cid, "text": text, "parse_mode": "HTML",
             "disable_web_page_preview": "true",
         })
     except Exception:
         # Se il testo non e' HTML valido (es. "S&P 500"), Telegram lo rifiuta:
         # lo rimando in chiaro invece di far cadere la risposta.
         return api(token, "sendMessage", {
-            "chat_id": chat, "text": text,
+            "chat_id": cid, "text": text,
             "disable_web_page_preview": "true",
         })
 
 
-def send_photo(token, chat, png, caption=""):
+def send_photo(token, cid, png, caption=""):
     """Invia una card immagine (multipart, senza dipendenze esterne)."""
     import uuid
     boundary = "----tn" + uuid.uuid4().hex
     parts = []
-    for k, v in (("chat_id", str(chat)), ("caption", caption), ("parse_mode", "HTML")):
+    for k, v in (("chat_id", str(cid)), ("caption", caption), ("parse_mode", "HTML")):
         parts.append(f"--{boundary}\r\nContent-Disposition: form-data; name=\"{k}\"\r\n\r\n{v}\r\n".encode())
     parts.append(
         f'--{boundary}\r\nContent-Disposition: form-data; name="photo"; '
@@ -182,7 +182,7 @@ HELP = ("Comandi: /brief (manda ora il brief) · /asset (lista gli asset seguiti
         "\"chiudi tutto\".")
 
 
-def poll(token, chat):
+def poll(token, cid):
     """Risponde ai comandi. Ritorna il numero di update consumati."""
     try:
         data = api(token, "getUpdates", {"timeout": 0})
@@ -202,32 +202,32 @@ def poll(token, chat):
         ans = ""
         try:
             if low.startswith("/brief"):
-                send(token, chat, build_brief())
+                send(token, cid, build_brief())
             elif low.startswith("/asset"):
-                send(token, chat, "Asset seguiti: " + ", ".join(cfg()["symbols"]))
+                send(token, cid, "Asset seguiti: " + ", ".join(cfg()["symbols"]))
             elif low.startswith("/stop"):
                 s = state(); s["paused"] = True; save_state(s)
-                send(token, chat, "Brief giornaliero sospeso. /brief per averlo a mano.")
+                send(token, cid, "Brief giornaliero sospeso. /brief per averlo a mano.")
             elif low.startswith("/start") or low.startswith("/help"):
-                send(token, chat, "Attivo. " + HELP)
+                send(token, cid, "Attivo. " + HELP)
             elif low.startswith("/ping"):
-                send(token, chat, "pong · " + datetime.now(timezone.utc).strftime("%H:%M UTC"))
+                send(token, cid, "pong · " + datetime.now(timezone.utc).strftime("%H:%M UTC"))
             elif low.startswith("/riprendi") or "riprendi" in low or "riattiva" in low:
                 s = state(); s["paused"] = False; save_state(s)
-                send(token, chat, "Ripreso. Il brief torna all'ora scelta.")
+                send(token, cid, "Ripreso. Il brief torna all'ora scelta.")
             elif not low.startswith("/"):
                 c = cfg()
                 ans = chat.reply(txt, c) or ""
                 save_cfg(c)
                 if not ans.strip():
                     ans = "Su questo non ho una risposta. " + chat.HELP_TEXT
-                send(token, chat, ans[:4000])
+                send(token, cid, ans[:4000])
         except Exception as e:
             # Un messaggio che rompe non deve far cadere il resto della coda.
             import traceback
             traceback.print_exc()
             try:
-                send(token, chat, f"Non sono riuscito a rispondere ({type(e).__name__}). "
+                send(token, cid, f"Non sono riuscito a rispondere ({type(e).__name__}). "
                                    "Riprova, o scrivi /help.")
             except Exception:
                 pass
@@ -251,21 +251,21 @@ def poll(token, chat):
     return len(ups)
 
 
-def auto(token, chat):
+def auto(token, cid):
     """Poll dei comandi + un giro paper + brief giornaliero all'ora scelta."""
-    poll(token, chat)
+    poll(token, cid)
     c, s = cfg(), state()
     try:
         _, ev = paper.step(c["symbols"])
         for e in ev:
-            send(token, chat, "paper · " + e)
+            send(token, cid, "paper · " + e)
     except Exception as e:
         print("paper giro fallito:", type(e).__name__)
     try:
         news, _err = ne.pipeline(per_source=8)
         _, nev = nt.run(c["symbols"], news)
         for e in nev:
-            send(token, chat, "paper · " + e)
+            send(token, cid, "paper · " + e)
     except Exception as e:
         print("news trigger fallito:", type(e).__name__)
     now = datetime.now(timezone.utc)
@@ -273,8 +273,8 @@ def auto(token, chat):
     if s.get("paused"):
         return
     if now.hour >= c["brief_hour_utc"] and s.get("last_brief") != today:
-        send(token, chat, build_brief())
-        send_photo(token, chat, build_brief_image())
+        send(token, cid, build_brief())
+        send_photo(token, cid, build_brief_image())
         s["last_brief"] = today
         save_state(s)
 
@@ -306,19 +306,19 @@ def main():
     if not token:
         print("PRIVATE_BOT_TOKEN mancante")
         return 1
-    chat = cfg()["chat_id"]
+    cid = cfg()["chat_id"]
     mode = sys.argv[1] if len(sys.argv) > 1 else "--auto"
     if mode == "--doctor":
         doctor(token)
     elif mode == "--poll":
         # Solo risposta ai messaggi, veloce: cosi' l'agente risponde in pochi
         # secondi invece di aspettare il giro dei 20 minuti.
-        poll(token, chat)
+        poll(token, cid)
     elif mode == "--brief":
-        send(token, chat, build_brief())
-        send_photo(token, chat, build_brief_image())
+        send(token, cid, build_brief())
+        send_photo(token, cid, build_brief_image())
     else:
-        auto(token, chat)
+        auto(token, cid)
     return 0
 
 
