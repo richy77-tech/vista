@@ -21,6 +21,7 @@ from . import paper
 from . import card
 from . import newsengine as ne
 from . import newstrigger as nt
+from . import desk3
 from . import chat
 
 HERE = os.path.dirname(os.path.abspath(__file__))
@@ -261,13 +262,39 @@ def auto(token, cid):
             send(token, cid, "paper · " + e)
     except Exception as e:
         print("paper giro fallito:", type(e).__name__)
+    # Tre ruoli al posto del solo trigger a regole: news -> grafico -> convalida.
+    # Se desk3 rompe, si ricade sul trigger vecchio (nt.run): il desk non si ferma.
     try:
         news, _err = ne.pipeline(per_source=8)
-        _, nev = nt.run(c["symbols"], news)
-        for e in nev:
-            send(token, cid, "paper · " + e)
+        _, rev = desk3.review(c["symbols"])
+        for e in rev:
+            send(token, cid, "ruolo 3 · " + e)
+        _, nev, trace = desk3.run(c["symbols"], news, chat._labels())
+        if nev:
+            for e in nev:
+                send(token, cid, "paper · " + e)
+        try:
+            s2 = state()
+            s2["last_roles"] = {
+                "utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+                "news": trace.get("news", {}).get("why"),
+                "news_sym": trace.get("news", {}).get("sym"),
+                "chart": (trace.get("chart") or {}).get("why"),
+                "verdict": (trace.get("verdict") or {}).get("why"),
+                "action": (trace.get("verdict") or {}).get("action"),
+            }
+            save_state(s2)
+        except Exception:
+            pass
     except Exception as e:
-        print("news trigger fallito:", type(e).__name__)
+        print("desk3 fallito, ricado sul trigger vecchio:", type(e).__name__)
+        try:
+            news, _err = ne.pipeline(per_source=8)
+            _, nev = nt.run(c["symbols"], news)
+            for e in nev:
+                send(token, cid, "paper · " + e)
+        except Exception as e2:
+            print("news trigger fallito:", type(e2).__name__)
     now = datetime.now(timezone.utc)
     today = now.date().isoformat()
     if s.get("paused"):

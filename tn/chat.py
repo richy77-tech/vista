@@ -171,6 +171,7 @@ HELP_TEXT = (
     "• \"chiudi tutto\" → chiude il paper (i soldi veri restano fermi)\n"
     "• \"aggiungi il gas\" / \"togli l'oro\" → cambia gli asset seguiti\n"
     "• \"come usi le notizie\" → la dottrina\n"
+    "• \"agenti\" / \"chi decide\" → i tre ruoli (news, grafico, convalida) e l'ultimo giro\n"
     "• qualunque cosa di trading (ATR, leva, RSI, stop, funding, futures, CPI...) → "
     "te la spiego come un manuale\n"
     "Se scrivi altro, rispondo con quello che so, o lo dico che non lo so."
@@ -383,6 +384,35 @@ def _llm(question, ctx):
     return None
 
 
+def _roles():
+    """Spiega i tre ruoli e mostra cosa ha detto l'ultimo giro (se c'e')."""
+    L = ["<b>Tre agenti nel bot</b> (ruoli separati, ognuno con il suo compito):",
+         "1. <b>Verificatore news</b> — sceglie la notizia che puo' spostare, e il verso.",
+         "2. <b>Lettore grafico</b> — guarda trend, RSI, ATR, movimento: conferma o boccia.",
+         "3. <b>Convalidatore</b> — ultimo veto: apre o salta, e chiude se la tesi cade.",
+         "",
+         "I numeri (entry, stop, target) li calcola il codice da prezzi e ATR reali: "
+         "i ruoli decidono si'/no e spiegano, non inventano livelli.",
+         "Ogni ruolo ha anche una versione a regole: se il modello tace, decide quella."]
+    try:
+        import json as _json
+        import os as _os
+        p = _os.path.join(ROOT, "private_state.json")
+        with open(p, encoding="utf-8") as f:
+            st = _json.load(f)
+        r = st.get("last_roles")
+        if r:
+            L += ["", f"<b>Ultimo giro</b> ({r.get('utc') or '?'}):",
+                  f"• news: {html.escape(str(r.get('news_sym') or '-'))} — {html.escape(str(r.get('news') or ''))}",
+                  f"• grafico: {html.escape(str(r.get('chart') or ''))}",
+                  f"• convalidatore: {html.escape(str(r.get('action') or ''))} — {html.escape(str(r.get('verdict') or ''))}"]
+        else:
+            L += ["", "Ancora nessun giro registrato: arriva col prossimo ciclo."]
+    except Exception:
+        L += ["", "Stato non leggibile adesso."]
+    return "\n".join(L)
+
+
 def reply(text, cfg):
     """Risposta a testo libero. cfg e' il dict di configurazione (modificabile)."""
     t = text.lower().strip()
@@ -412,6 +442,9 @@ def reply(text, cfg):
     if (any(k in t for k in ("come va", "posizion", "operazioni", "paper", "registro", "aperte"))
             or re.search(r"\bprese\b", t) or "che operazioni" in t or "non prese" in t):
         return paper.screen(symbols=cfg.get("symbols"))
+    if any(k in t for k in ("agenti", "tre agenti", "chi decide", "come decidete",
+                            "ruoli", "chi apre", "chi convalida")):
+        return _roles()
     if any(k in t for k in ("calendario", "calendar", "eventi di oggi", "dati di oggi")):
         return _calendar()
     if any(k in t for k in ("notizi", "news", "cosa e' successo", "cosa è successo", "ultime", "breaking")):
