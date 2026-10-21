@@ -1,27 +1,70 @@
 {
  "open": {
-  "BTC-USD": {
-   "symbol": "BTC-USD",
+  "GC=F": {
+   "symbol": "GC=F",
+   "side": "short",
+   "entry": 4132.89990234375,
+   "stop": 4235.735569545201,
+   "target": 3927.2285679408483,
+   "atr": 68.55711146763393,
+   "bars": 0,
+   "entry_ts": "2026-10-21T00:08+00:00",
+   "reason": ""
+  },
+  "SI=F": {
+   "symbol": "SI=F",
    "side": "long",
-   "entry": 82920.0,
-   "stop": 79806.69056919643,
-   "target": 89146.61886160714,
-   "atr": 2075.539620535714,
-   "bars": 4,
-   "entry_ts": "2026-10-20T22:14+00:00",
-   "reason": "news+movimento",
-   "news_id": "65f70192363378a6",
-   "headline": "The Coinbase allegations expose Bitcoin's corporate governance gap",
-   "exec": {
-    "adapter": "paper",
-    "dry": true,
-    "symbol": "BTC-USD",
-    "side": "long",
-    "qty": null,
-    "stop": 79806.69056919643,
-    "target": 89146.61886160714,
-    "status": "recorded"
-   }
+   "entry": 57.93000030517578,
+   "stop": 56.07225022997175,
+   "target": 61.64550045558384,
+   "atr": 1.2385000501360213,
+   "bars": 0,
+   "entry_ts": "2026-10-21T00:08+00:00",
+   "reason": ""
+  },
+  "CL=F": {
+   "symbol": "CL=F",
+   "side": "short",
+   "entry": 98.37999725341797,
+   "stop": 104.53964151654924,
+   "target": 86.06070872715541,
+   "atr": 4.106429508754185,
+   "bars": 0,
+   "entry_ts": "2026-10-21T00:08+00:00",
+   "reason": ""
+  },
+  "NG=F": {
+   "symbol": "NG=F",
+   "side": "short",
+   "entry": 2.9800000190734863,
+   "stop": 3.1846429365021844,
+   "target": 2.5707141842160905,
+   "atr": 0.13642861161913192,
+   "bars": 0,
+   "entry_ts": "2026-10-21T00:08+00:00",
+   "reason": ""
+  },
+  "^VIX": {
+   "symbol": "^VIX",
+   "side": "short",
+   "entry": 17.309999465942383,
+   "stop": 19.829999106270925,
+   "target": 12.270000185285296,
+   "atr": 1.679999760219029,
+   "bars": 0,
+   "entry_ts": "2026-10-21T00:08+00:00",
+   "reason": ""
+  },
+  "ETH-USD": {
+   "symbol": "ETH-USD",
+   "side": "long",
+   "entry": 2445.219970703125,
+   "stop": 2296.9695957728795,
+   "target": 2741.720720563616,
+   "atr": 98.83358328683036,
+   "bars": 0,
+   "entry_ts": "2026-10-21T00:08+00:00",
+   "reason": ""
   }
  },
  "closed": [
@@ -122,6 +165,32 @@
    "exit": 2445.330078125,
    "exit_ts": "2026-10-20T23:43+00:00",
    "r": -0.021
+  },
+  {
+   "symbol": "BTC-USD",
+   "side": "long",
+   "entry": 82920.0,
+   "stop": 79806.69056919643,
+   "target": 89146.61886160714,
+   "atr": 2075.539620535714,
+   "bars": 5,
+   "entry_ts": "2026-10-20T22:14+00:00",
+   "reason": "time",
+   "news_id": "65f70192363378a6",
+   "headline": "The Coinbase allegations expose Bitcoin's corporate governance gap",
+   "exec": {
+    "adapter": "paper",
+    "dry": true,
+    "symbol": "BTC-USD",
+    "side": "long",
+    "qty": null,
+    "stop": 79806.69056919643,
+    "target": 89146.61886160714,
+    "status": "recorded"
+   },
+   "exit": 82897.8828125,
+   "exit_ts": "2026-10-21T00:08+00:00",
+   "r": -0.007
   }
  ],
  "seen_news": [
@@ -174,6 +243,7 @@
   "2bd98814d1901e7e",
   "bcfc5a71a1a35e33",
   "b2bf00dbe51f27bd",
-  "02295131ff7aa109"
+  "02295131ff7aa109",
+  "bc6142775d659fe6"
  ]
 }
