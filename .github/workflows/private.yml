@@ -3,6 +3,13 @@ name: Private brief
 # Bot privato di Richy. Stesso motore del canale, ma in DM (@Richytrading_aibot).
 # Gira gratis su GitHub Actions: nessun server, nessun costo.
 # Segreto richiesto: PRIVATE_BOT_TOKEN (token del bot privato).
+#
+# Questo loop deve restare VIVO. Per questo:
+#  - la risposta ai messaggi gira ogni 20 secondi (--poll, leggero)
+#  - il giro pesante (paper + news + brief) gira ogni ~4 minuti (n % 12)
+#  - il battito (hb_private.txt) si salva a ogni giro, cosi' il watchdog lo vede
+#  - il rilancio parte anche se questo job fallisce (if: always()), non solo
+#    in caso di successo: un errore non deve lasciare il bot muto fino al cron.
 on:
   schedule:
     - cron: "13,33,53 * * * *"
@@ -26,10 +33,8 @@ jobs:
         with:
           python-version: "3.11"
 
-      - name: Dipendenze
-        run: pip install --quiet pillow
-
-      - name: Loop del bot privato (giro ogni 20 min, ~5h30)
+      - name: Loop del bot privato (risposta ogni 20s, giro pesante ogni ~4 min, ~5h30)
+        continue-on-error: true
         env:
           PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
@@ -45,27 +50,25 @@ jobs:
             return 0
           }
           # Ogni comando di rete ha un tetto di tempo: un git push bloccato non
-          # deve congelare il loop (e' quello che e' successo stanotte: due catene
-          # mute per ore mentre la run risultava "in_progress").
+          # deve congelare il loop.
           end=$(( $(date +%s) + 19800 ))
           n=0
           while [ "$(date +%s)" -lt "$end" ]; do
-            # Risposta ai messaggi ogni ~40s: l'agente deve rispondere subito,
-            # non al giro dei 20 minuti.
-            timeout 180 python -m tn.private --poll || true
+            # Risposta ai messaggi ogni 20s: l'utente non deve MAI aspettare il
+            # giro pesante per avere una risposta.
+            timeout 90 python -m tn.private --poll || true
             n=$((n + 1))
             date -u +%FT%TZ > hb_private.txt
-            if [ $((n % 30)) -eq 0 ]; then
+            if [ $((n % 12)) -eq 0 ]; then
               echo "== giro $(date -u +%FT%TZ) =="
               # Se su main c'e' codice piu' nuovo del mio checkout, esco: una run
-              # nuova fara' il giro col codice aggiornato. Cosi' un deploy non
-              # resta invisibile per 5 ore dietro una catena vecchia.
+              # nuova fara' il giro col codice aggiornato.
               timeout 60 git fetch --quiet origin main || true
               if ! timeout 30 git diff --quiet HEAD origin/main -- tn newsbot.py .github/workflows 2>/dev/null; then
                 echo "checkout vecchio: esco per lasciare il posto a una run nuova"
                 exit 0
               fi
-              timeout 600 python -m tn.private --auto || echo "giro fallito, continuo"
+              timeout 420 python -m tn.private --auto || echo "giro fallito, continuo"
               for f in private_state.json paper_state.json ai_cache.json hb_private.txt; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
@@ -77,21 +80,22 @@ jobs:
                 fi
               fi
             fi
-            sleep 40
+            sleep 20
           done
 
       - name: Rilancia il loop
-        if: success() || cancelled()
+        if: always()
         env:
           RUN_ID: ${{ github.run_id }}
         run: |
           # Non accavallare catene del bot privato.
           active=$(curl -s -H "Authorization: token ${{ secrets.TN_DISPATCH_TOKEN }}" -H "User-Agent: tn-bot" \
             "https://api.github.com/repos/${{ github.repository }}/actions/workflows/private.yml/runs?per_page=30" \
-            | python3 -c "import sys,json;d=json.load(sys.stdin);r=d.get('workflow_runs',[]);print(sum(1 for x in r if str(x['id'])!='$RUN_ID' and x['status'] in ('queued','in_progress','pending')))")
+            | python3 -c "import sys,json;d=json.load(sys.stdin);r=d.get('workflow_runs',[]);print(sum(1 for x in r if str(x['id'])!='$RUN_ID' and x['status'] in ('queued','in_progress','pending','requested','waiting')))")
           if [ "${active:-0}" -gt 0 ]; then echo "catena gia' attiva ($active), salto"; exit 0; fi
           curl -s -X POST \
             -H "Authorization: token ${{ secrets.TN_DISPATCH_TOKEN }}" \
             -H "Accept: application/vnd.github+json" \
+            -H "User-Agent: tn-bot" \
             https://api.github.com/repos/${{ github.repository }}/actions/workflows/private.yml/dispatches \
             -d '{"ref":"main"}' || true

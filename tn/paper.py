@@ -146,18 +146,32 @@ def _fmt(x):
     return f"{x:,.4f}" if ax < 10 else (f"{x:,.2f}" if ax < 1000 else f"{x:,.0f}")
 
 
-def screen(s=None, symbols=None):
-    """Schermata operazioni, chiara: cosa fa, quali ha preso, quali no."""
+def _pl_emoji(x):
+    if x is None:
+        return "\u26aa"
+    return "\U0001f7e2" if x > 0 else ("\U0001f534" if x < 0 else "\u26aa")
+
+
+def _pct(entry, cur, side):
+    if not entry or cur is None:
+        return None
+    d = (cur - entry) / entry * 100.0
+    return d if side == "long" else -d
+
+
+def screen(s=None, symbols=None, risk_eur=100.0):
+    """Schermata operazioni, chiara e completa: badge verde/rosso, P/L aggiornato,
+    tutte le info (entrata, prezzo ora, stop, target, barre, R, %, data)."""
     s = s or load()
     open_ = s.get("open") or {}
     closed = s.get("closed") or []
-    L = ["<b>OPERAZIONI</b> \u2014 registro paper (soldi veri fermi, nessun ordine vero)", ""]
-    L.append("<b>Cosa fa</b>")
-    L.append("\u2022 entra quando il prezzo rompe il massimo/minimo del giorno prima")
-    L.append("\u2022 stop 1.5xATR \u00b7 target 3xATR \u00b7 chiude a target, a stop o dopo 5 barre")
-    L.append("\u2022 una posizione per asset, mai piramidare")
+    L = ["<b>\U0001f4cb OPERAZIONI</b> \u00b7 registro paper (soldi veri fermi, nessun ordine vero)", ""]
+    L.append("<b>Regola</b>: entro sulla rottura del max/min del giorno prima \u00b7 "
+             "stop 1,5\u00d7ATR \u00b7 target 3\u00d7ATR \u00b7 chiudo a target, a stop o dopo 5 barre \u00b7 "
+             "una posizione per asset.")
     L.append("")
-    L.append(f"<b>Prese (aperte ora): {len(open_)}</b>")
+
+    L.append(f"<b>\U0001f7e2 PRESE \u2014 aperte ora: {len(open_)}</b>")
     if not open_:
         L.append("\u2022 nessuna")
     else:
@@ -167,27 +181,49 @@ def screen(s=None, symbols=None):
                 cur = ohlc(sym, rng="5d")[-1]["c"]
             except Exception:
                 pass
-            r = (" \u00b7 ora %+.2fR" % _r(p["entry"], cur, p["stop"], p["side"])) if cur else ""
-            L.append(f"\u2022 <b>{sym}</b> {p['side']} @ {_fmt(p['entry'])} \u00b7 "
-                     f"stop {_fmt(p['stop'])} \u00b7 target {_fmt(p['target'])}"
-                     f" \u00b7 {p.get('bars', 0)} barre{r}")
+            r_now = None if cur is None else _r(p["entry"], cur, p["stop"], p["side"])
+            pc = _pct(p["entry"], cur, p["side"])
+            emo = _pl_emoji(r_now)
+            side = "LONG" if p["side"] == "long" else "SHORT"
+            L.append(f"{emo} <b>{sym}</b> {side}")
+            L.append(f"   entrata {_fmt(p['entry'])} \u2192 ora {_fmt(cur)}")
+            L.append(f"   stop {_fmt(p['stop'])} \u00b7 target {_fmt(p['target'])} \u00b7 "
+                     f"{p.get('bars', 0)}/5 barre")
+            pl = []
+            if r_now is not None:
+                pl.append(f"{r_now:+.2f}R")
+                pl.append(f"se rischiavi {risk_eur:.0f}\u20ac: {r_now * risk_eur:+.0f}\u20ac")
+            if pc is not None:
+                pl.append(f"{pc:+.2f}%")
+            if pl:
+                L.append("   P/L ora: " + " \u00b7 ".join(pl))
+            L.append(f"   aperta {p.get('entry_ts', '')}")
     L.append("")
+
     watch = [x for x in (symbols or []) if x not in open_]
-    L.append(f"<b>Non prese (seguite, in attesa di segnale): {len(watch)}</b>")
+    L.append(f"<b>\U0001f7e1 NON PRESE \u2014 seguite, in attesa di segnale: {len(watch)}</b>")
     L.append("\u2022 " + (", ".join(watch) if watch else "nessuna"))
     L.append("")
-    L.append("<b>Chiuse</b>")
+
+    L.append(f"<b>Chiuse: {len(closed)}</b>")
     if not closed:
         L.append("\u2022 nessuna")
     else:
         rs = [t["r"] for t in closed]
         wins = [r for r in rs if r > 0]
         tot = sum(rs)
-        L.append(f"\u2022 {len(rs)} totali \u00b7 {len(wins)} in utile \u00b7 {len(rs) - len(wins)} in perdita")
-        L.append(f"\u2022 risultato {tot:+.2f}R \u00b7 expectancy {tot / len(rs):+.2f}R")
-        L.append("\u2022 ultime: " + ", ".join(f"{t['symbol']} {t['r']:+.2f}R" for t in closed[-5:]))
+        L.append(f"\u2022 {len(rs)} totali \u00b7 {len(wins)} vinte (\U0001f7e2) \u00b7 "
+                 f"{len(rs) - len(wins)} perse (\U0001f534) \u00b7 hit {len(wins) / len(rs) * 100:.0f}%")
+        L.append(f"\u2022 risultato {tot:+.2f}R \u00b7 expectancy {tot / len(rs):+.2f}R \u00b7 "
+                 f"se rischiavi {risk_eur:.0f}\u20ac/op: {tot * risk_eur:+.0f}\u20ac (simulazione)")
+        for t in closed[-8:]:
+            emo = _pl_emoji(t["r"])
+            side = "LONG" if t["side"] == "long" else "SHORT"
+            L.append(f"{emo} {t['symbol']} {side} {_fmt(t['entry'])}\u2192{_fmt(t.get('exit'))} "
+                     f"{t['r']:+.2f}R ({t.get('reason', '')})")
     L.append("")
-    L.append("<i>Paper: simulazione su prezzi reali. Non e' un consiglio finanziario.</i>")
+    L.append("<i>Paper: simulazione su prezzi reali. Non e' un consiglio finanziario. "
+             "Soldi veri: 0.</i>")
     return "\n".join(L)
 
 

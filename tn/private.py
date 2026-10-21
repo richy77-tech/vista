@@ -194,6 +194,7 @@ def poll(token, chat):
         low = txt.lower()
         if not txt:
             continue
+        ans = ""
         try:
             if low.startswith("/brief"):
                 send(token, chat, build_brief())
@@ -226,12 +227,17 @@ def poll(token, chat):
             except Exception:
                 pass
         # Ricevuta leggibile: prova che il bot ha letto davvero, visibile nel file di stato.
+        # Tiene anche l'ultimo testo letto e l'ultima risposta: cosi' dai log e dallo
+        # stato si vede se i messaggi arrivano e cosa e' stato risposto.
         try:
             s = state()
             s["last_in"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+            s["last_in_text"] = txt[:80]
+            s["last_reply"] = (ans or "")[:80]
             save_state(s)
         except Exception:
             pass
+        print("IN:", txt[:80], "-> OUT:", (ans or "")[:60], flush=True)
     if ups:
         try:
             api(token, "getUpdates", {"offset": ups[-1]["update_id"] + 1})

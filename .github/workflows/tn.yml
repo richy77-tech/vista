@@ -33,7 +33,8 @@ jobs:
       - name: Dipendenze
         run: pip install --quiet pillow
 
-      - name: Loop del bot (giro ogni 20 min, ~5h30)
+      - name: Loop del bot (giro ogni 5 min, ~5h30)
+        continue-on-error: true
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
@@ -42,7 +43,9 @@ jobs:
           AI_MODEL: ${{ secrets.AI_MODEL }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
           VISTA_DIGEST_EVERY_H: "2"
-          VISTA_NEWS_EVERY_H: "0.5"
+          # News: controllo ogni ~5 min. Cosi' ogni notizia fresca parte subito,
+          # non al prossimo digest.
+          VISTA_NEWS_EVERY_H: "0.08"
         run: |
           git config user.name "tn-bot"
           git config user.email "tn-bot@users.noreply.github.com"
@@ -66,8 +69,7 @@ jobs:
               exit 0
             fi
             timeout 900 python newsbot.py --auto || echo "giro fallito, continuo"
-            date -u +%FT%TZ > hb_tn.txt
-            for f in alert_state.json digest_state.json news_state.json \
+            date -u +%FT%TZ > hb_tn.txt            for f in alert_state.json digest_state.json news_state.json \
                      ai_cache.json \
                      brief_state.json event_state.json commands_state.json \
                      weekly_state.json close_state.json sunday_state.json hb_tn.txt; do
@@ -81,11 +83,11 @@ jobs:
                 timeout 30 git reset -q
               fi
             fi
-            sleep 1200
+            sleep 300
           done
 
       - name: Rilancia il prossimo job (catena)
-        if: success() || cancelled()
+        if: always()
         env:
           GH_PAT: ${{ secrets.TN_DISPATCH_TOKEN }}
           RUN_ID: ${{ github.run_id }}
