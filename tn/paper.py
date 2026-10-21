@@ -184,17 +184,29 @@ def _pct(entry, cur, side):
     return d if side == "long" else -d
 
 
-def screen(s=None, symbols=None, risk_eur=100.0):
+def _money(capital=None, risk_pct=None):
+    """Capitale, % a rischio (col tetto) e euro a rischio per operazione.
+    Tre numeri distinti: confonderli e' l'errore che fa credere di aver perso
+    il capitale quando si e' solo letto il rischio per operazione."""
+    capital = T.p("capital_eur", 100.0) if capital is None else capital
+    risk_pct = T.p("risk_pct", 1.0) if risk_pct is None else risk_pct
+    risk_pct = min(risk_pct, T.p("max_risk_pct", 5.0))
+    return capital, risk_pct, capital * risk_pct / 100.0
+
+
+def screen(s=None, symbols=None, capital=None, risk_pct=None):
     """Schermata operazioni, chiara e completa: badge verde/rosso, P/L aggiornato,
     tutte le info (entrata, prezzo ora, stop, target, barre, R, %, data)."""
     s = s or load()
     open_ = s.get("open") or {}
     closed = s.get("closed") or []
+    cap, rpct, eur = _money(capital, risk_pct)
     L = ["<b>\U0001f4cb OPERAZIONI</b> \u00b7 registro paper (soldi veri fermi, nessun ordine vero)", ""]
     L.append("<b>Regola</b>: entro sulla rottura del max/min del giorno prima, "
-             "solo col trend a favore (EMA50/200 e pendenza) e ATR non piatto \u00b7 "
-             "stop 1,5\u00d7ATR \u00b7 target 3\u00d7ATR \u00b7 chiudo a stop, target o dopo 5 barre \u00b7 "
-             "una posizione per asset.")
+             "ATR non piatto \u00b7 stop 1,5\u00d7ATR \u00b7 target 3\u00d7ATR \u00b7 "
+             "chiudo a stop, target o dopo 5 barre \u00b7 una posizione per asset.")
+    L.append(f"<b>Denaro</b>: simulazione su capitale {cap:.0f}\u20ac, rischio "
+             f"{rpct:.1f}% a operazione = {eur:.2f}\u20ac. Non e' un conto: sono 0\u20ac veri.")
     L.append("")
 
     L.append(f"<b>\U0001f7e2 PRESE \u2014 aperte ora: {len(open_)}</b>")
@@ -218,7 +230,7 @@ def screen(s=None, symbols=None, risk_eur=100.0):
             pl = []
             if r_now is not None:
                 pl.append(f"{r_now:+.2f}R")
-                pl.append(f"se rischiavi {risk_eur:.0f}\u20ac: {r_now * risk_eur:+.0f}\u20ac")
+                pl.append(f"{r_now * eur:+.2f}\u20ac su {cap:.0f}\u20ac")
             if pc is not None:
                 pl.append(f"{pc:+.2f}%")
             if pl:
@@ -240,10 +252,12 @@ def screen(s=None, symbols=None, risk_eur=100.0):
         rs = [t["r"] for t in closed]
         wins = [r for r in rs if r > 0]
         tot = sum(rs)
+        sim = tot * eur
         L.append(f"\u2022 {len(rs)} totali \u00b7 {len(wins)} vinte (\U0001f7e2) \u00b7 "
                  f"{len(rs) - len(wins)} perse (\U0001f534) \u00b7 hit {len(wins) / len(rs) * 100:.0f}%")
-        L.append(f"\u2022 risultato {tot:+.2f}R \u00b7 expectancy {tot / len(rs):+.2f}R \u00b7 "
-                 f"se rischiavi {risk_eur:.0f}\u20ac/op: {tot * risk_eur:+.0f}\u20ac (simulazione)")
+        L.append(f"\u2022 risultato {tot:+.2f}R \u00b7 expectancy {tot / len(rs):+.2f}R")
+        L.append(f"\u2022 su {cap:.0f}\u20ac, rischiando {eur:.2f}\u20ac a operazione: "
+                 f"{sim:+.2f}\u20ac ({sim / cap * 100:+.2f}% del capitale). Simulazione.")
         for t in closed[-8:]:
             emo = _pl_emoji(t["r"])
             side = "LONG" if t["side"] == "long" else "SHORT"
@@ -278,11 +292,12 @@ def report(s=None):
             f"aperte {len(s['open'])}")
 
 
-def earnings(s=None, risk_eur=100.0):
+def earnings(s=None, capital=None, risk_pct=None):
     """Stima onesta del guadagno. Il registro e' simulato: qui il risultato in R
-    (multipli del rischio) e la stessa cifra se ogni operazione avesse rischiato
-    `risk_eur`, dichiarata come simulazione. Soldi veri: non ne ha mossi nessuno."""
+    (multipli del rischio) e la stessa cifra su `capital`, dichiarata come
+    simulazione. Soldi veri: non ne ha mossi nessuno."""
     s = s or load()
+    cap, rpct, eur = _money(capital, risk_pct)
     closed = s["closed"]
     if not closed:
         return ("Guadagno: 0. Nessuna operazione chiusa nel registro paper. "
@@ -290,14 +305,15 @@ def earnings(s=None, risk_eur=100.0):
     rs = [t["r"] for t in closed]
     wins = [r for r in rs if r > 0]
     tot = sum(rs)
-    sim = tot * risk_eur
+    sim = tot * eur
     return (
         "<b>Stima del guadagno</b>\n"
         "Soldi veri guadagnati dal bot: <b>0</b> (nessun ordine, nessun conto collegato).\n"
         f"Registro paper: {len(rs)} chiuse, {len(wins)} in utile, hit {len(wins)/len(rs)*100:.0f}%.\n"
         f"Risultato: <b>{tot:+.2f}R</b> (expectancy {tot/len(rs):+.3f}R per operazione).\n"
-        f"Se ogni operazione avesse rischiato {risk_eur:.0f}\u20ac: <b>{sim:+.0f}\u20ac</b> "
-        "(simulazione, non soldi reali).\n"
+        f"Capitale simulato {cap:.0f}\u20ac, rischio {rpct:.1f}% a operazione "
+        f"({eur:.2f}\u20ac): risultato <b>{sim:+.2f}\u20ac</b> ({sim/cap*100:+.2f}% del capitale). "
+        "Simulazione, non soldi reali.\n"
         "Aperte ora: " + str(len(s["open"])) + "\n"
         "Verdetto: " + ("positivo, ma piccolo campione" if tot > 0
                         else "negativo. Con questo campione non e' un edge.")

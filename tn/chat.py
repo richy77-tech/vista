@@ -276,6 +276,96 @@ def _desk_context(cfg):
     return "\n".join(out)
 
 
+DESK_KEYS = ("che faccio", "che si fa", "conviene", "compro", "comprare",
+             "vendo", "vendere", "entro", "entrare", "analisi", "analizza",
+             "secondo te", "che ne pensi", "dovrei", "consiglio", "opportunita",
+             "opportunità", "setup", "long o short", "che posizione",
+             "come la vedi", "mi conviene", "operazione su", "che idea hai")
+
+
+
+def _read_symbol(sym, lab):
+    """Lettura secca di un asset: prezzo, variazione, RSI, trend, ATR%. Numeri reali."""
+    try:
+        q = md.yahoo(sym, rng="1y")
+    except Exception:
+        return None
+    closes = q.get("closes") or []
+    if not closes:
+        return None
+    p = q.get("price")
+    reg = ind.regime(closes)
+    r = md.rsi(closes)
+    a = None
+    try:
+        a = ind.atr_pct(paper.ohlc(sym))
+    except Exception:
+        pass
+    ch = md.change_pct(q)
+    return {"sym": sym, "lab": lab, "price": p, "change": ch, "rsi": r,
+            "trend": reg.get("state"), "atr_pct": a}
+
+
+def _verdict(d):
+    """Lettura a regole di un asset (nessun modello, nessuna promessa).
+    Deterministica e dichiarata come lettura, non come previsione."""
+    r, tr, p = d.get("rsi"), d.get("trend"), d.get("price")
+    if p is None:
+        return "dato non disponibile"
+    if tr == "piatto":
+        return "laterale: niente direzione, non e' un punto d'ingresso"
+    if r is not None and r >= 70:
+        return "caro (RSI alto): entrare qui e' inseguire, non seguire"
+    if r is not None and r <= 30:
+        return "scarico (RSI basso): puo' rimbalzare, ma il trend decide"
+    if tr == "su":
+        return "quadro in salita, niente estremi: si entra solo su rottura, con stop deciso prima"
+    if tr == "giu":
+        return "quadro in discesa, niente estremi: si entra solo su rottura, con stop deciso prima"
+    return "nulla di netto: aspettare"
+
+
+def _desk_rules(cfg, question):
+    """Desk SENZA modello. Stessa struttura a sezioni del desk AI, ma composta
+    dai numeri reali con regole fisse. Serve a rispondere sempre: se la chiave AI
+    manca o e' a secco, l'agente non tace e non finge, da' il quadro a regole."""
+    lab = _labels()
+    syms = _find_symbols(question) or list(cfg.get("symbols", []))[:3]
+    rows = [d for d in (_read_symbol(s, lab.get(s, s)) for s in syms) if d]
+    L = ["<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)", ""]
+    if not rows:
+        L.append("🎯 QUADRO — dati non raggiungibili adesso. Riprovo al prossimo giro.")
+        L.append("❓ NON SO — prezzi/indicatori non disponibili.")
+        return "\n".join(L)
+    for d in rows:
+        ps = (f"{d['price']:,.0f}" if d["price"] is not None and d["price"] >= 1000
+              else f"{d['price']:,.2f}" if d["price"] is not None and d["price"] >= 10
+              else f"{d['price']:.4f}" if d["price"] is not None else "n/d")
+        ch = f"{d['change']:+.2f}%" if d["change"] is not None else "n/d"
+        rsi = f"{d['rsi']:.0f}" if d["rsi"] is not None else "n/d"
+        atr = f"{d['atr_pct']:.2f}%" if d["atr_pct"] is not None else "n/d"
+        L.append(f"📐 <b>{d['lab']}</b> {ps} {ch} · RSI {rsi} · trend {d['trend']} · ATR {atr}")
+        L.append(f"🛡️ rischio — {_verdict(d)}")
+    L.append("")
+    L.append("✅ VERDETTO — nessuna operazione e' decisa da questa lettura. "
+             "Il registro paper aspetta un fuori campione che tenga. "
+             "Scrivimi 'operazioni' per cosa ha preso, 'che regole hai' per la dottrina.")
+    L.append("❓ NON SO — macro e news sono nel brief ('brief'); qui ho solo prezzo e indicatori.")
+    return "\n".join(L)
+
+
+def _desk(cfg, question):
+    """Desk con modello se c'e', altrimenti desk a regole. Mai silenzio."""
+    ctx = _desk_context(cfg)
+    known = kb.lookup(question, limit=3)
+    if known:
+        ctx += "\n\nVoci di manuale pertinenti:\n" + re.sub(r"<[^>]+>", "", known)
+    ans = _llm(question, ctx)
+    if ans:
+        return ans
+    return _desk_rules(cfg, question)
+
+
 def _llm(question, ctx):
     """Desk AI opzionale. Senza chiave si torna alle regole, senza fingere."""
     key = os.environ.get("AI_API_KEY")
@@ -338,7 +428,12 @@ def reply(text, cfg):
         from .private import build_brief
         return build_brief()
 
-    # 2) un asset nominato -> prezzo
+    # 1b) domanda aperta -> desk (anche se nomina un asset: "che faccio sull'oro"
+    #     non e' una richiesta di prezzo, e' una richiesta di lettura).
+    if any(k in t for k in DESK_KEYS):
+        return _desk(cfg, text)
+
+    # 2) un asset nominato SENZA domanda aperta -> prezzo
     syms = _find_symbols(t)
     if syms:
         return "\n".join(_price_line(s, lab.get(s, s)) for s in syms[:4])
@@ -348,14 +443,5 @@ def reply(text, cfg):
     if entry:
         return entry
 
-    # 4) desk AI (solo con chiave), con contesto reale e indicatori
-    ctx = _desk_context(cfg)
-    known = kb.lookup(text, limit=3)
-    if known:
-        ctx += "\n\nVoci di manuale pertinenti:\n" + re.sub(r"<[^>]+>", "", known)
-    ans = _llm(text, ctx)
-    if ans:
-        return ans
-
-    # 5) non lo so: dico cosa so fare
-    return "Questa non la capisco. " + HELP_TEXT
+    # 4) tutto il resto -> desk (modello se c'e', altrimenti a regole)
+    return _desk(cfg, text)

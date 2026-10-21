@@ -10,7 +10,15 @@ PARAMS = {
     "stop_atr": 1.5,    # stop = 1,5 x ATR contro
     "target_atr": 3.0,  # target = 3 x ATR (rapporto 1:2)
     "max_bars": 5,      # time stop: esce al close dopo N barre
-    "risk_eur": 100.0,  # solo per la stima simulata, non e' denaro vero
+
+    # --- denaro (solo simulazione: nessun conto collegato) ---
+    # Il capitale e il rischio per operazione sono due cose diverse. Chi legge
+    # "rischio 100 euro a operazione" e lo confonde col capitale crede di aver
+    # perso piu' di quello che ha. Il rischio a operazione si calcola SEMPRE dal
+    # capitale: 1% di 100 euro = 1 euro a testa, non 100.
+    "capital_eur": 100.0,   # capitale simulato di partenza
+    "risk_pct": 1.0,        # % del capitale rischiata a operazione
+    "max_risk_pct": 5.0,    # tetto: sopra questo la size e' insensata, la taglio
 
     # --- filtro d'ingresso (provato, non aiuta: vedi BOT_TODO.md) ---
     # walk-forward 21/10: filtro OOS -13,6R su 471 op (exp -0,029) contro base
