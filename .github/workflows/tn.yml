@@ -69,7 +69,8 @@ jobs:
               exit 0
             fi
             timeout 900 python newsbot.py --auto || echo "giro fallito, continuo"
-            date -u +%FT%TZ > hb_tn.txt            for f in alert_state.json digest_state.json news_state.json \
+            date -u +%FT%TZ > hb_tn.txt
+            for f in alert_state.json digest_state.json news_state.json \
                      ai_cache.json \
                      brief_state.json event_state.json commands_state.json \
                      weekly_state.json close_state.json sunday_state.json hb_tn.txt; do

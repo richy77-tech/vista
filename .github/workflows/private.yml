@@ -33,6 +33,9 @@ jobs:
         with:
           python-version: "3.11"
 
+      - name: Dipendenze
+        run: pip install --quiet pillow
+
       - name: Loop del bot privato (risposta ogni 20s, giro pesante ogni ~4 min, ~5h30)
         continue-on-error: true
         env:
