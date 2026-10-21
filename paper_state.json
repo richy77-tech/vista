@@ -7,7 +7,7 @@
    "stop": 81344.46037946429,
    "target": 90542.69642857143,
    "atr": 2044.052455357143,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-10-21T17:04+00:00",
    "reason": "ha superato il massimo di ieri (83,288) e ha chiuso a 84,411: segnale al rialzo; tendenza in salita; RSI 58, neutro; si muove del 2.4% al giorno",
    "context": {
@@ -25,7 +25,7 @@
    "stop": 3.0416785904339383,
    "target": 2.3856426818030223,
    "atr": 0.1457857574735369,
-   "bars": 1,
+   "bars": 3,
    "entry_ts": "2026-10-21T17:07+00:00",
    "reason": "ha superato il minimo di ieri (2.9570) e ha chiuso a 2.8230: segnale al ribasso; tendenza incerta; RSI 38, neutro; si muove del 5.2% al giorno",
    "context": {
@@ -34,6 +34,78 @@
     "ema_slow": 3.101310488339251,
     "rsi": 38.45725483990743,
     "atr_pct": 5.164213951028213
+   }
+  },
+  "^GSPC": {
+   "symbol": "^GSPC",
+   "side": "long",
+   "entry": 7764.72021484375,
+   "stop": 7658.137712751116,
+   "target": 7977.885219029018,
+   "atr": 71.05500139508929,
+   "bars": 1,
+   "entry_ts": "2026-10-21T17:11+00:00",
+   "reason": "ha superato il massimo di ieri (7,748) e ha chiuso a 7,765: segnale al rialzo; tendenza in salita; RSI 54, neutro; si muove del 0.9% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 7685.295528288612,
+    "ema_slow": 7326.782676079185,
+    "rsi": 54.231456845193655,
+    "atr_pct": 0.9151006015548899
+   }
+  },
+  "^IXIC": {
+   "symbol": "^IXIC",
+   "side": "long",
+   "entry": 26765.8984375,
+   "stop": 26196.917550223214,
+   "target": 27903.860212053572,
+   "atr": 379.32059151785717,
+   "bars": 1,
+   "entry_ts": "2026-10-21T17:11+00:00",
+   "reason": "ha superato il massimo di ieri (26,602) e ha chiuso a 26,766: segnale al rialzo; tendenza in salita; RSI 50, neutro; si muove del 1.4% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 26613.041623369398,
+    "ema_slow": 25153.437430197973,
+    "rsi": 49.74426873776417,
+    "atr_pct": 1.4171786252704865
+   }
+  },
+  "^VIX": {
+   "symbol": "^VIX",
+   "side": "short",
+   "entry": 16.709999084472656,
+   "stop": 19.19678429194859,
+   "target": 11.736428669520787,
+   "atr": 1.6578568049839564,
+   "bars": 1,
+   "entry_ts": "2026-10-21T17:11+00:00",
+   "reason": "ha superato il minimo di ieri (17.25) e ha chiuso a 16.71: segnale al ribasso; tendenza incerta; RSI 52, neutro; si muove del 9.9% al giorno",
+   "context": {
+    "trend": "piatto",
+    "ema_fast": 16.17479456343295,
+    "ema_slow": 17.306771432067332,
+    "rsi": 51.91581856826708,
+    "atr_pct": 9.921345875622926
+   }
+  },
+  "ETH-USD": {
+   "symbol": "ETH-USD",
+   "side": "long",
+   "entry": 2502.5,
+   "stop": 2355.7845720563614,
+   "target": 2795.9308558872767,
+   "atr": 97.81028529575893,
+   "bars": 1,
+   "entry_ts": "2026-10-21T17:11+00:00",
+   "reason": "ha superato il massimo di ieri (2,474) e ha chiuso a 2,502: segnale al rialzo; tendenza incerta; RSI 49, neutro; si muove del 3.9% al giorno",
+   "context": {
+    "trend": "piatto",
+    "ema_fast": 2481.439724336773,
+    "ema_slow": 2317.4043079005314,
+    "rsi": 49.24004508706179,
+    "atr_pct": 3.908502908921436
    }
   }
  },
@@ -1284,6 +1356,48 @@
    "exit": 96.7,
    "exit_ts": "2026-10-21T17:09+00:00",
    "r": -0.003
+  },
+  {
+   "symbol": "CL=F",
+   "side": "short",
+   "entry": 96.66000366210938,
+   "stop": 103.28464753287179,
+   "target": 83.41071592058454,
+   "atr": 4.4164292471749445,
+   "bars": 0,
+   "entry_ts": "2026-10-21T17:11+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 92.40753855689543,
+    "ema_slow": 84.45172557831985,
+    "rsi": 53.39911344598743,
+    "atr_pct": 4.569034843629103
+   },
+   "exit": 96.71,
+   "exit_ts": "2026-10-21T17:12+00:00",
+   "r": -0.008
+  },
+  {
+   "symbol": "CL=F",
+   "side": "short",
+   "entry": 96.66999816894531,
+   "stop": 103.29464203970772,
+   "target": 83.42071042742047,
+   "atr": 4.4164292471749445,
+   "bars": 0,
+   "entry_ts": "2026-10-21T17:14+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 92.40793049833998,
+    "ema_slow": 84.45182502614905,
+    "rsi": 53.41690234444194,
+    "atr_pct": 4.5685624607715125
+   },
+   "exit": 96.65,
+   "exit_ts": "2026-10-21T17:14+00:00",
+   "r": 0.003
   }
  ],
  "seen_news": [
