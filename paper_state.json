@@ -1,23 +1,5 @@
 {
  "open": {
-  "^IXIC": {
-   "symbol": "^IXIC",
-   "side": "long",
-   "entry": 26702.857421875,
-   "stop": 26132.987374441964,
-   "target": 27842.597516741072,
-   "atr": 379.91336495535717,
-   "bars": 3,
-   "entry_ts": "2026-10-22T02:11+00:00",
-   "reason": "ha superato il massimo di ieri (26,602) e ha chiuso a 26,703: segnale al rialzo; tendenza in salita; RSI 49, neutro; si muove del 1.4% al giorno",
-   "context": {
-    "trend": "su",
-    "ema_fast": 26610.569426847862,
-    "ema_slow": 25152.380737700372,
-    "rsi": 48.648685535052394,
-    "atr_pct": 1.4227442365180434
-   }
-  },
   "^VIX": {
    "symbol": "^VIX",
    "side": "short",
@@ -25,7 +7,7 @@
    "stop": 19.166785512651714,
    "target": 11.706429890223912,
    "atr": 1.6578568049839564,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-10-22T02:13+00:00",
    "reason": "ha superato il minimo di ieri (17.25) e ha chiuso a 16.68: segnale al ribasso; tendenza incerta; RSI 52, neutro; si muove del 9.9% al giorno",
    "context": {
@@ -43,7 +25,7 @@
    "stop": 58.489283970424104,
    "target": 53.301427023751394,
    "atr": 1.1528570992606026,
-   "bars": 0,
+   "bars": 2,
    "entry_ts": "2026-10-22T02:18+00:00",
    "reason": "ha superato il minimo di ieri (57.25) e ha chiuso a 56.76: segnale al ribasso; tendenza in discesa; RSI 37, neutro; si muove del 2.0% al giorno",
    "context": {
@@ -52,6 +34,24 @@
     "ema_slow": 64.21981337570725,
     "rsi": 36.66559800464737,
     "atr_pct": 2.0311084097112104
+   }
+  },
+  "^GSPC": {
+   "symbol": "^GSPC",
+   "side": "long",
+   "entry": 7757.169921875,
+   "stop": 7650.0924072265625,
+   "target": 7971.324951171875,
+   "atr": 71.385009765625,
+   "bars": 1,
+   "entry_ts": "2026-10-22T02:20+00:00",
+   "reason": "ha superato il massimo di ieri (7,748) e ha chiuso a 7,757: segnale al rialzo; tendenza in salita; RSI 54, neutro; si muove del 0.9% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 7684.99943841484,
+    "ema_slow": 7326.609903896749,
+    "rsi": 53.59378216932161,
+    "atr_pct": 0.9202455339326948
    }
   }
  },
@@ -7317,6 +7317,70 @@
    "exit_ts": "2026-10-22T02:18+00:00",
    "exit_reason": "time",
    "r": 0.0
+  },
+  {
+   "symbol": "EURUSD=X",
+   "side": "long",
+   "entry": 1.123974323272705,
+   "stop": 1.1146400315420968,
+   "target": 1.1426429067339217,
+   "atr": 0.006222861153738839,
+   "bars": 0,
+   "entry_ts": "2026-10-22T02:20+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 1.1378027730320754,
+    "ema_slow": 1.149818116832182,
+    "rsi": 38.69331878183721,
+    "atr_pct": 0.5536479815321379
+   },
+   "exit": 1.124,
+   "exit_ts": "2026-10-22T02:20+00:00",
+   "r": 0.003
+  },
+  {
+   "symbol": "^IXIC",
+   "side": "long",
+   "entry": 26702.857421875,
+   "stop": 26132.987374441964,
+   "target": 27842.597516741072,
+   "atr": 379.91336495535717,
+   "bars": 5,
+   "entry_ts": "2026-10-22T02:11+00:00",
+   "reason": "ha superato il massimo di ieri (26,602) e ha chiuso a 26,703: segnale al rialzo; tendenza in salita; RSI 49, neutro; si muove del 1.4% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 26610.569426847862,
+    "ema_slow": 25152.380737700372,
+    "rsi": 48.648685535052394,
+    "atr_pct": 1.4227442365180434
+   },
+   "exit": 26702.857421875,
+   "exit_ts": "2026-10-22T02:22+00:00",
+   "exit_reason": "time",
+   "r": 0.0
+  },
+  {
+   "symbol": "EURUSD=X",
+   "side": "long",
+   "entry": 1.123974323272705,
+   "stop": 1.1146400315420968,
+   "target": 1.1426429067339217,
+   "atr": 0.006222861153738839,
+   "bars": 0,
+   "entry_ts": "2026-10-22T02:22+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 1.1378027730320754,
+    "ema_slow": 1.149818116832182,
+    "rsi": 38.69331878183721,
+    "atr_pct": 0.5536479815321379
+   },
+   "exit": 1.124,
+   "exit_ts": "2026-10-22T02:22+00:00",
+   "r": 0.003
   }
  ],
  "seen_news": [
