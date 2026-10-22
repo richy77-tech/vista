@@ -4,11 +4,11 @@
  "last_in_text": "Prova ad aumentare investimento a 400€ virtuali",
  "last_reply": "🎯 **QUADRO**  \nMercato in downtrend per GOLD, SILVER, EUR/USD, GBP/USD; in uptre",
  "last_roles": {
-  "utc": "2026-10-22T05:31Z",
+  "utc": "2026-10-22T05:37Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price broke yesterday's low, near 20‑day range bottom",
-  "verdict": "regola: confidenza 0.50 o R/R 2.00 sotto soglia",
-  "action": "skip"
+  "chart": "Price slightly lower, uptrend, RSI 51, low volatility",
+  "verdict": null,
+  "action": null
  }
 }
