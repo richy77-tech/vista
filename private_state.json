@@ -4,11 +4,11 @@
  "last_in_text": "Dimmi se hai capito",
  "last_reply": "<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)\n",
  "last_roles": {
-  "utc": "2026-10-23T11:50Z",
+  "utc": "2026-10-23T11:56Z",
   "news": "New euro crisis signal from France weakens currency",
   "news_sym": "EURUSD=X",
-  "chart": "Price below EMA, RSI moderate low, negative intraday move supports bearish thesis",
-  "verdict": "News and chart agree, R/R above threshold.",
+  "chart": "regola: trend e movimento dalla stessa parte",
+  "verdict": "News e grafico concordano, R/R 2.0, quindi apro",
   "action": "open"
  }
 }
