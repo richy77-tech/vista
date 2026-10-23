@@ -4,11 +4,11 @@
  "last_in_text": "Dimmi se hai capito",
  "last_reply": "<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)\n",
  "last_roles": {
-  "utc": "2026-10-23T10:12Z",
+  "utc": "2026-10-23T10:18Z",
   "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "EURUSD=X",
-  "chart": "Price falling, RSI low, near lower 20‑day range, downtrend, supports short",
-  "verdict": "News, chart and R/R confirm a clear short setup with risk-reward 2:1.",
-  "action": "open"
+  "news_sym": "ETH-USD",
+  "chart": "regola: trend o movimento non confermano",
+  "verdict": null,
+  "action": null
  }
 }
