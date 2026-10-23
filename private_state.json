@@ -4,10 +4,10 @@
  "last_in_text": "Dimmi se hai capito",
  "last_reply": "<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)\n",
  "last_roles": {
-  "utc": "2026-10-23T10:30Z",
+  "utc": "2026-10-23T10:35Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "ETH-USD",
-  "chart": "Price near lower 20‑day range, RSI neutral, price rising, no bearish indicator",
+  "chart": "Price flat, RSI 40, no supporting break",
   "verdict": null,
   "action": null
  }
