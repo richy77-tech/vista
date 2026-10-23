@@ -4,11 +4,11 @@
  "last_in_text": "Dimmi se hai capito",
  "last_reply": "<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)\n",
  "last_roles": {
-  "utc": "2026-10-23T11:39Z",
-  "news": "New euro crisis signal from France weakens currency",
-  "news_sym": "EURUSD=X",
-  "chart": "Price below 20‑day low, downtrend, RSI low, recent drop confirms short",
-  "verdict": "News and chart align, R/R exceeds 1:1.5",
-  "action": "open"
+  "utc": "2026-10-23T11:45Z",
+  "news": "Hacker moving loot to Tornado Cash raises regulatory risk",
+  "news_sym": "ETH-USD",
+  "chart": "regola: trend o movimento non confermano",
+  "verdict": null,
+  "action": null
  }
 }
