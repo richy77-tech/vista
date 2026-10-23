@@ -4,11 +4,11 @@
  "last_in_text": "Dimmi se hai capito",
  "last_reply": "<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)\n",
  "last_roles": {
-  "utc": "2026-10-23T12:13Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "EURUSD=X",
-  "chart": "Price below 20‑day low, downtrend, RSI low, recent drop confirms short",
-  "verdict": "News e grafico concordano, R/R 2:1. Stop 10 pips ok.",
-  "action": "open"
+  "utc": "2026-10-23T12:18Z",
+  "news": "notizie forti ma su asset non seguiti",
+  "news_sym": null,
+  "chart": null,
+  "verdict": null,
+  "action": null
  }
 }
