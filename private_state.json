@@ -4,10 +4,10 @@
  "last_in_text": "Dimmi se hai capito",
  "last_reply": "<b>DESK</b> (a regole, senza motore AI: numeri veri, nessun giudizio inventato)\n",
  "last_roles": {
-  "utc": "2026-10-24T15:12Z",
+  "utc": "2026-10-24T15:17Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "price below 20d low, RSI low, down move",
+  "chart": "price under 20-day low, RSI 40, down 2.15%",
   "verdict": null,
   "action": null
  }
