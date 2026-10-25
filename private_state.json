@@ -4,10 +4,10 @@
  "last_in_text": "Ciao. Voglio sapere con quale agente AI sto parlando in questo momento. Identifi",
  "last_reply": "Ciao. <b>Posso fare questo, scrivendomi in italiano normale:</b>\n• \"come sta il ",
  "last_roles": {
-  "utc": "2026-10-24T18:49Z",
-  "news": "notizie forti ma su asset non seguiti",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-10-25T00:28Z",
+  "news": "Stablecoin hack triggers crypto risk-off, ETH likely to drop",
+  "news_sym": "ETH-USD",
+  "chart": "Trend flat, price near bottom, low RSI, low volume",
   "verdict": null,
   "action": null
  }
