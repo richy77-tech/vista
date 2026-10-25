@@ -4,10 +4,10 @@
  "last_in_text": "Quanto ha guadagnato??",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-25T16:45Z",
+  "utc": "2026-10-25T16:50Z",
   "news": "Exploit drains $2.6M, halting chain triggers bearish sentiment",
   "news_sym": "ETH-USD",
-  "chart": "Price above min, low volume, no break of support",
+  "chart": "price near 20‑day low, RSI 35, no trend, low volume",
   "verdict": null,
   "action": null
  }
