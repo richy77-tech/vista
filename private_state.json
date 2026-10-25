@@ -4,11 +4,11 @@
  "last_in_text": "Ciao. Voglio sapere con quale agente AI sto parlando in questo momento. Identifi",
  "last_reply": "Ciao. <b>Posso fare questo, scrivendomi in italiano normale:</b>\n• \"come sta il ",
  "last_roles": {
-  "utc": "2026-10-25T05:47Z",
+  "utc": "2026-10-25T05:53Z",
   "news": "Exploit drains 4.7M via stablecoin X100, heightening crypto risk.",
   "news_sym": "ETH-USD",
-  "chart": "regola: trend o movimento non confermano",
-  "verdict": null,
-  "action": null
+  "chart": "Price broke yesterday low, RSI moderate, flat trend supports short",
+  "verdict": "News e grafico concordano; R/R 2.0 > 1.5, stop adeguato",
+  "action": "open"
  }
 }
