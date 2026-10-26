@@ -1,14 +1,14 @@
 {
- "last_brief": "2026-10-25",
+ "last_brief": "2026-10-26",
  "last_in": "2026-10-25T12:29:42Z",
  "last_in_text": "Quanto ha guadagnato??",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-26T06:59Z",
+  "utc": "2026-10-26T07:04Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "EURUSD=X",
-  "chart": "Down trend, low RSI, price at 40% range – supports short",
-  "verdict": "News & chart agree, R/R 2 > 1.5, no conflict.",
+  "chart": "Price below EMA, RSI 36, near lower 20‑day range, slight decline",
+  "verdict": "news e grafico concordano, R/R 2.0",
   "action": "open"
  }
 }
