@@ -4,11 +4,11 @@
  "last_in_text": "Quanto ha guadagnato??",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-26T05:51Z",
+  "utc": "2026-10-26T05:56Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "EURUSD=X",
   "chart": "Price below EMA, RSI 36, near lower 20‑day range, slight decline",
-  "verdict": "regola: confidenza 0.50 o R/R 2.00 sotto soglia",
-  "action": "skip"
+  "verdict": "news e grafico concordano, R/R 2.0",
+  "action": "open"
  }
 }
