@@ -1,33 +1,5 @@
 {
  "open": {
-  "EURUSD=X": {
-   "symbol": "EURUSD=X",
-   "side": "short",
-   "entry": 1.1218,
-   "stop": 1.1306848684515272,
-   "target": 1.1040302630969456,
-   "atr": 0.005923245634351458,
-   "bars": 4,
-   "entry_ts": "2026-10-26T05:56+00:00",
-   "reason": "3 ruoli: Downtrend pullback",
-   "news_id": "30c04e10053b0e3b",
-   "headline": "Banca Centrale Europea e Fed decidono in due giorni: una sorpresa sarebbe un colpo letale per i mercati",
-   "roles": {
-    "news": "regola: notizia forte agganciata all'asset",
-    "chart": "Price below EMA, RSI 36, near lower 20‑day range, slight decline",
-    "verdict": "news e grafico concordano, R/R 2.0"
-   },
-   "exec": {
-    "adapter": "paper",
-    "dry": true,
-    "symbol": "EURUSD=X",
-    "side": "short",
-    "qty": null,
-    "stop": 1.1306848684515272,
-    "target": 1.1040302630969456,
-    "status": "recorded"
-   }
-  },
   "NG=F": {
    "symbol": "NG=F",
    "side": "long",
@@ -35,7 +7,7 @@
    "stop": 2.7339285867554803,
    "target": 3.520142980984279,
    "atr": 0.174714309828622,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-10-26T06:01+00:00",
    "reason": "ha superato il massimo di ieri (2.7920) e ha chiuso a 2.9960: segnale al rialzo; tendenza incerta; RSI 50, neutro; si muove del 5.8% al giorno",
    "context": {
@@ -44,6 +16,34 @@
     "ema_slow": 3.0943599635447385,
     "rsi": 49.84263061657275,
     "atr_pct": 5.831585675081706
+   }
+  },
+  "EURUSD=X": {
+   "symbol": "EURUSD=X",
+   "side": "short",
+   "entry": 1.122,
+   "stop": 1.1308848684515274,
+   "target": 1.1042302630969458,
+   "atr": 0.005923245634351458,
+   "bars": 1,
+   "entry_ts": "2026-10-26T06:09+00:00",
+   "reason": "3 ruoli: Bearish pullback inside downtrend",
+   "news_id": "30c04e10053b0e3b",
+   "headline": "Banca Centrale Europea e Fed decidono in due giorni: una sorpresa sarebbe un colpo letale per i mercati",
+   "roles": {
+    "news": "regola: notizia forte agganciata all'asset",
+    "chart": "Down trend, low RSI, price at 40% range – supports short",
+    "verdict": "News & chart agree, R/R 2 > 1.5, no conflict."
+   },
+   "exec": {
+    "adapter": "paper",
+    "dry": true,
+    "symbol": "EURUSD=X",
+    "side": "short",
+    "qty": null,
+    "stop": 1.1308848684515274,
+    "target": 1.1042302630969458,
+    "status": "recorded"
    }
   }
  },
@@ -74873,6 +74873,164 @@
    },
    "exit": 7623.68,
    "exit_ts": "2026-10-26T06:06+00:00",
+   "r": 0.0
+  },
+  {
+   "symbol": "EURUSD=X",
+   "side": "short",
+   "entry": 1.1218,
+   "stop": 1.1306848684515272,
+   "target": 1.1040302630969456,
+   "atr": 0.005923245634351458,
+   "bars": 5,
+   "entry_ts": "2026-10-26T05:56+00:00",
+   "reason": "3 ruoli: Downtrend pullback",
+   "news_id": "30c04e10053b0e3b",
+   "headline": "Banca Centrale Europea e Fed decidono in due giorni: una sorpresa sarebbe un colpo letale per i mercati",
+   "roles": {
+    "news": "regola: notizia forte agganciata all'asset",
+    "chart": "Price below EMA, RSI 36, near lower 20‑day range, slight decline",
+    "verdict": "news e grafico concordano, R/R 2.0"
+   },
+   "exec": {
+    "adapter": "paper",
+    "dry": true,
+    "symbol": "EURUSD=X",
+    "side": "short",
+    "qty": null,
+    "stop": 1.1306848684515272,
+    "target": 1.1040302630969456,
+    "status": "recorded"
+   },
+   "exit": 1.121956706047058,
+   "exit_ts": "2026-10-26T06:09+00:00",
+   "exit_reason": "time",
+   "r": -0.018
+  },
+  {
+   "symbol": "SI=F",
+   "side": "long",
+   "entry": 54.22999954223633,
+   "stop": 52.35114206586565,
+   "target": 57.98771449497768,
+   "atr": 1.2525716509137834,
+   "bars": 0,
+   "entry_ts": "2026-10-26T06:09+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 60.96965003214122,
+    "ema_slow": 63.99079720260056,
+    "rsi": 32.16797614048566,
+    "atr_pct": 2.3097393720946546
+   },
+   "exit": 54.255,
+   "exit_ts": "2026-10-26T06:09+00:00",
+   "r": 0.013
+  },
+  {
+   "symbol": "BZ=F",
+   "side": "short",
+   "entry": 109.5,
+   "stop": 115.82250104631697,
+   "target": 96.85499790736607,
+   "atr": 4.215000697544643,
+   "bars": 0,
+   "entry_ts": "2026-10-26T06:09+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 102.01930853784255,
+    "ema_slow": 91.11045173920853,
+    "rsi": 56.49213978990237,
+    "atr_pct": 3.8493157055202225
+   },
+   "exit": 109.5,
+   "exit_ts": "2026-10-26T06:09+00:00",
+   "r": 0.0
+  },
+  {
+   "symbol": "^GSPC",
+   "side": "short",
+   "entry": 7623.68017578125,
+   "stop": 7731.970633370535,
+   "target": 7407.099260602678,
+   "atr": 72.19363839285714,
+   "bars": 0,
+   "entry_ts": "2026-10-26T06:09+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 7681.782078795301,
+    "ema_slow": 7332.668025638352,
+    "rsi": 42.15487937743476,
+    "atr_pct": 0.9469657268965768
+   },
+   "exit": 7623.68,
+   "exit_ts": "2026-10-26T06:09+00:00",
+   "r": 0.0
+  },
+  {
+   "symbol": "SI=F",
+   "side": "long",
+   "entry": 54.26499938964844,
+   "stop": 52.38614191327776,
+   "target": 58.02271434238979,
+   "atr": 1.2525716509137834,
+   "bars": 0,
+   "entry_ts": "2026-10-26T06:11+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 60.97102257517699,
+    "ema_slow": 63.99114545978874,
+    "rsi": 32.32917343654027,
+    "atr_pct": 2.3082496360494265
+   },
+   "exit": 54.25,
+   "exit_ts": "2026-10-26T06:11+00:00",
+   "r": -0.008
+  },
+  {
+   "symbol": "BZ=F",
+   "side": "short",
+   "entry": 109.4800033569336,
+   "stop": 115.80250440325057,
+   "target": 96.83500126429966,
+   "atr": 4.215000697544643,
+   "bars": 0,
+   "entry_ts": "2026-10-26T06:11+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 102.01852435576151,
+    "ema_slow": 91.11025276763573,
+    "rsi": 56.45506543503676,
+    "atr_pct": 3.850018787268971
+   },
+   "exit": 109.47,
+   "exit_ts": "2026-10-26T06:11+00:00",
+   "r": 0.002
+  },
+  {
+   "symbol": "^GSPC",
+   "side": "short",
+   "entry": 7623.68017578125,
+   "stop": 7731.970633370535,
+   "target": 7407.099260602678,
+   "atr": 72.19363839285714,
+   "bars": 0,
+   "entry_ts": "2026-10-26T06:11+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 7681.782078795301,
+    "ema_slow": 7332.668025638352,
+    "rsi": 42.15487937743476,
+    "atr_pct": 0.9469657268965768
+   },
+   "exit": 7623.68,
+   "exit_ts": "2026-10-26T06:11+00:00",
    "r": 0.0
   }
  ],
