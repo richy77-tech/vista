@@ -4,11 +4,11 @@
  "last_in_text": "Quanto ha guadagnato??",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-27T18:25Z",
+  "utc": "2026-10-27T18:32Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, up trend, RSI neutral, small gain",
-  "verdict": "News e grafico confermano, R/R 2.0 > 1.5; apertura consigliata.",
-  "action": "open"
+  "chart": "Price below previous high, low volume, no breakout",
+  "verdict": null,
+  "action": null
  }
 }
