@@ -78,7 +78,8 @@ jobs:
               timeout 420 python -m tn.private --auto || echo "giro fallito, continuo"
               # desk_log.jsonl e' il quaderno di addestramento: ogni giro dei tre
               # ruoli ci scrive cosa ha visto e cosa ha deciso. Va versionato.
-              for f in private_state.json paper_state.json ai_cache.json desk_log.jsonl hb_private.txt; do
+              for f in private_state.json paper_state.json ai_cache.json desk_log.jsonl \
+                       hb_private.txt strat_cache.json; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
               if [ $((n % 12)) -eq 0 ] && ! git diff --cached --quiet; then

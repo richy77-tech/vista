@@ -20,8 +20,15 @@ ROOT = os.path.dirname(HERE)
 
 
 def replay(rows, atr_n=14, stop_atr=1.5, target_atr=3.0, max_bars=5,
-           trend_filter=False, min_atr_pct=0.10, split=None):
-    """Rigioca la regola su una serie di barre. Ritorna (trades_is, trades_oos)."""
+           trend_filter=False, min_atr_pct=0.10, split=None,
+           spread_bp=0.0, slippage_bp=0.0, commission_bp=0.0):
+    """Rigioca la regola su una serie di barre. Ritorna (trades_is, trades_oos).
+
+    I costi si pagano tutti e due i lati: spread a meta' (entrata peggiore di
+    mezzo spread), slippage a ogni riempimento, commissione in basis point sul
+    valore nozionale. Vengono sottratti all'R, non al prezzo, cosi' il numero
+    finale e' confrontabile con quello senza costi.
+    """
     trs = []
     i = max(atr_n + 1, 210)
     open_pos = None
@@ -46,7 +53,13 @@ def replay(rows, atr_n=14, stop_atr=1.5, target_atr=3.0, max_bars=5,
                 risk = abs(open_pos["entry"] - open_pos["stop"]) or 1e-9
                 pnl = (exit_ - open_pos["entry"]) if open_pos["side"] == "long" \
                     else (open_pos["entry"] - exit_)
-                trs.append({"i": open_pos["i"], "r": pnl / risk, "why": why})
+                # costo in unita' di prezzo, poi in R: spread 1x (entrata+uscita),
+                # slippage 2x, commissione sul nozionale a entrata e a uscita.
+                px = open_pos["entry"]
+                cost_px = px * (spread_bp + 2 * slippage_bp + 2 * commission_bp) / 10000.0
+                trs.append({"i": open_pos["i"], "r": pnl / risk - cost_px / risk,
+                            "r_gross": pnl / risk, "cost_r": cost_px / risk,
+                            "why": why})
                 open_pos = None
             i += 1
             continue

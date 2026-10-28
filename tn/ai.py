@@ -22,6 +22,10 @@ _AI_UNTIL = 0.0
 
 
 def ai_blocked():
+    # TN_AI_OFF=1 rende il livello AI muto: serve ai test, che devono dare lo
+    # stesso risultato sempre, e a fermare le chiamate senza toccare la chiave.
+    if os.environ.get("TN_AI_OFF") == "1":
+        return True
     return time.time() < _AI_UNTIL
 
 
@@ -59,13 +63,24 @@ CATEGORIES = {
                    "crackdown", "fine", "settlement", "mica", "cftc"],
 }
 
+# Tag piu' stretti di prima: "brent" non deve piu' diventare WTI, "nasdaq" non
+# deve piu' diventare S&P. L'ordine conta: chi legge questi tag mappa su un
+# simbolo preciso, quindi un tag largo apre la posizione sbagliata.
 ASSETS = {
     "BTC": ["bitcoin", "btc"], "ETH": ["ethereum", "eth"],
     "GOLD": ["gold", "oro", "xau"], "SILVER": ["silver", "argento", "xag"],
-    "USD": ["dollar", "dollaro", "usd", "dxy"], "EUR": ["euro", "eur"],
-    "JPY": ["yen", "jpy"], "GBP": ["pound", "sterlina", "gbp"],
-    "OIL": ["oil", "petrolio", "brent", "wti"],
-    "EQUITIES": ["stocks", "equity", "s&p", "nasdaq", "dow", "shares"],
+    "PLATINUM": ["platinum", "platino", "xpt"],
+    "COPPER": ["copper", "rame", "xcu"],
+    "USD": ["dollar", "dollaro", "usd", "dxy"],
+    "EUR": ["euro", "eur"], "JPY": ["yen", "jpy"],
+    "GBP": ["pound", "sterlina", "gbp"], "AUD": ["aussie", "aud"],
+    "CAD": ["loonie", "cad"],
+    "BRENT": ["brent"], "WTI": ["wti", "crudo wti"], "OIL": ["oil", "petrolio"],
+    "NATGAS": ["natural gas", "gas naturale", "nat gas"],
+    "SP500": ["s&p", "sp500", "s&p 500"], "NASDAQ": ["nasdaq"],
+    "DOW": ["dow jones", "dow"], "RUSSELL": ["russell"],
+    "DAX": ["dax"], "NIKKEI": ["nikkei"], "FTSE": ["ftse"],
+    "EQUITIES": ["stocks", "equity", "shares", "azionario"],
     "VIX": ["vix", "volatility"],
 }
 
@@ -224,6 +239,34 @@ def rules(it):
     return it
 
 
+_ASSET_ALIAS = {
+    "BITCOIN": "BTC", "ETHEREUM": "ETH", "ORO": "GOLD", "ARGENTO": "SILVER",
+    "XAU": "GOLD", "XAG": "SILVER", "XPT": "PLATINUM", "XPT/USD": "PLATINUM",
+    "PLATINO": "PLATINUM", "RAME": "COPPER", "CRUDE OIL": "WTI",
+    "CRUDO WTI": "WTI", "PETROLIO": "OIL", "NATURAL GAS": "NATGAS",
+    "GAS NATURALE": "NATGAS", "GAS": "NATGAS",
+    "US DOLLAR": "USD", "DOLLAR": "USD", "DOLLARO": "USD", "DXY": "USD",
+    "EURO": "EUR", "STERLINA": "GBP", "YEN": "JPY", "AUSSIE": "AUD",
+    "S&P": "SP500", "S&P 500": "SP500", "SP500": "SP500", "S&P500": "SP500",
+    "NASDAQ": "NASDAQ", "DOW": "DOW", "DOW JONES": "DOW", "AZIONARIO": "EQUITIES",
+    "STOCKS": "EQUITIES", "EQUITY": "EQUITIES", "SHARES": "EQUITIES",
+    "VOLATILITY": "VIX", "DAX": "DAX", "NIKKEI": "NIKKEI", "FTSE": "FTSE",
+    "BRENT": "BRENT", "WTI": "WTI",
+}
+
+
+def _norm_assets(lst):
+    """Nomi leggibili del modello -> tag canonici. Chi non si riconosce resta
+    com'e' (mai inventato un tag nuovo), cosi' si vede nel registro."""
+    out = []
+    for raw in lst or []:
+        a = str(raw).strip().upper().replace("/USD", "")
+        a = _ASSET_ALIAS.get(a, a)
+        if a and a not in out:
+            out.append(a)
+    return out or list(lst or [])
+
+
 def overlay(it):
     """Livello AI su un item gia' passato dalle regole. Senza chiave (o con il
     modello in pausa) l'item torna esattamente com'e'."""
@@ -237,7 +280,10 @@ def overlay(it):
         return it
     cats = [c for c in (a.get("categories") or it["categories"]) if c in CATEGORIES] \
         or it["categories"]
-    assets = a.get("assets") or it["assets"]
+    # Il modello risponde con nomi leggibili ("Gold", "US Dollar", "S&P 500"),
+    # le regole con tag canonici. Senza normalizzazione i due mondi non si
+    # parlano e a valle la notizia non trova nessun simbolo da tradurre.
+    assets = _norm_assets(a.get("assets") or it["assets"])
     impact = a.get("impact") if a.get("impact") in ("LOW", "MEDIUM", "HIGH", "CRITICAL") \
         else it["impact"]
     sent = it["sentiment"]

@@ -25,6 +25,8 @@ from . import newstrigger as nt
 from . import exec as ex
 from . import llm
 from . import briefs
+from . import risk
+from . import strategist
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRAIN_LOG = os.path.join(ROOT, "desk_log.jsonl")
@@ -305,6 +307,16 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     if not cv.get("confirm"):
         return st, [], trace
 
+    # quarto ruolo prima del convalidatore: decide DOVE entrare. Non autorizza,
+    # propone; il convalidatore puo' ancora dire no e il risk manager ha l'ultima.
+    sp = strategist.plan(nv["sym"], nv["side"], cv.get("snap"))
+    trace["strat"] = {k: sp.get(k) for k in ("ok", "kind", "tf", "rr", "why")}
+    if not sp.get("ok"):
+        trace["skip"] = sp.get("why")
+        return st, [], trace
+    cv["entry"], cv["stop"], cv["target"] = sp["entry"], sp["stop"], sp["target"]
+    cv["plan"] = sp["kind"]
+
     sv = supervisor(nv, cv)
     trace["verdict"] = sv
     if sv.get("action") != "open":
@@ -312,6 +324,15 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
 
     sym = nv["sym"]
     if sym in st["open"]:
+        return st, [], trace
+    # quarto ruolo, e l'unico con veto: il risk manager non chiede permesso a
+    # nessuno. Se blocca, la traccia resta scritta e l'operazione non nasce.
+    rv = risk.vet(st, {"sym": sym, "side": nv["side"], "entry": cv["entry"],
+                       "stop": cv["stop"], "target": cv["target"]},
+                  closes={sym: (cv.get("snap") or {}).get("closes") or []})
+    trace["risk"] = rv
+    if rv["action"] == "block":
+        trace["skip"] = f"risk: {rv['why']}"
         return st, [], trace
     if not can_open:
         trace["cap"] = f"{_open_count(st)} aperte (max {max_open}): valutata, non aperta"
@@ -360,7 +381,10 @@ def _record(kind, trace, opened=False):
                         "rule": nv.get("rule")},
                "chart": {k: cv.get(k) for k in ("confirm", "setup", "why", "rule")},
                "verdict": {"action": sv.get("action"), "why": (sv.get("why") or "")[:160],
-                           "rule": sv.get("rule")}}
+                           "rule": sv.get("rule")},
+               "risk": {"action": (trace.get("risk") or {}).get("action"),
+                        "why": ((trace.get("risk") or {}).get("why") or "")[:160],
+                        "checks": (trace.get("risk") or {}).get("checks")}}
         if not trace.get("news") and trace.get("skip"):
             rec["note"] = str(trace["skip"])[:160]
         with open(TRAIN_LOG, "a", encoding="utf-8") as f:

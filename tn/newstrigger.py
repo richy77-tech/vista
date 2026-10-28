@@ -28,11 +28,19 @@ SOGLIA_PCT = 0.35
 RETIRE_H = 6
 MAX_SEEN = 600
 
+# Tag news -> simbolo seguito. Ogni tag deve puntare allo strumento che la
+# notizia nomina davvero: brent su BZ=F, non su WTI. Se il simbolo non e' fra
+# quelli seguiti (private_cfg), la candidata viene scartata a valle.
 ASSET_TO_SYM = {
     "BTC": "BTC-USD", "ETH": "ETH-USD",
-    "GOLD": "GC=F", "SILVER": "SI=F", "OIL": "CL=F",
-    "USD": "DX-Y.NYB", "EUR": "EURUSD=X", "JPY": "JPY=X", "GBP": "GBPUSD=X",
-    "EQUITIES": "^GSPC", "VIX": "^VIX",
+    "GOLD": "GC=F", "SILVER": "SI=F",
+    "PLATINUM": "PL=F", "COPPER": "HG=F",
+    "BRENT": "BZ=F", "WTI": "CL=F", "OIL": "CL=F",
+    "NATGAS": "NG=F",
+    "SP500": "^GSPC", "EQUITIES": "^GSPC", "NASDAQ": "^IXIC",
+    "VIX": "^VIX",
+    "USD": "DX-Y.NYB", "EUR": "EURUSD=X", "JPY": "JPY=X",
+    "GBP": "GBPUSD=X", "AUD": "AUDUSD=X", "CAD": "USDCAD=X",
 }
 
 
