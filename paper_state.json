@@ -1,23 +1,5 @@
 {
  "open": {
-  "CL=F": {
-   "symbol": "CL=F",
-   "side": "long",
-   "entry": 102.86000061035156,
-   "stop": 96.39607266017369,
-   "target": 115.78785651070731,
-   "atr": 4.3092853001185825,
-   "bars": 3,
-   "entry_ts": "2026-10-28T19:47+00:00",
-   "reason": "ha superato il massimo di ieri (102.82) e ha chiuso a 102.86: segnale al rialzo; tendenza in salita; RSI 60, neutro; si muove del 4.2% al giorno",
-   "context": {
-    "trend": "su",
-    "ema_fast": 94.06783955574707,
-    "ema_slow": 85.28721568836043,
-    "rsi": 60.34937793397537,
-    "atr_pct": 4.189466531740335
-   }
-  },
   "^GSPC": {
    "symbol": "^GSPC",
    "side": "long",
@@ -25,7 +7,7 @@
    "stop": 7635.33220563616,
    "target": 7954.195940290178,
    "atr": 70.85860770089286,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-10-28T19:50+00:00",
    "reason": "ha superato il massimo di ieri (7,736) e ha chiuso a 7,742: segnale al rialzo; tendenza in salita; RSI 53, neutro; si muove del 0.9% al giorno",
    "context": {
@@ -43,7 +25,7 @@
    "stop": 78543.62444196429,
    "target": 86847.13392857143,
    "atr": 1845.224330357143,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-10-28T19:50+00:00",
    "reason": "ha superato il massimo di ieri (81,181) e ha chiuso a 81,311: segnale al rialzo; tendenza in salita; RSI 48, neutro; si muove del 2.3% al giorno",
    "context": {
@@ -61,7 +43,7 @@
    "stop": 2234.663827078683,
    "target": 2616.311994280134,
    "atr": 84.81070382254464,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-10-28T19:50+00:00",
    "reason": "ha superato il massimo di ieri (2,360) e ha chiuso a 2,362: segnale al rialzo; tendenza incerta; RSI 40, neutro; si muove del 3.6% al giorno",
    "context": {
@@ -79,7 +61,7 @@
    "stop": 156.5816764831543,
    "target": 160.7586441040039,
    "atr": 0.9282150268554688,
-   "bars": 1,
+   "bars": 3,
    "entry_ts": "2026-10-28T19:52+00:00",
    "reason": "ha superato il massimo di ieri (157.91) e ha chiuso a 157.97: segnale al rialzo; tendenza incerta; RSI 52, neutro; si muove del 0.6% al giorno",
    "context": {
@@ -97,7 +79,7 @@
    "stop": 25960.49246651786,
    "target": 27706.884207589286,
    "atr": 388.08705357142856,
-   "bars": 1,
+   "bars": 3,
    "entry_ts": "2026-10-28T19:52+00:00",
    "reason": "ha superato il massimo di ieri (26,541) e ha chiuso a 26,543: segnale al rialzo; tendenza incerta; RSI 49, neutro; si muove del 1.5% al giorno",
    "context": {
@@ -106,6 +88,24 @@
     "ema_slow": 25203.33709285799,
     "rsi": 48.75439521006858,
     "atr_pct": 1.462127736531752
+   }
+  },
+  "^VIX": {
+   "symbol": "^VIX",
+   "side": "short",
+   "entry": 16.93000030517578,
+   "stop": 19.876428365707397,
+   "target": 11.037144184112549,
+   "atr": 1.9642853736877441,
+   "bars": 1,
+   "entry_ts": "2026-10-28T19:57+00:00",
+   "reason": "ha superato il minimo di ieri (17.43) e ha chiuso a 16.93: segnale al ribasso; tendenza incerta; RSI 50, neutro; si muove del 11.6% al giorno",
+   "context": {
+    "trend": "piatto",
+    "ema_fast": 16.543648020081015,
+    "ema_slow": 17.357921435406073,
+    "rsi": 50.28225574870931,
+    "atr_pct": 11.602394201299745
    }
   }
  },
@@ -116253,6 +116253,112 @@
    "exit": 3.033,
    "exit_ts": "2026-10-28T19:55+00:00",
    "r": -0.008
+  },
+  {
+   "symbol": "BZ=F",
+   "side": "short",
+   "entry": 111.44999694824219,
+   "stop": 117.27321188790458,
+   "target": 99.8035670689174,
+   "atr": 3.882143293108259,
+   "bars": 0,
+   "entry_ts": "2026-10-28T19:57+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 103.0644478250527,
+    "ema_slow": 91.59868634901905,
+    "rsi": 59.241802591801616,
+    "atr_pct": 3.4833049792824506
+   },
+   "exit": 111.48,
+   "exit_ts": "2026-10-28T19:57+00:00",
+   "r": -0.005
+  },
+  {
+   "symbol": "NG=F",
+   "side": "long",
+   "entry": 3.0339999198913574,
+   "stop": 2.7678570662225996,
+   "target": 3.566285627228873,
+   "atr": 0.17742856911250524,
+   "bars": 0,
+   "entry_ts": "2026-10-28T19:57+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 2.9601189827719185,
+    "ema_slow": 3.086002108663727,
+    "rsi": 53.06101004850454,
+    "atr_pct": 5.848008365104329
+   },
+   "exit": 3.033,
+   "exit_ts": "2026-10-28T19:57+00:00",
+   "r": -0.004
+  },
+  {
+   "symbol": "CL=F",
+   "side": "long",
+   "entry": 102.86000061035156,
+   "stop": 96.39607266017369,
+   "target": 115.78785651070731,
+   "atr": 4.3092853001185825,
+   "bars": 5,
+   "entry_ts": "2026-10-28T19:47+00:00",
+   "reason": "ha superato il massimo di ieri (102.82) e ha chiuso a 102.86: segnale al rialzo; tendenza in salita; RSI 60, neutro; si muove del 4.2% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 94.06783955574707,
+    "ema_slow": 85.28721568836043,
+    "rsi": 60.34937793397537,
+    "atr_pct": 4.189466531740335
+   },
+   "exit": 102.55000305175781,
+   "exit_ts": "2026-10-28T20:00+00:00",
+   "exit_reason": "time",
+   "r": -0.048
+  },
+  {
+   "symbol": "BZ=F",
+   "side": "short",
+   "entry": 111.4000015258789,
+   "stop": 117.2232164655413,
+   "target": 99.75357164655412,
+   "atr": 3.882143293108259,
+   "bars": 0,
+   "entry_ts": "2026-10-28T20:00+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 103.06248722025414,
+    "ema_slow": 91.59818888212986,
+    "rsi": 59.12373917894931,
+    "atr_pct": 3.4848682584680337
+   },
+   "exit": 111.38,
+   "exit_ts": "2026-10-28T20:00+00:00",
+   "r": 0.003
+  },
+  {
+   "symbol": "NG=F",
+   "side": "long",
+   "entry": 3.0339999198913574,
+   "stop": 2.7678570662225996,
+   "target": 3.566285627228873,
+   "atr": 0.17742856911250524,
+   "bars": 0,
+   "entry_ts": "2026-10-28T20:00+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 2.9601189827719185,
+    "ema_slow": 3.086002108663727,
+    "rsi": 53.06101004850454,
+    "atr_pct": 5.848008365104329
+   },
+   "exit": 3.034,
+   "exit_ts": "2026-10-28T20:00+00:00",
+   "r": 0.0
   }
  ],
  "seen_news": [
