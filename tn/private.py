@@ -23,6 +23,7 @@ from . import newsengine as ne
 from . import newstrigger as nt
 from . import desk3
 from . import chat
+from . import selfaudit
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -299,8 +300,20 @@ def auto(token, cid):
                 send(token, cid, "paper · " + e)
         except Exception as e2:
             print("news trigger fallito:", type(e2).__name__)
+    # quinto anello: una volta al giorno il desk legge il proprio registro e
+    # dice quanti giri ha fatto, quanti ha scartato e perche'. Serve a vedere
+    # il 60% che altrimenti resta invisibile.
     now = datetime.now(timezone.utc)
     today = now.date().isoformat()
+    if not s.get("paused") and s.get("last_audit") != today:
+        try:
+            rep = selfaudit.report(save=True)
+            if rep:
+                send(token, cid, rep)
+                s["last_audit"] = today
+                save_state(s)
+        except Exception as e:
+            print("autoaudit fallito:", type(e).__name__, flush=True)
     if s.get("paused"):
         return
     if now.hour >= c["brief_hour_utc"] and s.get("last_brief") != today:

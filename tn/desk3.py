@@ -163,8 +163,16 @@ def news_agent(news, symbols, lab=None):
     # il modello sceglie fra le candidate ancorate a un asset che seguiamo;
     # se non ce ne sono, non c'e' niente da verificare.
     if not rule_cands:
+        # registro anche cosa ho lasciato per strada: senza l'etichetta e il
+        # titolo, "asset non seguiti" resta una riga che non insegna niente.
+        seen = []
+        for n in strong:
+            for a in (n.get("assets") or [])[:2]:
+                seen.append("%s (%s)" % (a, (n.get("title") or "")[:70]))
+                break
         return {"sym": None, "side": None, "confidence": 0.0,
-                "why": "notizie forti ma su asset non seguiti", "rule": True}
+                "why": "notizie forti ma su asset non seguiti: " + " | ".join(seen[:3]),
+                "left": seen[:5], "rule": True}
 
     by_sym = {}
     for sym, side, title, nid in rule_cands:
@@ -377,6 +385,7 @@ def _record(kind, trace, opened=False):
         rec = {"ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
                "kind": kind, "opened": bool(opened),
                "news": {"sym": nv.get("sym"), "side": nv.get("side"),
+                        "left": nv.get("left"),
                         "conf": nv.get("confidence"), "why": (nv.get("why") or "")[:160],
                         "rule": nv.get("rule")},
                "chart": {k: cv.get(k) for k in ("confirm", "setup", "why", "rule")},
