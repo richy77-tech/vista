@@ -7,6 +7,7 @@ Guardie (tutte e tre servono perche' un adapter reale risponda):
   1. EXEC_KILLSWITCH != "1"   -> se e' 1, tutto si ferma
   2. EXEC_LIVE == "1"         -> default spento: resta in paper
   3. le chiavi dell'owner presenti nell'ambiente
+  4. il gate di ingresso dice 'live' per quella regola su quel mercato
 Le chiavi non vivono qui e non vivono nel sandbox: stanno come secret del repo,
 dell'owner, mai in custodia mia.
 
@@ -56,6 +57,14 @@ class LiveAdapter:
 
     def place(self, symbol, side, qty, stop=None, target=None, meta=None):
         self.armed()
+        # quarta guardia: la regola deve avere il gate 'live' su QUESTO mercato.
+        # Nessuna chiave, nessun killswitch spento, nessuna regola dimostrata
+        # fuori campione = nessun ordine vero.
+        from . import gates
+        rule = (meta or {}).get("rule") or (meta or {}).get("reason") or "rottura"
+        ok, why = gates.allow(rule, symbol, live=True)
+        if not ok:
+            raise Rejected(why)
         raise NotImplementedError(
             "firma exchange non ancora scritta: si scrive con una chiave vera "
             "e una regola che ha tenuto fuori campione")

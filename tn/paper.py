@@ -22,6 +22,7 @@ from .http import get_json
 from . import indicators as ind
 from . import marketdata as md
 from . import tunables as T
+from . import gates
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -224,6 +225,12 @@ def step(symbols, s=None, dry=False):
         if T.p("trend_filter", True) and reg["state"] != ("su" if side == "long" else "giu"):
             events.append(f"{label(sym)}: segnale al {('rialzo' if side == 'long' else 'ribasso')} "
                           f"scartato (tendenza {reg['state']})")
+            continue
+
+        ok, why_gate = gates.allow("rottura", sym)
+        if not ok:
+            events.append(f"{label(sym)}: segnale al {('rialzo' if side == 'long' else 'ribasso')} "
+                          f"non operato ({why_gate})")
             continue
 
         entry = last["c"]

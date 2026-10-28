@@ -1,0 +1,22 @@
+{
+  "updated": "2026-10-28",
+  "note": "Ogni regola, su ogni mercato, ha uno stato. off = non apre. paper = apre solo in simulazione. live = puo' toccare soldi veri. Il default e' paper: una regola senza prova fuori campione puo' essere osservata, non pagata.",
+  "rules": {
+    "rottura": {
+      "default": {
+        "status": "paper",
+        "why": "nessun test fuori campione superato: osservabile in paper, mai con soldi veri"
+      },
+      "GC=F": {
+        "status": "off",
+        "why": "-48,2% su 1911 operazioni con regole identiche su tre futures (r/algotrading, PF 0.90) e PF 1.06 da 5 anni di GC=F con costi: due test indipendenti, stesso verdetto"
+      }
+    },
+    "news+movimento": {
+      "default": {
+        "status": "paper",
+        "why": "trigger dichiarato, mai misurato fuori campione"
+      }
+    }
+  }
+}
