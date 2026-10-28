@@ -9,7 +9,7 @@ niente: un audit che si inventa i numeri e' peggio di nessun audit.
 import json
 import os
 from collections import Counter
-from datetime import datetime, timezone
+from datetime import datetime, timedelta, timezone
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -41,7 +41,13 @@ def _reason(s):
 
 def read(since=None, path=None):
     """Conta i giri dopo `since` (ISO). Ritorna dict + ultimo ts visto."""
-    since = since or _last()
+    if since is None:
+        since = _last()
+        if not since:
+            # primo giro in assoluto: non leggo mille giri di storia e li
+            # spaccio per "oggi". Finestra di 24 ore, e lo dico.
+            since = (datetime.now(timezone.utc).replace(microsecond=0) -
+                     timedelta(hours=24)).strftime("%Y-%m-%dT%H:%M:%SZ")
     rows = []
     for line in open(path or LOG, encoding="utf-8"):
         try:
