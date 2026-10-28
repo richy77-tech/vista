@@ -4,11 +4,11 @@
  "last_in_text": "Quanto ha guadagnato??",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-28T13:29Z",
+  "utc": "2026-10-28T13:34Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, RSI 62, price rising, 60% range",
-  "verdict": "News inconclusive, Fed volatility tight stop, insufficient consensus",
-  "action": "skip"
+  "chart": "Minimal rise, RSI moderate, volatility low",
+  "verdict": null,
+  "action": null
  }
 }
