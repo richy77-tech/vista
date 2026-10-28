@@ -79,8 +79,26 @@ jobs:
             done
             if ! git diff --staged --quiet; then
               if guard; then
-                timeout 60 git commit -m "state: $(date -u +%FT%TZ)" \
-                  && { timeout 90 git pull --rebase --autostash -q || { git rebase --abort 2>/dev/null || true; }; timeout 90 git push || echo "push saltato"; }
+                timeout 60 git commit -m "state: $(date -u +%FT%TZ)" || true
+                # Push con 3 tentativi. Il 28/10 il loop si e' piantato DOPO il
+                # primo giro: lo stato restava su disco ma nessun commit arrivava
+                # su main, e il canale e' rimasto muto 2h30 senza un avviso.
+                # Qui: se il push non passa 3 volte, esco e avviso, cosi' una run
+                # nuova (checkout pulito) riparte invece di restare zitta.
+                ok=0
+                for try in 1 2 3; do
+                  if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then git rebase --abort 2>/dev/null || true; fi
+                  timeout 60 git fetch -q origin main || true
+                  timeout 90 git pull --rebase --autostash -q || { git rebase --abort 2>/dev/null || true; git stash drop 2>/dev/null || true; }
+                  if timeout 90 git push -q; then ok=1; break; fi
+                  echo "push tentativo $try fallito, riprovo"
+                  timeout 20 sleep 15
+                done
+                if [ "$ok" != 1 ]; then
+                  echo "stato non pushato dopo 3 tentativi: esco per il riavvio"
+                  python -m tn.alert "Canale news: non riesco a pushare lo stato (3 tentativi). Riavvio la catena." || true
+                  exit 1
+                fi
               else
                 timeout 30 git reset -q
               fi
