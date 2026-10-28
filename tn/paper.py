@@ -14,6 +14,7 @@ Se il motore perde o la fonte cade, il simbolo resta assente. mai inventato.
 import json
 import os
 import re
+from html import escape
 import sys
 from datetime import datetime, timezone
 
@@ -87,9 +88,22 @@ _TREND_TXT = {"su": "tendenza in salita", "giu": "tendenza in discesa",
               "piatto": "tendenza incerta", "n/d": "tendenza non leggibile"}
 
 
+_PLAIN = {
+    "3 ruoli": "tre conferme insieme: la notizia era forte, il grafico andava "
+               "nella stessa parte, e il movimento continuava",
+    "news+movimento": "la notizia era forte e il prezzo si stava gia' muovendo "
+                      "nella stessa direzione",
+}
+
+
 def pretty_reason(reason):
     """Le voci salvate prima del 21/10 sono in gergo. Qui tornano frasi."""
-    if not reason or " | " not in reason:
+    if not reason:
+        return reason
+    for k, v in _PLAIN.items():
+        if reason.startswith(k):
+            return v
+    if " | " not in reason:
         return reason
     out = []
     for part in reason.split(" | "):
@@ -303,6 +317,8 @@ def screen(s=None, symbols=None, capital=None, risk_pct=None):
                 L.append(f"   {stato}: {r_now * eur:+.2f}\u20ac (su {cap:.0f}\u20ac provati) \u00b7 {pc:+.2f}%")
             if p.get("reason"):
                 L.append(f"   perche' sono entrato: {pretty_reason(p['reason'])}")
+            if p.get("headline"):
+                L.append(f"   la notizia: {escape(str(p['headline'])[:110])}")
             L.append(f"   aperta il {p.get('entry_ts', '')[:16].replace('T', ' ')}")
     L.append("")
 
