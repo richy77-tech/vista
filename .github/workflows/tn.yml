@@ -92,6 +92,7 @@ jobs:
         if: always()
         env:
           GH_PAT: ${{ secrets.TN_DISPATCH_TOKEN }}
+          PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
           RUN_ID: ${{ github.run_id }}
         run: |
           # Niente catene accavallate: se un'altra run del news e' gia' viva o in
@@ -108,3 +109,6 @@ jobs:
             "https://api.github.com/repos/richy77-tech/vista/actions/workflows/tn.yml/dispatches" \
             -d '{"ref":"main"}')
           echo "dispatch -> $code"
+          if [ "$code" != "204" ]; then
+            python -m tn.alert "Canale news: il rilancio non e' partito (HTTP $code). La chiave GitHub e' scaduta o morta." || true
+          fi

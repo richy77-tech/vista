@@ -21,9 +21,17 @@ jobs:
       - name: Catene vive?
         env:
           GH_PAT: ${{ secrets.TN_DISPATCH_TOKEN }}
+          PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
         run: |
           REPO=richy77-tech/vista
           LIMIT=50   # minuti oltre i quali si considera fermo
+          notify() { # il riavvio deve farsi sentire, non essere silenzioso
+            [ -n "$PRIVATE_BOT_TOKEN" ] || return 0
+            curl -s -o /dev/null -m 15 \
+              --data-urlencode "chat_id=6440475833" \
+              --data-urlencode "text=$1" \
+              "https://api.telegram.org/bot$PRIVATE_BOT_TOKEN/sendMessage" || true
+          }
           burn() {   # cancella tutte le run attive di un workflow
             wf=$1
             curl -s -H "Authorization: token $GH_PAT" -H "User-Agent: watchdog" \
@@ -64,10 +72,12 @@ jobs:
                 echo "$wf: c'e' ancora una run in coda, aspetto il prossimo giro del watchdog"
               else
                 dispatch "$wf"
+                notify "Watchdog: $wf era fermo da $age minuti, l'ho riavviato."
               fi
             elif [ "${n:-0}" -eq 0 ]; then
               echo "$wf: battito ok ma nessuna run viva, lo riavvio"
               dispatch "$wf"
+              notify "Watchdog: $wf non aveva nessuna run viva, l'ho riavviato."
             else
               echo "$wf vivo (battito ${age} min, run attive ${n})"
             fi
