@@ -33,12 +33,30 @@ def _p_note(ok):
             _P_FAILS, _P_UNTIL = 0, time.time() + 600
 
 
-def _keyed(system, user, json_mode, timeout):
-    key = os.environ.get("AI_API_KEY")
-    if not key:
-        return None
-    base = os.environ.get("AI_BASE_URL", "https://api.openai.com/v1").rstrip("/")
-    model = os.environ.get("AI_MODEL", "gpt-4o-mini")
+# quale strada ha risposto per ultima: serve a capire nei log se parla il
+# modello o le regole, senza doverlo dedurre dal testo.
+LAST_ROUTE = ""
+
+
+def routes():
+    """Le chiavi si provano in ordine, la prima che risponde vince.
+
+    AI_API_KEY e' la principale; _2 e _3 sono riserve con endpoint e modello
+    propri (es. OpenRouter davanti, Groq dietro). Una quota finita non deve
+    far cadere il desk sulle regole quando esiste una seconda porta.
+    """
+    out = []
+    for suf in ("", "_2", "_3"):
+        key = os.environ.get("AI_API_KEY" + suf)
+        if not key:
+            continue
+        base = os.environ.get("AI_BASE_URL" + suf, "https://api.openai.com/v1").rstrip("/")
+        model = os.environ.get("AI_MODEL" + suf, "gpt-4o-mini")
+        out.append((key, base, model))
+    return out
+
+
+def _one(key, base, model, system, user, json_mode, timeout):
     payload = {"model": model, "temperature": 0,
                "messages": [{"role": "system", "content": system},
                             {"role": "user", "content": user}]}
@@ -48,10 +66,20 @@ def _keyed(system, user, json_mode, timeout):
         from .http import post_json
         d = post_json(base + "/chat/completions", payload,
                       headers={"Authorization": "Bearer " + key},
-                      timeout=timeout, tries=2)
+                      timeout=timeout, tries=1 if len(routes()) > 1 else 2)
         return d["choices"][0]["message"]["content"].strip()
     except Exception:
         return None
+
+
+def _keyed(system, user, json_mode, timeout):
+    global LAST_ROUTE
+    for key, base, model in routes():
+        out = _one(key, base, model, system, user, json_mode, timeout)
+        if _usable(out, json_mode):
+            LAST_ROUTE = model
+            return out
+    return None
 
 
 def _pollinations(system, user, json_mode, timeout):
@@ -93,7 +121,10 @@ def _usable(out, json_mode):
 
 
 def chat(system, user, json_mode=False, timeout=45):
+    global LAST_ROUTE
     out = _keyed(system, user, json_mode, timeout)
     if _usable(out, json_mode):
         return out
-    return _pollinations(system, user, json_mode, timeout)
+    out = _pollinations(system, user, json_mode, timeout)
+    LAST_ROUTE = "pollinations" if _usable(out, json_mode) else "rules"
+    return out

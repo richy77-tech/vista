@@ -43,6 +43,9 @@ jobs:
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
+          AI_API_KEY_2: ${{ secrets.AI_API_KEY_2 }}
+          AI_BASE_URL_2: ${{ secrets.AI_BASE_URL_2 }}
+          AI_MODEL_2: ${{ secrets.AI_MODEL_2 }}
         run: |
           git config user.name "tn-bot"
           git config user.email "tn-bot@users.noreply.github.com"

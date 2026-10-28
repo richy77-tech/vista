@@ -41,6 +41,9 @@ jobs:
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
+          AI_API_KEY_2: ${{ secrets.AI_API_KEY_2 }}
+          AI_BASE_URL_2: ${{ secrets.AI_BASE_URL_2 }}
+          AI_MODEL_2: ${{ secrets.AI_MODEL_2 }}
           VISTA_AFFILIATE: ${{ secrets.VISTA_AFFILIATE }}
           VISTA_DIGEST_EVERY_H: "2"
           # News: controllo ogni ~5 min. Cosi' ogni notizia fresca parte subito,
