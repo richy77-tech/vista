@@ -1,13 +1,13 @@
 {
  "last_brief": "2026-10-28",
- "last_in": "2026-10-28T15:50:22Z",
- "last_in_text": "Quanti soldi ha fatto il bot ??",
+ "last_in": "2026-10-28T18:58:01Z",
+ "last_in_text": "Quanto sta guadagnando il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-28T18:54Z",
+  "utc": "2026-10-28T19:00Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price in lower third, trend up, RSI neutral, slight daily rise, no bearish signals",
   "verdict": null,
   "action": null
  }
