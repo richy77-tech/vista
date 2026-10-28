@@ -1,21 +1,21 @@
 {
  "open": {
-  "SI=F": {
-   "symbol": "SI=F",
+  "^VIX": {
+   "symbol": "^VIX",
    "side": "short",
-   "entry": 53.54999923706055,
-   "stop": 55.308107239859446,
-   "target": 50.03378323146275,
-   "atr": 1.1720720018659319,
-   "bars": 4,
-   "entry_ts": "2026-10-28T19:11+00:00",
-   "reason": "ha superato il minimo di ieri (53.65) e ha chiuso a 53.55: segnale al ribasso; tendenza in discesa; RSI 31, neutro; si muove del 2.2% al giorno",
+   "entry": 17.0,
+   "stop": 19.94428515434265,
+   "target": 11.111429691314697,
+   "atr": 1.9628567695617676,
+   "bars": 1,
+   "entry_ts": "2026-10-28T19:24+00:00",
+   "reason": "ha superato il minimo di ieri (17.43) e ha chiuso a 17.00: segnale al ribasso; tendenza incerta; RSI 51, neutro; si muove del 11.5% al giorno",
    "context": {
-    "trend": "giu",
-    "ema_fast": 60.4227053611431,
-    "ema_slow": 63.790183446450406,
-    "rsi": 30.729854673421144,
-    "atr_pct": 2.1887432652935903
+    "trend": "piatto",
+    "ema_fast": 16.546393106152554,
+    "ema_slow": 17.358617949782435,
+    "rsi": 50.558656434743256,
+    "atr_pct": 11.54621629153981
    }
   }
  },
@@ -115505,6 +115505,112 @@
    "exit": 3.031,
    "exit_ts": "2026-10-28T19:22+00:00",
    "r": 0.0
+  },
+  {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 53.54999923706055,
+   "stop": 55.308107239859446,
+   "target": 50.03378323146275,
+   "atr": 1.1720720018659319,
+   "bars": 5,
+   "entry_ts": "2026-10-28T19:11+00:00",
+   "reason": "ha superato il minimo di ieri (53.65) e ha chiuso a 53.55: segnale al ribasso; tendenza in discesa; RSI 31, neutro; si muove del 2.2% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 60.4227053611431,
+    "ema_slow": 63.790183446450406,
+    "rsi": 30.729854673421144,
+    "atr_pct": 2.1887432652935903
+   },
+   "exit": 53.98500061035156,
+   "exit_ts": "2026-10-28T19:24+00:00",
+   "exit_reason": "time",
+   "r": -0.247
+  },
+  {
+   "symbol": "BZ=F",
+   "side": "short",
+   "entry": 111.29000091552734,
+   "stop": 117.11321585518974,
+   "target": 99.64357103620256,
+   "atr": 3.882143293108259,
+   "bars": 0,
+   "entry_ts": "2026-10-28T19:24+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 103.05817347082859,
+    "ema_slow": 91.59709434869353,
+    "rsi": 58.8656239236234,
+    "atr_pct": 3.488312751524667
+   },
+   "exit": 111.28,
+   "exit_ts": "2026-10-28T19:24+00:00",
+   "r": 0.002
+  },
+  {
+   "symbol": "NG=F",
+   "side": "long",
+   "entry": 3.0299999713897705,
+   "stop": 2.7638571177210127,
+   "target": 3.562285678727286,
+   "atr": 0.17742856911250524,
+   "bars": 0,
+   "entry_ts": "2026-10-28T19:24+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 2.959962122046366,
+    "ema_slow": 3.085962308181124,
+    "rsi": 52.920004423412,
+    "atr_pct": 5.855728408839688
+   },
+   "exit": 3.032,
+   "exit_ts": "2026-10-28T19:24+00:00",
+   "r": 0.008
+  },
+  {
+   "symbol": "BZ=F",
+   "side": "short",
+   "entry": 111.58999633789062,
+   "stop": 117.41321127755302,
+   "target": 99.94356645856584,
+   "atr": 3.882143293108259,
+   "bars": 0,
+   "entry_ts": "2026-10-28T19:27+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "su",
+    "ema_fast": 103.06993799719578,
+    "ema_slow": 91.60007937777178,
+    "rsi": 59.57493194089482,
+    "atr_pct": 3.4789348691734556
+   },
+   "exit": 111.61,
+   "exit_ts": "2026-10-28T19:27+00:00",
+   "r": -0.003
+  },
+  {
+   "symbol": "NG=F",
+   "side": "long",
+   "entry": 3.0299999713897705,
+   "stop": 2.7638571177210127,
+   "target": 3.562285678727286,
+   "atr": 0.17742856911250524,
+   "bars": 0,
+   "entry_ts": "2026-10-28T19:27+00:00",
+   "reason": "ruolo 3: tesi invalidata",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 2.959962122046366,
+    "ema_slow": 3.085962308181124,
+    "rsi": 52.920004423412,
+    "atr_pct": 5.855728408839688
+   },
+   "exit": 3.028,
+   "exit_ts": "2026-10-28T19:27+00:00",
+   "r": -0.008
   }
  ],
  "seen_news": [
