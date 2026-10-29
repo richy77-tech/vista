@@ -1,42 +1,5 @@
 {
- "open": {
-  "^IXIC": {
-   "symbol": "^IXIC",
-   "side": "short",
-   "entry": 26087.080078125,
-   "stop": 26700.777204241072,
-   "target": 24859.68582589286,
-   "atr": 409.1314174107143,
-   "bars": 3,
-   "entry_ts": "2026-10-29T13:37+00:00",
-   "reason": "ha superato il minimo di ieri (26,415) e ha chiuso a 26,087: segnale al ribasso; tendenza incerta; RSI 42, neutro; si muove del 1.6% al giorno",
-   "context": {
-    "trend": "piatto",
-    "ema_fast": 26526.387732300183,
-    "ema_slow": 25211.749255798382,
-    "rsi": 42.10154702279502,
-    "atr_pct": 1.5683296719504702
-   }
-  },
-  "ETH-USD": {
-   "symbol": "ETH-USD",
-   "side": "short",
-   "entry": 2319.93994140625,
-   "stop": 2439.8998413085938,
-   "target": 2080.0201416015625,
-   "atr": 79.9732666015625,
-   "bars": 3,
-   "entry_ts": "2026-10-29T13:37+00:00",
-   "reason": "ha superato il minimo di ieri (2,321) e ha chiuso a 2,320: segnale al ribasso; tendenza incerta; RSI 36, neutro; si muove del 3.4% al giorno",
-   "context": {
-    "trend": "piatto",
-    "ema_fast": 2444.073389100284,
-    "ema_slow": 2319.638406138306,
-    "rsi": 35.779456200324645,
-    "atr_pct": 3.447212799529891
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -132767,6 +132730,72 @@
    "exit": 79987.96,
    "exit_ts": "2026-10-29T13:50+00:00",
    "r": 0.002
+  },
+  {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 52.5099983215332,
+   "stop": 54.304749080113005,
+   "target": 48.920496804373606,
+   "atr": 1.196500505719866,
+   "bars": 1,
+   "entry_ts": "2026-10-29T15:25+00:00",
+   "reason": "ha superato il minimo di ieri (53.40) e ha chiuso a 52.51: segnale al ribasso; tendenza in discesa; RSI 28, venduto; si muove del 2.3% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 60.108899143041945,
+    "ema_slow": 63.675785951553316,
+    "rsi": 28.386168096523903,
+    "atr_pct": 2.278614633337757
+   },
+   "exit": 54.304749080113005,
+   "exit_ts": "2026-10-29T15:28+00:00",
+   "exit_reason": "stop",
+   "r": -1.0
+  },
+  {
+   "symbol": "^IXIC",
+   "side": "short",
+   "entry": 26087.080078125,
+   "stop": 26700.777204241072,
+   "target": 24859.68582589286,
+   "atr": 409.1314174107143,
+   "bars": 5,
+   "entry_ts": "2026-10-29T13:37+00:00",
+   "reason": "ha superato il minimo di ieri (26,415) e ha chiuso a 26,087: segnale al ribasso; tendenza incerta; RSI 42, neutro; si muove del 1.6% al giorno",
+   "context": {
+    "trend": "piatto",
+    "ema_fast": 26526.387732300183,
+    "ema_slow": 25211.749255798382,
+    "rsi": 42.10154702279502,
+    "atr_pct": 1.5683296719504702
+   },
+   "exit": 26238.390625,
+   "exit_ts": "2026-10-29T15:28+00:00",
+   "exit_reason": "time",
+   "r": -0.247
+  },
+  {
+   "symbol": "ETH-USD",
+   "side": "short",
+   "entry": 2319.93994140625,
+   "stop": 2439.8998413085938,
+   "target": 2080.0201416015625,
+   "atr": 79.9732666015625,
+   "bars": 5,
+   "entry_ts": "2026-10-29T13:37+00:00",
+   "reason": "ha superato il minimo di ieri (2,321) e ha chiuso a 2,320: segnale al ribasso; tendenza incerta; RSI 36, neutro; si muove del 3.4% al giorno",
+   "context": {
+    "trend": "piatto",
+    "ema_fast": 2444.073389100284,
+    "ema_slow": 2319.638406138306,
+    "rsi": 35.779456200324645,
+    "atr_pct": 3.447212799529891
+   },
+   "exit": 2354.159912109375,
+   "exit_ts": "2026-10-29T15:28+00:00",
+   "exit_reason": "time",
+   "r": -0.285
   }
  ],
  "seen_news": [
