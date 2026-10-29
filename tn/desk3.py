@@ -32,6 +32,7 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TRAIN_LOG = os.path.join(ROOT, "desk_log.jsonl")
 
 MAX_OPEN = 3          # quante operazioni paper aperte insieme al massimo
+MAX_PER_SYM_DAY = 4   # oltre questa quota, lo stesso asset non si tocca piu' oggi
 CONF_MIN = 0.55       # sotto questa confidenza dichiarata, il convalidatore salta
 
 NEWS_SYS = (
@@ -297,6 +298,22 @@ def _open_count(st):
     return len(st.get("open") or {})
 
 
+def _today_count(st, sym):
+    """Quante volte questo asset e' stato aperto oggi (UTC).
+    Il registro paper e' l'unica memoria che sopravvive ai giri: ogni run e' un
+    processo nuovo, quindi la quota va letta dalle chiusure, non da una variabile."""
+    from datetime import datetime, timezone
+    day = datetime.now(timezone.utc).strftime("%Y-%m-%d")
+    n = 0
+    for t in (st.get("closed") or [])[-400:]:
+        if t.get("symbol") == sym and str(t.get("entry_ts", "")).startswith(day):
+            n += 1
+    for p in (st.get("open") or {}).values():
+        if p.get("symbol") == sym and str(p.get("entry_ts", "")).startswith(day):
+            n += 1
+    return n
+
+
 def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     """Un giro completo dei tre ruoli. Apre al massimo una posizione paper.
     Ritorna (stato, eventi, traccia) — la traccia e' cosa ha detto ogni ruolo."""
@@ -324,6 +341,18 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     _want = "su" if nv["side"] == "long" else "giu"
     if _tr and _tr != "piatto" and _tr != _want:
         trace["skip"] = f"trend {_tr} contro {nv['side']}: non si apre"
+        return st, [], trace
+
+    # Secondo muro, dai numeri del registro: NG=F in trend "piatto" ha fatto 195
+    # operazioni a -0.18R di media, e lo stesso asset veniva riaperto 4-5 volte in
+    # pochi minuti dopo ogni stop. In un mercato senza direzione il breakout di
+    # ieri non e' un segnale, e' un lancio di moneta con lo spread contro.
+    if _tr == "piatto":
+        trace["skip"] = "trend piatto: niente breakout, si aspetta una direzione"
+        return st, [], trace
+    _today = _today_count(st, nv["sym"])
+    if _today >= MAX_PER_SYM_DAY:
+        trace["skip"] = f"{nv['sym']}: {_today} aperture oggi, quota esaurita"
         return st, [], trace
 
     # quarto ruolo prima del convalidatore: decide DOVE entrare. Non autorizza,
