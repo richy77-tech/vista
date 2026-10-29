@@ -4,3 +4,5 @@
 {"ts": "2026-10-29T13:35Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.36, "trend": "giu", "rsi": 36.3}, "skip": "GC=F: gia' aperta", "risk": null}
 {"ts": "2026-10-29T13:38Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.36, "trend": "giu", "rsi": 36.3}, "skip": "GC=F: gia' aperta", "risk": null}
 {"ts": "2026-10-29T13:41Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.41, "trend": "giu", "rsi": 36.2}, "skip": "GC=F: gia' aperta", "risk": null}
+{"ts": "2026-10-29T13:48Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-10-29T13:51Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}

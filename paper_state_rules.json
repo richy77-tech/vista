@@ -1,13 +1,14 @@
 {
- "open": {
-  "GC=F": {
+ "open": {},
+ "closed": [
+  {
    "symbol": "GC=F",
    "side": "short",
    "entry": 4036.699951171875,
    "stop": 4137.83203125,
    "target": 3834.435791015625,
    "atr": 67.42138671875,
-   "bars": 4,
+   "bars": 5,
    "entry_ts": "2026-10-29T13:29+00:00",
    "reason": "regole: trend giu, movimento -0.37%",
    "headline": "",
@@ -16,8 +17,11 @@
     "trend": "giu",
     "rsi": 36.317619271919845,
     "change": -0.36775955487300843
-   }
+   },
+   "exit": 4040.60009765625,
+   "exit_ts": "2026-10-29T13:48+00:00",
+   "exit_reason": "time",
+   "r": -0.039
   }
- },
- "closed": []
+ ]
 }
