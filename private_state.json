@@ -4,10 +4,10 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-29T12:10Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "utc": "2026-10-29T12:15Z",
+  "news": "notizie forti ma su asset non seguiti: ELI LILLY (LLY) (Eli Lilly blows past estimates, hikes sales outlook as Zepbound and Mo) | CRYPTOCURRENCIES (Treasury Sanctions 11 Over North Korean IT Worker Scheme That Moved Mi)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
