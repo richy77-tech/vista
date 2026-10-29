@@ -1,24 +1,5 @@
 {
- "open": {
-  "BTC-USD": {
-   "symbol": "BTC-USD",
-   "side": "long",
-   "entry": 81670.53125,
-   "stop": 78970.01060267857,
-   "target": 87071.57254464286,
-   "atr": 1800.3470982142858,
-   "bars": 4,
-   "entry_ts": "2026-10-29T15:45+00:00",
-   "reason": "regole: trend su, movimento +0.50%",
-   "headline": "",
-   "rules": true,
-   "context": {
-    "trend": "su",
-    "rsi": 49.58026193094282,
-    "change": 0.49582537471937566
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -41,6 +22,28 @@
    "exit_ts": "2026-10-29T13:48+00:00",
    "exit_reason": "time",
    "r": -0.039
+  },
+  {
+   "symbol": "BTC-USD",
+   "side": "long",
+   "entry": 81670.53125,
+   "stop": 78970.01060267857,
+   "target": 87071.57254464286,
+   "atr": 1800.3470982142858,
+   "bars": 5,
+   "entry_ts": "2026-10-29T15:45+00:00",
+   "reason": "regole: trend su, movimento +0.50%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 49.58026193094282,
+    "change": 0.49582537471937566
+   },
+   "exit": 81714.609375,
+   "exit_ts": "2026-10-29T16:00+00:00",
+   "exit_reason": "time",
+   "r": 0.016
   }
  ]
 }

@@ -1,24 +1,5 @@
 {
- "open": {
-  "BTC-USD": {
-   "symbol": "BTC-USD",
-   "side": "long",
-   "entry": 81802.0234375,
-   "stop": 79097.30496651786,
-   "target": 87211.46037946429,
-   "atr": 1803.1456473214287,
-   "bars": 3,
-   "entry_ts": "2026-10-29T15:47+00:00",
-   "reason": "ha superato il massimo di ieri (81,703) e ha chiuso a 81,802: segnale al rialzo; tendenza in salita; RSI 50, neutro; si muove del 2.2% al giorno",
-   "context": {
-    "trend": "su",
-    "ema_fast": 80798.79648644381,
-    "ema_slow": 76469.65820042418,
-    "rsi": 50.176027266342274,
-    "atr_pct": 2.2042800062263788
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -132925,6 +132906,50 @@
    "exit_ts": "2026-10-29T15:56+00:00",
    "exit_reason": "stop",
    "r": -1.0
+  },
+  {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 52.43000030517578,
+   "stop": 54.22475106375558,
+   "target": 48.840498788016184,
+   "atr": 1.196500505719866,
+   "bars": 1,
+   "entry_ts": "2026-10-29T15:59+00:00",
+   "reason": "ha superato il minimo di ieri (53.40) e ha chiuso a 52.43: segnale al ribasso; tendenza in discesa; RSI 28, venduto; si muove del 2.3% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 60.10576196592989,
+    "ema_slow": 63.67498995139056,
+    "rsi": 28.219551798500987,
+    "atr_pct": 2.2820913575347626
+   },
+   "exit": 54.22475106375558,
+   "exit_ts": "2026-10-29T16:02+00:00",
+   "exit_reason": "stop",
+   "r": -1.0
+  },
+  {
+   "symbol": "BTC-USD",
+   "side": "long",
+   "entry": 81802.0234375,
+   "stop": 79097.30496651786,
+   "target": 87211.46037946429,
+   "atr": 1803.1456473214287,
+   "bars": 5,
+   "entry_ts": "2026-10-29T15:47+00:00",
+   "reason": "ha superato il massimo di ieri (81,703) e ha chiuso a 81,802: segnale al rialzo; tendenza in salita; RSI 50, neutro; si muove del 2.2% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 80798.79648644381,
+    "ema_slow": 76469.65820042418,
+    "rsi": 50.176027266342274,
+    "atr_pct": 2.2042800062263788
+   },
+   "exit": 81598.6796875,
+   "exit_ts": "2026-10-29T16:02+00:00",
+   "exit_reason": "time",
+   "r": -0.075
   }
  ],
  "seen_news": [
