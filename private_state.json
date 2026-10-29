@@ -4,23 +4,23 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-29T16:33Z",
+  "utc": "2026-10-29T16:38Z",
   "news": "PCE surprise boosts USD strength",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price fell, trend up but no rebound and RSI neutral",
+  "chart": "Price under yesterday's low, dipped 0.17%, trend up but weak momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-29",
  "last_rules": {
-  "utc": "2026-10-29T16:33Z",
+  "utc": "2026-10-29T16:38Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.61,
+   "change": -0.64,
    "trend": "giu",
-   "rsi": 35.6
+   "rsi": 35.5
   },
   "skip": "risk: cooldown: GC=F uscita 2.8h fa, cooldown 6h",
   "stats": {
