@@ -4,7 +4,7 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-29T15:34Z",
+  "utc": "2026-10-29T15:39Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
   "chart": "regola: trend o movimento non confermano",
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-10-29",
  "last_rules": {
-  "utc": "2026-10-29T15:34Z",
+  "utc": "2026-10-29T15:39Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.49,
+   "change": -0.42,
    "trend": "giu",
-   "rsi": 35.9
+   "rsi": 36.1
   },
-  "skip": "risk: cooldown: GC=F uscita 1.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 1.9h fa, cooldown 6h",
   "stats": {
    "n": 1,
    "moved": 1,
