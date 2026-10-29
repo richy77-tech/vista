@@ -397,7 +397,7 @@ def _roles():
     try:
         import json as _json
         import os as _os
-        p = _os.path.join(ROOT, "private_state.json")
+        p = _os.path.join(paper.ROOT, "private_state.json")
         with open(p, encoding="utf-8") as f:
             st = _json.load(f)
         r = st.get("last_roles")

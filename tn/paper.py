@@ -287,7 +287,7 @@ def _money(capital=None, risk_pct=None):
     return capital, risk_pct, capital * risk_pct / 100.0
 
 
-def screen(s=None, symbols=None, capital=None, risk_pct=None):
+def screen(s=None, symbols=None, capital=None, risk_pct=None, path=None):
     """Schermata operazioni in parole semplici: cosa ho preso, cosa aspetto,
     com'e' andata. Zero gergo."""
     s = s or load(path)
@@ -363,7 +363,7 @@ def screen(s=None, symbols=None, capital=None, risk_pct=None):
     return "\n".join(L)
 
 
-def report(s=None):
+def report(s=None, path=None):
     s = s or load(path)
     closed = s["closed"]
     if not closed:
@@ -385,7 +385,7 @@ def report(s=None):
             f"aperte {len(s['open'])}")
 
 
-def earnings(s=None, capital=None, risk_pct=None):
+def earnings(s=None, capital=None, risk_pct=None, path=None):
     """Stima onesta del guadagno. Il registro e' simulato: qui il risultato in R
     (multipli del rischio) e la stessa cifra su `capital`, dichiarata come
     simulazione. Soldi veri: non ne ha mossi nessuno."""

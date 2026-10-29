@@ -25,7 +25,14 @@ PARAMS = {
     # -17,1R su 860 op (exp -0,020). Meno operazioni, stesso problema per
     # operazione. Resta spegnibile, ma di default NON e' acceso: non ha una
     # prova fuori campione che lo giustifichi.
-    "trend_filter": False,     # richiede accordo col trend, spegnibile per confronto
+    # 29/10: riacceso. Era spento per un confronto walk-forward del 21/10, ma
+    # quel confronto era sporco: il ruolo 3 chiudeva comunque ogni posizione
+    # contro trend sulla stessa candela, quindi il "senza filtro" pagava solo
+    # l'ingresso e non arrivava mai allo stop. Con il filtro spento, 99 delle
+    # ultime 120 chiusure erano "tesi invalidata" a barre 0: stessa operazione
+    # aperta e chiusa ogni 5 minuti. Ora chi apre e chi sorveglia usano la
+    # stessa regola, e il registro misura la regola che resta.
+    "trend_filter": True,      # richiede accordo col trend, spegnibile per confronto
     "ema_fast": 50,
     "ema_slow": 200,
     "slope_n": 10,             # barre per la pendenza dell'EMA veloce

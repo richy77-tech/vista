@@ -454,6 +454,12 @@ def review(symbols, dry=False):
         if not s or s.get("trend") is None:
             continue
         want = "su" if pos["side"] == "long" else "giu"
+        # Mai chiudere sulla candela dell'apertura: se l'ho appena aperta, la
+        # regola d'ingresso ha gia' parlato. Prima qui si apriva contro trend e
+        # il sorvegliante chiudeva nello stesso giro: due messaggi ogni cinque
+        # minuti, same trade, zero informazione.
+        if pos.get("bars", 0) == 0:
+            continue
         if s["trend"] != "piatto" and s["trend"] != want:
             try:
                 last = s["price"]
