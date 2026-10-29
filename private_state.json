@@ -4,25 +4,25 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-29T18:58Z",
+  "utc": "2026-10-29T19:04Z",
   "news": "ECB new tightening shocks dollar",
   "news_sym": "EURUSD=X",
-  "chart": "Price up, RSI moderate, trend down, not supporting short",
+  "chart": "Price up, RSI low, trend down",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-29",
  "last_rules": {
-  "utc": "2026-10-29T18:58Z",
+  "utc": "2026-10-29T19:04Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.79,
+   "change": -0.73,
    "trend": "giu",
-   "rsi": 35.1
+   "rsi": 35.3
   },
-  "skip": "risk: cooldown: GC=F uscita 5.2h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 5.3h fa, cooldown 6h",
   "stats": {
    "n": 2,
    "moved": 2,
