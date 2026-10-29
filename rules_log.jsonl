@@ -14,3 +14,5 @@
 {"ts": "2026-10-29T15:39Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.42, "trend": "giu", "rsi": 36.1}, "skip": "risk: cooldown: GC=F uscita 1.9h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.9h fa, cooldown 6h"}
 {"ts": "2026-10-29T15:42Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.41, "trend": "giu", "rsi": 36.2}, "skip": "risk: cooldown: GC=F uscita 1.9h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.9h fa, cooldown 6h"}
 {"ts": "2026-10-29T15:45Z", "kind": "open", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.5, "trend": "su", "rsi": 49.6}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -0.04R"}
+{"ts": "2026-10-29T15:48Z", "kind": "skip", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.54, "trend": "su", "rsi": 49.7}, "skip": "BTC-USD: gia' aperta", "risk": null}
+{"ts": "2026-10-29T15:51Z", "kind": "skip", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.44, "trend": "su", "rsi": 49.4}, "skip": "BTC-USD: gia' aperta", "risk": null}
