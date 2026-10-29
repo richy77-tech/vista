@@ -4,23 +4,23 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-29T13:35Z",
-  "news": "Inflation surge hints Fed will lift rates again",
+  "utc": "2026-10-29T13:41Z",
+  "news": "PCE inflation surprise boosts dollar index",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price rising in uptrend, RSI in upphase, small positive move supports long",
+  "chart": "Price below 20‑day high, RSI 61, no breakout confirmed",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-29",
  "last_rules": {
-  "utc": "2026-10-29T13:35Z",
+  "utc": "2026-10-29T13:41Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.36,
+   "change": -0.41,
    "trend": "giu",
-   "rsi": 36.3
+   "rsi": 36.2
   },
   "skip": "GC=F: gia' aperta",
   "stats": {
