@@ -25,6 +25,7 @@ from . import desk3
 from . import rules_desk
 from . import chat
 from . import selfaudit
+from . import spread as sp
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
@@ -178,7 +179,7 @@ def build_brief():
     return "\n".join(L)
 
 
-HELP = ("Comandi: /brief (manda ora il brief) · /asset (lista gli asset seguiti) · "
+HELP = ("Comandi: /brief (manda ora il brief) · /spread (scarti tra mercati, misurati ora) · /asset (lista gli asset seguiti) · "
         "/stop (sospendi il brief giornaliero)\n"
         "Oppure scrivimi in italiano normale: \"come sta il mercato\", \"quanto sta "
         "il bitcoin\", \"notizie\", \"operazioni\" (cosa fa e quali ha preso), "
@@ -206,6 +207,8 @@ def poll(token, cid):
         try:
             if low.startswith("/brief"):
                 send(token, cid, build_brief())
+            elif low.startswith("/spread") or low.startswith("/scarti"):
+                send(token, cid, sp.report())
             elif low.startswith("/metriche") or low.startswith("/metrica"):
                 from . import metrics
                 send(token, cid, metrics.handle(txt, cfg(),
