@@ -79,10 +79,13 @@ jobs:
                 exit 0
               fi
               timeout 420 python -m tn.private --auto || echo "giro fallito, continuo"
+              # La vetrina si rigenera da sola dal registro: una pagina sola,
+              # dati veri, nessun numero scelto a mano.
+              timeout 90 python -m tn.showcase || echo "showcase fallito, continuo"
               # desk_log.jsonl e' il quaderno di addestramento: ogni giro dei tre
               # ruoli ci scrive cosa ha visto e cosa ha deciso. Va versionato.
               for f in private_state.json paper_state.json ai_cache.json desk_log.jsonl \
-                       hb_private.txt strat_cache.json audit_state.json; do
+                       hb_private.txt strat_cache.json audit_state.json desk.html; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
               if [ $((n % 12)) -eq 0 ] && ! git diff --cached --quiet; then

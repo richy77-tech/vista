@@ -315,6 +315,17 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     if not cv.get("confirm"):
         return st, [], trace
 
+    # Muro, non un consiglio: se il trend e' girato contro il lato, non si apre.
+    # Da qui venivano 4051 chiusure su "tesi invalidata", la maggior parte sulla
+    # stessa candela dell'apertura: si entrava contro il trend e il sorvegliante
+    # chiudeva al primo sguardo. Ora non nasce proprio.
+    _snap = cv.get("snap") or {}
+    _tr = _snap.get("trend")
+    _want = "su" if nv["side"] == "long" else "giu"
+    if _tr and _tr != "piatto" and _tr != _want:
+        trace["skip"] = f"trend {_tr} contro {nv['side']}: non si apre"
+        return st, [], trace
+
     # quarto ruolo prima del convalidatore: decide DOVE entrare. Non autorizza,
     # propone; il convalidatore puo' ancora dire no e il risk manager ha l'ultima.
     sp = strategist.plan(nv["sym"], nv["side"], cv.get("snap"))

@@ -270,6 +270,11 @@ def _norm_assets(lst):
 def overlay(it):
     """Livello AI su un item gia' passato dalle regole. Senza chiave (o con il
     modello in pausa) l'item torna esattamente com'e'."""
+    # Muto vuol dire muto: in TN_AI_OFF non leggo nemmeno la memo, altrimenti
+    # una risposta vecchia del modello continua a sovrascrivere le regole e i
+    # test non danno due volte lo stesso risultato.
+    if os.environ.get("TN_AI_OFF") == "1":
+        return it
     key = _memo_key(it)
     a = _memo_load().get(key)
     if a is None:
