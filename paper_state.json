@@ -133258,6 +133258,28 @@
    "exit_ts": "2026-10-29T19:20+00:00",
    "exit_reason": "stop",
    "r": -1.0
+  },
+  {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 52.130001068115234,
+   "stop": 53.92475182669504,
+   "target": 48.54049955095564,
+   "atr": 1.196500505719866,
+   "bars": 1,
+   "entry_ts": "2026-10-29T19:22+00:00",
+   "reason": "ha superato il minimo di ieri (53.40) e ha chiuso a 52.13: segnale al ribasso; tendenza in discesa; RSI 28, venduto; si muove del 2.3% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 60.09399728996673,
+    "ema_slow": 63.672004884355125,
+    "rsi": 27.611772465098568,
+    "atr_pct": 2.2952244028471602
+   },
+   "exit": 53.92475182669504,
+   "exit_ts": "2026-10-29T19:25+00:00",
+   "exit_reason": "stop",
+   "r": -1.0
   }
  ],
  "seen_news": [
