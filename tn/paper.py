@@ -27,6 +27,8 @@ from . import gates
 HERE = os.path.dirname(os.path.abspath(__file__))
 ROOT = os.path.dirname(HERE)
 STATE = os.path.join(ROOT, "paper_state.json")
+# Secondo registro, per il desk a sole regole (esperimento A/B, vedi rules_desk.py).
+STATE_RULES = os.path.join(ROOT, "paper_state_rules.json")
 
 # Nome leggibile di ogni asset: nel bot si legge "ARGENTO", non "SI=F".
 LABELS = {sym: lab for g in md.GROUPS.values() for sym, lab, _ in g}
@@ -63,16 +65,16 @@ def atr(rows, n=ATR_N):
     return ind.atr(rows, n)
 
 
-def load():
+def load(path=None):
     try:
-        with open(STATE, encoding="utf-8") as f:
+        with open(path or STATE, encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return {"open": {}, "closed": []}
 
 
-def save(s):
-    with open(STATE, "w", encoding="utf-8") as f:
+def save(s, path=None):
+    with open(path or STATE, "w", encoding="utf-8") as f:
         json.dump(s, f, ensure_ascii=False, indent=1)
 
 
@@ -158,9 +160,9 @@ def describe(side, prev, last, reg, r_now, apct):
     return "; ".join(bits)
 
 
-def step(symbols, s=None, dry=False):
+def step(symbols, s=None, dry=False, path=None, open_new=True):
     """Un giro: prima chiude quello che va chiuso, poi apre le nuove rotture."""
-    s = s or load()
+    s = s or load(path)
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
     events = []
 
@@ -205,6 +207,8 @@ def step(symbols, s=None, dry=False):
                               f"\u2192 {pos['r']:+.2f}R ({why_txt})")
             continue
 
+        if not open_new:
+            continue
         # nessuna posizione: cerco una rottura della barra precedente,
         # ma solo se il contesto non la contraddice (filtri in tunables.py)
         closes = [r["c"] for r in rows]
@@ -249,7 +253,7 @@ def step(symbols, s=None, dry=False):
                       f"{s['open'][sym]['reason']}")
 
     if not dry:
-        save(s)
+        save(s, path)
     return s, events
 
 
@@ -286,7 +290,7 @@ def _money(capital=None, risk_pct=None):
 def screen(s=None, symbols=None, capital=None, risk_pct=None):
     """Schermata operazioni in parole semplici: cosa ho preso, cosa aspetto,
     com'e' andata. Zero gergo."""
-    s = s or load()
+    s = s or load(path)
     open_ = s.get("open") or {}
     closed = s.get("closed") or []
     cap, rpct, eur = _money(capital, risk_pct)
@@ -360,7 +364,7 @@ def screen(s=None, symbols=None, capital=None, risk_pct=None):
 
 
 def report(s=None):
-    s = s or load()
+    s = s or load(path)
     closed = s["closed"]
     if not closed:
         return "Simulazione: 0 operazioni chiuse."
@@ -385,7 +389,7 @@ def earnings(s=None, capital=None, risk_pct=None):
     """Stima onesta del guadagno. Il registro e' simulato: qui il risultato in R
     (multipli del rischio) e la stessa cifra su `capital`, dichiarata come
     simulazione. Soldi veri: non ne ha mossi nessuno."""
-    s = s or load()
+    s = s or load(path)
     cap, rpct, eur = _money(capital, risk_pct)
     closed = s["closed"]
     if not closed:

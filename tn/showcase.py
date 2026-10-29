@@ -112,6 +112,18 @@ def build():
     rec = stats(closed, 200)
     ex = exit_counts(closed)
     pts = curve(closed)
+    # Secondo registro (desk a sole regole): stesso paper, file separato. Serve al
+    # confronto A/B, e il confronto si fa sui numeri, non sulle intenzioni.
+    rp = _load("paper_state_rules.json", {"open": {}, "closed": []})
+    b = stats(rp.get("closed") or [])
+    ab = "".join([
+        "<tr><td>DESK A &middot; notizie + prezzo</td><td>%d</td><td>%s R</td>"
+        "<td>%d%%%%</td><td>%d</td></tr>" % (st["n"], st["avg"], st["wr"],
+                                             len(paper.get("open") or {})),
+        "<tr><td>DESK B &middot; sole regole di prezzo</td><td>%d</td><td>%s R</td>"
+        "<td>%d%%%%</td><td>%d</td></tr>" % (b["n"], b["avg"], b["wr"],
+                                             len(rp.get("open") or {})),
+    ])
     now = dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%d %H:%M UTC")
 
     def role(name, sym, side, body, gate):
@@ -208,6 +220,13 @@ a{color:var(--fg)}
 sulla stessa candela dell'apertura. Due numeri che spiegano il resto meglio di
 qualsiasi commento: il desk apre e poi si smentisce subito.</div>
 
+<h2>PROVA IN CORSO: DUE DESK, STESSE CANDELE, STESSO DENARO FINTO</h2>
+<table><tr><th>desk</th><th>chiuse</th><th>media</th><th>vinte</th><th>aperte</th></tr>%(ab)s</table>
+<div class=why style="margin-top:6px">Il desk B non legge notizie: solo trend, movimento,
+RSI e ATR, regole scritte prima di guardare il risultato. Il desk A resta quello di
+sempre. Si va avanti finche' uno dei due non ha un centinaio di chiusure, poi si
+tiene il numero migliore e si archivia l'altro. Nessuno dei due e' un consiglio.</div>
+
 <h2>REGISTRO OPERAZIONI APERTE</h2>
 <table><tr><th>asset</th><th>lato</th><th>entrata</th><th>stop</th>
 <th>target</th><th>aperta</th><th>ragione</th></tr>%(pos)s</table>
@@ -225,7 +244,7 @@ arriva il modello decide una regola, e lo scrive.</div>
         spark=spark(pts), n=st["n"], win=st["win"], wr=st["wr"], avg=st["avg"],
         total=st["total"], flat=st["flat"], moved=st["n"] - st["flat"],
         ravg=rec["avg"], raw=rec["total"], made=rec["n"],
-        killed=ex["killed"], same=ex["same"],
+        killed=ex["killed"], same=ex["same"], ab=ab,
     )
 
     out = os.path.join(ROOT, "desk.html")

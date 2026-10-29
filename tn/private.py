@@ -22,6 +22,7 @@ from . import card
 from . import newsengine as ne
 from . import newstrigger as nt
 from . import desk3
+from . import rules_desk
 from . import chat
 from . import selfaudit
 
@@ -300,6 +301,20 @@ def auto(token, cid):
                 send(token, cid, "paper · " + e)
         except Exception as e2:
             print("news trigger fallito:", type(e2).__name__)
+    # Esperimento A/B: stesso denaro finto, stesse candele, regole di solo prezzo.
+    # Non legge notizie e non tocca il registro principale: registro separato,
+    # cosi' il confronto in R resta pulito.
+    try:
+        _, rev2, tr2 = rules_desk.run(c["symbols"])
+        for e in rev2:
+            send(token, cid, "regole · " + e)
+        s = state()
+        s["last_rules"] = {"utc": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+                           "pick": tr2.get("pick"), "skip": tr2.get("skip"),
+                           "stats": rules_desk.stats(100)}
+        save_state(s)
+    except Exception as e:
+        print("rules_desk fallito:", type(e).__name__, flush=True)
     # quinto anello: una volta al giorno il desk legge il proprio registro e
     # dice quanti giri ha fatto, quanti ha scartato e perche'. Serve a vedere
     # il 60% che altrimenti resta invisibile.
