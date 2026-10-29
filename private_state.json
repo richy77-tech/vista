@@ -4,10 +4,10 @@
  "last_in_text": "Quanti soldi guadagna",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-29T00:04Z",
+  "utc": "2026-10-29T00:09Z",
   "news": "Fed holds rates steady despite inflation, suggesting a pause in tightening.",
   "news_sym": "DX-Y.NYB",
-  "chart": "Il trend è rialzista, RSI neutro, prezzo a metà range.",
+  "chart": "Prezzo sotto medie mobili, RSI 58 non indica momentum short.",
   "verdict": null,
   "action": null
  },
