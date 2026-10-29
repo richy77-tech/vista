@@ -16,3 +16,5 @@
 {"ts": "2026-10-29T15:45Z", "kind": "open", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.5, "trend": "su", "rsi": 49.6}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -0.04R"}
 {"ts": "2026-10-29T15:48Z", "kind": "skip", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.54, "trend": "su", "rsi": 49.7}, "skip": "BTC-USD: gia' aperta", "risk": null}
 {"ts": "2026-10-29T15:51Z", "kind": "skip", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.44, "trend": "su", "rsi": 49.4}, "skip": "BTC-USD: gia' aperta", "risk": null}
+{"ts": "2026-10-29T15:53Z", "kind": "skip", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.48, "trend": "su", "rsi": 49.5}, "skip": "BTC-USD: gia' aperta", "risk": null}
+{"ts": "2026-10-29T15:57Z", "kind": "skip", "pick": {"sym": "BTC-USD", "side": "long", "rr": 2.0, "change": 0.49, "trend": "su", "rsi": 49.6}, "skip": "BTC-USD: gia' aperta", "risk": null}
