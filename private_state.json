@@ -1,35 +1,35 @@
 {
- "last_brief": "2026-10-29",
+ "last_brief": "2026-10-30",
  "last_in": "2026-10-29T08:32:32Z",
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-30T02:59Z",
-  "news": "Massive crypto liquidations after Binance hack fears triggered sharp BTC selloff.",
+  "utc": "2026-10-30T09:08Z",
+  "news": "Binance hack $6.3bn shocks market, likely price drop",
   "news_sym": "BTC-USD",
-  "chart": "Price uptrend, RSI moderate, no break support, only downside move",
+  "chart": "Price near support, RSI low, slight down move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-30",
  "last_rules": {
-  "utc": "2026-10-30T02:59Z",
+  "utc": "2026-10-30T09:08Z",
   "pick": {
-   "sym": "NG=F",
-   "side": "short",
+   "sym": "CL=F",
+   "side": "long",
    "rr": 2.0,
-   "change": -1.73,
-   "trend": "giu",
-   "rsi": 48.1
+   "change": 1.63,
+   "trend": "su",
+   "rsi": 61.0
   },
-  "skip": "risk: cooldown: NG=F uscita 0.2h fa, cooldown 6h",
+  "skip": "CL=F: gia' aperta",
   "stats": {
    "n": 5,
    "moved": 5,
    "avg": 0.029,
    "total": 0.1,
    "wr": 60,
-   "open": 0
+   "open": 1
   }
  }
 }
