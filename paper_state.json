@@ -1,5 +1,42 @@
 {
- "open": {},
+ "open": {
+  "CL=F": {
+   "symbol": "CL=F",
+   "side": "long",
+   "entry": 104.54000091552734,
+   "stop": 98.15214429582869,
+   "target": 117.31571415492466,
+   "atr": 4.258571079799107,
+   "bars": 1,
+   "entry_ts": "2026-10-30T19:14+00:00",
+   "reason": "ha superato il massimo di ieri (103.00) e ha chiuso a 104.54: segnale al rialzo; tendenza in salita; RSI 62, neutro; si muove del 4.1% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 94.77448294583519,
+    "ema_slow": 85.6449572323695,
+    "rsi": 62.15569247903588,
+    "atr_pct": 4.073628316915942
+   }
+  },
+  "NG=F": {
+   "symbol": "NG=F",
+   "side": "short",
+   "entry": 2.8940000534057617,
+   "stop": 3.146107188292912,
+   "target": 2.389785783631461,
+   "atr": 0.16807142325810023,
+   "bars": 1,
+   "entry_ts": "2026-10-30T19:14+00:00",
+   "reason": "ha superato il minimo di ieri (2.8960) e ha chiuso a 2.8940: segnale al ribasso; tendenza in discesa; RSI 48, neutro; si muove del 5.8% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 2.949364718930935,
+    "ema_slow": 3.0814966520192515,
+    "rsi": 47.854541748574064,
+    "atr_pct": 5.807581898981233
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
@@ -135084,6 +135121,28 @@
    "exit_ts": "2026-10-30T19:11+00:00",
    "exit_reason": "time",
    "r": 0.003
+  },
+  {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 49.10499954223633,
+   "stop": 51.10846478598459,
+   "target": 45.09806905473982,
+   "atr": 1.3356434958321708,
+   "bars": 1,
+   "entry_ts": "2026-10-30T19:14+00:00",
+   "reason": "ha superato il minimo di ieri (51.85) e ha chiuso a 49.10: segnale al ribasso; tendenza in discesa; RSI 22, venduto; si muove del 2.7% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 59.66535457874982,
+    "ema_slow": 63.52634551815082,
+    "rsi": 22.371966407139396,
+    "atr_pct": 2.71997456121215
+   },
+   "exit": 51.10846478598459,
+   "exit_ts": "2026-10-30T19:17+00:00",
+   "exit_reason": "stop",
+   "r": -1.0
   }
  ],
  "seen_news": [
