@@ -4,21 +4,21 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-30T09:20Z",
+  "utc": "2026-10-30T09:25Z",
   "news": "BOJ unexpected move pressures USD, prompting a short.",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, price near low of range, RSI neutral, no bearish signal",
+  "chart": "Uptrend, RSI neutral, minimal price drop",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-30",
  "last_rules": {
-  "utc": "2026-10-30T09:20Z",
+  "utc": "2026-10-30T09:25Z",
   "pick": {
    "sym": "CL=F",
    "side": "long",
    "rr": 2.0,
-   "change": 1.45,
+   "change": 1.46,
    "trend": "su",
    "rsi": 60.8
   },
