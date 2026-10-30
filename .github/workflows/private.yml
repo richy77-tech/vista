@@ -84,16 +84,39 @@ jobs:
               timeout 90 python -m tn.showcase || echo "showcase fallito, continuo"
               # desk_log.jsonl e' il quaderno di addestramento: ogni giro dei tre
               # ruoli ci scrive cosa ha visto e cosa ha deciso. Va versionato.
-              for f in private_state.json paper_state.json ai_cache.json desk_log.jsonl \
+              # Solo i file MIEI. ai_cache.json e strat_cache.json sono condivisi
+              # col canale news: due catene che committano lo stesso file si
+              # scontrano a ogni rebase, il rebase si annulla, il push fallisce e
+              # lo stato non arriva piu' su main mentre il loop sembra vivo.
+              # Colpa vera dei fermi di oggi (battito private fermo 10:17 -> 15:07
+              # mentre la run restava in_progress). La cache la possiede tn.yml.
+              for f in private_state.json paper_state.json desk_log.jsonl \
                        paper_state_rules.json rules_log.jsonl hb_private.txt \
-                       strat_cache.json audit_state.json desk.html; do
+                       audit_state.json desk.html; do
                 [ -f "$f" ] && git add -f "$f" || true
               done
               if [ $((n % 12)) -eq 0 ] && ! git diff --cached --quiet; then
                 if guard; then
                   timeout 60 git commit -m "private state $(date -u +%FT%TZ)" || true
-                  timeout 90 git pull --rebase --autostash --quiet || { git rebase --abort 2>/dev/null || true; }
-                  timeout 90 git push --quiet || echo "push fallito, riprovo al giro dopo"
+                  # Push con 3 tentativi. Prima qui c'era un solo tentativo e un
+                  # "riprovo al giro dopo": con un rebase che va in conflitto il
+                  # giro dopo fallisce uguale, per sempre, e il bot resta vivo ma
+                  # il suo registro no. Adesso, se non passa, esco e il passo
+                  # "Rilancia" apre una run nuova con un checkout pulito.
+                  ok=0
+                  for try in 1 2 3; do
+                    if [ -d .git/rebase-merge ] || [ -d .git/rebase-apply ]; then git rebase --abort 2>/dev/null || true; fi
+                    timeout 60 git fetch -q origin main || true
+                    timeout 90 git pull --rebase --autostash -X theirs -q || { git rebase --abort 2>/dev/null || true; git stash drop 2>/dev/null || true; }
+                    if timeout 90 git push -q; then ok=1; break; fi
+                    echo "push tentativo $try fallito, riprovo"
+                    sleep 15
+                  done
+                  if [ "$ok" != 1 ]; then
+                    echo "stato non pushato dopo 3 tentativi: esco per il riavvio"
+                    python -m tn.alert "Bot privato: non riesco a pushare lo stato (3 tentativi). Riavvio la catena." || true
+                    exit 1
+                  fi
                 fi
               fi
             fi
