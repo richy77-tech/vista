@@ -152,3 +152,5 @@
 {"ts": "2026-10-30T10:18Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 1.95, "trend": "su", "rsi": 61.4}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-10-30T15:12Z", "kind": "open", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -3.49, "trend": "giu", "rsi": 46.0}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd +0.13R"}
 {"ts": "2026-10-30T15:15Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -3.25, "trend": "giu", "rsi": 46.3}, "skip": "NG=F: gia' aperta", "risk": null}
+{"ts": "2026-10-30T15:17Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -3.08, "trend": "giu", "rsi": 46.5}, "skip": "NG=F: gia' aperta", "risk": null}
+{"ts": "2026-10-30T15:20Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -3.15, "trend": "giu", "rsi": 46.4}, "skip": "NG=F: gia' aperta", "risk": null}
