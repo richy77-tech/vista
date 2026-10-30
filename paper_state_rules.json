@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "CL=F": {
+   "symbol": "CL=F",
+   "side": "long",
+   "entry": 104.0999984741211,
+   "stop": 97.67142704554966,
+   "target": 116.95714133126395,
+   "atr": 4.285714285714286,
+   "bars": 1,
+   "entry_ts": "2026-10-30T01:50+00:00",
+   "reason": "regole: trend su, movimento +1.28%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 61.98715320224132,
+    "change": 1.2842962740821788
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
