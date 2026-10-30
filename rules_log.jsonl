@@ -104,3 +104,5 @@
 {"ts": "2026-10-30T01:53Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 1.65, "trend": "su", "rsi": 62.5}, "skip": "CL=F: gia' aperta", "risk": null}
 {"ts": "2026-10-30T01:56Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 1.76, "trend": "su", "rsi": 62.6}, "skip": "CL=F: gia' aperta", "risk": null}
 {"ts": "2026-10-30T01:59Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.07, "trend": "su", "rsi": 63.0}, "skip": "CL=F: gia' aperta", "risk": null}
+{"ts": "2026-10-30T02:02Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 1.95, "trend": "su", "rsi": 62.8}, "skip": "CL=F: gia' aperta", "risk": null}
+{"ts": "2026-10-30T02:05Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.69, "trend": "su", "rsi": 62.4}, "skip": "risk: cooldown: CL=F uscita 0.0h fa, cooldown 6h", "risk": "cooldown: CL=F uscita 0.0h fa, cooldown 6h"}
