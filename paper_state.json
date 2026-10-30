@@ -1,23 +1,5 @@
 {
  "open": {
-  "CL=F": {
-   "symbol": "CL=F",
-   "side": "long",
-   "entry": 104.81999969482422,
-   "stop": 98.43214307512557,
-   "target": 117.59571293422154,
-   "atr": 4.258571079799107,
-   "bars": 3,
-   "entry_ts": "2026-10-30T18:03+00:00",
-   "reason": "ha superato il massimo di ieri (103.00) e ha chiuso a 104.82: segnale al rialzo; tendenza in salita; RSI 63, neutro; si muove del 4.1% al giorno",
-   "context": {
-    "trend": "su",
-    "ema_fast": 94.78546329012134,
-    "ema_slow": 85.64774328987495,
-    "rsi": 62.50514056282163,
-    "atr_pct": 4.062746701199796
-   }
-  },
   "NG=F": {
    "symbol": "NG=F",
    "side": "short",
@@ -25,7 +7,7 @@
    "stop": 3.146107188292912,
    "target": 2.389785783631461,
    "atr": 0.16807142325810023,
-   "bars": 1,
+   "bars": 3,
    "entry_ts": "2026-10-30T18:09+00:00",
    "reason": "ha superato il minimo di ieri (2.8960) e ha chiuso a 2.8940: segnale al ribasso; tendenza in discesa; RSI 48, neutro; si muove del 5.8% al giorno",
    "context": {
@@ -134747,6 +134729,50 @@
    "exit_ts": "2026-10-30T18:12+00:00",
    "exit_reason": "stop",
    "r": -1.0
+  },
+  {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 49.255001068115234,
+   "stop": 51.25364467075893,
+   "target": 45.25771386282784,
+   "atr": 1.3324290684291296,
+   "bars": 1,
+   "entry_ts": "2026-10-30T18:15+00:00",
+   "reason": "ha superato il minimo di ieri (51.85) e ha chiuso a 49.26: segnale al ribasso; tendenza in discesa; RSI 23, venduto; si muove del 2.7% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 59.67123699152938,
+    "ema_slow": 63.52783807064713,
+    "rsi": 22.58417853386902,
+    "atr_pct": 2.705165038137955
+   },
+   "exit": 51.25364467075893,
+   "exit_ts": "2026-10-30T18:18+00:00",
+   "exit_reason": "stop",
+   "r": -1.0
+  },
+  {
+   "symbol": "CL=F",
+   "side": "long",
+   "entry": 104.81999969482422,
+   "stop": 98.43214307512557,
+   "target": 117.59571293422154,
+   "atr": 4.258571079799107,
+   "bars": 5,
+   "entry_ts": "2026-10-30T18:03+00:00",
+   "reason": "ha superato il massimo di ieri (103.00) e ha chiuso a 104.82: segnale al rialzo; tendenza in salita; RSI 63, neutro; si muove del 4.1% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 94.78546329012134,
+    "ema_slow": 85.64774328987495,
+    "rsi": 62.50514056282163,
+    "atr_pct": 4.062746701199796
+   },
+   "exit": 104.83000183105469,
+   "exit_ts": "2026-10-30T18:18+00:00",
+   "exit_reason": "time",
+   "r": 0.002
   }
  ],
  "seen_news": [
