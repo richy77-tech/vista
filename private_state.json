@@ -4,25 +4,25 @@
  "last_in_text": "Quanti soldi ha guadagnato",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-30T20:22Z",
-  "news": "Record $6.3B hack triggers sharp selloff",
+  "utc": "2026-10-30T20:28Z",
+  "news": "Record $6.3B Binance hack sends BTC sharply lower, immediate market reaction.",
   "news_sym": "BTC-USD",
-  "chart": "Price 5% above min20, RSI 33, 2.35× volume supporting decline",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-30",
  "last_rules": {
-  "utc": "2026-10-30T20:22Z",
+  "utc": "2026-10-30T20:29Z",
   "pick": {
-   "sym": "CL=F",
-   "side": "long",
+   "sym": "NG=F",
+   "side": "short",
    "rr": 2.0,
-   "change": 2.12,
-   "trend": "su",
-   "rsi": 61.7
+   "change": -2.37,
+   "trend": "giu",
+   "rsi": 47.4
   },
-  "skip": "CL=F: quota giornaliera esaurita",
+  "skip": "NG=F: quota giornaliera esaurita",
   "stats": {
    "n": 7,
    "moved": 7,
