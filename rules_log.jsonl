@@ -64,3 +64,5 @@
 {"ts": "2026-10-29T23:52Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.68, "trend": "giu", "rsi": 35.4}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-10-29T23:55Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.73, "trend": "giu", "rsi": 35.3}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-10-29T23:58Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.78, "trend": "giu", "rsi": 35.1}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-10-30T00:01Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.78, "trend": "giu", "rsi": 35.1}, "skip": "risk: cooldown: GC=F uscita 0.6h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 0.6h fa, cooldown 6h"}
+{"ts": "2026-10-30T00:05Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.75, "trend": "giu", "rsi": 35.2}, "skip": "risk: cooldown: GC=F uscita 0.6h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 0.6h fa, cooldown 6h"}
