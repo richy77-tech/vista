@@ -4,16 +4,16 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-31T07:17Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "RSI 35 bearish, price 13% above min, flat trend, slight rise today",
+  "utc": "2026-10-31T07:23Z",
+  "news": "Binance hack sparks crypto selloff, draining tech stocks",
+  "news_sym": "^GSPC",
+  "chart": "Price near lower 20‑day low, trend up opposes short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-10-31",
  "last_rules": {
-  "utc": "2026-10-31T07:17Z",
+  "utc": "2026-10-31T07:23Z",
   "pick": {
    "sym": "CL=F",
    "side": "long",
@@ -22,14 +22,14 @@
    "trend": "su",
    "rsi": 61.6
   },
-  "skip": "CL=F: gia' aperta",
+  "skip": "CL=F: quota giornaliera esaurita",
   "stats": {
-   "n": 9,
+   "n": 10,
    "moved": 7,
    "avg": 0.002,
    "total": 0.0,
    "wr": 43,
-   "open": 1
+   "open": 0
   }
  }
 }
