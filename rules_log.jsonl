@@ -376,3 +376,5 @@
 {"ts": "2026-10-31T04:00Z", "kind": "open", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd +0.01R"}
 {"ts": "2026-10-31T04:03Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: gia' aperta", "risk": null}
 {"ts": "2026-10-31T04:05Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: gia' aperta", "risk": null}
+{"ts": "2026-10-31T04:09Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: gia' aperta", "risk": null}
+{"ts": "2026-10-31T04:12Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: gia' aperta", "risk": null}
