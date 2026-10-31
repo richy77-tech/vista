@@ -4,7 +4,7 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-10-31T14:55Z",
+  "utc": "2026-10-31T15:00Z",
   "news": "Trump’s contradictory energy stance drives crude up unexpectedly",
   "news_sym": "CL=F",
   "chart": "Up trend, price above prior high, but low volume",
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-10-31",
  "last_rules": {
-  "utc": "2026-10-31T14:55Z",
+  "utc": "2026-10-31T15:00Z",
   "pick": {
    "sym": "CL=F",
    "side": "long",
