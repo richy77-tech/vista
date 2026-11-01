@@ -4,7 +4,7 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-01T02:36Z",
+  "utc": "2026-11-01T02:42Z",
   "news": "Trump's surprise energy price spike",
   "news_sym": "CL=F",
   "chart": "Up trend, price above prior high, but low volume",
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-01",
  "last_rules": {
-  "utc": "2026-11-01T02:36Z",
+  "utc": "2026-11-01T02:42Z",
   "pick": {
    "sym": "CL=F",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 61.6
   },
-  "skip": "risk: cooldown: CL=F uscita 2.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: CL=F uscita 2.5h fa, cooldown 6h",
   "stats": {
    "n": 11,
    "moved": 7,
