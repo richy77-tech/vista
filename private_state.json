@@ -1,19 +1,19 @@
 {
- "last_brief": "2026-10-31",
+ "last_brief": "2026-11-01",
  "last_in": "2026-10-30T22:37:44Z",
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-01T06:58Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "CL=F",
-  "chart": "Price above prior day's high with upward momentum and uptrend support",
+  "utc": "2026-11-01T07:03Z",
+  "news": "Major Binance hack shocks confidence, likely bearish for Bitcoin",
+  "news_sym": "BTC-USD",
+  "chart": "Price near 20‑day low, low volume, RSI not extreme",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-01",
  "last_rules": {
-  "utc": "2026-11-01T06:58Z",
+  "utc": "2026-11-01T07:03Z",
   "pick": {
    "sym": "CL=F",
    "side": "long",
