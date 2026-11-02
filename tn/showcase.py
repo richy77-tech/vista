@@ -150,6 +150,12 @@ def build():
         role("RISK", news.get("sym"), news.get("side"), risk.get("why") or "nessun ordine da vetare", bool(risk.get("action")) or not risk.get("why")),
     ])
 
+    # Cosa ha fatto l'ultimo giro e perche' non ha aperto. Era la riga che
+    # mancava accanto ai tre ruoli: il motivo sta in note, scritto da desk3.
+    last = ("ha aperto &middot; " + esc((cyc.get("verdict") or {}).get("why") or "")) \
+        if cyc.get("opened") else (
+            "nessuna apertura &middot; " + esc(cyc.get("note") or "motivo non scritto (righe prima del 02/11)"))
+
     pos = []
     for sym, t in list(opened.items()):
         pos.append(
@@ -207,6 +213,7 @@ a{color:var(--fg)}
 <div class=top><h1>TRADING DESK</h1>
 <div class=meta>snapshot %(now)s &middot; paper, soldi finti &middot; %(cycles)d cicli registrati</div></div>
 <div class=grid>%(roles)s</div>
+<div class=why style="margin-top:8px">ultimo giro: %(last)s</div>
 
 <h2>VERDETTO DEL DESK, SENZA TRUCCARE NIENTE</h2>
 <div class=kpi>
@@ -238,13 +245,16 @@ tiene il numero migliore e si archivia l'altro. Nessuno dei due e' un consiglio.
 <div class=foot>Ogni riga viene dal registro paper del bot, su prezzi e notizie reali.
 Nessun broker collegato, nessun soldo vero. Un R = una unita di rischio,
 la distanza fra entrata e stop. Il desk e' euristico dichiarato: dove non
-arriva il modello decide una regola, e lo scrive.</div>
+arriva il modello decide una regola. Nel log ogni ruolo porta un campo
+<b>rule</b>: false = ha deciso il modello, true = ha deciso la regola.
+Non significa passa o blocca, e si vede: true compare sia su un ingresso sia
+su un rifiuto. La riga <b>note</b> dice perche' il giro non ha aperto.</div>
 """ % dict(
         now=now, cycles=len(rows), roles=roles, pos="".join(pos), npts=len(pts),
         spark=spark(pts), n=st["n"], win=st["win"], wr=st["wr"], avg=st["avg"],
         total=st["total"], flat=st["flat"], moved=st["n"] - st["flat"],
         ravg=rec["avg"], raw=rec["total"], made=rec["n"],
-        killed=ex["killed"], same=ex["same"], ab=ab,
+        killed=ex["killed"], same=ex["same"], ab=ab, last=last,
     )
 
     out = os.path.join(ROOT, "desk.html")

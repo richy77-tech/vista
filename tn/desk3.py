@@ -434,7 +434,13 @@ def _record(kind, trace, opened=False):
                "risk": {"action": (trace.get("risk") or {}).get("action"),
                         "why": ((trace.get("risk") or {}).get("why") or "")[:160],
                         "checks": (trace.get("risk") or {}).get("checks")}}
-        if not trace.get("news") and trace.get("skip"):
+        # Perche' il giro non ha aperto. Prima la condizione era
+        # "not trace.get('news')", ma la traccia ha sempre il blocco news
+        # (anche con sym a None): la nota non veniva mai scritta e 1680 rifiuti
+        # su 2789 restavano senza motivo. Trovato da Sergei Dragunov leggendo
+        # il log dall'esterno, non da me: un rifiuto senza motivo non e'
+        # verificabile, e un log che si puo' verificare solo a parole non e' un log.
+        if trace.get("skip"):
             rec["note"] = str(trace["skip"])[:160]
         with open(TRAIN_LOG, "a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
