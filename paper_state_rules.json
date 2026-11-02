@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "^GSPC": {
+   "symbol": "^GSPC",
+   "side": "long",
+   "entry": 7634.259765625,
+   "stop": 7507.322160993303,
+   "target": 7888.134974888393,
+   "atr": 84.62506975446429,
+   "bars": 0,
+   "entry_ts": "2026-11-02T15:12+00:00",
+   "reason": "regole: trend su, movimento +0.71%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 44.925156351159984,
+    "change": 0.7149002933074585
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
