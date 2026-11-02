@@ -35,24 +35,24 @@ td.long{color:var(--ok)}td.short{color:var(--amb)}
 a{color:var(--fg)}
 </style>
 <div class=top><h1>TRADING DESK</h1>
-<div class=meta>snapshot 2026-11-02 05:09 UTC &middot; paper, soldi finti &middot; 2797 cicli registrati</div></div>
-<div class=grid><div class="role ok"><div class=rhead><span class=rname>SCANNER</span><span class=tag>PASSA</span></div><div class=asset>ETH-USD <b>long</b></div><div class=why>regola: notizia forte agganciata all'asset</div></div><div class="role no"><div class=rhead><span class=rname>CHART</span><span class=tag>BLOCCA</span></div><div class=asset>ETH-USD <b>long</b></div><div class=why>Price up 1.67% but flat trend, low ATR, low volume</div></div><div class="role no"><div class=rhead><span class=rname>VALIDATOR</span><span class=tag>BLOCCA</span></div><div class=asset>ETH-USD <b>long</b></div><div class=why>aspetta il modello</div></div><div class="role ok"><div class=rhead><span class=rname>RISK</span><span class=tag>PASSA</span></div><div class=asset>ETH-USD <b>long</b></div><div class=why>nessun ordine da vetare</div></div></div>
+<div class=meta>snapshot 2026-11-02 05:15 UTC &middot; paper, soldi finti &middot; 2799 cicli registrati</div></div>
+<div class=grid><div class="role ok"><div class=rhead><span class=rname>SCANNER</span><span class=tag>PASSA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>Block reorg bug halts swaps, reducing BTC liquidity</div></div><div class="role no"><div class=rhead><span class=rname>CHART</span><span class=tag>BLOCCA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>Price above yesterday's max, slight uptrend, low RSI</div></div><div class="role no"><div class=rhead><span class=rname>VALIDATOR</span><span class=tag>BLOCCA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>aspetta il modello</div></div><div class="role ok"><div class=rhead><span class=rname>RISK</span><span class=tag>PASSA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>nessun ordine da vetare</div></div></div>
 <div class=why style="margin-top:8px">ultimo giro: nessuna apertura &middot; motivo non scritto (righe prima del 02/11)</div>
 
 <h2>VERDETTO DEL DESK, SENZA TRUCCARE NIENTE</h2>
 <div class=kpi>
-<span>chiuse <b>6873</b></span>
-<span>media <b>-0.127 R</b> sulle 3987 che si sono mosse</span>
+<span>chiuse <b>6875</b></span>
+<span>media <b>-0.127 R</b> sulle 3989 che si sono mosse</span>
 <span>vinte <b>42%</b></span>
 <span>ferme a zero <b>2886</b></span>
-<span>ultime 200: <b>-141.4 R</b> (media -0.995)</span>
+<span>ultime 200: <b>-140.9 R</b> (media -0.992)</span>
 </div>
 <div class=why style="margin-top:6px">4526 chiuse su "tesi invalidata", 3478 chiuse
 sulla stessa candela dell'apertura. Due numeri che spiegano il resto meglio di
 qualsiasi commento: il desk apre e poi si smentisce subito.</div>
 
 <h2>PROVA IN CORSO: DUE DESK, STESSE CANDELE, STESSO DENARO FINTO</h2>
-<table><tr><th>desk</th><th>chiuse</th><th>media</th><th>vinte</th><th>aperte</th></tr><tr><td>DESK A &middot; notizie + prezzo</td><td>6873</td><td>-0.127 R</td><td>42%%</td><td>2</td></tr><tr><td>DESK B &middot; sole regole di prezzo</td><td>12</td><td>0.002 R</td><td>43%%</td><td>1</td></tr></table>
+<table><tr><th>desk</th><th>chiuse</th><th>media</th><th>vinte</th><th>aperte</th></tr><tr><td>DESK A &middot; notizie + prezzo</td><td>6875</td><td>-0.127 R</td><td>42%%</td><td>0</td></tr><tr><td>DESK B &middot; sole regole di prezzo</td><td>13</td><td>-0.068 R</td><td>38%%</td><td>0</td></tr></table>
 <div class=why style="margin-top:6px">Il desk B non legge notizie: solo trend, movimento,
 RSI e ATR, regole scritte prima di guardare il risultato. Il desk A resta quello di
 sempre. Si va avanti finche' uno dei due non ha un centinaio di chiusure, poi si
@@ -60,11 +60,11 @@ tiene il numero migliore e si archivia l'altro. Nessuno dei due e' un consiglio.
 
 <h2>REGISTRO OPERAZIONI APERTE</h2>
 <table><tr><th>asset</th><th>lato</th><th>entrata</th><th>stop</th>
-<th>target</th><th>aperta</th><th>ragione</th></tr><tr><td>CL=F</td><td class=long>long</td><td>104.1</td><td>97.73</td><td>116.9</td><td>11-02T05:00</td><td class=why>ha superato il massimo di ieri (103.00) e ha chiuso a 104.12: segnale al rialzo; tendenza in salita; RSI 62, neutro; si muove del 4.1% al giorno</td></tr><tr><td>BZ=F</td><td class=long>long</td><td>117.6</td><td>112.1</td><td>128.7</td><td>11-02T05:00</td><td class=why>ha superato il massimo di ieri (116.11) e ha chiuso a 117.64: segnale al rialzo; tendenza in salita; RSI 70, comprato; si muove del 3.1% al giorno</td></tr></table>
+<th>target</th><th>aperta</th><th>ragione</th></tr><tr><td colspan=7 class=empty>nessuna posizione aperta</td></tr></table>
 
 <h2>CURVA IN R (ultime 80 chiuse)</h2>
-<svg viewBox="0 0 560 110" preserveAspectRatio="none" class=chart><line x1=0 y1="0.0" x2="560" y2="0.0" stroke="#333" stroke-width=1/><polyline points="0.0,1.8 7.1,3.6 14.2,5.5 21.3,5.5 28.4,7.3 35.4,9.1 42.5,10.9 49.6,10.9 56.7,12.8 63.8,14.6 70.9,16.4 78.0,16.4 85.1,18.2 92.2,20.0 99.2,21.9 106.3,21.9 113.4,23.7 120.5,25.5 127.6,27.3 134.7,27.3 141.8,29.2 148.9,31.0 155.9,32.8 163.0,34.6 170.1,34.6 177.2,36.4 184.3,38.3 191.4,40.1 198.5,40.1 205.6,41.9 212.7,43.7 219.7,45.6 226.8,45.6 233.9,47.4 241.0,49.2 248.1,51.0 255.2,51.0 262.3,52.9 269.4,54.7 276.5,56.5 283.5,56.5 290.6,58.3 297.7,60.1 304.8,62.0 311.9,62.0 319.0,63.8 326.1,65.6 333.2,67.4 340.3,67.4 347.3,69.3 354.4,71.1 361.5,72.9 368.6,72.9 375.7,74.7 382.8,76.5 389.9,78.4 397.0,78.4 404.1,80.2 411.1,82.0 418.2,83.8 425.3,83.8 432.4,85.7 439.5,87.5 446.6,89.3 453.7,89.3 460.8,91.1 467.8,92.9 474.9,94.8 482.0,94.8 489.1,96.6 496.2,98.4 503.3,100.2 510.4,100.2 517.5,102.1 524.6,103.9 531.6,105.7 538.7,105.7 545.8,106.4 552.9,108.2 560.0,110.0" fill=none stroke="#ff5d5d" stroke-width=2/></svg>
-<div class=kpi><span>totale sulle ultime 80: <b>-505.5 R</b></span></div>
+<svg viewBox="0 0 560 110" preserveAspectRatio="none" class=chart><line x1=0 y1="0.0" x2="560" y2="0.0" stroke="#333" stroke-width=1/><polyline points="0.0,1.8 7.1,1.8 14.2,3.7 21.3,5.5 28.4,7.3 35.4,7.3 42.5,9.2 49.6,11.0 56.7,12.9 63.8,12.9 70.9,14.7 78.0,16.5 85.1,18.4 92.2,18.4 99.2,20.2 106.3,22.0 113.4,23.9 120.5,23.9 127.6,25.7 134.7,27.5 141.8,29.4 148.9,31.2 155.9,31.2 163.0,33.0 170.1,34.9 177.2,36.7 184.3,36.7 191.4,38.6 198.5,40.4 205.6,42.2 212.7,42.2 219.7,44.1 226.8,45.9 233.9,47.7 241.0,47.7 248.1,49.6 255.2,51.4 262.3,53.2 269.4,53.2 276.5,55.1 283.5,56.9 290.6,58.8 297.7,58.8 304.8,60.6 311.9,62.4 319.0,64.3 326.1,64.3 333.2,66.1 340.3,67.9 347.3,69.8 354.4,69.8 361.5,71.6 368.6,73.4 375.7,75.3 382.8,75.3 389.9,77.1 397.0,79.0 404.1,80.8 411.1,80.8 418.2,82.6 425.3,84.5 432.4,86.3 439.5,86.3 446.6,88.1 453.7,90.0 460.8,91.8 467.8,91.8 474.9,93.6 482.0,95.5 489.1,97.3 496.2,97.3 503.3,99.1 510.4,101.0 517.5,102.8 524.6,102.8 531.6,103.5 538.7,105.3 545.8,107.1 552.9,109.0 560.0,110.0" fill=none stroke="#ff5d5d" stroke-width=2/></svg>
+<div class=kpi><span>totale sulle ultime 80: <b>-507.1 R</b></span></div>
 
 <div class=foot>Ogni riga viene dal registro paper del bot, su prezzi e notizie reali.
 Nessun broker collegato, nessun soldo vero. Un R = una unita di rischio,
