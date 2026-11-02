@@ -1140,3 +1140,5 @@
 {"ts": "2026-11-02T17:26Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-02T17:29Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-02T17:32Z", "kind": "open", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -0.45, "trend": "giu", "rsi": 47.4}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -0.43R"}
+{"ts": "2026-11-02T17:35Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -0.62, "trend": "giu", "rsi": 47.2}, "skip": "NG=F: gia' aperta", "risk": null}
+{"ts": "2026-11-02T17:38Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -0.72, "trend": "giu", "rsi": 47.1}, "skip": "NG=F: gia' aperta", "risk": null}
