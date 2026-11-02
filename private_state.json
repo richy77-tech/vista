@@ -4,16 +4,16 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T16:50Z",
-  "news": "Swap of stolen tokens onto BTC erodes trust, likely to drag price down.",
-  "news_sym": "BTC-USD",
-  "chart": "RSI below 50, price near low, recent drop",
+  "utc": "2026-11-02T17:08Z",
+  "news": "Fed shock raises rates 275bp, USD bullish",
+  "news_sym": "DX-Y.NYB",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T16:50Z",
+  "utc": "2026-11-02T17:08Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
