@@ -4,16 +4,16 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T02:39Z",
+  "utc": "2026-11-02T02:44Z",
   "news": "Block reorg bug halts swaps, reducing BTC liquidity",
   "news_sym": "BTC-USD",
-  "chart": "Price rose 1.14%, RSI 40, flat trend, low volume",
+  "chart": "Rising price, neutral RSI, flat trend, weak volume contradict short view",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T02:39Z",
+  "utc": "2026-11-02T02:44Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
