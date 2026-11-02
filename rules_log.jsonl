@@ -1110,3 +1110,5 @@
 {"ts": "2026-11-02T15:12Z", "kind": "open", "pick": {"sym": "^GSPC", "side": "long", "rr": 2.0, "change": 0.71, "trend": "su", "rsi": 44.9}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -0.54R"}
 {"ts": "2026-11-02T15:23Z", "kind": "skip", "pick": {"sym": "^GSPC", "side": "long", "rr": 2.0, "change": 0.88, "trend": "su", "rsi": 45.9}, "skip": "^GSPC: gia' aperta", "risk": null}
 {"ts": "2026-11-02T15:25Z", "kind": "skip", "pick": {"sym": "^GSPC", "side": "long", "rr": 2.0, "change": 1.04, "trend": "su", "rsi": 46.9}, "skip": "^GSPC: gia' aperta", "risk": null}
+{"ts": "2026-11-02T15:36Z", "kind": "skip", "pick": {"sym": "^GSPC", "side": "long", "rr": 2.0, "change": 0.91, "trend": "su", "rsi": 46.1}, "skip": "^GSPC: gia' aperta", "risk": null}
+{"ts": "2026-11-02T15:39Z", "kind": "skip", "pick": {"sym": "^GSPC", "side": "long", "rr": 2.0, "change": 0.87, "trend": "su", "rsi": 45.9}, "skip": "^GSPC: gia' aperta", "risk": null}
