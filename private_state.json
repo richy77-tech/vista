@@ -4,16 +4,16 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T23:36Z",
+  "utc": "2026-11-02T23:42Z",
   "news": "Continuously laundering Binance hack loot fuels negative sentiment",
   "news_sym": "ETH-USD",
-  "chart": "Flat trend, RSI 33, price down modestly, no clear downward bias",
+  "chart": "price is 22% near low of 20‑day range, suggests rebound",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T23:37Z",
+  "utc": "2026-11-02T23:42Z",
   "pick": {
    "sym": "NG=F",
    "side": "short",
