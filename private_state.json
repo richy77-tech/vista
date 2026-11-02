@@ -4,16 +4,16 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T00:19Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "ETH-USD",
-  "chart": "Price near low in range, flat trend, low RSI and volume",
+  "utc": "2026-11-02T00:26Z",
+  "news": "FBI cites North Korea, triggers sell surge.",
+  "news_sym": "BTC-USD",
+  "chart": "Price near low, RSI neutral, today rally, low volume, trend flat, short weak",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T00:20Z",
+  "utc": "2026-11-02T00:26Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
