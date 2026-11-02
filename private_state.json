@@ -4,16 +4,16 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T08:07Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "ETH-USD",
-  "chart": "Price above previous high yet volume 0.68x and RSI neutral",
+  "utc": "2026-11-02T08:13Z",
+  "news": "Record‑high outlook under Trump likely pushes oil higher",
+  "news_sym": "CL=F",
+  "chart": "Price below pre‑day low, low volume, RSI neutral, now falling.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T08:07Z",
+  "utc": "2026-11-02T08:13Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
