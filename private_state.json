@@ -4,16 +4,16 @@
  "last_in_text": "Quanto ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T03:32Z",
-  "news": "FBI implicates North Korea in $6.3B Binance hack, fueling ETH selloff.",
-  "news_sym": "ETH-USD",
-  "chart": "Above previous high with low volume, trend flat",
+  "utc": "2026-11-02T03:38Z",
+  "news": "Block reorg bug halts swaps, reducing BTC liquidity",
+  "news_sym": "BTC-USD",
+  "chart": "RSI neutral, price up, low volume, trend flat",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T03:32Z",
+  "utc": "2026-11-02T03:38Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
