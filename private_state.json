@@ -4,21 +4,21 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T21:49Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-02T21:54Z",
+  "news": "Nuovi trasferimenti post-hack scuotono il mercato Binance",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower 20‑day low, flat trend.",
+  "chart": "Price below yesterday's min, RSI 35, flat trend, drop – supports short with weak volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T21:49Z",
+  "utc": "2026-11-02T21:54Z",
   "pick": {
    "sym": "NG=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.28,
+   "change": -1.24,
    "trend": "giu",
    "rsi": 46.4
   },
