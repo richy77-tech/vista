@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "CL=F": {
+   "symbol": "CL=F",
+   "side": "long",
+   "entry": 104.12000274658203,
+   "stop": 97.73214612688338,
+   "target": 116.89571598597935,
+   "atr": 4.258571079799107,
+   "bars": 3,
+   "entry_ts": "2026-11-01T22:38+00:00",
+   "reason": "ha superato il massimo di ieri (103.00) e ha chiuso a 104.12: segnale al rialzo; tendenza in salita; RSI 62, neutro; si muove del 4.1% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 94.75801242603495,
+    "ema_slow": 85.64253335572728,
+    "rsi": 61.61913412536067,
+    "atr_pct": 4.0900604758569346
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",

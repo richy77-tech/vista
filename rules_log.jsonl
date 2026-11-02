@@ -898,53 +898,5 @@
 {"ts": "2026-11-01T22:35Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-01T22:38Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-01T22:41Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T22:44Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T22:47Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T22:50Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T22:53Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T22:55Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T22:58Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T23:01Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T23:04Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T23:07Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T23:09Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.08, "trend": "su", "rsi": 61.6}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-01T23:12Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:15Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:18Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:21Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:24Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:27Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:29Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:32Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:35Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:38Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:41Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:44Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:47Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:49Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:53Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:56Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-01T23:59Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:02Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:05Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:08Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:10Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:13Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:16Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:20Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:23Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:26Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:29Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:32Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:34Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:37Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:40Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:43Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:46Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:49Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:52Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:55Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T00:57Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T01:00Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T01:03Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
-{"ts": "2026-11-02T01:06Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-02T01:16Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-02T01:19Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
