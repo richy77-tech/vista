@@ -35,8 +35,9 @@ td.long{color:var(--ok)}td.short{color:var(--amb)}
 a{color:var(--fg)}
 </style>
 <div class=top><h1>TRADING DESK</h1>
-<div class=meta>snapshot 2026-11-02 04:48 UTC &middot; paper, soldi finti &middot; 2791 cicli registrati</div></div>
-<div class=grid><div class="role ok"><div class=rhead><span class=rname>SCANNER</span><span class=tag>PASSA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>Block reorg bug halts swaps, reducing BTC liquidity</div></div><div class="role no"><div class=rhead><span class=rname>CHART</span><span class=tag>BLOCCA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>Price up 1.24%, flat trend, RSI 40, low volume</div></div><div class="role no"><div class=rhead><span class=rname>VALIDATOR</span><span class=tag>BLOCCA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>aspetta il modello</div></div><div class="role ok"><div class=rhead><span class=rname>RISK</span><span class=tag>PASSA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>nessun ordine da vetare</div></div></div>
+<div class=meta>snapshot 2026-11-02 04:58 UTC &middot; paper, soldi finti &middot; 2793 cicli registrati</div></div>
+<div class=grid><div class="role ok"><div class=rhead><span class=rname>SCANNER</span><span class=tag>PASSA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>Block reorg bug halts swaps, reducing BTC liquidity</div></div><div class="role no"><div class=rhead><span class=rname>CHART</span><span class=tag>BLOCCA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>Price up 1.13%, RSI 40, low volatility, low volume: bullish bias</div></div><div class="role no"><div class=rhead><span class=rname>VALIDATOR</span><span class=tag>BLOCCA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>aspetta il modello</div></div><div class="role ok"><div class=rhead><span class=rname>RISK</span><span class=tag>PASSA</span></div><div class=asset>BTC-USD <b>short</b></div><div class=why>nessun ordine da vetare</div></div></div>
+<div class=why style="margin-top:8px">ultimo giro: nessuna apertura &middot; motivo non scritto (righe prima del 02/11)</div>
 
 <h2>VERDETTO DEL DESK, SENZA TRUCCARE NIENTE</h2>
 <div class=kpi>
@@ -68,4 +69,7 @@ tiene il numero migliore e si archivia l'altro. Nessuno dei due e' un consiglio.
 <div class=foot>Ogni riga viene dal registro paper del bot, su prezzi e notizie reali.
 Nessun broker collegato, nessun soldo vero. Un R = una unita di rischio,
 la distanza fra entrata e stop. Il desk e' euristico dichiarato: dove non
-arriva il modello decide una regola, e lo scrive.</div>
+arriva il modello decide una regola. Nel log ogni ruolo porta un campo
+<b>rule</b>: false = ha deciso il modello, true = ha deciso la regola.
+Non significa passa o blocca, e si vede: true compare sia su un ingresso sia
+su un rifiuto. La riga <b>note</b> dice perche' il giro non ha aperto.</div>
