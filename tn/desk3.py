@@ -325,11 +325,15 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     nv = news_agent(news, symbols, lab)
     trace = {"news": nv}
     if not nv.get("sym"):
+        trace["skip"] = "notizie: nessun asset con una tesi in questo giro"
         return st, [], trace
 
     cv = chart_agent(nv["sym"], nv["side"], lab)
     trace["chart"] = {k: cv.get(k) for k in ("sym", "confirm", "setup", "why", "rule")}
     if not cv.get("confirm"):
+        # Il rifiuto piu' frequente di tutti, e fino al 02/11 era l'unico senza
+        # motivo scritto: la nota c'era solo dove qualcuno aveva messo skip.
+        trace["skip"] = f"graf {nv['sym']}: {cv.get('why') or 'conferma mancante'}"
         return st, [], trace
 
     # Muro, non un consiglio: se il trend e' girato contro il lato, non si apre.
@@ -368,10 +372,12 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     sv = supervisor(nv, cv)
     trace["verdict"] = sv
     if sv.get("action") != "open":
+        trace["skip"] = f"validatore: {sv.get('why') or 'no'}"
         return st, [], trace
 
     sym = nv["sym"]
     if sym in st["open"]:
+        trace["skip"] = f"{sym}: gia' aperta, non si raddoppia"
         return st, [], trace
     # quarto ruolo, e l'unico con veto: il risk manager non chiede permesso a
     # nessuno. Se blocca, la traccia resta scritta e l'operazione non nasce.
@@ -383,7 +389,7 @@ def _run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
         trace["skip"] = f"risk: {rv['why']}"
         return st, [], trace
     if not can_open:
-        trace["cap"] = f"{_open_count(st)} aperte (max {max_open}): valutata, non aperta"
+        trace["skip"] = f"{_open_count(st)} aperte (max {max_open}): valutata, non aperta"
         return st, [], trace
     from datetime import datetime, timezone
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -442,6 +448,10 @@ def _record(kind, trace, opened=False):
         # verificabile, e un log che si puo' verificare solo a parole non e' un log.
         if trace.get("skip"):
             rec["note"] = str(trace["skip"])[:160]
+        elif kind == "skip":
+            # Un buco dichiarato si vede; un buco silenzioso no. Se un percorso
+            # nuovo dimentica il motivo, la riga lo dice invece di tacere.
+            rec["note"] = "motivo non registrato (percorso senza traccia)"
         with open(TRAIN_LOG, "a", encoding="utf-8") as f:
             f.write(json.dumps(rec, ensure_ascii=False) + "\n")
     except Exception:

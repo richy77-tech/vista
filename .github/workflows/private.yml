@@ -62,6 +62,12 @@ jobs:
           # Ogni comando di rete ha un tetto di tempo: un git push bloccato non
           # deve congelare il loop.
           end=$(( $(date +%s) + 19800 ))
+          # Il codice con cui QUESTO processo e' partito. Moduli gia' importati,
+          # quindi il confronto vero e' con lo sha di inizio, non con HEAD: il
+          # pull che precede ogni commit di stato sposta HEAD su main e cancella
+          # il segnale, e allora un codice nuovo resta fuori fino alla fine del
+          # giro da 5h30. Successo il 02/11 col fix del desk log.
+          start_sha=$(git rev-parse HEAD)
           n=0
           while [ "$(date +%s)" -lt "$end" ]; do
             # Risposta ai messaggi ogni 20s: l'utente non deve MAI aspettare il
@@ -74,8 +80,19 @@ jobs:
               # Se su main c'e' codice piu' nuovo del mio checkout, esco: una run
               # nuova fara' il giro col codice aggiornato.
               timeout 60 git fetch --quiet origin main || true
-              if ! timeout 30 git diff --quiet HEAD origin/main -- tn newsbot.py .github/workflows 2>/dev/null; then
-                echo "checkout vecchio: esco per lasciare il posto a una run nuova"
+              if ! timeout 30 git diff --quiet "$start_sha" origin/main -- tn newsbot.py .github/workflows 2>/dev/null; then
+                echo "codice nuovo su main: salvo lo stato ed esco per una run col codice fresco"
+                for f in private_state.json paper_state.json desk_log.jsonl \
+                         paper_state_rules.json rules_log.jsonl hb_private.txt \
+                         audit_state.json desk.html; do
+                  [ -f "$f" ] && git add -f "$f" || true
+                done
+                if ! git diff --cached --quiet && guard; then
+                  timeout 60 git commit -m "private state $(date -u +%FT%TZ)" || true
+                  timeout 60 git fetch -q origin main || true
+                  timeout 90 git pull --rebase --autostash -X theirs -q || true
+                  timeout 90 git push -q || echo "push finale non riuscito, riparto comunque"
+                fi
                 exit 0
               fi
               timeout 420 python -m tn.private --auto || echo "giro fallito, continuo"
