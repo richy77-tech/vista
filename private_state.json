@@ -4,25 +4,32 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-02T17:26Z",
+  "utc": "2026-11-02T17:32Z",
   "news": "Fed shock raises rates 275bp, USD bullish",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price below prior day's range, RSI neutral, near 20d low, trend up diverges",
+  "chart": "Price near lower bound, recent decline, RSI neutral, no bullish momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-02",
  "last_rules": {
-  "utc": "2026-11-02T17:26Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-02T17:32Z",
+  "pick": {
+   "sym": "NG=F",
+   "side": "short",
+   "rr": 2.0,
+   "change": -0.45,
+   "trend": "giu",
+   "rsi": 47.4
+  },
+  "skip": null,
   "stats": {
    "n": 14,
    "moved": 9,
    "avg": -0.048,
    "total": -0.4,
    "wr": 44,
-   "open": 0
+   "open": 1
   }
  }
 }
