@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "^GSPC": {
+   "symbol": "^GSPC",
+   "side": "long",
+   "entry": 7646.3798828125,
+   "stop": 7518.130876813616,
+   "target": 7902.877894810268,
+   "atr": 85.49933733258929,
+   "bars": 1,
+   "entry_ts": "2026-11-02T15:22+00:00",
+   "reason": "ha superato il massimo di ieri (7,637) e ha chiuso a 7,646: segnale al rialzo; tendenza in salita; RSI 46, neutro; si muove del 1.1% al giorno",
+   "context": {
+    "trend": "su",
+    "ema_fast": 7681.325451112657,
+    "ema_slow": 7352.373388316343,
+    "rsi": 45.89876067448983,
+    "atr_pct": 1.1181675334333614
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
