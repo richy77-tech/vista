@@ -266,7 +266,9 @@ def auto(token, cid):
     poll(token, cid)
     c, s = cfg(), state()
     try:
-        _, ev = paper.step(c["symbols"])
+        # on_close: ogni chiusura lascia una riga in desk_log.jsonl, cosi' un
+        # solo file racconta aperture, rifiuti e conto finale.
+        _, ev = paper.step(c["symbols"], on_close=desk3.log_close)
         for e in ev:
             send(token, cid, "paper · " + e)
     except Exception as e:

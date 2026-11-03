@@ -160,7 +160,7 @@ def describe(side, prev, last, reg, r_now, apct):
     return "; ".join(bits)
 
 
-def step(symbols, s=None, dry=False, path=None, open_new=True):
+def step(symbols, s=None, dry=False, path=None, open_new=True, on_close=None):
     """Un giro: prima chiude quello che va chiuso, poi apre le nuove rotture."""
     s = s or load(path)
     now = datetime.now(timezone.utc).isoformat(timespec="minutes")
@@ -200,6 +200,13 @@ def step(symbols, s=None, dry=False, path=None, open_new=True):
                             "r": round(_r(pos["entry"], exit_, pos["stop"], pos["side"]), 3)})
                 s["closed"].append(pos)
                 del s["open"][sym]
+                # Chi chiude lo sa gia' (paper_state); chi legge il log no.
+                # Il gancio serve a scrivere la chiusura dove si leggono i rifiuti.
+                if on_close:
+                    try:
+                        on_close(pos)
+                    except Exception:
+                        pass
                 why_txt = {"stop": "stop scattato", "target": "obiettivo raggiunto",
                            "time": "tempo scaduto"}.get(why, why)
                 verso = "rialzo" if pos["side"] == "long" else "ribasso"

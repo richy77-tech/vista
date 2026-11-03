@@ -422,6 +422,34 @@ def run(symbols, news, lab=None, dry=False, max_open=MAX_OPEN):
     return st, ev, trace
 
 
+def log_close(pos):
+    """Una posizione chiusa lascia una riga in desk_log.jsonl, accanto ai rifiuti.
+
+    Perche': fino al 03/11 il log registrava solo aperture e rifiuti, quindi chi
+    lo leggeva dall'esterno vedeva 3.182 no e zero chiusure, e il conto vero
+    stava in un altro file. Un registro che mostra solo i no non e' un registro.
+    Trovato da Sergei Dragunov e da Noah leggendo il file, non da me.
+    """
+    try:
+        from datetime import datetime, timezone
+        r = pos.get("r")
+        why = pos.get("exit_reason") or pos.get("reason") or ""
+        rec = {"ts": datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%MZ"),
+               "kind": "close", "opened": False,
+               "note": f"chiusa {pos.get('symbol')}: {why} -> {float(r or 0):+.2f}R",
+               "close": {"sym": pos.get("symbol"), "side": pos.get("side"),
+                         "entry": pos.get("entry"), "exit": pos.get("exit"),
+                         "stop": pos.get("stop"), "target": pos.get("target"),
+                         "bars": pos.get("bars"), "r": r,
+                         "why": why, "entry_ts": pos.get("entry_ts"),
+                         "exit_ts": pos.get("exit_ts"),
+                         "headline": (pos.get("headline") or "")[:120]}}
+        with open(TRAIN_LOG, "a", encoding="utf-8") as f:
+            f.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    except Exception:
+        pass
+
+
 def _record(kind, trace, opened=False):
     try:
         from datetime import datetime, timezone
@@ -485,6 +513,7 @@ def review(symbols, dry=False):
                         "r": round(paper._r(pos["entry"], last, pos["stop"], pos["side"]), 3)})
             st["closed"].append(pos)
             del st["open"][sym]
+            log_close(pos)
             events.append(f"{sym}: chiusa {pos['side']} @ {_ps(last)} (trend {s['trend']}) "
                           f"-> {pos['r']:+.2f}R")
     if events and not dry:
