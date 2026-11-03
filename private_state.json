@@ -4,7 +4,7 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-03T12:31Z",
+  "utc": "2026-11-03T12:36Z",
   "news": "notizie forti ma su asset non seguiti: ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-03",
  "last_rules": {
-  "utc": "2026-11-03T12:31Z",
+  "utc": "2026-11-03T12:36Z",
   "pick": {
-   "sym": "CL=F",
-   "side": "long",
+   "sym": "GC=F",
+   "side": "short",
    "rr": 2.0,
-   "change": 1.44,
-   "trend": "su",
-   "rsi": 50.3
+   "change": -1.17,
+   "trend": "giu",
+   "rsi": 33.4
   },
-  "skip": "CL=F: gia' aperta",
+  "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
    "n": 20,
    "moved": 15,
