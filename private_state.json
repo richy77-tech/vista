@@ -4,25 +4,25 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-03T07:33Z",
+  "utc": "2026-11-03T07:39Z",
   "news": "North Korea laundering Binance loot triggers crypto sell off",
   "news_sym": "BTC-USD",
-  "chart": "Price 7% from min, RSI 36, flat trend, low volume",
+  "chart": "Price near 20‑day low, flat trend, neutral RSI, little volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-03",
  "last_rules": {
-  "utc": "2026-11-03T07:33Z",
+  "utc": "2026-11-03T07:39Z",
   "pick": {
    "sym": "BZ=F",
    "side": "long",
    "rr": 2.0,
-   "change": 1.83,
+   "change": 1.78,
    "trend": "su",
-   "rsi": 47.6
+   "rsi": 47.5
   },
-  "skip": "risk: cooldown: BZ=F uscita 1.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: BZ=F uscita 1.1h fa, cooldown 6h",
   "stats": {
    "n": 20,
    "moved": 15,
