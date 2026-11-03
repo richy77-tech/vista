@@ -268,7 +268,14 @@ def auto(token, cid):
     try:
         # on_close: ogni chiusura lascia una riga in desk_log.jsonl, cosi' un
         # solo file racconta aperture, rifiuti e conto finale.
-        _, ev = paper.step(c["symbols"], on_close=desk3.log_close)
+        #
+        # open_new=False: questo giro gestisce SOLO le uscite. Il vecchio
+        # trigger a rottura apriva anche lui, senza quota per asset e senza i
+        # muri di desk3: il 03/11 ha aperto 34 volte SI=F short mentre desk3 ne
+        # apriva zero (rifiutava "trend piatto"), e 21 chiusure sono uscite a
+        # -17.75R in un giorno, 18 su 21 al primo minuto. Una sola porta apre:
+        # desk3, che ha i muri e la quota. Questa chiude e basta.
+        _, ev = paper.step(c["symbols"], on_close=desk3.log_close, open_new=False)
         for e in ev:
             send(token, cid, "paper · " + e)
     except Exception as e:
