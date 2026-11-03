@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "SI=F": {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 49.73500061035156,
+   "stop": 51.57378782544817,
+   "target": 46.057426180158345,
+   "atr": 1.22585814339774,
+   "bars": 1,
+   "entry_ts": "2026-11-03T04:25+00:00",
+   "reason": "ha superato il minimo di ieri (50.10) e ha chiuso a 49.74: segnale al ribasso; tendenza in discesa; RSI 28, venduto; si muove del 2.5% al giorno",
+   "context": {
+    "trend": "giu",
+    "ema_fast": 58.93859797046286,
+    "ema_slow": 63.26006249330718,
+    "rsi": 28.201003063402908,
+    "atr_pct": 2.464779588527032
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
