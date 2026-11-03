@@ -4,23 +4,23 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-03T09:31Z",
-  "news": "notizie forti ma su asset non seguiti: NIFTY 50 (Gift Nifty 50 surges into overbought RSI 77: Live levels) | ARBITRUM (Arbitrum’s council moved $30 million of Binance hack funds without the) | UK (UK warns AI ransomware attack on infrastructure ‘highly likely’ by 202)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-03T09:36Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "Price near low, flat trend, RSI moderate, no sharp decline",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-03",
  "last_rules": {
-  "utc": "2026-11-03T09:31Z",
+  "utc": "2026-11-03T09:36Z",
   "pick": {
    "sym": "BZ=F",
    "side": "long",
    "rr": 2.0,
-   "change": 1.66,
+   "change": 1.83,
    "trend": "su",
-   "rsi": 47.3
+   "rsi": 47.6
   },
   "skip": "risk: cooldown: BZ=F uscita 3.0h fa, cooldown 6h",
   "stats": {
