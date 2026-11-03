@@ -1462,3 +1462,5 @@
 {"ts": "2026-11-03T13:29Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 0.72, "trend": "su", "rsi": 49.3}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-03T13:31Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 0.75, "trend": "su", "rsi": 49.3}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-03T13:33Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 0.83, "trend": "su", "rsi": 49.4}, "skip": "CL=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-03T13:43Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-03T13:45Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
