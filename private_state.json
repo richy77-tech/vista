@@ -4,23 +4,23 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-03T21:23Z",
+  "utc": "2026-11-03T21:30Z",
   "news": "Binance hack $6.3B triggers panic sell, BTC shows downside bias.",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI 40, today up 1.5%, trend flat.",
+  "chart": "Price up 1.47%, RSI 40, no bearish momentum, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-03",
  "last_rules": {
-  "utc": "2026-11-03T21:23Z",
+  "utc": "2026-11-03T21:30Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.94,
+   "change": -0.91,
    "trend": "giu",
-   "rsi": 33.9
+   "rsi": 34.0
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
