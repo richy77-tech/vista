@@ -4,7 +4,7 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-03T14:22Z",
+  "utc": "2026-11-03T14:26Z",
   "news": "notizie forti ma su asset non seguiti: US TREASURY BONDS (This indicator has triggered just 5 times since 2000 — and it warns of) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-03",
  "last_rules": {
-  "utc": "2026-11-03T14:22Z",
+  "utc": "2026-11-03T14:26Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
