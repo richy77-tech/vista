@@ -7,7 +7,7 @@
    "stop": 51.26593099321638,
    "target": 45.608141217912944,
    "atr": 1.257286616734096,
-   "bars": 2,
+   "bars": 4,
    "entry_ts": "2026-11-03T06:33+00:00",
    "reason": "ha superato il minimo di ieri (50.10) e ha chiuso a 49.38: segnale al ribasso; tendenza in discesa; RSI 28, venduto; si muove del 2.5% al giorno",
    "context": {
