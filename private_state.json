@@ -4,8 +4,8 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-04T04:33Z",
-  "news": "Futures su azioni aumenteranno liquidità e copertura, spingendo l’indice verso l’alto",
+  "utc": "2026-11-04T04:38Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "^GSPC",
   "chart": "RSI40 trend flat price below prior high low volume",
   "verdict": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-04",
  "last_rules": {
-  "utc": "2026-11-04T04:33Z",
+  "utc": "2026-11-04T04:38Z",
   "pick": {
    "sym": "NG=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 46.7
   },
-  "skip": "risk: cooldown: NG=F uscita 0.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: NG=F uscita 0.6h fa, cooldown 6h",
   "stats": {
    "n": 23,
    "moved": 18,
