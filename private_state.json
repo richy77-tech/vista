@@ -4,25 +4,25 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-04T00:57Z",
-  "news": "Binance hack $6.3B triggers panic sell, BTC shows downside bias.",
-  "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI moderate, flat trend indicates potential rebound",
+  "utc": "2026-11-04T01:02Z",
+  "news": "notizie forti ma su asset non seguiti: TOKENIZED SECURITIES (What happens if North Korea steals Wall Street's tokenized assets next) | GITBOOK (Crypto Docs Host GitBook Hit by AI Agent Security Breach, Urges Users ) | WLFI (Justin Sun seeks sanctions against Trump-linked World Liberty Financia)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-04",
  "last_rules": {
-  "utc": "2026-11-04T00:57Z",
+  "utc": "2026-11-04T01:02Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.95,
+   "change": -0.82,
    "trend": "giu",
-   "rsi": 33.9
+   "rsi": 34.2
   },
-  "skip": "risk: cooldown: GC=F uscita 0.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 0.8h fa, cooldown 6h",
   "stats": {
    "n": 22,
    "moved": 17,
