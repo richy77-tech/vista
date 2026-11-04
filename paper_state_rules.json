@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "BZ=F": {
+   "symbol": "BZ=F",
+   "side": "long",
+   "entry": 103.98999786376953,
+   "stop": 96.75571169172014,
+   "target": 118.4585702078683,
+   "atr": 4.8228574480329245,
+   "bars": 1,
+   "entry_ts": "2026-11-04T05:13+00:00",
+   "reason": "regole: trend su, movimento +0.38%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 43.623166643842985,
+    "change": 0.3764472928499685
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
