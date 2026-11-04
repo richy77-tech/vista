@@ -1768,3 +1768,5 @@
 {"ts": "2026-11-04T09:02Z", "kind": "skip", "pick": {"sym": "BZ=F", "side": "long", "rr": 2.0, "change": 0.38, "trend": "su", "rsi": 43.6}, "skip": "risk: cooldown: BZ=F uscita 3.5h fa, cooldown 6h", "risk": "cooldown: BZ=F uscita 3.5h fa, cooldown 6h"}
 {"ts": "2026-11-04T09:04Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-04T09:07Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-04T09:10Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-04T09:13Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
