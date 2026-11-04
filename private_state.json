@@ -4,16 +4,16 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-04T15:19Z",
+  "utc": "2026-11-04T15:25Z",
   "news": "Blue Wave landslide reversal pushes BTC upward, hinting bullish momentum.",
   "news_sym": "BTC-USD",
-  "chart": "RSI 52, price 56% range, 1.28x volume, non‑trend support",
+  "chart": "Price up 4.23%, above prior day high, RSI 51 neutral, ATR moderate",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-04",
  "last_rules": {
-  "utc": "2026-11-04T15:19Z",
+  "utc": "2026-11-04T15:25Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
