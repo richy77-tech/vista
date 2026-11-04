@@ -4,16 +4,16 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-04T08:37Z",
-  "news": "DOJ settlement shocks crypto market",
+  "utc": "2026-11-04T08:43Z",
+  "news": "Block DOJ settlement shocks BTC; profit slump likely drives price lower",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near 20‑day low, RSI neutral, up 1.18% today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-04",
  "last_rules": {
-  "utc": "2026-11-04T08:37Z",
+  "utc": "2026-11-04T08:43Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
