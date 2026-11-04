@@ -4,7 +4,7 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-04T02:12Z",
+  "utc": "2026-11-04T02:17Z",
   "news": "notizie forti ma su asset non seguiti: TOKENIZED SECURITIES (What happens if North Korea steals Wall Street's tokenized assets next) | GITBOOK (Crypto Docs Host GitBook Hit by AI Agent Security Breach, Urges Users ) | WLFI (Justin Sun seeks sanctions against Trump-linked World Liberty Financia)",
   "news_sym": null,
   "chart": null,
@@ -13,23 +13,23 @@
  },
  "last_audit": "2026-11-04",
  "last_rules": {
-  "utc": "2026-11-04T02:12Z",
+  "utc": "2026-11-04T02:17Z",
   "pick": {
    "sym": "NG=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.24,
+   "change": -1.49,
    "trend": "giu",
-   "rsi": 46.5
+   "rsi": 46.2
   },
-  "skip": "NG=F: gia' aperta",
+  "skip": "risk: cooldown: NG=F uscita 0.1h fa, cooldown 6h",
   "stats": {
-   "n": 22,
-   "moved": 17,
-   "avg": -0.026,
+   "n": 23,
+   "moved": 18,
+   "avg": -0.021,
    "total": -0.4,
-   "wr": 41,
-   "open": 1
+   "wr": 44,
+   "open": 0
   }
  }
 }
