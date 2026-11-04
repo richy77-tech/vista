@@ -4,8 +4,8 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-04T03:41Z",
-  "news": "notizie forti ma su asset non seguiti: TOKENIZED SECURITIES (What happens if North Korea steals Wall Street's tokenized assets next) | GITBOOK (Crypto Docs Host GitBook Hit by AI Agent Security Breach, Urges Users ) | BINANCE (Binance co-CEO Richard Teng says hackers used fake job interviews, AI )",
+  "utc": "2026-11-04T03:45Z",
+  "news": "notizie forti ma su asset non seguiti: CRYPTO ASSETS (ZachXBT identifies French bank as alleged victim of $133M crypto theft) | TOKENIZED SECURITIES (What happens if North Korea steals Wall Street's tokenized assets next) | GITBOOK (Crypto Docs Host GitBook Hit by AI Agent Security Breach, Urges Users )",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-04",
  "last_rules": {
-  "utc": "2026-11-04T03:41Z",
+  "utc": "2026-11-04T03:45Z",
   "pick": {
    "sym": "NG=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.07,
+   "change": -1.38,
    "trend": "giu",
-   "rsi": 46.7
+   "rsi": 46.3
   },
   "skip": "risk: cooldown: NG=F uscita 1.5h fa, cooldown 6h",
   "stats": {
