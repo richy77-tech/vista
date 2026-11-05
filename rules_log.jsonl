@@ -2190,3 +2190,5 @@
 {"ts": "2026-11-05T17:39Z", "kind": "skip", "pick": {"sym": "CL=F", "side": "long", "rr": 2.0, "change": 2.67, "trend": "su", "rsi": 41.6}, "skip": "risk: cooldown: CL=F uscita 1.4h fa, cooldown 6h", "risk": "cooldown: CL=F uscita 1.4h fa, cooldown 6h"}
 {"ts": "2026-11-05T17:49Z", "kind": "skip", "pick": {"sym": "BZ=F", "side": "long", "rr": 2.0, "change": 2.97, "trend": "su", "rsi": 38.0}, "skip": "BZ=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-05T17:52Z", "kind": "skip", "pick": {"sym": "BZ=F", "side": "long", "rr": 2.0, "change": 2.95, "trend": "su", "rsi": 38.0}, "skip": "BZ=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-05T17:55Z", "kind": "skip", "pick": {"sym": "BZ=F", "side": "long", "rr": 2.0, "change": 2.93, "trend": "su", "rsi": 38.0}, "skip": "BZ=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-05T17:58Z", "kind": "skip", "pick": {"sym": "BZ=F", "side": "long", "rr": 2.0, "change": 3.02, "trend": "su", "rsi": 38.1}, "skip": "BZ=F: quota giornaliera esaurita", "risk": null}
