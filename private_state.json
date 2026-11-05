@@ -4,7 +4,7 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-05T16:11Z",
+  "utc": "2026-11-05T16:16Z",
   "news": "notizie forti ma su asset non seguiti: BINANCE (Fed e OCC valutano l’impatto sulle banche USA dell’hack di Binance da ) | BINANCE (Binance Cuts Off SignalPlus API Keys Over 'Potential Security Issue' a) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
@@ -13,23 +13,23 @@
  },
  "last_audit": "2026-11-05",
  "last_rules": {
-  "utc": "2026-11-05T16:11Z",
+  "utc": "2026-11-05T16:16Z",
   "pick": {
-   "sym": "BZ=F",
+   "sym": "CL=F",
    "side": "long",
    "rr": 2.0,
-   "change": 2.5,
+   "change": 2.44,
    "trend": "su",
-   "rsi": 37.3
+   "rsi": 41.3
   },
-  "skip": "BZ=F: quota giornaliera esaurita",
+  "skip": "risk: cooldown: CL=F uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 28,
-   "moved": 23,
-   "avg": -0.018,
+   "n": 29,
+   "moved": 24,
+   "avg": -0.016,
    "total": -0.4,
-   "wr": 48,
-   "open": 1
+   "wr": 50,
+   "open": 0
   }
  }
 }
