@@ -4,25 +4,25 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-05T12:15Z",
-  "news": "BoE hikes rate, GBP likely strengthens",
-  "news_sym": "GBPUSD=X",
-  "chart": "regola: trend o movimento non confermano",
+  "utc": "2026-11-05T12:29Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "CL=F",
+  "chart": "Price up 1.58%, low vol, RSI neutral, trend up",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-05",
  "last_rules": {
-  "utc": "2026-11-05T12:15Z",
+  "utc": "2026-11-05T12:29Z",
   "pick": {
    "sym": "BZ=F",
    "side": "long",
    "rr": 2.0,
-   "change": 2.22,
+   "change": 2.3,
    "trend": "su",
-   "rsi": 36.9
+   "rsi": 37.0
   },
-  "skip": "risk: cooldown: BZ=F uscita 4.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: BZ=F uscita 4.7h fa, cooldown 6h",
   "stats": {
    "n": 27,
    "moved": 22,
