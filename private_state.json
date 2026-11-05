@@ -4,23 +4,23 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-05T19:50Z",
-  "news": "S&P 500 plunges, circuit breaker risk",
-  "news_sym": "^GSPC",
-  "chart": "Price near lower range, flat trend, low volume, RSI moderate",
+  "utc": "2026-11-05T19:56Z",
+  "news": "VIX spikes most since April, unexpected rise",
+  "news_sym": "^VIX",
+  "chart": "Price 80% up, still below 20‑day high; no breakout confirmed",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-05",
  "last_rules": {
-  "utc": "2026-11-05T19:50Z",
+  "utc": "2026-11-05T19:56Z",
   "pick": {
    "sym": "BZ=F",
    "side": "long",
    "rr": 2.0,
-   "change": 4.32,
+   "change": 3.99,
    "trend": "su",
-   "rsi": 39.9
+   "rsi": 39.5
   },
   "skip": "BZ=F: quota giornaliera esaurita",
   "stats": {
