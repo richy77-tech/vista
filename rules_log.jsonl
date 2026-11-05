@@ -1978,3 +1978,5 @@
 {"ts": "2026-11-05T04:55Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -0.91, "trend": "giu", "rsi": 49.9}, "skip": "risk: cooldown: NG=F uscita 1.6h fa, cooldown 6h", "risk": "cooldown: NG=F uscita 1.6h fa, cooldown 6h"}
 {"ts": "2026-11-05T04:58Z", "kind": "skip", "pick": {"sym": "NG=F", "side": "short", "rr": 2.0, "change": -0.88, "trend": "giu", "rsi": 50.0}, "skip": "risk: cooldown: NG=F uscita 1.7h fa, cooldown 6h", "risk": "cooldown: NG=F uscita 1.7h fa, cooldown 6h"}
 {"ts": "2026-11-05T05:01Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-05T05:04Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-05T05:06Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
