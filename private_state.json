@@ -4,7 +4,7 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-05T06:15Z",
+  "utc": "2026-11-05T06:20Z",
   "news": "notizie forti ma su asset non seguiti: TOYOTA MOTOR CORP (Toyota posts profit surge and lifts annual outlook as hybrid sales shi) | CRYPTO EXCHANGES (India warns AI-powered hackers targeting crypto exchanges at ‘machine ) | BITMART (BitMart founder says security team ‘severely understaffed’ after new h)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-05",
  "last_rules": {
-  "utc": "2026-11-05T06:15Z",
+  "utc": "2026-11-05T06:20Z",
   "pick": {
    "sym": "NG=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.41,
+   "change": -0.47,
    "trend": "giu",
-   "rsi": 50.7
+   "rsi": 50.6
   },
-  "skip": "risk: cooldown: NG=F uscita 2.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: NG=F uscita 3.0h fa, cooldown 6h",
   "stats": {
    "n": 25,
    "moved": 20,
