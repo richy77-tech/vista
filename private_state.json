@@ -4,23 +4,23 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-05T20:14Z",
-  "news": "S&P 500 plunges, circuit breaker risk",
+  "utc": "2026-11-05T20:27Z",
+  "news": "S&P 500 crashes, circuit breaker fears, huge market sell-off, triggered by unexpected event.",
   "news_sym": "^GSPC",
-  "chart": "Price near 20‑day low, low volume, RSI 34, trend flat",
+  "chart": "Price at low of range, flat trend, RSI 34, no trend strength",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-05",
  "last_rules": {
-  "utc": "2026-11-05T20:14Z",
+  "utc": "2026-11-05T20:27Z",
   "pick": {
    "sym": "BZ=F",
    "side": "long",
    "rr": 2.0,
-   "change": 3.94,
+   "change": 4.04,
    "trend": "su",
-   "rsi": 39.4
+   "rsi": 39.5
   },
   "skip": "BZ=F: quota giornaliera esaurita",
   "stats": {
