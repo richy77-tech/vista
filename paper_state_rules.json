@@ -1,24 +1,5 @@
 {
- "open": {
-  "EURUSD=X": {
-   "symbol": "EURUSD=X",
-   "side": "short",
-   "entry": 1.1147029399871826,
-   "stop": 1.1244182331221444,
-   "target": 1.095272353717259,
-   "atr": 0.00647686208997454,
-   "bars": 3,
-   "entry_ts": "2026-11-06T19:03+00:00",
-   "reason": "regole: trend giu, movimento -0.78%",
-   "headline": "",
-   "rules": true,
-   "context": {
-    "trend": "giu",
-    "rsi": 37.99486347244243,
-    "change": -0.7825197051744087
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -789,6 +770,28 @@
    "exit_ts": "2026-11-06T09:55+00:00",
    "exit_reason": "time",
    "r": 0.031
+  },
+  {
+   "symbol": "EURUSD=X",
+   "side": "short",
+   "entry": 1.1147029399871826,
+   "stop": 1.1244182331221444,
+   "target": 1.095272353717259,
+   "atr": 0.00647686208997454,
+   "bars": 5,
+   "entry_ts": "2026-11-06T19:03+00:00",
+   "reason": "regole: trend giu, movimento -0.78%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 37.99486347244243,
+    "change": -0.7825197051744087
+   },
+   "exit": 1.1144545078277588,
+   "exit_ts": "2026-11-06T19:18+00:00",
+   "exit_reason": "time",
+   "r": 0.026
   }
  ]
 }

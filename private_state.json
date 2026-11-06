@@ -4,32 +4,32 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T19:12Z",
-  "news": "Surprise $1B+ crypto liquidations signal BTC price decline",
+  "utc": "2026-11-06T19:18Z",
+  "news": "1.2B liquidations push Bitcoin lower",
   "news_sym": "BTC-USD",
-  "chart": "Price near support, RSI not confirming a downward shift",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T19:12Z",
+  "utc": "2026-11-06T19:19Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.78,
+   "change": -0.8,
    "trend": "giu",
-   "rsi": 38.0
+   "rsi": 37.8
   },
-  "skip": "EURUSD=X: gia' aperta",
+  "skip": "risk: cooldown: EURUSD=X uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 35,
-   "moved": 30,
-   "avg": -0.019,
-   "total": -0.6,
-   "wr": 50,
-   "open": 1
+   "n": 36,
+   "moved": 31,
+   "avg": -0.018,
+   "total": -0.5,
+   "wr": 52,
+   "open": 0
   }
  }
 }
