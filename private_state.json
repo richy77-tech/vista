@@ -4,8 +4,8 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T13:55Z",
-  "news": "US jobs far exceed forecasts, lifting USD index.",
+  "utc": "2026-11-06T14:01Z",
+  "news": "Jobs 165k far above 65k, USD index surges",
   "news_sym": "DX-Y.NYB",
   "chart": "Price above prior high, uptrend present, RSI 58 moderate.",
   "verdict": null,
@@ -13,12 +13,12 @@
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T13:55Z",
+  "utc": "2026-11-06T14:01Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.35,
+   "change": -1.34,
    "trend": "giu",
    "rsi": 46.0
   },
