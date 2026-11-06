@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T10:40Z",
-  "news": "Bitcoin drops to $76k amid AI trade collapse",
+  "utc": "2026-11-06T10:46Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "price near low, RSI neutral, trend flat, today upward move",
+  "chart": "Price 10% above min, RSI 39, daily up 0.17%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T10:40Z",
+  "utc": "2026-11-06T10:46Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
