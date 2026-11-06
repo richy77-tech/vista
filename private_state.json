@@ -1,28 +1,28 @@
 {
  "last_brief": "2026-11-06",
- "last_in": "2026-11-02T16:12:08Z",
- "last_in_text": "Quanti soldi ha guadagnato il bot",
- "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
+ "last_in": "2026-11-06T09:13:24Z",
+ "last_in_text": "/start",
+ "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T09:09Z",
+  "utc": "2026-11-06T09:15Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price 75,958 near 75,114, flat trend, modest rise, RSI 39.",
+  "chart": "Price near support, RSI moderate, daily move up, no bearish trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T09:10Z",
+  "utc": "2026-11-06T09:16Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.68,
+   "change": -0.62,
    "trend": "giu",
-   "rsi": 47.9
+   "rsi": 48.1
   },
-  "skip": "risk: cooldown: GC=F uscita 5.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 5.6h fa, cooldown 6h",
   "stats": {
    "n": 34,
    "moved": 29,
