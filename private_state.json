@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T22:13Z",
+  "utc": "2026-11-06T22:19Z",
   "news": "Massive $1B crypto liquidations signal strong selling pressure",
   "news_sym": "BTC-USD",
-  "chart": "price near lower 20‑day, RSI mid, slight dip, no surge",
+  "chart": "Price near bottom, slight upward move, trend neutral",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T22:14Z",
+  "utc": "2026-11-06T22:19Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
