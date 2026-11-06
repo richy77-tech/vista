@@ -4,23 +4,23 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T18:23Z",
-  "news": "Massive long liquidations force BTC lower to new 11‑week low",
-  "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI neutral, minor decline, no strong bearish bias",
+  "utc": "2026-11-06T18:36Z",
+  "news": "Jobs data boosts Fed hike bets, spurring index rally",
+  "news_sym": "^GSPC",
+  "chart": "Trend neutral, RSI moderate, price at low of flat range—no long conviction.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T18:23Z",
+  "utc": "2026-11-06T18:36Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.07,
+   "change": -0.98,
    "trend": "giu",
-   "rsi": 46.8
+   "rsi": 47.0
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
