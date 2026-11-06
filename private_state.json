@@ -4,23 +4,23 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T10:57Z",
-  "news": "Significant hack at major exchange triggers sell pressure.",
+  "utc": "2026-11-06T11:11Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price above low, RSI neutral, flat trend, no support break",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T10:57Z",
+  "utc": "2026-11-06T11:11Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.88,
+   "change": -0.96,
    "trend": "giu",
-   "rsi": 47.3
+   "rsi": 47.1
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
