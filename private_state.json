@@ -4,25 +4,25 @@
  "last_in_text": "Quanti soldi ha guadagnato il bot",
  "last_reply": "<b>Stima del guadagno</b>\nSoldi veri guadagnati dal bot: <b>0</b> (nessun ordine",
  "last_roles": {
-  "utc": "2026-11-06T07:10Z",
-  "news": "Unexpected drop to $76k signals further downside",
+  "utc": "2026-11-06T07:15Z",
+  "news": "Bitcoin falls stark after AI trade collapse",
   "news_sym": "BTC-USD",
-  "chart": "Trend flat, price at 2% of range, RSI neutral, short lacks momentum.",
+  "chart": "Price above 20‑day low, no break; RSI not overbought.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T07:10Z",
+  "utc": "2026-11-06T07:15Z",
   "pick": {
-   "sym": "GC=F",
+   "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.34,
+   "change": -1.44,
    "trend": "giu",
-   "rsi": 46.0
+   "rsi": 36.8
   },
-  "skip": "risk: cooldown: GC=F uscita 3.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 1.5h fa, cooldown 6h",
   "stats": {
    "n": 33,
    "moved": 28,
