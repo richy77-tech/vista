@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T18:12Z",
-  "news": "US jobs data exceeded expectations, driving USD higher",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price > prior max, RSI 58, trend up, +0.67% today",
+  "utc": "2026-11-06T18:17Z",
+  "news": "High liquidations—$1B+—force sell pressure on Bitcoin",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T18:12Z",
+  "utc": "2026-11-06T18:17Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
