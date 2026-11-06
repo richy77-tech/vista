@@ -4,23 +4,23 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T18:36Z",
-  "news": "Jobs data boosts Fed hike bets, spurring index rally",
-  "news_sym": "^GSPC",
-  "chart": "Trend neutral, RSI moderate, price at low of flat range—no long conviction.",
+  "utc": "2026-11-06T18:42Z",
+  "news": "$1B liquidations push Bitcoin lower",
+  "news_sym": "BTC-USD",
+  "chart": "Price near low, flat trend, weak bearish move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T18:36Z",
+  "utc": "2026-11-06T18:42Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.98,
+   "change": -0.89,
    "trend": "giu",
-   "rsi": 47.0
+   "rsi": 47.3
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
