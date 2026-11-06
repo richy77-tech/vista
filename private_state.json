@@ -4,23 +4,23 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T14:14Z",
-  "news": "Previsioni occupazionali inaspettate spingono indice dollaro",
+  "utc": "2026-11-06T14:27Z",
+  "news": "Jobs > expected, bullish USD",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price above trend, RSI moderate, today bullish movement",
+  "chart": "Price in lower mid‑range, uptrend, moderate RSI, positive intraday move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T14:14Z",
+  "utc": "2026-11-06T14:27Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.35,
+   "change": -1.74,
    "trend": "giu",
-   "rsi": 46.0
+   "rsi": 45.0
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
