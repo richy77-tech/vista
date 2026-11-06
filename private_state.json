@@ -4,21 +4,21 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T20:19Z",
+  "utc": "2026-11-06T20:24Z",
   "news": "1.2B liquidations push Bitcoin lower",
   "news_sym": "BTC-USD",
-  "chart": "Price decreased today, RSI low, moderate volume supports short",
+  "chart": "Price near lower bound; RSI not extreme; flat trend; insufficient bearish momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T20:19Z",
+  "utc": "2026-11-06T20:24Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.95,
+   "change": -0.97,
    "trend": "giu",
    "rsi": 47.1
   },
