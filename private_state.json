@@ -4,23 +4,23 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T20:41Z",
-  "news": "Massive liquidity hit pushes Bitcoin lower",
+  "utc": "2026-11-06T20:47Z",
+  "news": "Binance hack triggers immediate sell‑off, clear market shock",
   "news_sym": "BTC-USD",
-  "chart": "slight decline, flat trend, price near low, no strong pullback",
+  "chart": "Price 7% up from min, RSI 38, flat trend, no reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T20:42Z",
+  "utc": "2026-11-06T20:47Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.91,
+   "change": -0.93,
    "trend": "giu",
-   "rsi": 47.3
+   "rsi": 47.2
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
