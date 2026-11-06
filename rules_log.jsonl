@@ -2586,3 +2586,5 @@
 {"ts": "2026-11-06T19:25Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.8, "trend": "giu", "rsi": 37.8}, "skip": "risk: cooldown: EURUSD=X uscita 0.1h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 0.1h fa, cooldown 6h"}
 {"ts": "2026-11-06T19:27Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.86, "trend": "giu", "rsi": 47.4}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-06T19:31Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.91, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-06T19:33Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.86, "trend": "giu", "rsi": 47.4}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-06T19:36Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.88, "trend": "giu", "rsi": 47.3}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
