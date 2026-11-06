@@ -4,23 +4,23 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T12:01Z",
+  "utc": "2026-11-06T12:06Z",
   "news": "Significant 530M ETF outflow signals reversal; BTC price likely falls; short signal.",
   "news_sym": "BTC-USD",
-  "chart": "RSI 39, price slight rise, ATR 3%, no bearish breakout",
+  "chart": "RSI neutral, flat trend, price near lower limit",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T12:01Z",
+  "utc": "2026-11-06T12:07Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.89,
+   "change": -0.96,
    "trend": "giu",
-   "rsi": 47.3
+   "rsi": 47.1
   },
   "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
