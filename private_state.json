@@ -4,21 +4,21 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T10:46Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-06T10:52Z",
+  "news": "Hacking hit BTC, undermines wallet trust, likely sell-off",
   "news_sym": "BTC-USD",
-  "chart": "Price 10% above min, RSI 39, daily up 0.17%",
+  "chart": "Price near 20‑day low, flat trend, RSI neutral, small upside move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T10:46Z",
+  "utc": "2026-11-06T10:52Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.85,
+   "change": -0.88,
    "trend": "giu",
    "rsi": 47.4
   },
