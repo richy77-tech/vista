@@ -4,21 +4,21 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-06T16:03Z",
+  "utc": "2026-11-06T16:09Z",
   "news": "Jobs far exceed estimates, lifting USD index",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price below recent high, RSI not extreme, only slight momentum",
+  "chart": "regola: trend e movimento dalla stessa parte",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-06",
  "last_rules": {
-  "utc": "2026-11-06T16:03Z",
+  "utc": "2026-11-06T16:09Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.23,
+   "change": -1.21,
    "trend": "giu",
    "rsi": 46.4
   },
