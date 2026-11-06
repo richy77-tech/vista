@@ -2390,3 +2390,5 @@
 {"ts": "2026-11-06T05:33Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -1.61, "trend": "giu", "rsi": 36.6}, "skip": "SI=F: gia' aperta", "risk": null}
 {"ts": "2026-11-06T05:36Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -1.48, "trend": "giu", "rsi": 45.7}, "skip": "risk: cooldown: GC=F uscita 1.9h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.9h fa, cooldown 6h"}
 {"ts": "2026-11-06T05:39Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -1.81, "trend": "giu", "rsi": 36.4}, "skip": "SI=F: gia' aperta", "risk": null}
+{"ts": "2026-11-06T05:42Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -1.7, "trend": "giu", "rsi": 36.5}, "skip": "SI=F: gia' aperta", "risk": null}
+{"ts": "2026-11-06T05:45Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -1.53, "trend": "giu", "rsi": 45.5}, "skip": "risk: cooldown: GC=F uscita 2.1h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 2.1h fa, cooldown 6h"}
