@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-07T13:47Z",
+  "utc": "2026-11-07T13:53Z",
   "news": "Massive liquidations push Bitcoin lower.",
   "news_sym": "BTC-USD",
-  "chart": "Trend flat, RSI neutral, low volume, price near range bottom erode short case",
+  "chart": "Up 0.11%, flat trend, RSI 38, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-07",
  "last_rules": {
-  "utc": "2026-11-07T13:47Z",
+  "utc": "2026-11-07T13:53Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
