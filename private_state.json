@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-07T12:36Z",
-  "news": "Massive liquidations push Bitcoin lower.",
+  "utc": "2026-11-07T12:41Z",
+  "news": "$1B liquidations, 11‑week low signal further BTC downside",
   "news_sym": "BTC-USD",
-  "chart": "Price 11% from low; RSI 39; today +0.17%",
+  "chart": "Price near lower bound, flat trend, neutral RSI, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-07",
  "last_rules": {
-  "utc": "2026-11-07T12:36Z",
+  "utc": "2026-11-07T12:42Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
