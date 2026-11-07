@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-07T11:13Z",
-  "news": "Surprise job growth boosts dollar index",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price above prior high, bullish trend",
+  "utc": "2026-11-07T11:19Z",
+  "news": "Massive $1B crypto liquidations signal strong selling pressure",
+  "news_sym": "BTC-USD",
+  "chart": "Price near low, recent up move, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-07",
  "last_rules": {
-  "utc": "2026-11-07T11:13Z",
+  "utc": "2026-11-07T11:20Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
