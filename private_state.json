@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-08T05:00Z",
+  "utc": "2026-11-08T05:06Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower 20g range, up only 0.03%, low RSI, flat trend.",
+  "chart": "Basso RSI, posizione nel range basso, volume molto basso: nessun segnale short.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-08",
  "last_rules": {
-  "utc": "2026-11-08T05:00Z",
+  "utc": "2026-11-08T05:06Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 47.2
   },
-  "skip": "risk: cooldown: GC=F uscita 4.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 4.9h fa, cooldown 6h",
   "stats": {
    "n": 39,
    "moved": 31,
