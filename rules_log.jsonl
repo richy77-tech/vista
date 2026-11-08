@@ -3398,3 +3398,5 @@
 {"ts": "2026-11-08T18:50Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-08T18:53Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-08T18:55Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-08T18:58Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-08T19:01Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: quota giornaliera esaurita", "risk": null}
