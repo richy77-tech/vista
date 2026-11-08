@@ -4,8 +4,8 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-08T10:23Z",
-  "news": "Jobs +165k vs 65k est, USD strength",
+  "utc": "2026-11-08T10:28Z",
+  "news": "Ottimo job data, spinta USD in rialzo",
   "news_sym": "DX-Y.NYB",
   "chart": "Price above prior high, bullish trend",
   "verdict": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-08",
  "last_rules": {
-  "utc": "2026-11-08T10:23Z",
+  "utc": "2026-11-08T10:28Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
