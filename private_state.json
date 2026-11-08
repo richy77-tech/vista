@@ -4,16 +4,16 @@
  "last_in_text": "/brief",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-08T07:06Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "Price near low, RSI 38, flat trend, low volume, slight dip",
+  "utc": "2026-11-08T07:12Z",
+  "news": "Sanctions hit Canadian firms, weaken CAD, boost USD index",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price above prior high, bullish trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-08",
  "last_rules": {
-  "utc": "2026-11-08T07:06Z",
+  "utc": "2026-11-08T07:12Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
