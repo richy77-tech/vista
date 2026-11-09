@@ -4,16 +4,16 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T17:37Z",
-  "news": "notizie forti ma su asset non seguiti: BINANCE (Aggiornamento sull’hack di Binance, la Corea del Nord ha usato il volt) | LLY (Eli Lilly’s Foundayo obesity pill eases sleep apnea in late-stage tria) | BITCOIN (BTC) (Strategy buys 1,036 Bitcoin as BTC holdings climb to 850,364)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-09T17:42Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "Price near 20‑day low, low RSI, flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T17:37Z",
+  "utc": "2026-11-09T17:42Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
