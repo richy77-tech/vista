@@ -242,13 +242,14 @@ def poll(token, cid):
             except Exception:
                 pass
         # Ricevuta leggibile: prova che il bot ha letto davvero, visibile nel file di stato.
-        # Tiene anche l'ultimo testo letto e l'ultima risposta: cosi' dai log e dallo
-        # stato si vede se i messaggi arrivano e cosa e' stato risposto.
+        # SOLO il battito (chi ha scritto, quando). Il testo dei suoi messaggi e la
+        # risposta non si salvano: private_state.json sta in un repo pubblico e la
+        # history tiene ogni valore scritto, vecchio compreso. 09/11.
         try:
             s = state()
             s["last_in"] = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
-            s["last_in_text"] = txt[:80]
-            s["last_reply"] = (ans or "")[:80]
+            s["last_in_text"] = ""
+            s["last_reply"] = ""
             save_state(s)
         except Exception:
             pass
