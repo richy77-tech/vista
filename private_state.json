@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T21:18Z",
+  "utc": "2026-11-09T21:23Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price near low, trend up, RSI neutral",
+  "chart": "Uptrend, RSI 49, price near lower range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T21:19Z",
+  "utc": "2026-11-09T21:23Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
