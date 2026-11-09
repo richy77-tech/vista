@@ -4,8 +4,8 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T17:02Z",
-  "news": "notizie forti ma su asset non seguiti: SABLE (Sable Offshore sinks to record low after warning of going-concern risk) | BINANCE (Aggiornamento sull’hack di Binance, la Corea del Nord ha usato il volt) | LLY (Eli Lilly’s Foundayo obesity pill eases sleep apnea in late-stage tria)",
+  "utc": "2026-11-09T17:12Z",
+  "news": "notizie forti ma su asset non seguiti: SABLE OFFSHORE (Sable Offshore sinks to record low after warning of going-concern risk) | BINANCE (Aggiornamento sull’hack di Binance, la Corea del Nord ha usato il volt) | LLY (Eli Lilly’s Foundayo obesity pill eases sleep apnea in late-stage tria)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T17:02Z",
+  "utc": "2026-11-09T17:13Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
