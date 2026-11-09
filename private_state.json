@@ -4,16 +4,16 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T02:19Z",
+  "utc": "2026-11-09T02:24Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price above 20‑day high and RSI 57, no bearish reversal",
+  "chart": "Price near upper range, RSI moderate, slight negative move not enough to confirm short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T02:19Z",
+  "utc": "2026-11-09T02:24Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
