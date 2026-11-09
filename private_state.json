@@ -4,7 +4,7 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T04:55Z",
+  "utc": "2026-11-09T05:00Z",
   "news": "notizie forti ma su asset non seguiti: ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
@@ -13,23 +13,23 @@
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T04:55Z",
+  "utc": "2026-11-09T05:00Z",
   "pick": {
-   "sym": "EURUSD=X",
+   "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.59,
+   "change": -0.94,
    "trend": "giu",
-   "rsi": 38.9
+   "rsi": 47.2
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 4.6h fa, cooldown 6h",
+  "skip": null,
   "stats": {
    "n": 42,
    "moved": 32,
    "avg": -0.018,
    "total": -0.6,
    "wr": 50,
-   "open": 0
+   "open": 1
   }
  }
 }
