@@ -3542,3 +3542,5 @@
 {"ts": "2026-11-09T06:25Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.56, "trend": "giu", "rsi": 39.3}, "skip": "EURUSD=X: gia' aperta", "risk": null}
 {"ts": "2026-11-09T06:33Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.55, "trend": "giu", "rsi": 39.5}, "skip": "EURUSD=X: gia' aperta", "risk": null}
 {"ts": "2026-11-09T06:35Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.55, "trend": "giu", "rsi": 39.5}, "skip": "EURUSD=X: gia' aperta", "risk": null}
+{"ts": "2026-11-09T06:38Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.53, "trend": "giu", "rsi": 39.6}, "skip": "EURUSD=X: gia' aperta", "risk": null}
+{"ts": "2026-11-09T06:40Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.53, "trend": "giu", "rsi": 39.6}, "skip": "EURUSD=X: quota giornaliera esaurita", "risk": null}

@@ -4,8 +4,8 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T06:35Z",
-  "news": "notizie forti ma su asset non seguiti: ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
+  "utc": "2026-11-09T06:40Z",
+  "news": "notizie forti ma su asset non seguiti: CHINA MOBILE (Chinese 6G stocks rally as Beijing accelerates next-generation network) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,23 +13,23 @@
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T06:35Z",
+  "utc": "2026-11-09T06:40Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.55,
+   "change": -0.53,
    "trend": "giu",
-   "rsi": 39.5
+   "rsi": 39.6
   },
-  "skip": "EURUSD=X: gia' aperta",
+  "skip": "EURUSD=X: quota giornaliera esaurita",
   "stats": {
-   "n": 43,
-   "moved": 33,
-   "avg": -0.031,
+   "n": 44,
+   "moved": 34,
+   "avg": -0.03,
    "total": -1.0,
-   "wr": 48,
-   "open": 1
+   "wr": 47,
+   "open": 0
   }
  }
 }
