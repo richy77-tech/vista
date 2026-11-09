@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T20:13Z",
-  "news": "Binance hack shock likely drives crypto sell‑off",
+  "utc": "2026-11-09T20:19Z",
+  "news": "Binance hack shocks market, bearish pressure",
   "news_sym": "BTC-USD",
-  "chart": "Flat trend, low RSI, price up today",
+  "chart": "Price at 20d low, trend flat",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T20:13Z",
+  "utc": "2026-11-09T20:19Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
