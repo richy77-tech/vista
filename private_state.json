@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T23:42Z",
+  "utc": "2026-11-09T23:48Z",
   "news": "Binance hack scuote fiducia, rovescia le posizioni crypto",
   "news_sym": "BTC-USD",
-  "chart": "Price up 0.74%, RSI 38, flat trend, near min20",
+  "chart": "Price rose 0.73%, RSI 38 not extreme, flat trend.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T23:42Z",
+  "utc": "2026-11-09T23:48Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
