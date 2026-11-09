@@ -4,25 +4,25 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T02:29Z",
+  "utc": "2026-11-09T02:34Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "RSI 56, price 56% in range, trend up, only small dip",
+  "chart": "Price in uptrend, RSI neutral, only slight dip today, no reversal signal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T02:29Z",
+  "utc": "2026-11-09T02:34Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.65,
+   "change": -0.63,
    "trend": "giu",
-   "rsi": 38.3
+   "rsi": 38.4
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 2.1h fa, cooldown 6h",
+  "skip": "risk: cooldown: EURUSD=X uscita 2.2h fa, cooldown 6h",
   "stats": {
    "n": 42,
    "moved": 32,
