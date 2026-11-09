@@ -3506,3 +3506,5 @@
 {"ts": "2026-11-09T04:55Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.59, "trend": "giu", "rsi": 38.9}, "skip": "risk: cooldown: EURUSD=X uscita 4.6h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 4.6h fa, cooldown 6h"}
 {"ts": "2026-11-09T04:57Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.59, "trend": "giu", "rsi": 38.9}, "skip": "risk: cooldown: EURUSD=X uscita 4.6h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 4.6h fa, cooldown 6h"}
 {"ts": "2026-11-09T05:00Z", "kind": "open", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -0.56R"}
+{"ts": "2026-11-09T05:02Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: gia' aperta", "risk": null}
+{"ts": "2026-11-09T05:04Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.94, "trend": "giu", "rsi": 47.2}, "skip": "GC=F: gia' aperta", "risk": null}
