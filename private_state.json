@@ -4,7 +4,7 @@
  "last_in_text": "/start",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-09T04:18Z",
+  "utc": "2026-11-09T04:23Z",
   "news": "nessuna notizia forte con verso",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-09",
  "last_rules": {
-  "utc": "2026-11-09T04:18Z",
+  "utc": "2026-11-09T04:23Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.63,
+   "change": -0.61,
    "trend": "giu",
-   "rsi": 38.4
+   "rsi": 38.7
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 3.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: EURUSD=X uscita 4.0h fa, cooldown 6h",
   "stats": {
    "n": 42,
    "moved": 32,
