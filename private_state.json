@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T20:13Z",
-  "news": "Hot inflation > expectations fuels rate fears, pushing index lower",
+  "utc": "2026-11-10T20:26Z",
+  "news": "Hot US inflation surprise fuels rate worries, pushing S&P down",
   "news_sym": "^GSPC",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Trend neutral, RSI 44, price near lower bound, volume 0.34x.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T20:13Z",
+  "utc": "2026-11-10T20:26Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.32,
+   "change": -2.04,
    "trend": "giu",
-   "rsi": 37.5
+   "rsi": 37.8
   },
-  "skip": "risk: cooldown: SI=F uscita 4.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 4.3h fa, cooldown 6h",
   "stats": {
    "n": 48,
    "moved": 38,
