@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T01:25Z",
-  "news": "Hack Binance riduce fiducia, ribasso Bitcoin immediato",
+  "utc": "2026-11-10T01:30Z",
+  "news": "Binance hack shocks market, likely price drop",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, rising, no short signal",
+  "chart": "RSI neutral, flat trend, price near bottom, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T01:25Z",
+  "utc": "2026-11-10T01:30Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
