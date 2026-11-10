@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T16:25Z",
-  "news": "CPI higher than expected paves way for Fed tightening, stocks fall",
-  "news_sym": "^GSPC",
-  "chart": "Trend flat, RSI moderate, low volume, price not breaching key levels",
+  "utc": "2026-11-10T16:33Z",
+  "news": "Inflation beats expectations, spiking crypto sell‑off",
+  "news_sym": "BTC-USD",
+  "chart": "Price near min20, fell 2.8%, RSI 33, weak volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T16:26Z",
+  "utc": "2026-11-10T16:33Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 3.56,
+   "change": 3.97,
    "trend": "su",
-   "rsi": 52.9
+   "rsi": 53.0
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
