@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T22:14Z",
-  "news": "Inflation surprise + Fed rate worries dampen USD",
+  "utc": "2026-11-10T22:27Z",
+  "news": "US CPI beat forecasts, dollar strengthens, crypto reverts",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price near upper 20‑day, trend up, RSI 56, +0.58% today",
+  "chart": "Trend up, RSI 56, price 62% range, today's gain 0.58%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T22:14Z",
+  "utc": "2026-11-10T22:27Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
