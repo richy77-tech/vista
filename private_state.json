@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T14:25Z",
-  "news": "Inflation higher than expected sharpens Fed tightening outlook",
+  "utc": "2026-11-10T14:31Z",
+  "news": "CPI 0.4% > expected, rate‑hike fears push S&P lower",
   "news_sym": "^GSPC",
-  "chart": "Trend flat, RSI neutral, price near mid-range, no bearish formation",
+  "chart": "RSI neutral, price near low, flat trend, very low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T14:25Z",
+  "utc": "2026-11-10T14:31Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 5.42,
+   "change": 5.17,
    "trend": "su",
-   "rsi": 53.5
+   "rsi": 53.4
   },
-  "skip": "risk: cooldown: ^VIX uscita 4.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 4.9h fa, cooldown 6h",
   "stats": {
    "n": 46,
    "moved": 36,
