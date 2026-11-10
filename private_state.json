@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T21:09Z",
-  "news": "US CPI beat forecasts, dollar strengthens, crypto reverts",
-  "news_sym": "DX-Y.NYB",
-  "chart": "RSI 57, trend up, price 63% of range",
+  "utc": "2026-11-10T21:14Z",
+  "news": "US CPI above expectations, risk-off, crypto price drops",
+  "news_sym": "BTC-USD",
+  "chart": "Prezzo vicino al minimo, RSI 35, trend neutro, non supporta short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T21:09Z",
+  "utc": "2026-11-10T21:14Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.01,
+   "change": -2.06,
    "trend": "giu",
-   "rsi": 37.9
+   "rsi": 37.8
   },
-  "skip": "risk: cooldown: SI=F uscita 5.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 5.1h fa, cooldown 6h",
   "stats": {
    "n": 48,
    "moved": 38,
