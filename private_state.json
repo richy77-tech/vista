@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T09:47Z",
-  "news": "Binance hack triggers panic sell‑off and liquidity flight",
-  "news_sym": "BTC-USD",
-  "chart": "Price near support, RSI 36, low volume, neutral trend",
+  "utc": "2026-11-10T09:53Z",
+  "news": "Waller signals Dec hike; dollar likely up",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Trend up but RSI flat, price near lower 20‑day range, minimal movement today.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T09:47Z",
+  "utc": "2026-11-10T09:53Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.49,
+   "change": -0.51,
    "trend": "giu",
    "rsi": 48.7
   },
