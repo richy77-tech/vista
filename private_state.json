@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T09:42Z",
+  "utc": "2026-11-10T09:47Z",
   "news": "Binance hack triggers panic sell‑off and liquidity flight",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near support, RSI 36, low volume, neutral trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T09:42Z",
+  "utc": "2026-11-10T09:47Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.44,
+   "change": -0.49,
    "trend": "giu",
-   "rsi": 48.9
+   "rsi": 48.7
   },
-  "skip": null,
+  "skip": "GC=F: gia' aperta",
   "stats": {
    "n": 45,
    "moved": 35,
