@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T21:44Z",
-  "news": "Hot inflation fuels Fed hike fears.",
+  "utc": "2026-11-10T21:49Z",
+  "news": "Inflation fuels Fed hike fears",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20g min, flat trend, mild RSI 35",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T21:44Z",
+  "utc": "2026-11-10T21:49Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.1,
+   "change": -2.07,
    "trend": "giu",
    "rsi": 37.8
   },
