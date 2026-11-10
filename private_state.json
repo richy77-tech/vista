@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T22:32Z",
-  "news": "US CPI beat forecasts, dollar strengthens, crypto reverts",
+  "utc": "2026-11-10T22:38Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "RSI 56, price 62% in range, bullish trend",
+  "chart": "Price near upper 20‑day, trend up, RSI 56, +0.58% today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T22:32Z",
+  "utc": "2026-11-10T22:38Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
