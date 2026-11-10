@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T17:27Z",
-  "news": "US CPI beat expectations, spurring Fed hike fears and BTC selloff.",
-  "news_sym": "BTC-USD",
-  "chart": "Price near low, 3% drop, RSI 33, flat trend",
+  "utc": "2026-11-10T17:33Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "^GSPC",
+  "chart": "Flat trend, RSI neutral, low volume, uncertain news reaction",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T17:27Z",
+  "utc": "2026-11-10T17:34Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 2.81,
+   "change": 2.66,
    "trend": "su",
    "rsi": 52.6
   },
