@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T10:36Z",
-  "news": "Unexpected rate‑hike guidance lifts dollar index",
+  "utc": "2026-11-10T10:41Z",
+  "news": "Waller signals Dec hike; dollar likely up",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price 35% into range, RSI 50, modest uptick",
+  "chart": "Price sits at 34% of range, RSI neutral, no breakout",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T10:36Z",
+  "utc": "2026-11-10T10:41Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.7,
+   "change": -0.79,
    "trend": "giu",
-   "rsi": 48.1
+   "rsi": 47.8
   },
   "skip": "risk: cooldown: GC=F uscita 0.6h fa, cooldown 6h",
   "stats": {
