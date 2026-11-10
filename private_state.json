@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T09:53Z",
+  "utc": "2026-11-10T10:06Z",
   "news": "Waller signals Dec hike; dollar likely up",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend up but RSI flat, price near lower 20‑day range, minimal movement today.",
+  "chart": "Price 101.71 sits 33% up, RSI 50 neutral, no breakout over 20‑day high",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T09:53Z",
+  "utc": "2026-11-10T10:06Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.51,
+   "change": -0.5,
    "trend": "giu",
    "rsi": 48.7
   },
-  "skip": "GC=F: gia' aperta",
+  "skip": "risk: cooldown: GC=F uscita 0.1h fa, cooldown 6h",
   "stats": {
-   "n": 45,
-   "moved": 35,
-   "avg": -0.03,
+   "n": 46,
+   "moved": 36,
+   "avg": -0.028,
    "total": -1.0,
-   "wr": 46,
-   "open": 1
+   "wr": 47,
+   "open": 0
   }
  }
 }
