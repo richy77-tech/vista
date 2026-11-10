@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T20:32Z",
-  "news": "Hot inflation confirms rate hike fears; market moves right away.",
-  "news_sym": "^GSPC",
-  "chart": "Flat trend, neutral RSI, low volume, mild decline",
+  "utc": "2026-11-10T20:37Z",
+  "news": "Inflation beat, fuels Fed hikes, dollar gains",
+  "news_sym": "DX-Y.NYB",
+  "chart": "RSI 56, price 62% in range, bullish trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T20:32Z",
+  "utc": "2026-11-10T20:37Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.96,
+   "change": -1.86,
    "trend": "giu",
-   "rsi": 37.9
+   "rsi": 38.1
   },
   "skip": "risk: cooldown: SI=F uscita 4.4h fa, cooldown 6h",
   "stats": {
