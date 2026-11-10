@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T20:07Z",
-  "news": "Inflation beat triggers Fed hike fears",
-  "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, recent drop, flat trend",
+  "utc": "2026-11-10T20:13Z",
+  "news": "Hot inflation > expectations fuels rate fears, pushing index lower",
+  "news_sym": "^GSPC",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T20:07Z",
+  "utc": "2026-11-10T20:13Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.2,
+   "change": -2.32,
    "trend": "giu",
-   "rsi": 37.6
+   "rsi": 37.5
   },
-  "skip": "risk: cooldown: SI=F uscita 3.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 4.0h fa, cooldown 6h",
   "stats": {
    "n": 48,
    "moved": 38,
