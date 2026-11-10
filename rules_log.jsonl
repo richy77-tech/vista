@@ -4000,3 +4000,5 @@
 {"ts": "2026-11-10T09:30Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.65, "trend": "su", "rsi": 52.0}, "skip": "^VIX: gia' aperta", "risk": null}
 {"ts": "2026-11-10T09:33Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.75, "trend": "su", "rsi": 52.0}, "skip": "^VIX: gia' aperta", "risk": null}
 {"ts": "2026-11-10T09:36Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.85, "trend": "su", "rsi": 52.0}, "skip": "^VIX: gia' aperta", "risk": null}
+{"ts": "2026-11-10T09:39Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.7, "trend": "su", "rsi": 52.0}, "skip": "risk: cooldown: ^VIX uscita 0.0h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.0h fa, cooldown 6h"}
+{"ts": "2026-11-10T09:42Z", "kind": "open", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.44, "trend": "giu", "rsi": 48.9}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.04R"}
