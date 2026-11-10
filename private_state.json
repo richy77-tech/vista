@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T15:24Z",
-  "news": "CPI over forecast spooked risk assets, pressuring S&P down",
+  "utc": "2026-11-10T15:30Z",
+  "news": "CPI beats forecasts, fuels Fed rate hike bets",
   "news_sym": "^GSPC",
-  "chart": "Flat trend, low RSI, weak volume, price near bottom; lacks short confirmation.",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T15:24Z",
+  "utc": "2026-11-10T15:30Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.37,
+   "change": -1.35,
    "trend": "giu",
-   "rsi": 46.1
+   "rsi": 46.2
   },
-  "skip": "risk: cooldown: GC=F uscita 5.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 5.5h fa, cooldown 6h",
   "stats": {
    "n": 46,
    "moved": 36,
