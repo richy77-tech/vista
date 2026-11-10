@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T18:38Z",
+  "utc": "2026-11-10T18:51Z",
   "news": "Higher‑than‑expected inflation backs dollar index rally",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price above previous day high, uptrend, RSI 57 (mid‑neutral)",
+  "chart": "RSI 57, trend up, price 63% of range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T18:38Z",
+  "utc": "2026-11-10T18:51Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 4.27,
+   "change": 2.41,
    "trend": "su",
-   "rsi": 53.1
+   "rsi": 52.5
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
