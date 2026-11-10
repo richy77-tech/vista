@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T20:47Z",
-  "news": "Inflaz. US > attese spinge USD verso l’alto",
+  "utc": "2026-11-10T20:52Z",
+  "news": "inflazione USA superiore alle attese rafforza USD",
   "news_sym": "DX-Y.NYB",
   "chart": "RSI 56, price 62% in range, bullish trend",
   "verdict": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T20:47Z",
+  "utc": "2026-11-10T20:52Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.02,
+   "change": -2.01,
    "trend": "giu",
    "rsi": 37.9
   },
-  "skip": "risk: cooldown: SI=F uscita 4.6h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 4.7h fa, cooldown 6h",
   "stats": {
    "n": 48,
    "moved": 38,
