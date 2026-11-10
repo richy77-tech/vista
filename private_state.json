@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T15:48Z",
-  "news": "CPI beats forecasts, fuels Fed rate hike bets",
+  "utc": "2026-11-10T15:54Z",
+  "news": "CPI beat, Fed hike risk",
   "news_sym": "^GSPC",
-  "chart": "RSI neutral, price near low range",
+  "chart": "Flat trend, RSI neutral, price near bottom, no support break",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T15:48Z",
+  "utc": "2026-11-10T15:54Z",
   "pick": {
-   "sym": "SI=F",
-   "side": "short",
+   "sym": "^VIX",
+   "side": "long",
    "rr": 2.0,
-   "change": -1.56,
-   "trend": "giu",
-   "rsi": 38.5
+   "change": 1.81,
+   "trend": "su",
+   "rsi": 52.3
   },
-  "skip": null,
+  "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
-   "n": 46,
-   "moved": 36,
+   "n": 47,
+   "moved": 37,
    "avg": -0.028,
    "total": -1.0,
-   "wr": 47,
-   "open": 2
+   "wr": 46,
+   "open": 1
   }
  }
 }
