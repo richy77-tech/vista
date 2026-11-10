@@ -7,7 +7,7 @@
    "stop": 14.817856924874441,
    "target": 31.56428500584194,
    "atr": 3.721428462437221,
-   "bars": 1,
+   "bars": 3,
    "entry_ts": "2026-11-10T15:39+00:00",
    "reason": "regole: trend su, movimento +2.41%",
    "headline": "",
@@ -16,6 +16,24 @@
     "trend": "su",
     "rsi": 52.52102173020515,
     "change": 2.409636246977518
+   }
+  },
+  "SI=F": {
+   "symbol": "SI=F",
+   "side": "short",
+   "entry": 51.744998931884766,
+   "stop": 54.19578552246094,
+   "target": 46.84342575073242,
+   "atr": 1.6338577270507812,
+   "bars": 0,
+   "entry_ts": "2026-11-10T15:48+00:00",
+   "reason": "regole: trend giu, movimento -1.56%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 38.46486600306296,
+    "change": -1.5581010900597032
    }
   }
  },
