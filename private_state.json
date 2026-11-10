@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T16:48Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-10T16:54Z",
+  "news": "US CPI shock boosts Fed hike odds, weakening stocks.",
   "news_sym": "^GSPC",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Low RSI, flat trend, price near lower bound, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T16:48Z",
+  "utc": "2026-11-10T16:54Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 3.21,
+   "change": 4.12,
    "trend": "su",
-   "rsi": 52.8
+   "rsi": 53.1
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
