@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T19:33Z",
+  "utc": "2026-11-10T19:39Z",
   "news": "Inflaz. US > attese spinge USD verso l’alto",
   "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend e movimento dalla stessa parte",
+  "chart": "Trend up, RSI 56, price 62% range, today's gain 0.58%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T19:34Z",
+  "utc": "2026-11-10T19:39Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.21,
+   "change": -2.24,
    "trend": "giu",
    "rsi": 37.6
   },
-  "skip": "risk: cooldown: SI=F uscita 3.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 3.5h fa, cooldown 6h",
   "stats": {
    "n": 48,
    "moved": 38,
