@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T17:33Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "^GSPC",
-  "chart": "Flat trend, RSI neutral, low volume, uncertain news reaction",
+  "utc": "2026-11-10T17:39Z",
+  "news": "US CPI beat expectations, Bitcoin slides 11-week low",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T17:34Z",
+  "utc": "2026-11-10T17:39Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 2.66,
+   "change": 3.66,
    "trend": "su",
-   "rsi": 52.6
+   "rsi": 52.9
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
