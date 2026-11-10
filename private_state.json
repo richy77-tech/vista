@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T16:08Z",
-  "news": "CPI surprise up, equities drop",
+  "utc": "2026-11-10T16:13Z",
+  "news": "CPI higher than expected paves way for Fed tightening, stocks fall",
   "news_sym": "^GSPC",
-  "chart": "Price below previous high, flat trend, down day, low volume",
+  "chart": "Flat trend, RSI neutral, price 34% from low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T16:08Z",
+  "utc": "2026-11-10T16:14Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 5.77,
+   "change": 4.72,
    "trend": "su",
-   "rsi": 53.6
+   "rsi": 53.2
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
-   "n": 47,
-   "moved": 37,
-   "avg": -0.028,
+   "n": 48,
+   "moved": 38,
+   "avg": -0.025,
    "total": -1.0,
-   "wr": 46,
-   "open": 1
+   "wr": 47,
+   "open": 0
   }
  }
 }
