@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T22:44Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price 61% up range, trend up, RSI 56, slight gain 0.57%.",
+  "utc": "2026-11-10T22:50Z",
+  "news": "Hot US inflation unexpected, fuelling Fed rate hike fears, BTC slump",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T22:44Z",
+  "utc": "2026-11-10T22:50Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
