@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-10T23:34Z",
+  "utc": "2026-11-10T23:45Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
   "chart": "trending up, RSI neutral, position 60% in range, not bearish",
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-10",
  "last_rules": {
-  "utc": "2026-11-10T23:34Z",
+  "utc": "2026-11-10T23:45Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.01,
+   "change": -1.93,
    "trend": "giu",
-   "rsi": 37.9
+   "rsi": 38.0
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
