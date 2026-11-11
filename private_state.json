@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T20:02Z",
-  "news": "DB custodian launch boosts institutional demand.",
+  "utc": "2026-11-11T20:15Z",
+  "news": "Deutsche Bank crypto custody launch boosts institutional demand",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower band, slight upward move",
+  "chart": "Flat trend, RSI neutral, weak volume, price in lower range; insufficient confirmation",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T20:02Z",
+  "utc": "2026-11-11T20:15Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
