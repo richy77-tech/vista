@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T23:52Z",
+  "utc": "2026-11-11T23:58Z",
   "news": "Deutsche Bank crypto custody launch boosts institutional demand",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low and flatter trend, RSI moderate",
+  "chart": "Price sits 14% above 20‑day low, modest gain, indicating weak bullish pressure",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T23:52Z",
+  "utc": "2026-11-11T23:58Z",
   "pick": {
-   "sym": "EURUSD=X",
+   "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.11,
+   "change": -1.14,
    "trend": "giu",
-   "rsi": 36.8
+   "rsi": 41.4
   },
-  "skip": "EURUSD=X: quota giornaliera esaurita",
+  "skip": "GC=F: quota giornaliera esaurita",
   "stats": {
-   "n": 56,
-   "moved": 44,
-   "avg": -0.038,
+   "n": 57,
+   "moved": 45,
+   "avg": -0.037,
    "total": -1.7,
-   "wr": 48,
-   "open": 1
+   "wr": 49,
+   "open": 0
   }
  }
 }
