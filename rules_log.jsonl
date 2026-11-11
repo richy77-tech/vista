@@ -4308,3 +4308,5 @@
 {"ts": "2026-11-11T05:28Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.48, "trend": "su", "rsi": 56.9}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-11T05:30Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.48, "trend": "su", "rsi": 57.0}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-11T05:33Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.5, "trend": "su", "rsi": 57.2}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-11T05:36Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.51, "trend": "su", "rsi": 57.3}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-11T05:38Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.52, "trend": "giu", "rsi": 42.3}, "skip": "risk: cooldown: EURUSD=X uscita 0.5h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 0.5h fa, cooldown 6h"}
