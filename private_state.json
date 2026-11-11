@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T16:00Z",
-  "news": "notizie forti ma su asset non seguiti: COREWEAVE (CoreWeave soars 20% as CEO reaffirms AI compute demand after strong Q3) | LOW‑VOLATILITY STOCKS (Market angst is driving investors into low-volatility stocks as AI tra) | USDT (Paraguay bank collapse shows stablecoins can offer a lifeline... of so)",
+  "utc": "2026-11-11T16:05Z",
+  "news": "notizie forti ma su asset non seguiti: COREWEAVE (CoreWeave soars 23% as CEO reaffirms AI compute demand after strong Q3) | NASDAQ COMPOSITE (US tech stocks surge as AI trade revives) | LOW‑VOLATILITY STOCKS (Market angst is driving investors into low-volatility stocks as AI tra)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T16:00Z",
+  "utc": "2026-11-11T16:05Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
-   "change": 1.18,
+   "change": 1.13,
    "trend": "su",
-   "rsi": 63.3
+   "rsi": 62.9
   },
   "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
