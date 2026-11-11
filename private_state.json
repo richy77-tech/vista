@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T14:08Z",
+  "utc": "2026-11-11T14:13Z",
   "news": "notizie forti ma su asset non seguiti: MICRON (Micron and other AI stocks surge as CoreWeave calms Wall Street’s wors) | USDT (Paraguay bank collapse shows stablecoins can offer a lifeline... of so) | PLCE (One reason Children’s Place is filing for bankruptcy? Not enough child)",
   "news_sym": null,
   "chart": null,
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T14:08Z",
+  "utc": "2026-11-11T14:13Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -1.09,
+   "change": -1.11,
    "trend": "giu",
-   "rsi": 37.0
+   "rsi": 36.8
   },
   "skip": "EURUSD=X: quota giornaliera esaurita",
   "stats": {
