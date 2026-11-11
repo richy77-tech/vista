@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T13:38Z",
-  "news": "Surprise mortgage rate hike boosts USD strength",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price above 20‑day high, uptrend, RSI 61, positive move",
+  "utc": "2026-11-11T13:49Z",
+  "news": "notizie forti ma su asset non seguiti: MICRON (Micron and other AI stocks surge as CoreWeave calms Wall Street’s wors) | USDT (Paraguay bank collapse shows stablecoins can offer a lifeline... of so) | PLCE (One reason Children’s Place is filing for bankruptcy? Not enough child)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T13:38Z",
+  "utc": "2026-11-11T13:49Z",
   "pick": {
-   "sym": "EURUSD=X",
-   "side": "short",
+   "sym": "JPY=X",
+   "side": "long",
    "rr": 2.0,
-   "change": -0.89,
-   "trend": "giu",
-   "rsi": 38.7
+   "change": 0.97,
+   "trend": "su",
+   "rsi": 61.6
   },
-  "skip": "EURUSD=X: quota giornaliera esaurita",
+  "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
    "n": 56,
    "moved": 44,
