@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T04:02Z",
-  "news": "Hot US inflation surprise drags equities lower",
-  "news_sym": "^GSPC",
-  "chart": "Price near lower 20‑day range, flat trend, neutral RSI, low volume",
+  "utc": "2026-11-11T04:08Z",
+  "news": "Hot US inflation raises Fed hike risk, pulling BTC.",
+  "news_sym": "BTC-USD",
+  "chart": "Price near lower bound, flat trend, neutral RSI, no break",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T04:02Z",
+  "utc": "2026-11-11T04:08Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
-   "change": 0.56,
+   "change": 0.55,
    "trend": "su",
-   "rsi": 57.8
+   "rsi": 57.7
   },
-  "skip": "risk: cooldown: JPY=X uscita 0.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: JPY=X uscita 0.8h fa, cooldown 6h",
   "stats": {
    "n": 51,
    "moved": 40,
