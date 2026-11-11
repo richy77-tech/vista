@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T02:27Z",
+  "utc": "2026-11-11T02:32Z",
   "news": "Tariff announcement boosts risk‑off sentiment, weakens USD",
   "news_sym": "DX-Y.NYB",
   "chart": "Price near recent high, RSI 56, uptrend shows bullish bias",
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T02:27Z",
+  "utc": "2026-11-11T02:32Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.6,
+   "change": -1.61,
    "trend": "giu",
-   "rsi": 45.5
+   "rsi": 45.4
   },
   "skip": "risk: cooldown: GC=F uscita 0.7h fa, cooldown 6h",
   "stats": {
