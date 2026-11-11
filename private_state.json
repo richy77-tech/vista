@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T12:44Z",
-  "news": "notizie forti ma su asset non seguiti: LOW‑VOLATILITY STOCKS (Market angst is driving investors into low-volatility stocks as AI tra)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-11T12:58Z",
+  "news": "Surprise mortgage rate hike boosts USD strength",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price 102.54 near 20‑day high not endorsing long",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T12:44Z",
+  "utc": "2026-11-11T12:58Z",
   "pick": {
-   "sym": "JPY=X",
-   "side": "long",
+   "sym": "EURUSD=X",
+   "side": "short",
    "rr": 2.0,
-   "change": 0.75,
-   "trend": "su",
-   "rsi": 59.7
+   "change": -0.77,
+   "trend": "giu",
+   "rsi": 39.8
   },
-  "skip": "JPY=X: quota giornaliera esaurita",
+  "skip": "EURUSD=X: quota giornaliera esaurita",
   "stats": {
    "n": 56,
    "moved": 44,
