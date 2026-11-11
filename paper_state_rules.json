@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "EURUSD=X": {
+   "symbol": "EURUSD=X",
+   "side": "short",
+   "entry": 1.1139578819274902,
+   "stop": 1.1250583827495575,
+   "target": 1.0917568802833557,
+   "atr": 0.007400333881378174,
+   "bars": 1,
+   "entry_ts": "2026-11-11T11:53+00:00",
+   "reason": "regole: trend giu, movimento -0.74%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 40.07408789105959,
+    "change": -0.7385530020764633
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
