@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "JPY=X": {
+   "symbol": "JPY=X",
+   "side": "long",
+   "entry": 158.77999877929688,
+   "stop": 157.3230710710798,
+   "target": 161.69385419573103,
+   "atr": 0.9712851388113839,
+   "bars": 1,
+   "entry_ts": "2026-11-11T03:06+00:00",
+   "reason": "regole: trend su, movimento +0.50%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 57.21026461536185,
+    "change": 0.5044827998524953
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
