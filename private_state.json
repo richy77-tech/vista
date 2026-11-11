@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T03:14Z",
+  "utc": "2026-11-11T03:20Z",
   "news": "Tariff announcement boosts risk‑off sentiment, weakens USD",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price near recent high, RSI 56, uptrend shows bullish bias",
+  "chart": "Price near upper bound, minimal dip, trend still up",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T03:14Z",
+  "utc": "2026-11-11T03:20Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
-   "change": 0.53,
+   "change": 0.56,
    "trend": "su",
-   "rsi": 57.4
+   "rsi": 57.8
   },
-  "skip": "JPY=X: gia' aperta",
+  "skip": "risk: cooldown: JPY=X uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 50,
-   "moved": 39,
-   "avg": -0.028,
-   "total": -1.1,
-   "wr": 46,
-   "open": 1
+   "n": 51,
+   "moved": 40,
+   "avg": -0.026,
+   "total": -1.0,
+   "wr": 48,
+   "open": 0
   }
  }
 }
