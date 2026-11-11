@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T07:24Z",
-  "news": "wallet thefts trigger panic selling of BTC",
+  "utc": "2026-11-11T07:30Z",
+  "news": "Emergency patch after wallet thefts shocks Bitcoin market",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower 20g, RSI 35, flat trend, small up move.",
+  "chart": "RSI 35, trend flat, price rose 0.16%, no bearish momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T07:24Z",
+  "utc": "2026-11-11T07:30Z",
   "pick": {
-   "sym": "EURUSD=X",
-   "side": "short",
+   "sym": "JPY=X",
+   "side": "long",
    "rr": 2.0,
-   "change": -0.55,
-   "trend": "giu",
-   "rsi": 41.9
+   "change": 0.59,
+   "trend": "su",
+   "rsi": 58.1
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 2.2h fa, cooldown 6h",
+  "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
    "n": 54,
    "moved": 43,
