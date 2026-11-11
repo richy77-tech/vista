@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T04:44Z",
+  "utc": "2026-11-11T04:49Z",
   "news": "US inflation surprise sparks Fed rate hike fears",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, falling, RSI <50",
+  "chart": "Price near 20-day low, flat trend, RSI 34 shows limited selling strength",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T04:44Z",
+  "utc": "2026-11-11T04:49Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
-   "change": 0.53,
+   "change": 0.51,
    "trend": "su",
-   "rsi": 57.5
+   "rsi": 57.3
   },
   "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
