@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T19:57Z",
+  "utc": "2026-11-11T20:02Z",
   "news": "DB custodian launch boosts institutional demand.",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near lower band, slight upward move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T19:57Z",
+  "utc": "2026-11-11T20:02Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
    "change": 1.19,
    "trend": "su",
-   "rsi": 63.3
+   "rsi": 63.4
   },
   "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
