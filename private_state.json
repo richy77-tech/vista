@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T00:49Z",
+  "utc": "2026-11-11T00:54Z",
   "news": "White House tariff boost bearish USD demand",
   "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near upper range, trend up, RSI neutral, no bearish move today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T00:49Z",
+  "utc": "2026-11-11T00:54Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 37.9
   },
-  "skip": "risk: cooldown: SI=F uscita 2.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 2.4h fa, cooldown 6h",
   "stats": {
    "n": 49,
    "moved": 38,
