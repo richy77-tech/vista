@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T08:34Z",
+  "utc": "2026-11-11T08:39Z",
   "news": "Wall Street incurs blockchain thefts; cryptocurrency plummets – short BTC.",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower bound, flat trend, RSI moderate, ATR moderate, no support breach",
+  "chart": "Price near bottom, flat trend, RSI not extreme, volume mild: no strong short signal.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T08:34Z",
+  "utc": "2026-11-11T08:40Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 40.9
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 3.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: EURUSD=X uscita 3.5h fa, cooldown 6h",
   "stats": {
    "n": 54,
    "moved": 43,
