@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T19:38Z",
-  "news": "CoreWeave outlook fuels strong Nasdaq rally",
-  "news_sym": "^IXIC",
-  "chart": "Price flat, RSI neutral, low volume, no trend support",
+  "utc": "2026-11-11T19:51Z",
+  "news": "Deutsche Bank crypto custody boosts institutional demand",
+  "news_sym": "BTC-USD",
+  "chart": "RSI neutral, flat trend, low volatility, weak volume; no strong bullish momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T19:38Z",
+  "utc": "2026-11-11T19:51Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
-   "change": 1.18,
+   "change": 1.19,
    "trend": "su",
-   "rsi": 63.3
+   "rsi": 63.4
   },
   "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
