@@ -4576,3 +4576,5 @@
 {"ts": "2026-11-11T21:07Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 1.2, "trend": "su", "rsi": 63.4}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-11T21:09Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 1.2, "trend": "su", "rsi": 63.4}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-11T21:12Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 1.18, "trend": "su", "rsi": 63.3}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-11T21:22Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 1.17, "trend": "su", "rsi": 63.3}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-11T21:24Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 1.17, "trend": "su", "rsi": 63.2}, "skip": "JPY=X: quota giornaliera esaurita", "risk": null}
