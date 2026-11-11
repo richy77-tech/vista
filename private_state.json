@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T19:28Z",
+  "utc": "2026-11-11T19:33Z",
   "news": "DXY 19‑month peak, USD strengthening",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price below max20, no breakout, RSI 63, trend up, low ATR.",
+  "chart": "Price 97% of 20‑day range, near high.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T19:28Z",
+  "utc": "2026-11-11T19:33Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
