@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T00:59Z",
-  "news": "Higher‑than‑expected US CPI fuels rate‑hike fears, equities drop",
-  "news_sym": "^GSPC",
-  "chart": "Price near lower 20‑day range, flat trend, neutral RSI, low volume",
+  "utc": "2026-11-11T01:05Z",
+  "news": "White House tariff boost bearish USD demand",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price near 20‑day high, RSI 56, uptrend, today gained +0.59%.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T00:59Z",
+  "utc": "2026-11-11T01:05Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.12,
+   "change": -2.14,
    "trend": "giu",
    "rsi": 37.7
   },
-  "skip": "risk: cooldown: SI=F uscita 2.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 2.6h fa, cooldown 6h",
   "stats": {
    "n": 49,
    "moved": 38,
