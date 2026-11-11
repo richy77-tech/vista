@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T18:23Z",
+  "utc": "2026-11-11T18:29Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "^IXIC",
-  "chart": "Flat trend, RSI ~50, 0.82x volume, no 20‑day high break.",
+  "chart": "Price sits mid‑range, trend flat, RSI neutral, volume weak, no clear bullish move today maybe",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T18:23Z",
+  "utc": "2026-11-11T18:29Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
    "rr": 2.0,
-   "change": 1.17,
+   "change": 1.19,
    "trend": "su",
-   "rsi": 63.3
+   "rsi": 63.4
   },
   "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
