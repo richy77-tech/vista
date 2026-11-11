@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T01:27Z",
+  "utc": "2026-11-11T01:40Z",
   "news": "Tariff announcement boosts risk‑off sentiment, weakens USD",
   "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Uptrend continues, RSI moderate, price not at recent high",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T01:27Z",
+  "utc": "2026-11-11T01:40Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.92,
+   "change": -1.68,
    "trend": "giu",
-   "rsi": 44.6
+   "rsi": 45.3
   },
-  "skip": null,
+  "skip": "GC=F: gia' aperta",
   "stats": {
    "n": 49,
    "moved": 38,
