@@ -1,24 +1,5 @@
 {
- "open": {
-  "JPY=X": {
-   "symbol": "JPY=X",
-   "side": "long",
-   "entry": 158.8179931640625,
-   "stop": 157.36106545584542,
-   "target": 161.73184858049666,
-   "atr": 0.9712851388113839,
-   "bars": 3,
-   "entry_ts": "2026-11-11T04:30+00:00",
-   "reason": "regole: trend su, movimento +0.53%",
-   "headline": "",
-   "rules": true,
-   "context": {
-    "trend": "su",
-    "rsi": 57.46174684326277,
-    "change": 0.5285324661802775
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -1141,6 +1122,28 @@
    "exit_ts": "2026-11-11T03:20+00:00",
    "exit_reason": "time",
    "r": 0.053
+  },
+  {
+   "symbol": "JPY=X",
+   "side": "long",
+   "entry": 158.8179931640625,
+   "stop": 157.36106545584542,
+   "target": 161.73184858049666,
+   "atr": 0.9712851388113839,
+   "bars": 5,
+   "entry_ts": "2026-11-11T04:30+00:00",
+   "reason": "regole: trend su, movimento +0.53%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 57.46174684326277,
+    "change": 0.5285324661802775
+   },
+   "exit": 158.8280029296875,
+   "exit_ts": "2026-11-11T04:44+00:00",
+   "exit_reason": "time",
+   "r": 0.007
   }
  ]
 }
