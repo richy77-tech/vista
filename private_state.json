@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T12:13Z",
+  "utc": "2026-11-11T12:19Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price above min, RSI neutral, up 0.20%",
+  "chart": "Price near 20% bottom, flat trend, RSI 36",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T12:13Z",
+  "utc": "2026-11-11T12:19Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
