@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T12:39Z",
+  "utc": "2026-11-11T12:44Z",
   "news": "notizie forti ma su asset non seguiti: LOW‑VOLATILITY STOCKS (Market angst is driving investors into low-volatility stocks as AI tra)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T12:39Z",
+  "utc": "2026-11-11T12:44Z",
   "pick": {
-   "sym": "EURUSD=X",
-   "side": "short",
+   "sym": "JPY=X",
+   "side": "long",
    "rr": 2.0,
-   "change": -0.76,
-   "trend": "giu",
-   "rsi": 39.9
+   "change": 0.75,
+   "trend": "su",
+   "rsi": 59.7
   },
-  "skip": "EURUSD=X: quota giornaliera esaurita",
+  "skip": "JPY=X: quota giornaliera esaurita",
   "stats": {
    "n": 56,
    "moved": 44,
