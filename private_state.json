@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T20:38Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "up trend, RSI 63, 96% of range, above yesterday’s high",
+  "utc": "2026-11-11T20:44Z",
+  "news": "Deutsche Bank crypto custody launch boosts institutional demand",
+  "news_sym": "BTC-USD",
+  "chart": "Price near 20‑day low, RSI below mid, flat trend, weak volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T20:38Z",
+  "utc": "2026-11-11T20:44Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
