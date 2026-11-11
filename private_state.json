@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T06:49Z",
+  "utc": "2026-11-11T06:54Z",
   "news": "Record credit debt implies weaker USD if Fed hikes rates",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price uptrend, RSI 58, slight increase",
+  "chart": "Price near high, RSI neutral",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T06:49Z",
+  "utc": "2026-11-11T06:54Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 41.6
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 1.6h fa, cooldown 6h",
+  "skip": "risk: cooldown: EURUSD=X uscita 1.7h fa, cooldown 6h",
   "stats": {
    "n": 54,
    "moved": 43,
