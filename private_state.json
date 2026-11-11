@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T18:57Z",
-  "news": "DXY at 19‑month high shows unexpected strength, spurring index rise.",
-  "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend e movimento dalla stessa parte",
+  "utc": "2026-11-11T19:10Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T18:57Z",
+  "utc": "2026-11-11T19:10Z",
   "pick": {
    "sym": "JPY=X",
    "side": "long",
