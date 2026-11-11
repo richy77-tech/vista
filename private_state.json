@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T13:09Z",
+  "utc": "2026-11-11T13:14Z",
   "news": "Surprise mortgage rate hike boosts USD strength",
   "news_sym": "DX-Y.NYB",
-  "chart": "Bullish trend, 20‑day high, RSI 60",
+  "chart": "Price at 20‑day high, uptrend, +0.33%, RSI 60 in line with trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T13:09Z",
+  "utc": "2026-11-11T13:15Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
