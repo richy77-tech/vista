@@ -4294,3 +4294,5 @@
 {"ts": "2026-11-11T03:14Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.53, "trend": "su", "rsi": 57.4}, "skip": "JPY=X: gia' aperta", "risk": null}
 {"ts": "2026-11-11T03:17Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.55, "trend": "su", "rsi": 57.7}, "skip": "JPY=X: gia' aperta", "risk": null}
 {"ts": "2026-11-11T03:20Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.56, "trend": "su", "rsi": 57.8}, "skip": "risk: cooldown: JPY=X uscita 0.0h fa, cooldown 6h", "risk": "cooldown: JPY=X uscita 0.0h fa, cooldown 6h"}
+{"ts": "2026-11-11T03:22Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.57, "trend": "su", "rsi": 57.9}, "skip": "risk: cooldown: JPY=X uscita 0.0h fa, cooldown 6h", "risk": "cooldown: JPY=X uscita 0.0h fa, cooldown 6h"}
+{"ts": "2026-11-11T03:25Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.56, "trend": "su", "rsi": 57.8}, "skip": "risk: cooldown: JPY=X uscita 0.1h fa, cooldown 6h", "risk": "cooldown: JPY=X uscita 0.1h fa, cooldown 6h"}
