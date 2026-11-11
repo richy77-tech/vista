@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T10:05Z",
-  "news": "Wall Street incurs blockchain thefts; cryptocurrency plummets – short BTC.",
+  "utc": "2026-11-11T10:11Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI 34, flat trend",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T10:05Z",
+  "utc": "2026-11-11T10:11Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.72,
+   "change": -0.75,
    "trend": "giu",
-   "rsi": 40.3
+   "rsi": 40.0
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 4.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: EURUSD=X uscita 5.0h fa, cooldown 6h",
   "stats": {
    "n": 54,
    "moved": 43,
