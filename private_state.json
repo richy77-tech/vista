@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-11T05:44Z",
+  "utc": "2026-11-11T05:49Z",
   "news": "US inflation surprise sparks Fed rate hike fears",
   "news_sym": "BTC-USD",
-  "chart": "Price near low end, flat trend, RSI 34, no breakout evidence",
+  "chart": "Price near low, RSI 35 indicative of reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-11",
  "last_rules": {
-  "utc": "2026-11-11T05:44Z",
+  "utc": "2026-11-11T05:49Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.52,
+   "change": -0.53,
    "trend": "giu",
-   "rsi": 42.3
+   "rsi": 42.1
   },
   "skip": "risk: cooldown: EURUSD=X uscita 0.6h fa, cooldown 6h",
   "stats": {
