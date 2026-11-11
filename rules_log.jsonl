@@ -4286,3 +4286,5 @@
 {"ts": "2026-11-11T02:53Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -1.54, "trend": "giu", "rsi": 45.6}, "skip": "risk: cooldown: GC=F uscita 1.1h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.1h fa, cooldown 6h"}
 {"ts": "2026-11-11T04:30Z", "kind": "open", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.53, "trend": "su", "rsi": 57.5}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.10R"}
 {"ts": "2026-11-11T04:32Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.53, "trend": "su", "rsi": 57.4}, "skip": "JPY=X: gia' aperta", "risk": null}
+{"ts": "2026-11-11T04:35Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.53, "trend": "su", "rsi": 57.4}, "skip": "JPY=X: gia' aperta", "risk": null}
+{"ts": "2026-11-11T04:38Z", "kind": "skip", "pick": {"sym": "JPY=X", "side": "long", "rr": 2.0, "change": 0.53, "trend": "su", "rsi": 57.5}, "skip": "JPY=X: gia' aperta", "risk": null}
