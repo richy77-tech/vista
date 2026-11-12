@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T22:32Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-12T22:38Z",
+  "news": "Storia di furto grande via deepfake potrebbe rilasciare panico breve",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, RSI low, flat trend",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T22:32Z",
+  "utc": "2026-11-12T22:38Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
