@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T08:50Z",
+  "utc": "2026-11-12T09:03Z",
   "news": "DB crypto custody launch boosts institutional demand",
   "news_sym": "ETH-USD",
-  "chart": "Price near low, RSI 30, flat trend, low volume, weak momentum",
+  "chart": "Price near min, flat trend, fell 0.57%, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T08:50Z",
+  "utc": "2026-11-12T09:03Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.22,
+   "change": -1.72,
    "trend": "giu",
-   "rsi": 38.4
+   "rsi": 37.7
   },
-  "skip": "risk: cooldown: SI=F uscita 5.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 5.7h fa, cooldown 6h",
   "stats": {
    "n": 60,
    "moved": 48,
