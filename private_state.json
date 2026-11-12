@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T05:06Z",
-  "news": "Bank custody launch boosts institutional demand",
+  "utc": "2026-11-12T05:18Z",
+  "news": "hack losses beat on-chain revenue, bearish shift",
   "news_sym": "BTC-USD",
-  "chart": "price down, RSI low, flat trend, near low of range",
+  "chart": "Flat trend, moderate RSI, close to low range, no strong downtrend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T05:06Z",
+  "utc": "2026-11-12T05:18Z",
   "pick": {
-   "sym": "EURUSD=X",
+   "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.78,
+   "change": -0.9,
    "trend": "giu",
-   "rsi": 35.3
+   "rsi": 38.8
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 3.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 1.9h fa, cooldown 6h",
   "stats": {
    "n": 59,
    "moved": 47,
