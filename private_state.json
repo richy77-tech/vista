@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T10:20Z",
-  "news": "Deutsche Bank launches crypto custody, boosting ETH demand",
-  "news_sym": "ETH-USD",
-  "chart": "RSI 30 near low, flat trend, price at 9% range, low volume",
+  "utc": "2026-11-12T10:26Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "Price near 20‑day low, flat trend, vol low, RSI neutral.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T10:20Z",
+  "utc": "2026-11-12T10:27Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.46,
+   "change": -1.44,
    "trend": "giu",
    "rsi": 38.1
   },
