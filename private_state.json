@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T09:43Z",
+  "utc": "2026-11-12T09:49Z",
   "news": "Binance hack wipes $6.3B, major shock to BTC",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, flat trend, moderate RSI, no down‑trend momentum",
+  "chart": "Price near bottom, RSI 34, flat trend, low volatility",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T09:43Z",
+  "utc": "2026-11-12T09:49Z",
   "pick": {
-   "sym": "GC=F",
+   "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.39,
+   "change": -1.52,
    "trend": "giu",
-   "rsi": 38.9
+   "rsi": 38.0
   },
-  "skip": "risk: cooldown: GC=F uscita 1.3h fa, cooldown 6h",
+  "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
-   "n": 60,
-   "moved": 48,
-   "avg": -0.035,
+   "n": 61,
+   "moved": 49,
+   "avg": -0.036,
    "total": -1.7,
-   "wr": 48,
-   "open": 1
+   "wr": 47,
+   "open": 0
   }
  }
 }
