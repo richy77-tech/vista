@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T06:33Z",
+  "utc": "2026-11-12T06:39Z",
   "news": "Deutsche Bank opens crypto custody, boosting institutional interest.",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, flat trend, RSI not extreme, slight decline in today",
+  "chart": "No uptrend, RSI 34, flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T06:34Z",
+  "utc": "2026-11-12T06:39Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
