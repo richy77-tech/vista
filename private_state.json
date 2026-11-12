@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T16:00Z",
-  "news": "notizie forti ma su asset non seguiti: US REAL ESTATE (Home sales plummet to lowest level since ‘Great Recession’ as prices h) | NVDA (Jensen Huang resigns as Nvidia CEO, exits board; shares plunge 13%) | CRYPTOCURRENCIES (Crypto hack losses equal 57 cents per $1 earned onchain: Ark’s Valente)",
+  "utc": "2026-11-12T16:12Z",
+  "news": "notizie forti ma su asset non seguiti: US HOUSING MARKET (Home sales plummet to lowest level since ‘Great Recession’ as prices h) | NVDA (Jensen Huang resigns as Nvidia CEO, exits board; shares plunge) | CRYPTOCURRENCIES (Crypto hack losses equal 57 cents per $1 earned onchain: Ark’s Valente)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T16:00Z",
+  "utc": "2026-11-12T16:12Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -3.91,
+   "change": -3.66,
    "trend": "giu",
-   "rsi": 35.1
+   "rsi": 35.4
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
