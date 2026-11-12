@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T11:52Z",
+  "utc": "2026-11-12T11:58Z",
   "news": "Alto intervento di Deutsche Bank in crypto",
   "news_sym": "ETH-USD",
-  "chart": "Price 2019 < yesterday's low 2035, drop 1.78%, RSI 29.",
+  "chart": "Price fell 1.86% today, RSI 29, close to 20‑day low, no upward momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T11:53Z",
+  "utc": "2026-11-12T11:58Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.72,
+   "change": -1.61,
    "trend": "giu",
-   "rsi": 37.7
+   "rsi": 37.9
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
