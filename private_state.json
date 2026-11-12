@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T20:32Z",
+  "utc": "2026-11-12T20:36Z",
   "news": "notizie forti ma su asset non seguiti: US TREASURY BONDS (The bond market now has an even bigger fear than AI fallout) | CRYPTOCURRENCIES (Crypto hack losses equal 57 cents per $1 earned onchain: Ark’s Valente)",
   "news_sym": null,
   "chart": null,
@@ -13,12 +13,12 @@
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T20:32Z",
+  "utc": "2026-11-12T20:36Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -3.51,
+   "change": -3.53,
    "trend": "giu",
    "rsi": 35.6
   },
