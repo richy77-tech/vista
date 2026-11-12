@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T21:16Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "Price near range low, RSI 30 indicates oversold, flat trend.",
+  "utc": "2026-11-12T21:29Z",
+  "news": "notizie forti ma su asset non seguiti: CEREBRAS (Cerebras surges 13% after beating on quarterly revenue and announcing ) | US TREASURY BONDS (The bond market now has an even bigger fear than AI fallout) | CRYPTOCURRENCIES (Crypto hack losses equal 57 cents per $1 earned onchain: Ark’s Valente)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T21:16Z",
+  "utc": "2026-11-12T21:29Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -3.77,
+   "change": -3.78,
    "trend": "giu",
    "rsi": 35.3
   },
