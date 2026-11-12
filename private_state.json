@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T12:55Z",
-  "news": "Bitcoin slumped below $73k after Nvidia's issues, signaling bearish momentum",
+  "utc": "2026-11-12T13:08Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near 20‑day low and RSI not high, trend flat, weak bearish bias.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T12:55Z",
+  "utc": "2026-11-12T13:08Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.91,
+   "change": -1.78,
    "trend": "giu",
-   "rsi": 37.5
+   "rsi": 37.7
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
