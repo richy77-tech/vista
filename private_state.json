@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T04:44Z",
+  "utc": "2026-11-12T04:49Z",
   "news": "Bank custody launch boosts institutional demand",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower bound, RSI neutral, no bullish momentum",
+  "chart": "Price 11% inside 20‑day range, flat trend, RSI 34 – weak buying case",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T04:44Z",
+  "utc": "2026-11-12T04:49Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.93,
+   "change": -0.91,
    "trend": "giu",
    "rsi": 38.8
   },
