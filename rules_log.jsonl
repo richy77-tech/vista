@@ -4772,3 +4772,5 @@
 {"ts": "2026-11-12T08:03Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -0.99, "trend": "giu", "rsi": 38.7}, "skip": "risk: cooldown: SI=F uscita 4.7h fa, cooldown 6h", "risk": "cooldown: SI=F uscita 4.7h fa, cooldown 6h"}
 {"ts": "2026-11-12T08:06Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -0.89, "trend": "giu", "rsi": 38.8}, "skip": "risk: cooldown: SI=F uscita 4.7h fa, cooldown 6h", "risk": "cooldown: SI=F uscita 4.7h fa, cooldown 6h"}
 {"ts": "2026-11-12T08:09Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -0.82, "trend": "giu", "rsi": 38.9}, "skip": "risk: cooldown: SI=F uscita 4.8h fa, cooldown 6h", "risk": "cooldown: SI=F uscita 4.8h fa, cooldown 6h"}
+{"ts": "2026-11-12T08:12Z", "kind": "open", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.81, "trend": "giu", "rsi": 40.3}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.72R"}
+{"ts": "2026-11-12T08:15Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.8, "trend": "giu", "rsi": 40.3}, "skip": "GC=F: gia' aperta", "risk": null}
