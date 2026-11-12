@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T22:51Z",
-  "news": "Storia di furto grande via deepfake potrebbe rilasciare panico breve",
+  "utc": "2026-11-12T22:57Z",
+  "news": "DOJ targets $1.2bn stolen crypto, likely to pressure BTC prices",
   "news_sym": "BTC-USD",
-  "chart": "Price at 20‑day low yet moved down 3.62%",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T22:51Z",
+  "utc": "2026-11-12T22:57Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
