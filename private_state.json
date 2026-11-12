@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T21:05Z",
-  "news": "notizie forti ma su asset non seguiti: US TREASURY BONDS (The bond market now has an even bigger fear than AI fallout) | ADI GLOBAL DISTRIBUTION (Why is ADI Global Distribution stock crashing today?) | CRYPTOCURRENCIES (Crypto hack losses equal 57 cents per $1 earned onchain: Ark’s Valente)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-12T21:10Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "Trend flat, price near bottom, RSI oversold",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T21:05Z",
+  "utc": "2026-11-12T21:11Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -3.83,
+   "change": -3.78,
    "trend": "giu",
-   "rsi": 35.2
+   "rsi": 35.3
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
