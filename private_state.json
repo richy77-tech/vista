@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-12T12:36Z",
-  "news": "US inflation surprise boosts dollar index expectations",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Flat today, below yesterday's high, RSI 63.",
+  "utc": "2026-11-12T12:42Z",
+  "news": "Hack foreshadowed; BTC likely sell‑off",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-12",
  "last_rules": {
-  "utc": "2026-11-12T12:36Z",
+  "utc": "2026-11-12T12:42Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -1.75,
+   "change": -1.87,
    "trend": "giu",
-   "rsi": 37.7
+   "rsi": 37.5
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
