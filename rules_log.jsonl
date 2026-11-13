@@ -5224,3 +5224,5 @@
 {"ts": "2026-11-13T13:49Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-13T14:00Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.37, "trend": "giu", "rsi": 33.3}, "skip": "risk: cooldown: EURUSD=X uscita 3.2h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 3.2h fa, cooldown 6h"}
 {"ts": "2026-11-13T14:03Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 34.8}, "skip": "SI=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-13T14:06Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-13T14:08Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 34.8}, "skip": "SI=F: quota giornaliera esaurita", "risk": null}

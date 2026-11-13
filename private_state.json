@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T14:03Z",
+  "utc": "2026-11-13T14:08Z",
   "news": "Bitcoin drops sharply, confirming bearish trend",
   "news_sym": "BTC-USD",
-  "chart": "Price fell below yesterday's low, RSI 27, higher volume, ATR 3.45%",
+  "chart": "RSI 26 signals potential reversal, price near 20‑day low, short unsupported",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T14:03Z",
+  "utc": "2026-11-13T14:08Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
