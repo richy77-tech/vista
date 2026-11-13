@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T15:09Z",
+  "utc": "2026-11-13T15:15Z",
   "news": "Bitcoin drops sharply, confirming bearish trend",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near 20‑day low, falling, RSI 26, volume up",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T15:09Z",
+  "utc": "2026-11-13T15:15Z",
   "pick": {
-   "sym": "EURUSD=X",
-   "side": "short",
+   "sym": "^VIX",
+   "side": "long",
    "rr": 2.0,
-   "change": -0.37,
-   "trend": "giu",
-   "rsi": 33.3
+   "change": 4.06,
+   "trend": "su",
+   "rsi": 51.2
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 4.3h fa, cooldown 6h",
+  "skip": null,
   "stats": {
    "n": 64,
    "moved": 52,
    "avg": -0.034,
    "total": -1.8,
    "wr": 46,
-   "open": 0
+   "open": 1
   }
  }
 }
