@@ -5190,3 +5190,5 @@
 {"ts": "2026-11-13T11:32Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-13T11:35Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.35, "trend": "giu", "rsi": 33.4}, "skip": "risk: cooldown: EURUSD=X uscita 0.7h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 0.7h fa, cooldown 6h"}
 {"ts": "2026-11-13T11:37Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -0.37, "trend": "giu", "rsi": 35.0}, "skip": "SI=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-13T11:40Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.35, "trend": "giu", "rsi": 33.4}, "skip": "risk: cooldown: EURUSD=X uscita 0.8h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 0.8h fa, cooldown 6h"}
+{"ts": "2026-11-13T11:43Z", "kind": "skip", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.35, "trend": "giu", "rsi": 33.4}, "skip": "risk: cooldown: EURUSD=X uscita 0.9h fa, cooldown 6h", "risk": "cooldown: EURUSD=X uscita 0.9h fa, cooldown 6h"}
