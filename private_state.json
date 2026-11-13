@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T10:40Z",
-  "news": "US seizure of $1.2bn from Binance hack shocks market",
+  "utc": "2026-11-13T10:45Z",
+  "news": "North Korea deepfake theft shocks crypto sentiment",
   "news_sym": "BTC-USD",
-  "chart": "RSI 26, price near range low",
+  "chart": "Trend flat, RSI low, price below yesterday close but near range bottom.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T10:40Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-13T10:45Z",
+  "pick": {
+   "sym": "EURUSD=X",
+   "side": "short",
+   "rr": 2.0,
+   "change": -0.37,
+   "trend": "giu",
+   "rsi": 33.3
+  },
+  "skip": "EURUSD=X: gia' aperta",
   "stats": {
    "n": 63,
    "moved": 51,
