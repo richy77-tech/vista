@@ -5168,3 +5168,5 @@
 {"ts": "2026-11-13T10:29Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-13T10:31Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-13T10:34Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-13T10:37Z", "kind": "open", "pick": {"sym": "EURUSD=X", "side": "short", "rr": 2.0, "change": -0.35, "trend": "giu", "rsi": 33.4}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.84R"}
+{"ts": "2026-11-13T10:40Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
