@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T21:21Z",
+  "utc": "2026-11-13T21:27Z",
   "news": "JPMorgan’s $1B holdings signal institutional bullishness",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI low, no upward trend, so long unlikely.",
+  "chart": "Price down, RSI low, trend neutral, no bullish bounce yet",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T21:21Z",
+  "utc": "2026-11-13T21:27Z",
   "pick": {
-   "sym": "^VIX",
-   "side": "long",
+   "sym": "SI=F",
+   "side": "short",
    "rr": 2.0,
-   "change": 5.67,
-   "trend": "su",
-   "rsi": 51.7
+   "change": -2.71,
+   "trend": "giu",
+   "rsi": 32.5
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.9h fa, cooldown 6h",
+  "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
    "n": 65,
    "moved": 53,
