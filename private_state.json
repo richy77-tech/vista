@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T22:59Z",
-  "news": "Bitcoin dropped to $68,000 amid market jitters",
+  "utc": "2026-11-13T23:05Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "RSI 25 low, price at 2% range, flat trend",
+  "chart": "RSI 25 is oversold, not supportive of short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T22:59Z",
+  "utc": "2026-11-13T23:05Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
