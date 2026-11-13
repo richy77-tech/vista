@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T21:10Z",
-  "news": "Fed hawkish after strong CPI lifts dollar",
+  "utc": "2026-11-13T21:16Z",
+  "news": "Fed hawkish, CPI beats, USD likely to drop",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price 103.41 at 99% of 20‑day range, RSI 67, trend up, little volatility",
+  "chart": "Price near 20‑day max, RSI high, uptrend intact",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T21:10Z",
+  "utc": "2026-11-13T21:16Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.44,
+   "change": -2.53,
    "trend": "giu",
    "rsi": 32.7
   },
