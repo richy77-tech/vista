@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T13:31Z",
+  "utc": "2026-11-13T13:37Z",
   "news": "North Korea crypto theft ignites market fear",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "RSI 27 oversold, price at 12% of 20d range, flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T13:31Z",
+  "utc": "2026-11-13T13:37Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.41,
+   "change": -0.46,
    "trend": "giu",
-   "rsi": 34.9
+   "rsi": 34.8
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
