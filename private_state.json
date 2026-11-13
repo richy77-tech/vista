@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T18:09Z",
-  "news": "High wholesale inflation surprises, USD gains",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price at highest point, RSI high, trend up but overbought",
+  "utc": "2026-11-13T18:14Z",
+  "news": "PPI +0.3% beats expectations, boosts USD, pressures EURUSD down",
+  "news_sym": "EURUSD=X",
+  "chart": "Price near 20‑day low, trend down, no bullish reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T18:09Z",
+  "utc": "2026-11-13T18:14Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 5.13,
+   "change": 5.19,
    "trend": "su",
    "rsi": 51.5
   },
