@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T22:37Z",
-  "news": "Bitcoin dropped to $68,000 amid market jitters",
+  "utc": "2026-11-13T22:42Z",
+  "news": "JPMorgan $1B crypto allocation bullish surprise",
   "news_sym": "BTC-USD",
-  "chart": "Price below prior day low amid flat trend and low RSI supports a short move.",
+  "chart": "RSI 25, price near range minimum, flat trend, no upside momentum",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T22:37Z",
+  "utc": "2026-11-13T22:42Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
