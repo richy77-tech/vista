@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T21:16Z",
-  "news": "Fed hawkish, CPI beats, USD likely to drop",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price near 20‑day max, RSI high, uptrend intact",
+  "utc": "2026-11-13T21:21Z",
+  "news": "JPMorgan’s $1B holdings signal institutional bullishness",
+  "news_sym": "BTC-USD",
+  "chart": "Price near 20‑day low, RSI low, no upward trend, so long unlikely.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T21:16Z",
+  "utc": "2026-11-13T21:21Z",
   "pick": {
-   "sym": "SI=F",
-   "side": "short",
+   "sym": "^VIX",
+   "side": "long",
    "rr": 2.0,
-   "change": -2.53,
-   "trend": "giu",
-   "rsi": 32.7
+   "change": 5.67,
+   "trend": "su",
+   "rsi": 51.7
   },
-  "skip": "SI=F: quota giornaliera esaurita",
+  "skip": "risk: cooldown: ^VIX uscita 5.9h fa, cooldown 6h",
   "stats": {
    "n": 65,
    "moved": 53,
