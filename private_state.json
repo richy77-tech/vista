@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T21:44Z",
+  "utc": "2026-11-13T21:56Z",
   "news": "Bitcoin dropped to $68,000 amid market jitters",
   "news_sym": "BTC-USD",
-  "chart": "Price dropped below 20‑day low with 1.65× volume today",
+  "chart": "Price just above 20‑day low, flat trend, RSI 25 – likely to rebound",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T21:44Z",
+  "utc": "2026-11-13T21:56Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -3.04,
+   "change": -2.82,
    "trend": "giu",
-   "rsi": 32.2
+   "rsi": 32.4
   },
   "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
