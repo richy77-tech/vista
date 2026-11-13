@@ -4,25 +4,18 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T11:48Z",
-  "news": "North Korea deepfake theft shocks crypto sentiment",
+  "utc": "2026-11-13T11:54Z",
+  "news": "North Korea crypto theft shocks BTC",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI 27 indicates potential reversal, not downward squeeze.",
+  "chart": "Price near recent bottom, RSI 26 signals potential reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T11:48Z",
-  "pick": {
-   "sym": "EURUSD=X",
-   "side": "short",
-   "rr": 2.0,
-   "change": -0.37,
-   "trend": "giu",
-   "rsi": 33.3
-  },
-  "skip": "risk: cooldown: EURUSD=X uscita 1.0h fa, cooldown 6h",
+  "utc": "2026-11-13T11:54Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 64,
    "moved": 52,
