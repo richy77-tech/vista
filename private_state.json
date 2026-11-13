@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T18:50Z",
-  "news": "Fed rate fears sharply cut BTC, 12‑week low inbound",
+  "utc": "2026-11-13T19:04Z",
+  "news": "Fed rate fears undo summer rally, catalyst for BTC drop",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, RSI low, short misaligned with support",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T18:50Z",
+  "utc": "2026-11-13T19:04Z",
   "pick": {
-   "sym": "^VIX",
-   "side": "long",
+   "sym": "SI=F",
+   "side": "short",
    "rr": 2.0,
-   "change": 4.65,
-   "trend": "su",
-   "rsi": 51.4
+   "change": -1.89,
+   "trend": "giu",
+   "rsi": 33.3
   },
-  "skip": "risk: cooldown: ^VIX uscita 3.3h fa, cooldown 6h",
+  "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
    "n": 65,
    "moved": 53,
