@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T12:32Z",
+  "utc": "2026-11-13T12:44Z",
   "news": "Storia di furto grande via deepfake potrebbe rilasciare panico breve",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "RSI 26, price above 20‑day low, no break",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T12:32Z",
+  "utc": "2026-11-13T12:44Z",
   "pick": {
    "sym": "EURUSD=X",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 33.3
   },
-  "skip": "risk: cooldown: EURUSD=X uscita 1.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: EURUSD=X uscita 1.9h fa, cooldown 6h",
   "stats": {
    "n": 64,
    "moved": 52,
