@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T17:58Z",
+  "utc": "2026-11-13T18:03Z",
   "news": "High wholesale inflation surprises, USD gains",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price sitting at 20‑day high, RSI elevated, trend up but top of range inert",
+  "chart": "New price above 20‑day high, +0.22% gain, RSI 67 supports bullish stance.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T17:58Z",
+  "utc": "2026-11-13T18:03Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 5.4,
+   "change": 5.13,
    "trend": "su",
-   "rsi": 51.6
+   "rsi": 51.5
   },
-  "skip": "risk: cooldown: ^VIX uscita 2.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 2.6h fa, cooldown 6h",
   "stats": {
    "n": 65,
    "moved": 53,
