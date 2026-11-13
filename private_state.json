@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T00:38Z",
+  "utc": "2026-11-13T00:43Z",
   "news": "North Korea crypto theft shocks BTC",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price broke 20d low, daily low violated, RSI remains low, trend flat",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T00:38Z",
+  "utc": "2026-11-13T00:43Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -3.62,
+   "change": -3.66,
    "trend": "giu",
-   "rsi": 35.5
+   "rsi": 35.4
   },
-  "skip": "risk: cooldown: SI=F uscita 0.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 0.5h fa, cooldown 6h",
   "stats": {
    "n": 62,
    "moved": 50,
