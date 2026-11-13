@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T10:29Z",
-  "news": "US seizes $1.2B from Binance hack, unexpected regulatory shock",
+  "utc": "2026-11-13T10:34Z",
+  "news": "North Korea deepfake theft shocks crypto sentiment",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near low, RSI oversold, flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T10:29Z",
+  "utc": "2026-11-13T10:34Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
