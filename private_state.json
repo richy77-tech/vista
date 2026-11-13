@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T13:49Z",
+  "utc": "2026-11-13T14:03Z",
   "news": "Bitcoin drops sharply, confirming bearish trend",
   "news_sym": "BTC-USD",
-  "chart": "Price closed below yesterday’s min, flat trend, RSI 27",
+  "chart": "Price fell below yesterday's low, RSI 27, higher volume, ATR 3.45%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T13:49Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-13T14:03Z",
+  "pick": {
+   "sym": "SI=F",
+   "side": "short",
+   "rr": 2.0,
+   "change": -0.46,
+   "trend": "giu",
+   "rsi": 34.8
+  },
+  "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
    "n": 64,
    "moved": 52,
