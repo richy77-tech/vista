@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T03:17Z",
+  "utc": "2026-11-13T03:23Z",
   "news": "North Korea crypto theft shocks BTC",
   "news_sym": "BTC-USD",
-  "chart": "RSI 27 low, flat trend, price near 20‑day low, signals reversal",
+  "chart": "Price below 20‑day low, RSI 26, flat trend, likely reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T03:17Z",
+  "utc": "2026-11-13T03:23Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
