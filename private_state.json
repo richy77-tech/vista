@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T13:43Z",
+  "utc": "2026-11-13T13:49Z",
   "news": "Bitcoin drops sharply, confirming bearish trend",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price closed below yesterday’s min, flat trend, RSI 27",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T13:43Z",
+  "utc": "2026-11-13T13:49Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
