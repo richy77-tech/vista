@@ -5250,3 +5250,5 @@
 {"ts": "2026-11-13T15:22Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 4.92, "trend": "su", "rsi": 51.4}, "skip": "^VIX: gia' aperta", "risk": null}
 {"ts": "2026-11-13T15:25Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 6.04, "trend": "su", "rsi": 51.8}, "skip": "^VIX: gia' aperta", "risk": null}
 {"ts": "2026-11-13T15:28Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 8.88, "trend": "su", "rsi": 52.7}, "skip": "^VIX: gia' aperta", "risk": null}
+{"ts": "2026-11-13T15:30Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 9.41, "trend": "su", "rsi": 52.9}, "skip": "risk: cooldown: ^VIX uscita 0.0h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.0h fa, cooldown 6h"}
+{"ts": "2026-11-13T15:33Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 10.8, "trend": "su", "rsi": 53.3}, "skip": "risk: cooldown: ^VIX uscita 0.1h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.1h fa, cooldown 6h"}
