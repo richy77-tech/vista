@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T23:17Z",
-  "news": "Exchange hack triggers immediate sell pressure",
+  "utc": "2026-11-13T23:23Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price broke below 20‑day low and dropped 4.85% today.",
+  "chart": "RSI 25 oversold; price at 0% of range indicates support",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T23:17Z",
+  "utc": "2026-11-13T23:23Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
