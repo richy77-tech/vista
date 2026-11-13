@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T09:12Z",
+  "utc": "2026-11-13T09:18Z",
   "news": "North Korea deepfake theft shocks crypto sentiment",
   "news_sym": "BTC-USD",
-  "chart": "RSI 26, price near lower 20‑day min, flat trend, no bearish bias.",
+  "chart": "Price near 20‑day low, short misaligned",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T09:12Z",
+  "utc": "2026-11-13T09:18Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
