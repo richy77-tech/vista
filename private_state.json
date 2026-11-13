@@ -4,25 +4,18 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T05:01Z",
-  "news": "North Korea crypto theft shocks BTC",
-  "news_sym": "BTC-USD",
-  "chart": "Price below yesterday’s range, flat trend, low RSI; short not supported",
+  "utc": "2026-11-13T05:10Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "^IXIC",
+  "chart": "Trend flat, RSI neutral, price mid-range, weak short case",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T05:01Z",
-  "pick": {
-   "sym": "SI=F",
-   "side": "short",
-   "rr": 2.0,
-   "change": -3.68,
-   "trend": "giu",
-   "rsi": 35.4
-  },
-  "skip": "risk: cooldown: SI=F uscita 4.8h fa, cooldown 6h",
+  "utc": "2026-11-13T05:10Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 62,
    "moved": 50,
