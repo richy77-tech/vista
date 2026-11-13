@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-13T17:32Z",
+  "utc": "2026-11-13T17:46Z",
   "news": "High wholesale inflation surprises, USD gains",
   "news_sym": "DX-Y.NYB",
   "chart": "regola: trend o movimento non confermano",
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-13",
  "last_rules": {
-  "utc": "2026-11-13T17:32Z",
+  "utc": "2026-11-13T17:46Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 6.68,
+   "change": 6.04,
    "trend": "su",
-   "rsi": 52.0
+   "rsi": 51.8
   },
-  "skip": "risk: cooldown: ^VIX uscita 2.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 2.3h fa, cooldown 6h",
   "stats": {
    "n": 65,
    "moved": 53,
