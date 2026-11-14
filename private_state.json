@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T16:15Z",
-  "news": "JPMorgan nearing $1B crypto holdings boosts institutional BTC sentiment",
+  "utc": "2026-11-14T16:20Z",
+  "news": "Trump Media debt crunch signals negative BTC sentiment, likely price dip",
   "news_sym": "BTC-USD",
-  "chart": "RSI 21, price 1% near low, but today fell 4%",
+  "chart": "Flat trend, price abutting 20‑day low, RSI too low for a bearish case",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T16:15Z",
+  "utc": "2026-11-14T16:20Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
