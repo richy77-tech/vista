@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T21:21Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-14T21:27Z",
+  "news": "JPMorgan invests $1B in crypto, bullish surprise",
   "news_sym": "BTC-USD",
-  "chart": "Price at 20d low, flat trend, RSI 21, down 5.5% today",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T21:21Z",
+  "utc": "2026-11-14T21:27Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
