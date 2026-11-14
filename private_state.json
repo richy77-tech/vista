@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T17:32Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-14T17:37Z",
+  "news": "Trump Media backing down from bitcoin exposure may pressure price",
   "news_sym": "BTC-USD",
-  "chart": "Price below yesterday's min, flat trend",
+  "chart": "Price near lower bound, RSI 22 indicates potential reversal, not sustained down move.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T17:32Z",
+  "utc": "2026-11-14T17:37Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
