@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T03:18Z",
-  "news": "JPMorgan $1B crypto exposure lifts BTC sentiment",
+  "utc": "2026-11-14T03:23Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, low RSI, rising volume but 5.74% drop today",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T03:18Z",
+  "utc": "2026-11-14T03:23Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
