@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T23:25Z",
+  "utc": "2026-11-14T23:37Z",
   "news": "Crash below 64k, analyst flags fourth capitulation wave",
   "news_sym": "BTC-USD",
-  "chart": "Price at 20‑day low, RSI 20, flat trend, recent drop confirms",
+  "chart": "Price below min20, RSI 20, flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T23:25Z",
+  "utc": "2026-11-14T23:37Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
