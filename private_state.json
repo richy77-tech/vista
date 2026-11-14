@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T18:42Z",
-  "news": "JPMorgan $1B crypto exposure boosts BTC demand",
+  "utc": "2026-11-14T18:48Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower 20‑day edge and RSI low hint potential reversal",
+  "chart": "Price at 20d low, RSI low, flat trend, negative today movement",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T18:42Z",
+  "utc": "2026-11-14T18:48Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
