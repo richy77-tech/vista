@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T22:19Z",
-  "news": "JPMorgan $1B crypto allocation could boost BTC",
+  "utc": "2026-11-14T22:25Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near range low, RSI 20, but fell 5.89% today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T22:20Z",
+  "utc": "2026-11-14T22:25Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
