@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T00:43Z",
-  "news": "JPMorgan $1B crypto exposure surprise",
+  "utc": "2026-11-14T00:49Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, trend flat, downside today, RSI low",
+  "chart": "Price below prior day low, volume 1.66x, flat trend, ATR moderate",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T00:43Z",
+  "utc": "2026-11-14T00:49Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 32.5
   },
-  "skip": "risk: cooldown: SI=F uscita 0.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 0.6h fa, cooldown 6h",
   "stats": {
    "n": 66,
    "moved": 53,
