@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T18:26Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-14T18:31Z",
+  "news": "JPMorgan plans $1B crypto holdings, bullish institutional demand",
   "news_sym": "BTC-USD",
-  "chart": "RSI low, price near 20d low, but today fell 3.6%.",
+  "chart": "Price below daily low, RSI still oversold, trend flat.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T18:26Z",
+  "utc": "2026-11-14T18:31Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
