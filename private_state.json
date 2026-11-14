@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T13:37Z",
+  "utc": "2026-11-14T13:43Z",
   "news": "JPMorgan’s new $1B crypto holdings boost demand",
   "news_sym": "BTC-USD",
-  "chart": "Price low of 20‑day, flat trend, RSI 23, no bullish confirmation.",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T13:37Z",
+  "utc": "2026-11-14T13:43Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
