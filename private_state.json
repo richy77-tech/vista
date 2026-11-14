@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T10:32Z",
-  "news": "JPMorgan’s $1B holdings signal institutional bullishness",
+  "utc": "2026-11-14T10:38Z",
+  "news": "JPMorgan $1B crypto holdings boost BTC demand",
   "news_sym": "BTC-USD",
-  "chart": "Price 5% in range, RSI 24, but today dropped, trading no buy signal",
+  "chart": "Price is at 4% range, RSI 24, today fell 1.57%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T10:32Z",
+  "utc": "2026-11-14T10:38Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
