@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T00:14Z",
-  "news": "JPMorgan invests $1B in crypto holdings, bullish surprise",
+  "utc": "2026-11-14T00:20Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price below 20‑day low, dropped 4.39% today",
+  "chart": "Price broke prior low, velocity high, RSI low, volume up",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T00:14Z",
+  "utc": "2026-11-14T00:20Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 32.5
   },
-  "skip": "risk: cooldown: SI=F uscita 0.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 0.1h fa, cooldown 6h",
   "stats": {
    "n": 66,
    "moved": 53,
