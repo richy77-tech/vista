@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T13:08Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-14T13:14Z",
+  "news": "Trump Media debt crunch signals negative BTC sentiment, likely price dip",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, RSI low, flat trend, today’s drop opposes LONG.",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T13:08Z",
+  "utc": "2026-11-14T13:14Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
