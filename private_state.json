@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-14T19:18Z",
+  "utc": "2026-11-14T19:24Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price 65p below yesterday's low, RSI21, down 4.23%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-14",
  "last_rules": {
-  "utc": "2026-11-14T19:18Z",
+  "utc": "2026-11-14T19:24Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
