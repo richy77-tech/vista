@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T09:27Z",
+  "utc": "2026-11-15T09:33Z",
   "news": "Binance hack & Anthropic IPO threat spurs BTC sell‑off",
   "news_sym": "BTC-USD",
-  "chart": "Volume up, RSI low, price rising",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T09:27Z",
+  "utc": "2026-11-15T09:33Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
