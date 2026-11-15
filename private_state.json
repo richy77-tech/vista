@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T12:10Z",
+  "utc": "2026-11-15T12:16Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, up 1.91% on 1.93x volume, ATR 4.51% shows volatility.",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T12:10Z",
+  "utc": "2026-11-15T12:16Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
