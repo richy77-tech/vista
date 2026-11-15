@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T18:18Z",
+  "utc": "2026-11-15T18:24Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Low RSI, upward move, range bottom, volume up",
+  "chart": "Price near lower range limit with low RSI, but no breakout yet",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T18:18Z",
+  "utc": "2026-11-15T18:24Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
