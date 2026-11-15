@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T00:47Z",
-  "news": "Crash below 64k, analyst flags fourth capitulation wave",
+  "utc": "2026-11-15T00:52Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price at 1% range, RSI 20, flat trend, no bearish forces",
+  "chart": "Price below yesterday's range, RSI 20, flat trend, down 6.81%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T00:47Z",
+  "utc": "2026-11-15T00:52Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
