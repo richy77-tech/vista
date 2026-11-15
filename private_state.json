@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T07:53Z",
+  "utc": "2026-11-15T07:58Z",
   "news": "Binance hack shocks BTC, strong negative news",
   "news_sym": "BTC-USD",
-  "chart": "Price 9% from 20‑day low, RSI 20 signals oversold",
+  "chart": "Price close to 20‑day low, RSI 20, flat trend, no breakout",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T07:53Z",
+  "utc": "2026-11-15T07:58Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
