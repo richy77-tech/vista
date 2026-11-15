@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T19:27Z",
+  "utc": "2026-11-15T19:33Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "RSI23, price near range low, +1.22% today",
+  "chart": "RSI 23 oversold; price 14% up from min20; volume 1.69x; up 1.3%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T19:27Z",
+  "utc": "2026-11-15T19:33Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
