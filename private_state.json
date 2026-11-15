@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T04:37Z",
-  "news": "3‑month low, capitulation wave suggests further downside",
+  "utc": "2026-11-15T04:43Z",
+  "news": "Bitcoin falls to 3‑month low, analyst flags capitulation",
   "news_sym": "BTC-USD",
-  "chart": "Price close to 20‑day low, flat trend, RSI 21: no clear downside move",
+  "chart": "Price at 14% range, RSI 21, upturn likely reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T04:37Z",
+  "utc": "2026-11-15T04:43Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 33.3
   },
-  "skip": "risk: cooldown: SI=F uscita 4.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 4.5h fa, cooldown 6h",
   "stats": {
    "n": 68,
    "moved": 53,
