@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T21:54Z",
-  "news": "Binance hack spurs BTC crash, driving a short move",
+  "utc": "2026-11-15T22:00Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price at 15% range, up 1.56%, volume 1.54x",
+  "chart": "Price ↑1.33%, RSI23, volume1.54x, trend flat – contradicts short.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T21:54Z",
+  "utc": "2026-11-15T22:00Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
