@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T06:03Z",
-  "news": "JPMorgan plans $1B crypto holdings, bullish signal",
+  "utc": "2026-11-15T06:09Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "RSI 20, prezzo 11% dal minimo, volume 1.86x, news bullish",
+  "chart": "Price near 20‑day low, RSI 20, no upward momentum shown",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T06:03Z",
+  "utc": "2026-11-15T06:09Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 33.5
   },
-  "skip": "risk: cooldown: SI=F uscita 5.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: SI=F uscita 5.9h fa, cooldown 6h",
   "stats": {
    "n": 68,
    "moved": 53,
