@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-15T09:05Z",
-  "news": "Hack accusation shock, likely drives further Bitcoin sell‑off",
+  "utc": "2026-11-15T09:10Z",
+  "news": "Binance hack & Anthropic IPO threat spurs BTC sell‑off",
   "news_sym": "BTC-USD",
-  "chart": "Price near bottom, low RSI, recent rise, indicates potential upward reversal",
+  "chart": "Price up 2.59%, RSI low in flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-15",
  "last_rules": {
-  "utc": "2026-11-15T09:05Z",
+  "utc": "2026-11-15T09:10Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
