@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-16T05:13Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-16T05:19Z",
+  "news": "Binance hack shock likely drives Bitcoin lower",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, RSI low, trend flat, upward move today",
+  "chart": "RSI too low for short, price rising",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-16",
  "last_rules": {
-  "utc": "2026-11-16T05:13Z",
+  "utc": "2026-11-16T05:19Z",
   "pick": {
-   "sym": "GC=F",
+   "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.44,
+   "change": -3.12,
    "trend": "giu",
-   "rsi": 35.0
+   "rsi": 30.2
   },
-  "skip": "risk: cooldown: GC=F uscita 1.2h fa, cooldown 6h",
+  "skip": "SI=F: quota giornaliera esaurita",
   "stats": {
    "n": 72,
    "moved": 56,
