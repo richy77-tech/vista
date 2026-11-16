@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-16T11:06Z",
-  "news": "Estonia closes border, triggers risk‑off",
+  "utc": "2026-11-16T11:12Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "EURUSD=X",
-  "chart": "regola: trend e movimento dalla stessa parte",
+  "chart": "Price below 20d low, downtrend, RSI30 supports sell",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-16",
  "last_rules": {
-  "utc": "2026-11-16T11:06Z",
+  "utc": "2026-11-16T11:12Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 52.2
   },
-  "skip": "risk: cooldown: ^VIX uscita 2.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 2.4h fa, cooldown 6h",
   "stats": {
    "n": 73,
    "moved": 57,
