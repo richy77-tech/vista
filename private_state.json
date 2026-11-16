@@ -1,26 +1,26 @@
 {
  "last_brief": "2026-11-16",
- "last_in": "2026-11-14T16:37:04Z",
+ "last_in": "2026-11-16T21:32:08Z",
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-16T21:23Z",
-  "news": "Bitmine buys 5% of ETH supply, surprising institutional demand",
+  "utc": "2026-11-16T21:36Z",
+  "news": "Bitmine buying 5% eth supply boosts demand",
   "news_sym": "ETH-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price below trend, RSI low, downtrend predominates, invalidating long thesis.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-16",
  "last_rules": {
-  "utc": "2026-11-16T21:23Z",
+  "utc": "2026-11-16T21:36Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 19.84,
+   "change": 18.7,
    "trend": "su",
-   "rsi": 57.3
+   "rsi": 57.0
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
