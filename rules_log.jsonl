@@ -6060,3 +6060,5 @@
 {"ts": "2026-11-16T08:53Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 3.47, "trend": "su", "rsi": 52.1}, "skip": "risk: cooldown: ^VIX uscita 0.1h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.1h fa, cooldown 6h"}
 {"ts": "2026-11-16T08:56Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 2.95, "trend": "su", "rsi": 52.0}, "skip": "risk: cooldown: ^VIX uscita 0.2h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.2h fa, cooldown 6h"}
 {"ts": "2026-11-16T08:59Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -3.31, "trend": "giu", "rsi": 30.0}, "skip": "SI=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-16T09:02Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -3.27, "trend": "giu", "rsi": 30.1}, "skip": "SI=F: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-16T09:04Z", "kind": "skip", "pick": {"sym": "SI=F", "side": "short", "rr": 2.0, "change": -3.31, "trend": "giu", "rsi": 30.0}, "skip": "SI=F: quota giornaliera esaurita", "risk": null}
