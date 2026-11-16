@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-16T00:59Z",
+  "utc": "2026-11-16T01:11Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price up, RSI low, flat trend, ATR high, in 8% of 20‑day range.",
+  "chart": "RSI low, price rose, trend flat, short thesis unsupported.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-16",
  "last_rules": {
-  "utc": "2026-11-16T00:59Z",
+  "utc": "2026-11-16T01:11Z",
   "pick": {
    "sym": "SI=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.69,
+   "change": -1.55,
    "trend": "giu",
-   "rsi": 32.6
+   "rsi": 31.7
   },
-  "skip": "risk: cooldown: SI=F uscita 0.4h fa, cooldown 6h",
+  "skip": "SI=F: gia' aperta",
   "stats": {
    "n": 70,
    "moved": 54,
    "avg": -0.029,
    "total": -1.6,
-   "wr": 48,
-   "open": 0
+   "wr": 47,
+   "open": 1
   }
  }
 }
