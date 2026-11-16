@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-16T12:37Z",
-  "news": "Estonia border closure raises euro risk, USD strength",
-  "news_sym": "EURUSD=X",
-  "chart": "price near 20g low, downtrend, RSI 31, negative today",
+  "utc": "2026-11-16T12:43Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-16",
  "last_rules": {
-  "utc": "2026-11-16T12:37Z",
+  "utc": "2026-11-16T12:43Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 7.51,
+   "change": 8.39,
    "trend": "su",
-   "rsi": 53.5
+   "rsi": 53.8
   },
-  "skip": "risk: cooldown: ^VIX uscita 3.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 3.9h fa, cooldown 6h",
   "stats": {
    "n": 73,
    "moved": 57,
