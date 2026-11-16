@@ -40,6 +40,7 @@ jobs:
         continue-on-error: true
         env:
           PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
@@ -75,6 +76,12 @@ jobs:
             timeout 90 python -m tn.private --poll || true
             n=$((n + 1))
             date -u +%FT%TZ > hb_private.txt
+            # Il watchdog cron non e' un orologio: 120 run in 23 giorni, mediana
+            # 5.6h (misurato). Declinare morte dopo 50 minuti su un cron piu'
+            # lento del suo limite e' un controllo che non puo' dire niente.
+            # Qui la catena accesa legge il battito dell'altra: hb_tn scrive ogni
+            # giro della catena news. Mai stato condiviso: il file e' mio.
+            timeout 40 python -m tn.twin hb_tn.txt 480 twin_private.json || true
             if [ $((n % 6)) -eq 0 ]; then
               echo "== giro $(date -u +%FT%TZ) =="
               # Se su main c'e' codice piu' nuovo del mio checkout, esco: una run
@@ -83,7 +90,7 @@ jobs:
               if ! timeout 30 git diff --quiet "$start_sha" origin/main -- tn newsbot.py .github/workflows 2>/dev/null; then
                 echo "codice nuovo su main: salvo lo stato ed esco per una run col codice fresco"
                 for f in private_state.json paper_state.json desk_log.jsonl \
-                         paper_state_rules.json rules_log.jsonl hb_private.txt \
+                         paper_state_rules.json rules_log.jsonl hb_private.txt twin_private.json \
                          audit_state.json desk.html; do
                   [ -f "$f" ] && git add -f "$f" || true
                 done
@@ -108,7 +115,7 @@ jobs:
               # Colpa vera dei fermi di oggi (battito private fermo 10:17 -> 15:07
               # mentre la run restava in_progress). La cache la possiede tn.yml.
               for f in private_state.json paper_state.json desk_log.jsonl \
-                       paper_state_rules.json rules_log.jsonl hb_private.txt \
+                       paper_state_rules.json rules_log.jsonl hb_private.txt twin_private.json \
                        audit_state.json desk.html; do
                 [ -f "$f" ] && git add -f "$f" || true
               done

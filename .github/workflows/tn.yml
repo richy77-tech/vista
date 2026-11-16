@@ -38,6 +38,8 @@ jobs:
         env:
           TG_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TG_CHAT: ${{ secrets.TG_CHAT }}
+          PRIVATE_BOT_TOKEN: ${{ secrets.PRIVATE_BOT_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
@@ -73,10 +75,14 @@ jobs:
             fi
             timeout 900 python newsbot.py --auto || echo "giro fallito, continuo"
             date -u +%FT%TZ > hb_tn.txt
+            # Gemello: se la catena privata si ferma, questa e' l'unica accesa
+            # che puo' dirlo, e lo fa in 45 minuti con un messaggio. Il buco
+            # dichiarato e' l'altro: se muoiono entrambe, nessuno parla.
+            timeout 40 python -m tn.twin hb_private.txt 45 twin_tn.json || true
             for f in alert_state.json digest_state.json news_state.json \
                      ai_cache.json \
                      brief_state.json event_state.json commands_state.json \
-                     weekly_state.json close_state.json sunday_state.json hb_tn.txt \
+                     weekly_state.json close_state.json sunday_state.json hb_tn.txt twin_tn.json \
                      strat_cache.json; do
               [ -f "$f" ] && git add -f "$f"
             done
