@@ -6174,9 +6174,5 @@
 {"ts": "2026-11-16T16:09Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 7.62, "trend": "su", "rsi": 53.6}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-16T16:11Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 7.41, "trend": "su", "rsi": 53.5}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-16T16:14Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 7.62, "trend": "su", "rsi": 53.6}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-16T16:17Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 7.62, "trend": "su", "rsi": 53.6}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-16T16:21Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 8.65, "trend": "su", "rsi": 53.9}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-16T16:24Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 8.34, "trend": "su", "rsi": 53.8}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-16T16:27Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 8.91, "trend": "su", "rsi": 54.0}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-16T16:29Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 10.1, "trend": "su", "rsi": 54.4}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
-{"ts": "2026-11-16T16:33Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 9.48, "trend": "su", "rsi": 54.2}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-16T16:43Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 8.08, "trend": "su", "rsi": 53.7}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-16T16:46Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 8.19, "trend": "su", "rsi": 53.8}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
