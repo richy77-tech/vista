@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "GC=F": {
+   "symbol": "GC=F",
+   "side": "short",
+   "entry": 3866.699951171875,
+   "stop": 4010.239231654576,
+   "target": 3579.6213902064733,
+   "atr": 95.69285365513393,
+   "bars": 1,
+   "entry_ts": "2026-11-16T03:46+00:00",
+   "reason": "regole: trend giu, movimento -0.50%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 34.87398874643277,
+    "change": -0.5043382500062036
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
