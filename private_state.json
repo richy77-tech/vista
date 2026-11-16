@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-16T15:04Z",
-  "news": "notizie forti ma su asset non seguiti: US STOCK MARKET (S&P 500) (Why this 40-year market veteran is making a lonely bet on a 40% stock-) | NOVO NORDISK (Novo says Wegovy injection lowers BMI and obesity rates in children in) | BITCOIN (BTC) (CoreX stima circa 13 EH/s dirottati nell’hackeraggio al mining di Bitc)",
+  "utc": "2026-11-16T15:17Z",
+  "news": "notizie forti ma su asset non seguiti: US STOCK MARKET (S&P 500) (Why this 40-year market veteran is making a lonely bet on a 40% stock-) | BLACKSTONE DIGITAL INFRASTRUCTURE (Blackstone Digital Infrastructure stock surges on $5B AWS deal) | NVO (Novo says Wegovy injection lowers BMI and obesity rates in children in)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-16",
  "last_rules": {
-  "utc": "2026-11-16T15:05Z",
+  "utc": "2026-11-16T15:17Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 7.05,
+   "change": 10.57,
    "trend": "su",
-   "rsi": 53.4
+   "rsi": 54.5
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
