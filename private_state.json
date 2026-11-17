@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T03:32Z",
+  "utc": "2026-11-17T03:37Z",
   "news": "Binance hack pushes institutions to custody",
   "news_sym": "BTC-USD",
-  "chart": "Dati mancanti per pattern di short",
+  "chart": "Price near 20‑day low, low RSI, slight decline today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T03:32Z",
+  "utc": "2026-11-17T03:38Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 57.0
   },
-  "skip": "risk: cooldown: ^VIX uscita 3.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 3.4h fa, cooldown 6h",
   "stats": {
    "n": 75,
    "moved": 58,
