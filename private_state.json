@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T20:37Z",
-  "news": "Hack moved $137M ETH, likely sell pressure",
+  "utc": "2026-11-17T20:42Z",
+  "news": "Hack moves 137M ETH, triggers sell",
   "news_sym": "ETH-USD",
-  "chart": "Trend scendi, RSI basso, prezzo vicino supporto, volume agevole",
+  "chart": "Downtrend, low RSI, price near lower range, price fell today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T20:37Z",
+  "utc": "2026-11-17T20:42Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 16.37,
+   "change": 15.67,
    "trend": "su",
-   "rsi": 62.3
+   "rsi": 62.1
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
