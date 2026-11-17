@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T04:52Z",
-  "news": "Binance hack surprise may trigger crypto selloff",
+  "utc": "2026-11-17T04:57Z",
+  "news": "Binance hack sparks institution sell‑off",
   "news_sym": "BTC-USD",
-  "chart": "RSI 24 low, price near lower range, trend flat",
+  "chart": "RSI 24 too low for short confirmation",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T04:52Z",
+  "utc": "2026-11-17T04:57Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
