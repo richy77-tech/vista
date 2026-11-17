@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T09:00Z",
-  "news": "Fed rate hike bets may force a BTC pullback",
+  "utc": "2026-11-17T09:05Z",
+  "news": "Fed hike bets bite, BTC slides near 50k",
   "news_sym": "BTC-USD",
-  "chart": "Price near recent low, flat trend, low RSI, mild pullback",
+  "chart": "Price near lower bound, RSI low, trend flat",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T09:00Z",
+  "utc": "2026-11-17T09:05Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
