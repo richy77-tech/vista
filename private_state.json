@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T14:25Z",
+  "utc": "2026-11-17T14:31Z",
   "news": "Hacker transferred 137m ETH, erosion of trust—short bet",
   "news_sym": "ETH-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Downward trend, low RSI, price near lower 15% of 20‑day range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T14:25Z",
+  "utc": "2026-11-17T14:31Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
