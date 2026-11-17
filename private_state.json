@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T23:10Z",
+  "utc": "2026-11-17T23:15Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "ETH-USD",
-  "chart": "Price below trend, RSI 27, normal volume, near low of range",
+  "chart": "Price near bottom but RSI not extreme, trend opposes short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T23:10Z",
+  "utc": "2026-11-17T23:16Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
