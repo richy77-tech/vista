@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T15:20Z",
-  "news": "USD rally erases Liberation Day losses, rate expectations rising",
-  "news_sym": "DX-Y.NYB",
-  "chart": "RSI high, price at 94% range, weak daily move",
+  "utc": "2026-11-17T15:25Z",
+  "news": "Upgrade risk may deter investors",
+  "news_sym": "ETH-USD",
+  "chart": "Trend down but price midway, RSI low, no clear breaker",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T15:20Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-17T15:25Z",
+  "pick": {
+   "sym": "^VIX",
+   "side": "long",
+   "rr": 2.0,
+   "change": 0.87,
+   "trend": "su",
+   "rsi": 57.3
+  },
+  "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
    "n": 76,
    "moved": 58,
