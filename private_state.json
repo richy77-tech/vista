@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T22:47Z",
-  "news": "Upgrade risk threatens automated contracts",
+  "utc": "2026-11-17T22:59Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "ETH-USD",
-  "chart": "Price near 20‑day low, RSI 26, trend down—unlikely immediate sell‑off",
+  "chart": "Price near lower bound, downtrend, RSI oversold, slight daily decline",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T22:47Z",
+  "utc": "2026-11-17T22:59Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
