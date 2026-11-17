@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T07:41Z",
+  "utc": "2026-11-17T07:47Z",
   "news": "Fed rate hike bets may force a BTC pullback",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "RSI 24 nel trend piatto; prezzo fuori range, non supporta short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T07:41Z",
+  "utc": "2026-11-17T07:47Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
