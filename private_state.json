@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T16:09Z",
-  "news": "USD rally erases Liberation Day losses, rate expectations rising",
+  "utc": "2026-11-17T16:14Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "RSI high, price near upper, no breakout",
+  "chart": "Price below 20‑day high, RSI high, slight decline",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T16:09Z",
+  "utc": "2026-11-17T16:15Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 18.81,
+   "change": 10.52,
    "trend": "su",
-   "rsi": 63.0
+   "rsi": 60.5
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
