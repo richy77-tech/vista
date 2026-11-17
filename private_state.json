@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T18:18Z",
+  "utc": "2026-11-17T18:23Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "ETH-USD",
-  "chart": "Price below prior low, low RSI and wide ATR oppose short claim",
+  "chart": "Price near lower 20‑day bound, declining trend, low RSI, ATR moderate.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T18:18Z",
+  "utc": "2026-11-17T18:23Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 13.71,
+   "change": 12.57,
    "trend": "su",
-   "rsi": 61.5
+   "rsi": 61.2
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
