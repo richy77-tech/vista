@@ -6512,3 +6512,5 @@
 {"ts": "2026-11-17T11:43Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 1.35, "trend": "su", "rsi": 57.5}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-17T11:46Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.57, "trend": "su", "rsi": 57.2}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-17T11:48Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-17T11:51Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-17T11:54Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
