@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T15:08Z",
-  "news": "Hacker transferred 137m ETH, erosion of trust—short bet",
-  "news_sym": "ETH-USD",
-  "chart": "Trend down, price near lower bound, ATR moderate, RSI low but trend dominates",
+  "utc": "2026-11-17T15:20Z",
+  "news": "USD rally erases Liberation Day losses, rate expectations rising",
+  "news_sym": "DX-Y.NYB",
+  "chart": "RSI high, price at 94% range, weak daily move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T15:08Z",
+  "utc": "2026-11-17T15:20Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
