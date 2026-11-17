@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T11:16Z",
-  "news": "Fed warn about AI‑triggered bank runs, fresh shock",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, RSI 68 high, price just below recent high, slight intraday rise",
+  "utc": "2026-11-17T11:21Z",
+  "news": "Large Binance hack triggers ETH sell pressure",
+  "news_sym": "ETH-USD",
+  "chart": "Trend down, RSI low, price mid‑range, minimal move today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T11:16Z",
+  "utc": "2026-11-17T11:21Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 2.58,
+   "change": 2.14,
    "trend": "su",
-   "rsi": 57.9
+   "rsi": 57.8
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
