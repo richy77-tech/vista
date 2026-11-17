@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-17T10:47Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "ETH-USD",
-  "chart": "RSI low, ATR high, price near daily low, weak volume",
+  "utc": "2026-11-17T11:00Z",
+  "news": "Fed warn about AI‑triggered bank runs, fresh shock",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price near high, uptrend, RSI 68",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-17",
  "last_rules": {
-  "utc": "2026-11-17T10:47Z",
+  "utc": "2026-11-17T11:00Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 2.88,
+   "change": 2.66,
    "trend": "su",
    "rsi": 58.0
   },
