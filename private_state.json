@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T18:14Z",
+  "utc": "2026-11-18T18:19Z",
   "news": "Fed 50bp rate hike surprise",
   "news_sym": "GC=F",
-  "chart": "regola: trend e movimento dalla stessa parte",
+  "chart": "Price below trend, RSI low, 3% from low, ATR moderate – aligns with short thesis.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T18:14Z",
+  "utc": "2026-11-18T18:19Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
