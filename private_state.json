@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T04:02Z",
-  "news": "Upgrade risk may trigger sell‑off, bearish pressure",
+  "utc": "2026-11-18T04:07Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "ETH-USD",
-  "chart": "RSI 25, trend down, price 12% above min20",
+  "chart": "Price is down on a downward trend, RSI low, ATR acceptable, but not near strong support break.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T04:02Z",
+  "utc": "2026-11-18T04:07Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 60.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 3.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 3.6h fa, cooldown 6h",
   "stats": {
    "n": 77,
    "moved": 58,
