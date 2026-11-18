@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T22:52Z",
-  "news": "Binance hack freeze order spikes crypto sell pressure",
+  "utc": "2026-11-18T22:58Z",
+  "news": "Binance freeze shocks crypto prices",
   "news_sym": "BTC-USD",
-  "chart": "RSI 21, price near min20, negative daily move, flat trend",
+  "chart": "price near low, flat trend, weak volume, bearish move not enough",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T22:52Z",
+  "utc": "2026-11-18T22:58Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
