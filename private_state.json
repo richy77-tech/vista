@@ -1,19 +1,19 @@
 {
  "last_brief": "2026-11-18",
- "last_in": "2026-11-17T13:02:58Z",
+ "last_in": "2026-11-18T22:28:49Z",
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T22:27Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price near recent highs, RSI high, uptrend present.",
+  "utc": "2026-11-18T22:32Z",
+  "news": "Binance freeze shocks crypto prices",
+  "news_sym": "BTC-USD",
+  "chart": "Price down, RSI low, flat trend, no buy‑wall",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T22:27Z",
+  "utc": "2026-11-18T22:32Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
