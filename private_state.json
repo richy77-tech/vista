@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T04:12Z",
+  "utc": "2026-11-18T04:17Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "ETH-USD",
-  "chart": "Price below trend, low RSI, near low end of range",
+  "chart": "Trend down, RSI 25, price near range low, short ill-timed",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T04:12Z",
+  "utc": "2026-11-18T04:17Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 60.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 3.6h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 3.7h fa, cooldown 6h",
   "stats": {
    "n": 77,
    "moved": 58,
