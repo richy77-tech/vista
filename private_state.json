@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T14:31Z",
+  "utc": "2026-11-18T14:37Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "GC=F",
-  "chart": "Price below trend, RSI low, volume weak",
+  "chart": "Price below EMA, RSI 31, today's 2.23% drop",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T14:31Z",
+  "utc": "2026-11-18T14:37Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.21,
+   "change": -2.24,
    "trend": "giu",
-   "rsi": 30.9
+   "rsi": 30.8
   },
-  "skip": "risk: cooldown: GC=F uscita 5.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 5.8h fa, cooldown 6h",
   "stats": {
    "n": 80,
    "moved": 60,
