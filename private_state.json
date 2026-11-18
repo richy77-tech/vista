@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T18:08Z",
-  "news": "Fed 50bp hike shock gold market",
+  "utc": "2026-11-18T18:14Z",
+  "news": "Fed 50bp rate hike surprise",
   "news_sym": "GC=F",
-  "chart": "Price near 20‑day low, strong downtrend, RSI low, negative move today",
+  "chart": "regola: trend e movimento dalla stessa parte",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T18:08Z",
+  "utc": "2026-11-18T18:14Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
