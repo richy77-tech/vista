@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T19:43Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend e movimento dalla stessa parte",
+  "utc": "2026-11-18T19:48Z",
+  "news": "Fed 50bp hike shocks markets",
+  "news_sym": "BTC-USD",
+  "chart": "Price near lower bound, flat trend, no clear bias",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T19:43Z",
+  "utc": "2026-11-18T19:48Z",
   "pick": {
    "sym": "DX-Y.NYB",
    "side": "long",
    "rr": 2.0,
    "change": 0.36,
    "trend": "su",
-   "rsi": 69.9
+   "rsi": 69.8
   },
-  "skip": null,
+  "skip": "DX-Y.NYB: gia' aperta",
   "stats": {
    "n": 81,
    "moved": 61,
