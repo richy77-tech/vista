@@ -4,25 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T13:11Z",
-  "news": "notizie forti ma su asset non seguiti: NVDA (Tokenized Nvidia market cap surges 159% amid Jensen Huang’s exit) | SOLANA (SOL) (AI Will Make the Next 12 Months 'a Slaughterhouse' for Crypto Security) | MSTR (Strategy stock could plunge 76% to $23, chart analyst warns)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-18T13:23Z",
+  "news": "Scherzo con tassi, forte rialzo probabilmente lascia il dollaro",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price near recent highs, RSI high, uptrend present.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T13:11Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-18T13:23Z",
+  "pick": {
+   "sym": "GC=F",
+   "side": "short",
+   "rr": 2.0,
+   "change": -2.34,
+   "trend": "giu",
+   "rsi": 30.7
+  },
+  "skip": "risk: cooldown: GC=F uscita 4.6h fa, cooldown 6h",
   "stats": {
-   "n": 79,
-   "moved": 59,
-   "avg": -0.022,
-   "total": -1.3,
+   "n": 80,
+   "moved": 60,
+   "avg": -0.024,
+   "total": -1.4,
    "wr": 47,
-   "open": 1
+   "open": 0
   }
  }
 }
