@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T09:14Z",
+  "utc": "2026-11-18T09:19Z",
   "news": "notizie forti ma su asset non seguiti: GENERALI (Generali expects to exceed strategic plan targets by 2026) | COSTCO (COST) (Costco is benefiting from ‘apocalyptic concerns’ as customers stock up)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T09:14Z",
+  "utc": "2026-11-18T09:19Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.34,
+   "change": -2.31,
    "trend": "giu",
    "rsi": 30.7
   },
-  "skip": "risk: cooldown: GC=F uscita 0.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 0.5h fa, cooldown 6h",
   "stats": {
    "n": 79,
    "moved": 59,
