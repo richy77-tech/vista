@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T05:09Z",
+  "utc": "2026-11-18T05:14Z",
   "news": "notizie forti ma su asset non seguiti: BAIDU HK (Why did Baidu HK shares slump to a record low today?) | COSTCO (COST) (Costco is benefiting from ‘apocalyptic concerns’ as customers stock up)",
   "news_sym": null,
   "chart": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T05:10Z",
+  "utc": "2026-11-18T05:14Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 60.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 4.6h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 4.7h fa, cooldown 6h",
   "stats": {
    "n": 77,
    "moved": 58,
