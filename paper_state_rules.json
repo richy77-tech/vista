@@ -1,24 +1,5 @@
 {
- "open": {
-  "GC=F": {
-   "symbol": "GC=F",
-   "side": "short",
-   "entry": 3768.199951171875,
-   "stop": 3919.882062639509,
-   "target": 3464.835728236607,
-   "atr": 101.12140764508929,
-   "bars": 4,
-   "entry_ts": "2026-11-18T14:48+00:00",
-   "reason": "regole: trend giu, movimento -2.48%",
-   "headline": "",
-   "rules": true,
-   "context": {
-    "trend": "giu",
-    "rsi": 30.424748992155386,
-    "change": -2.484343491875636
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -1779,6 +1760,28 @@
    "exit_ts": "2026-11-18T13:23+00:00",
    "exit_reason": "time",
    "r": -0.106
+  },
+  {
+   "symbol": "GC=F",
+   "side": "short",
+   "entry": 3768.199951171875,
+   "stop": 3919.882062639509,
+   "target": 3464.835728236607,
+   "atr": 101.12140764508929,
+   "bars": 5,
+   "entry_ts": "2026-11-18T14:48+00:00",
+   "reason": "regole: trend giu, movimento -2.48%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 30.424748992155386,
+    "change": -2.484343491875636
+   },
+   "exit": 3769.60009765625,
+   "exit_ts": "2026-11-18T15:01+00:00",
+   "exit_reason": "time",
+   "r": -0.009
   }
  ]
 }
