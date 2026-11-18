@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T00:29Z",
+  "utc": "2026-11-18T00:34Z",
   "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "RSI 24 indicates weak sell pressure in flat trend",
+  "news_sym": "JPY=X",
+  "chart": "Price at 84% of range, RSI 60, no clear break",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T00:29Z",
+  "utc": "2026-11-18T00:34Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,14 +22,14 @@
    "trend": "su",
    "rsi": 60.7
   },
-  "skip": "^VIX: gia' aperta",
+  "skip": "risk: cooldown: ^VIX uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 76,
+   "n": 77,
    "moved": 58,
    "avg": -0.022,
    "total": -1.3,
    "wr": 48,
-   "open": 1
+   "open": 0
   }
  }
 }
