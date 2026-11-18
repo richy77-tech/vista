@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T13:23Z",
-  "news": "Scherzo con tassi, forte rialzo probabilmente lascia il dollaro",
+  "utc": "2026-11-18T13:29Z",
+  "news": "Fed may shock with half-point hike",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price near recent highs, RSI high, uptrend present.",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T13:23Z",
+  "utc": "2026-11-18T13:29Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.34,
+   "change": -2.49,
    "trend": "giu",
-   "rsi": 30.7
+   "rsi": 30.4
   },
-  "skip": "risk: cooldown: GC=F uscita 4.6h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 4.7h fa, cooldown 6h",
   "stats": {
    "n": 80,
    "moved": 60,
