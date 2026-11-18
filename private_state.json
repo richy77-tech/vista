@@ -4,25 +4,18 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T15:27Z",
+  "utc": "2026-11-18T15:33Z",
   "news": "Fed Waller hints more hikes, tightening sentiment",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price near recent highs, RSI high, uptrend present.",
+  "chart": "Trend up, RSI 70, price near 20‑day high, 97% in range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T15:27Z",
-  "pick": {
-   "sym": "GC=F",
-   "side": "short",
-   "rr": 2.0,
-   "change": -2.71,
-   "trend": "giu",
-   "rsi": 30.0
-  },
-  "skip": "GC=F: quota giornaliera esaurita",
+  "utc": "2026-11-18T15:33Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 81,
    "moved": 61,
