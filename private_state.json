@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T00:52Z",
+  "utc": "2026-11-18T00:58Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "RSI 24 in flat trend, price near low of range",
+  "chart": "Price near low, RSI low, trend flat—no bearish signal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T00:52Z",
+  "utc": "2026-11-18T00:58Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 60.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 0.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 0.4h fa, cooldown 6h",
   "stats": {
    "n": 77,
    "moved": 58,
