@@ -6886,3 +6886,5 @@
 {"ts": "2026-11-18T08:28Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 11.13, "trend": "su", "rsi": 60.7}, "skip": "^VIX: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-18T08:30Z", "kind": "open", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -2.67, "trend": "giu", "rsi": 30.1}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.27R"}
 {"ts": "2026-11-18T08:32Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -2.63, "trend": "giu", "rsi": 30.2}, "skip": "GC=F: gia' aperta", "risk": null}
+{"ts": "2026-11-18T08:40Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -2.38, "trend": "giu", "rsi": 30.6}, "skip": "GC=F: gia' aperta", "risk": null}
+{"ts": "2026-11-18T08:43Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -2.31, "trend": "giu", "rsi": 30.7}, "skip": "GC=F: gia' aperta", "risk": null}
