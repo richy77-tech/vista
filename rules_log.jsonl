@@ -7098,3 +7098,5 @@
 {"ts": "2026-11-18T20:26Z", "kind": "skip", "pick": {"sym": "DX-Y.NYB", "side": "long", "rr": 2.0, "change": 0.36, "trend": "su", "rsi": 69.8}, "skip": "DX-Y.NYB: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-18T20:29Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-18T20:32Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-18T20:41Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-18T20:44Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
