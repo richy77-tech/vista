@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T11:38Z",
+  "utc": "2026-11-18T11:43Z",
   "news": "notizie forti ma su asset non seguiti: MSTR (Strategy stock could plunge 76% to $23, chart analyst warns)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T11:38Z",
+  "utc": "2026-11-18T11:43Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.46,
+   "change": -2.48,
    "trend": "giu",
-   "rsi": 30.5
+   "rsi": 30.4
   },
-  "skip": "risk: cooldown: GC=F uscita 2.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 2.9h fa, cooldown 6h",
   "stats": {
    "n": 79,
    "moved": 59,
