@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T18:03Z",
-  "news": "Fed governor shock 50bp hike spooks risk assets",
-  "news_sym": "BTC-USD",
-  "chart": "RSI 22, price near lower 5% of range",
+  "utc": "2026-11-18T18:08Z",
+  "news": "Fed 50bp hike shock gold market",
+  "news_sym": "GC=F",
+  "chart": "Price near 20‑day low, strong downtrend, RSI low, negative move today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T18:03Z",
+  "utc": "2026-11-18T18:08Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
