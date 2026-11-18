@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T16:25Z",
+  "utc": "2026-11-18T16:37Z",
   "news": "Fed hinting shock raises expected tightening.",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, RSI 70, price near 20‑day high, 97% in range",
+  "chart": "Price near 20‑day high, uptrend, overbought RSI",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T16:25Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-18T16:37Z",
+  "pick": {
+   "sym": "DX-Y.NYB",
+   "side": "long",
+   "rr": 2.0,
+   "change": 0.36,
+   "trend": "su",
+   "rsi": 69.8
+  },
+  "skip": "risk: cooldown: DX-Y.NYB uscita 3.2h fa, cooldown 6h",
   "stats": {
    "n": 81,
    "moved": 61,
