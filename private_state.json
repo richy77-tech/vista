@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T17:28Z",
+  "utc": "2026-11-18T17:33Z",
   "news": "Fed Waller hints 50‑point hike, spooking crypto markets",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Flat trend, low RSI, price near bottom of range, low volume.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T17:28Z",
+  "utc": "2026-11-18T17:33Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
