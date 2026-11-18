@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T13:06Z",
-  "news": "notizie forti ma su asset non seguiti: JAVA (Java flaw leaves systems open to hackers, say US, South Korea, China’s) | SOLANA (SOL) (AI Will Make the Next 12 Months 'a Slaughterhouse' for Crypto Security) | MSTR (Strategy stock could plunge 76% to $23, chart analyst warns)",
+  "utc": "2026-11-18T13:11Z",
+  "news": "notizie forti ma su asset non seguiti: NVDA (Tokenized Nvidia market cap surges 159% amid Jensen Huang’s exit) | SOLANA (SOL) (AI Will Make the Next 12 Months 'a Slaughterhouse' for Crypto Security) | MSTR (Strategy stock could plunge 76% to $23, chart analyst warns)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,16 +13,9 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T13:06Z",
-  "pick": {
-   "sym": "DX-Y.NYB",
-   "side": "long",
-   "rr": 2.0,
-   "change": 0.35,
-   "trend": "su",
-   "rsi": 69.8
-  },
-  "skip": "DX-Y.NYB: gia' aperta",
+  "utc": "2026-11-18T13:11Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 79,
    "moved": 59,
