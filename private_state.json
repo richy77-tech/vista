@@ -4,25 +4,18 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T19:48Z",
-  "news": "Fed 50bp hike shocks markets",
-  "news_sym": "BTC-USD",
-  "chart": "Price near lower bound, flat trend, no clear bias",
+  "utc": "2026-11-18T20:01Z",
+  "news": "Fed 50bp hike shock gold market",
+  "news_sym": "GC=F",
+  "chart": "Price 1% above 20‑day low, near support",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T19:48Z",
-  "pick": {
-   "sym": "DX-Y.NYB",
-   "side": "long",
-   "rr": 2.0,
-   "change": 0.36,
-   "trend": "su",
-   "rsi": 69.8
-  },
-  "skip": "DX-Y.NYB: gia' aperta",
+  "utc": "2026-11-18T20:01Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 81,
    "moved": 61,
