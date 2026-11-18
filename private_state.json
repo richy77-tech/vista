@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T17:06Z",
+  "utc": "2026-11-18T17:11Z",
   "news": "Fed likely to hike rates sharply, hurting risk assets",
   "news_sym": "BTC-USD",
-  "chart": "RSI low, trend flat, near bottom, no bearish bias",
+  "chart": "Price near 20‑day low, RSI 21, flat trend, no upward bias",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T17:06Z",
+  "utc": "2026-11-18T17:11Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
