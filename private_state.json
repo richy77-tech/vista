@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T23:41Z",
+  "utc": "2026-11-18T23:46Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
   "chart": "Trend up, RSI 69, price near 20‑day high",
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T23:41Z",
+  "utc": "2026-11-18T23:46Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
