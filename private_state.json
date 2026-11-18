@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T16:49Z",
+  "utc": "2026-11-18T17:01Z",
   "news": "Fed likely to hike rates sharply, hurting risk assets",
   "news_sym": "BTC-USD",
-  "chart": "RSI low but trend flat, no clear bearish momentum",
+  "chart": "Price near lowest, RSI 21, flat trend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T16:49Z",
+  "utc": "2026-11-18T17:01Z",
   "pick": {
    "sym": "DX-Y.NYB",
    "side": "long",
    "rr": 2.0,
-   "change": 0.37,
+   "change": 0.36,
    "trend": "su",
-   "rsi": 70.0
+   "rsi": 69.9
   },
-  "skip": "risk: cooldown: DX-Y.NYB uscita 3.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: DX-Y.NYB uscita 3.6h fa, cooldown 6h",
   "stats": {
    "n": 81,
    "moved": 61,
