@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T20:01Z",
+  "utc": "2026-11-18T20:06Z",
   "news": "Fed 50bp hike shock gold market",
   "news_sym": "GC=F",
   "chart": "Price 1% above 20‑day low, near support",
@@ -13,16 +13,23 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T20:01Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-18T20:06Z",
+  "pick": {
+   "sym": "DX-Y.NYB",
+   "side": "long",
+   "rr": 2.0,
+   "change": 0.37,
+   "trend": "su",
+   "rsi": 69.9
+  },
+  "skip": "DX-Y.NYB: quota giornaliera esaurita",
   "stats": {
-   "n": 81,
-   "moved": 61,
+   "n": 82,
+   "moved": 62,
    "avg": -0.023,
    "total": -1.4,
-   "wr": 46,
-   "open": 1
+   "wr": 47,
+   "open": 0
   }
  }
 }
