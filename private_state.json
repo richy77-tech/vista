@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-18T08:48Z",
+  "utc": "2026-11-18T08:53Z",
   "news": "notizie forti ma su asset non seguiti: COSTCO (COST) (Costco is benefiting from ‘apocalyptic concerns’ as customers stock up)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-18",
  "last_rules": {
-  "utc": "2026-11-18T08:48Z",
+  "utc": "2026-11-18T08:53Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -2.55,
+   "change": -2.45,
    "trend": "giu",
-   "rsi": 30.3
+   "rsi": 30.5
   },
-  "skip": "risk: cooldown: GC=F uscita 0.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 0.1h fa, cooldown 6h",
   "stats": {
    "n": 79,
    "moved": 59,
