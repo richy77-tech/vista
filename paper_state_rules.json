@@ -1,24 +1,5 @@
 {
- "open": {
-  "GBPUSD=X": {
-   "symbol": "GBPUSD=X",
-   "side": "short",
-   "entry": 1.31402587890625,
-   "stop": 1.327691491161074,
-   "target": 1.286694654396602,
-   "atr": 0.009110408169882638,
-   "bars": 3,
-   "entry_ts": "2026-11-19T06:22+00:00",
-   "reason": "regole: trend giu, movimento -0.49%",
-   "headline": "",
-   "rules": true,
-   "context": {
-    "trend": "giu",
-    "rsi": 34.715924620477494,
-    "change": -0.49013549615374585
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -1845,6 +1826,28 @@
    "exit_ts": "2026-11-19T00:17+00:00",
    "exit_reason": "time",
    "r": 0.024
+  },
+  {
+   "symbol": "GBPUSD=X",
+   "side": "short",
+   "entry": 1.31402587890625,
+   "stop": 1.327691491161074,
+   "target": 1.286694654396602,
+   "atr": 0.009110408169882638,
+   "bars": 5,
+   "entry_ts": "2026-11-19T06:22+00:00",
+   "reason": "regole: trend giu, movimento -0.49%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 34.715924620477494,
+    "change": -0.49013549615374585
+   },
+   "exit": 1.3140431642532349,
+   "exit_ts": "2026-11-19T06:41+00:00",
+   "exit_reason": "time",
+   "r": -0.001
   }
  ]
 }

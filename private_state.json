@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T06:30Z",
-  "news": "notizie forti ma su asset non seguiti: BINANCE (Binance hackers stole 192 tokens across 11 networks, court docs show) | COPPER (How copper’s plunge could hurt the AI buildout)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-19T06:41Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Trend up, RSI high, price near 20‑day high",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T06:30Z",
+  "utc": "2026-11-19T06:42Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
@@ -22,14 +22,14 @@
    "trend": "giu",
    "rsi": 34.7
   },
-  "skip": "GBPUSD=X: gia' aperta",
+  "skip": "GBPUSD=X: quota giornaliera esaurita",
   "stats": {
-   "n": 83,
-   "moved": 63,
+   "n": 84,
+   "moved": 64,
    "avg": -0.022,
    "total": -1.4,
-   "wr": 48,
-   "open": 1
+   "wr": 47,
+   "open": 0
   }
  }
 }
