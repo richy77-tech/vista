@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T11:38Z",
-  "news": "Outflows hit $2.9B, sharp sell pressure",
+  "utc": "2026-11-19T11:49Z",
+  "news": "Unexpected $2.9B ETF outflows weaken Bitcoin below $64k",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Trend down, price near lower bound, yet today up +1.55%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T11:38Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-19T11:49Z",
+  "pick": {
+   "sym": "GBPUSD=X",
+   "side": "short",
+   "rr": 2.0,
+   "change": -0.35,
+   "trend": "giu",
+   "rsi": 35.8
+  },
+  "skip": "GBPUSD=X: quota giornaliera esaurita",
   "stats": {
    "n": 84,
    "moved": 64,
