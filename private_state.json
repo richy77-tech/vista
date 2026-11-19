@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T16:23Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-19T16:35Z",
+  "news": "ETF outflows 2.9B erode bullish sentiment",
   "news_sym": "BTC-USD",
-  "chart": "Downtrend, low RSI, price near lower range",
+  "chart": "Price near 20‑day low, downtrend confirmed, low RSI still within downtrend bias",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T16:23Z",
+  "utc": "2026-11-19T16:35Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 3.91,
+   "change": 3.18,
    "trend": "su",
-   "rsi": 60.3
+   "rsi": 60.0
   },
-  "skip": "risk: cooldown: ^VIX uscita 0.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 0.5h fa, cooldown 6h",
   "stats": {
    "n": 85,
    "moved": 65,
