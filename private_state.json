@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T16:56Z",
+  "utc": "2026-11-19T17:01Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "RSI 22 in a downward trend defeats long setup",
+  "chart": "Downtrend, RSI22, price 4% above min, no support",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T16:56Z",
+  "utc": "2026-11-19T17:01Z",
   "pick": {
-   "sym": "GBPUSD=X",
-   "side": "short",
+   "sym": "^VIX",
+   "side": "long",
    "rr": 2.0,
-   "change": -0.67,
-   "trend": "giu",
-   "rsi": 33.4
+   "change": 1.18,
+   "trend": "su",
+   "rsi": 59.2
   },
-  "skip": "GBPUSD=X: quota giornaliera esaurita",
+  "skip": "risk: cooldown: ^VIX uscita 0.9h fa, cooldown 6h",
   "stats": {
    "n": 85,
    "moved": 65,
