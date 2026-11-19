@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T13:29Z",
+  "utc": "2026-11-19T13:34Z",
   "news": "Binance freezes $6.5B, unexpected shock to BTC price",
   "news_sym": "BTC-USD",
-  "chart": "Price up, RSI low, trend down, today +1%",
+  "chart": "Price up today, low RSI, near low end of range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T13:29Z",
+  "utc": "2026-11-19T13:34Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.44,
+   "change": -0.41,
    "trend": "giu",
-   "rsi": 35.1
+   "rsi": 35.4
   },
   "skip": "GBPUSD=X: quota giornaliera esaurita",
   "stats": {
