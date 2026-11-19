@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T10:59Z",
+  "utc": "2026-11-19T11:04Z",
   "news": "Unexpected $2.9B ETF outflows weaken Bitcoin below $64k",
   "news_sym": "BTC-USD",
-  "chart": "Price is near low, RSI low, today’s move up counters short thesis",
+  "chart": "RSI low, price near recent low, trend down contradicts short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T10:59Z",
+  "utc": "2026-11-19T11:04Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
