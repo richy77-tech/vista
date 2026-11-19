@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T16:07Z",
-  "news": "Binance freeze $6.5B hack assets, negative crypto sentiment",
+  "utc": "2026-11-19T16:12Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Price at 5% of range, RSI 22, downtrend and weak volume",
+  "chart": "Trend down, RSI low but price near 20‑day low, weak rebound possibility",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T16:07Z",
+  "utc": "2026-11-19T16:12Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 5.09,
+   "change": 3.75,
    "trend": "su",
-   "rsi": 60.7
+   "rsi": 60.2
   },
-  "skip": "risk: cooldown: ^VIX uscita 0.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 0.1h fa, cooldown 6h",
   "stats": {
    "n": 85,
    "moved": 65,
