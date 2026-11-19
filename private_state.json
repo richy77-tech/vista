@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T07:29Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-19T07:34Z",
+  "news": "Fed hike may backfire, USD selling pressure",
   "news_sym": "DX-Y.NYB",
   "chart": "price near upper range, strong uptrend, RSI high",
   "verdict": null,
@@ -13,14 +13,14 @@
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T07:29Z",
+  "utc": "2026-11-19T07:34Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.39,
+   "change": -0.37,
    "trend": "giu",
-   "rsi": 35.5
+   "rsi": 35.7
   },
   "skip": "GBPUSD=X: quota giornaliera esaurita",
   "stats": {
