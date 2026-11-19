@@ -4,25 +4,18 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T10:21Z",
-  "news": "Fed hike may backfire, USD selling pressure",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, RSI high, price near upper range",
+  "utc": "2026-11-19T10:33Z",
+  "news": "Unexpected $2.9B ETF outflows weaken Bitcoin below $64k",
+  "news_sym": "BTC-USD",
+  "chart": "price close to low, RSI low, but today’s move is bullish",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T10:21Z",
-  "pick": {
-   "sym": "GBPUSD=X",
-   "side": "short",
-   "rr": 2.0,
-   "change": -0.37,
-   "trend": "giu",
-   "rsi": 35.6
-  },
-  "skip": "GBPUSD=X: quota giornaliera esaurita",
+  "utc": "2026-11-19T10:33Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 84,
    "moved": 64,
