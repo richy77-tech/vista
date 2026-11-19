@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T17:06Z",
-  "news": "Binance $6.5B freezing order raises hack risk, bearish for BTC",
+  "utc": "2026-11-19T17:11Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "RSI 21 indicates potential reversal, price near daily low",
+  "chart": "Price near 20‑day low, RSI 21, downtrend, falling today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T17:06Z",
+  "utc": "2026-11-19T17:11Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 3.42,
+   "change": 5.94,
    "trend": "su",
-   "rsi": 60.1
+   "rsi": 61.0
   },
-  "skip": "risk: cooldown: ^VIX uscita 1.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 1.1h fa, cooldown 6h",
   "stats": {
    "n": 85,
    "moved": 65,
