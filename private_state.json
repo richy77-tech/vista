@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T04:44Z",
-  "news": "Binance hack freezing $6.5B triggers BTC selloff",
+  "utc": "2026-11-19T04:49Z",
+  "news": "Binance freeze shocks crypto prices",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, negative return, RSI low in flat trend",
+  "chart": "Price near 20‑day low, flat trend, low RSI, slight decline – no strong short signal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T04:44Z",
+  "utc": "2026-11-19T04:49Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.55,
+   "change": -0.54,
    "trend": "giu",
    "rsi": 34.3
   },
