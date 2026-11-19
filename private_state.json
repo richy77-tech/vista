@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T00:12Z",
+  "utc": "2026-11-19T00:17Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
   "chart": "Trend up, RSI 69, price near 20‑day high",
@@ -13,23 +13,23 @@
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T00:12Z",
+  "utc": "2026-11-19T00:17Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.46,
+   "change": -0.47,
    "trend": "giu",
-   "rsi": 35.0
+   "rsi": 34.9
   },
-  "skip": "GBPUSD=X: gia' aperta",
+  "skip": "risk: cooldown: GBPUSD=X uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 82,
-   "moved": 62,
-   "avg": -0.023,
+   "n": 83,
+   "moved": 63,
+   "avg": -0.022,
    "total": -1.4,
-   "wr": 47,
-   "open": 1
+   "wr": 48,
+   "open": 0
   }
  }
 }

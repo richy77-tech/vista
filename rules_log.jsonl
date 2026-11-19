@@ -7172,3 +7172,5 @@
 {"ts": "2026-11-19T00:06Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.45, "trend": "giu", "rsi": 35.0}, "skip": "GBPUSD=X: gia' aperta", "risk": null}
 {"ts": "2026-11-19T00:09Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.45, "trend": "giu", "rsi": 35.0}, "skip": "GBPUSD=X: gia' aperta", "risk": null}
 {"ts": "2026-11-19T00:12Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 35.0}, "skip": "GBPUSD=X: gia' aperta", "risk": null}
+{"ts": "2026-11-19T00:14Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 35.0}, "skip": "GBPUSD=X: gia' aperta", "risk": null}
+{"ts": "2026-11-19T00:17Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.47, "trend": "giu", "rsi": 34.9}, "skip": "risk: cooldown: GBPUSD=X uscita 0.0h fa, cooldown 6h", "risk": "cooldown: GBPUSD=X uscita 0.0h fa, cooldown 6h"}
