@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T05:58Z",
-  "news": "Binance froze $6.5B, immediate sell pressure",
-  "news_sym": "BTC-USD",
-  "chart": "RSI22 low, price near lower range, trend flat",
+  "utc": "2026-11-19T06:03Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "ETH-USD",
+  "chart": "regola: trend e movimento dalla stessa parte",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T05:58Z",
+  "utc": "2026-11-19T06:03Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.52,
+   "change": -0.51,
    "trend": "giu",
    "rsi": 34.5
   },
-  "skip": "risk: cooldown: GBPUSD=X uscita 5.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: GBPUSD=X uscita 5.8h fa, cooldown 6h",
   "stats": {
    "n": 83,
    "moved": 63,
