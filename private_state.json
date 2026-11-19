@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T08:25Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price above recent max, RSI overbought, trend up",
+  "utc": "2026-11-19T08:30Z",
+  "news": "ETF outflows hit 3‑month low, bearish pressure",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T08:25Z",
+  "utc": "2026-11-19T08:30Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.39,
+   "change": -0.4,
    "trend": "giu",
    "rsi": 35.5
   },
