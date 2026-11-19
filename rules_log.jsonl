@@ -7168,3 +7168,5 @@
 {"ts": "2026-11-18T23:56Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-18T23:59Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-19T00:01Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-19T00:04Z", "kind": "open", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.45, "trend": "giu", "rsi": 35.1}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.40R"}
+{"ts": "2026-11-19T00:06Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.45, "trend": "giu", "rsi": 35.0}, "skip": "GBPUSD=X: gia' aperta", "risk": null}
