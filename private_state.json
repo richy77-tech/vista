@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T04:05Z",
+  "utc": "2026-11-19T04:10Z",
   "news": "Binance freeze shocks crypto prices",
   "news_sym": "BTC-USD",
-  "chart": "Flat trend, low RSI but price above prior low, no clear reversal",
+  "chart": "Flat trend, low RSI, price at 7% of range, decline today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T04:05Z",
+  "utc": "2026-11-19T04:10Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.57,
+   "change": -0.58,
    "trend": "giu",
-   "rsi": 34.1
+   "rsi": 34.0
   },
-  "skip": "risk: cooldown: GBPUSD=X uscita 3.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: GBPUSD=X uscita 3.9h fa, cooldown 6h",
   "stats": {
    "n": 83,
    "moved": 63,
