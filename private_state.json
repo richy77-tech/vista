@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-19T12:55Z",
+  "utc": "2026-11-19T13:08Z",
   "news": "Significant ETF outflows hit a new high, pushing price below $64k",
   "news_sym": "BTC-USD",
-  "chart": "RSI low, price above yesterday's high, bearish trend",
+  "chart": "Trend down, RSI low, price up today, contradicts short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-19",
  "last_rules": {
-  "utc": "2026-11-19T12:55Z",
+  "utc": "2026-11-19T13:08Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
    "rr": 2.0,
-   "change": -0.36,
+   "change": -0.4,
    "trend": "giu",
-   "rsi": 35.8
+   "rsi": 35.4
   },
   "skip": "GBPUSD=X: quota giornaliera esaurita",
   "stats": {
