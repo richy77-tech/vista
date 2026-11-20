@@ -7680,3 +7680,5 @@
 {"ts": "2026-11-20T04:21Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 15.8, "trend": "su", "rsi": 64.1}, "skip": "risk: cooldown: ^VIX uscita 5.9h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 5.9h fa, cooldown 6h"}
 {"ts": "2026-11-20T04:23Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 15.8, "trend": "su", "rsi": 64.1}, "skip": "risk: cooldown: ^VIX uscita 5.9h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 5.9h fa, cooldown 6h"}
 {"ts": "2026-11-20T04:26Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 15.8, "trend": "su", "rsi": 64.1}, "skip": "risk: cooldown: ^VIX uscita 6.0h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 6.0h fa, cooldown 6h"}
+{"ts": "2026-11-20T04:28Z", "kind": "open", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 15.8, "trend": "su", "rsi": 64.1}, "skip": "", "risk": "ok: R/R 2.00, 0 aperte, rischio 1.0%, dd -1.29R"}
+{"ts": "2026-11-20T04:31Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 15.8, "trend": "su", "rsi": 64.1}, "skip": "^VIX: gia' aperta", "risk": null}
