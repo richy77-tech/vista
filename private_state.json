@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T19:58Z",
+  "utc": "2026-11-20T20:03Z",
   "news": "Bitcoin breaching $59k triggers renewed bearish sentiment",
   "news_sym": "BTC-USD",
-  "chart": "Trend down, RSI very low, price near min, day’s move down",
+  "chart": "Price near 20‑day low, downtrend, steep drop today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T19:58Z",
+  "utc": "2026-11-20T20:03Z",
   "pick": {
-   "sym": "^VIX",
-   "side": "long",
+   "sym": "GBPUSD=X",
+   "side": "short",
    "rr": 2.0,
-   "change": 18.5,
-   "trend": "su",
-   "rsi": 69.8
+   "change": -0.46,
+   "trend": "giu",
+   "rsi": 31.6
   },
-  "skip": "^VIX: quota giornaliera esaurita",
+  "skip": "risk: cooldown: GBPUSD=X uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 89,
-   "moved": 67,
-   "avg": -0.019,
-   "total": -1.3,
-   "wr": 48,
-   "open": 1
+   "n": 90,
+   "moved": 68,
+   "avg": -0.018,
+   "total": -1.2,
+   "wr": 49,
+   "open": 0
   }
  },
  "paused": false
