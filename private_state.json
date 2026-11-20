@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T05:01Z",
+  "utc": "2026-11-20T05:07Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "^GSPC",
   "chart": "Price at 20‑day low, flat trend, RSI low – no short signal",
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T05:02Z",
+  "utc": "2026-11-20T05:07Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
