@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "GBPUSD=X": {
+   "symbol": "GBPUSD=X",
+   "side": "short",
+   "entry": 1.3093804121017456,
+   "stop": 1.3231540790625982,
+   "target": 1.2818330781800407,
+   "atr": 0.009182444640568324,
+   "bars": 1,
+   "entry_ts": "2026-11-20T19:44+00:00",
+   "reason": "regole: trend giu, movimento -0.40%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "giu",
+    "rsi": 31.993696939401275,
+    "change": -0.4019781995446224
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
