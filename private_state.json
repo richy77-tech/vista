@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T15:02Z",
+  "utc": "2026-11-20T15:07Z",
   "news": "Bots exploited exposed keys, immediate price drop",
   "news_sym": "BTC-USD",
-  "chart": "RSI very low opposes downtrend short",
+  "chart": "Price near lower bound, trend down, RSI 20, today down 0.89%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T15:02Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-20T15:07Z",
+  "pick": {
+   "sym": "^VIX",
+   "side": "long",
+   "rr": 2.0,
+   "change": 0.63,
+   "trend": "su",
+   "rsi": 64.3
+  },
+  "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
    "n": 89,
    "moved": 67,
