@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T18:19Z",
+  "utc": "2026-11-20T18:31Z",
   "news": "BTC fell below 59k, unexpected drop triggers sell",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend e movimento dalla stessa parte",
+  "chart": "Price at 0% of range, trend down but RSI low, weak short case",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T18:19Z",
+  "utc": "2026-11-20T18:31Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 13.57,
+   "change": 13.01,
    "trend": "su",
-   "rsi": 68.5
+   "rsi": 68.3
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
