@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T19:46Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "^GSPC",
-  "chart": "regola: trend o movimento non confermano",
+  "utc": "2026-11-20T19:58Z",
+  "news": "Bitcoin breaching $59k triggers renewed bearish sentiment",
+  "news_sym": "BTC-USD",
+  "chart": "Trend down, RSI very low, price near min, day’s move down",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T19:46Z",
+  "utc": "2026-11-20T19:58Z",
   "pick": {
-   "sym": "GBPUSD=X",
-   "side": "short",
+   "sym": "^VIX",
+   "side": "long",
    "rr": 2.0,
-   "change": -0.41,
-   "trend": "giu",
-   "rsi": 31.9
+   "change": 18.5,
+   "trend": "su",
+   "rsi": 69.8
   },
-  "skip": "GBPUSD=X: gia' aperta",
+  "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
    "n": 89,
    "moved": 67,
