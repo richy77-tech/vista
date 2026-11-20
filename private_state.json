@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T04:21Z",
+  "utc": "2026-11-20T04:26Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "^GSPC",
   "chart": "Price touches minimum, RSI low, bearish pullback but flat trend unclear",
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T04:21Z",
+  "utc": "2026-11-20T04:26Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 64.1
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 6.0h fa, cooldown 6h",
   "stats": {
    "n": 86,
    "moved": 65,
