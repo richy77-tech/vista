@@ -7780,3 +7780,5 @@
 {"ts": "2026-11-20T08:41Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-20T08:44Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.39, "trend": "su", "rsi": 64.3}, "skip": "risk: cooldown: ^VIX uscita 4.1h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 4.1h fa, cooldown 6h"}
 {"ts": "2026-11-20T08:46Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.46, "trend": "su", "rsi": 64.3}, "skip": "risk: cooldown: ^VIX uscita 4.1h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 4.1h fa, cooldown 6h"}
+{"ts": "2026-11-20T08:49Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.95, "trend": "su", "rsi": 64.5}, "skip": "risk: cooldown: ^VIX uscita 4.1h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 4.1h fa, cooldown 6h"}
+{"ts": "2026-11-20T08:51Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 1.05, "trend": "su", "rsi": 64.5}, "skip": "risk: cooldown: ^VIX uscita 4.2h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 4.2h fa, cooldown 6h"}
