@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-20T10:00Z",
+  "utc": "2026-11-20T10:05Z",
   "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "^GSPC",
-  "chart": "Price at 20‑day low, flat trend, RSI low – no short signal",
+  "news_sym": "^IXIC",
+  "chart": "Price at recent low, downward move, RSI low, weak trend.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-20",
  "last_rules": {
-  "utc": "2026-11-20T10:00Z",
+  "utc": "2026-11-20T10:05Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 4.32,
+   "change": 4.57,
    "trend": "su",
-   "rsi": 65.6
+   "rsi": 65.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 5.4h fa, cooldown 6h",
   "stats": {
    "n": 87,
    "moved": 65,
