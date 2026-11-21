@@ -1,19 +1,19 @@
 {
- "last_brief": "2026-11-20",
+ "last_brief": "2026-11-21",
  "last_in": "2026-11-20T02:07:32Z",
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-21T06:59Z",
+  "utc": "2026-11-21T07:04Z",
   "news": "New low below $59k shocks market",
   "news_sym": "BTC-USD",
-  "chart": "Trend down, but RSI extremely low suggests reversal pressure.",
+  "chart": "Trend down, RSI very low, high volume, price near low end of range.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-21",
  "last_rules": {
-  "utc": "2026-11-21T06:59Z",
+  "utc": "2026-11-21T07:04Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
