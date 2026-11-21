@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-21T02:21Z",
+  "utc": "2026-11-21T02:26Z",
   "news": "BTC fell below 59k, unexpected drop triggers sell",
   "news_sym": "BTC-USD",
-  "chart": "Trend down, RSI low, price just above 20‑day low, today drop 4.94%",
+  "chart": "Price at lowest 20‑day level, strong downtrend, RSI undersold, high volume.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-21",
  "last_rules": {
-  "utc": "2026-11-21T02:21Z",
+  "utc": "2026-11-21T02:26Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
