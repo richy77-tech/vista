@@ -8184,3 +8184,5 @@
 {"ts": "2026-11-21T10:06Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 31.6}, "skip": "GBPUSD=X: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-21T10:09Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 31.6}, "skip": "GBPUSD=X: quota giornaliera esaurita", "risk": null}
 {"ts": "2026-11-21T10:11Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 31.6}, "skip": "GBPUSD=X: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-21T10:14Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 31.6}, "skip": "GBPUSD=X: quota giornaliera esaurita", "risk": null}
+{"ts": "2026-11-21T10:16Z", "kind": "skip", "pick": {"sym": "GBPUSD=X", "side": "short", "rr": 2.0, "change": -0.46, "trend": "giu", "rsi": 31.6}, "skip": "GBPUSD=X: quota giornaliera esaurita", "risk": null}
