@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-21T06:08Z",
+  "utc": "2026-11-21T06:13Z",
   "news": "New low below $59k shocks market",
   "news_sym": "BTC-USD",
-  "chart": "RSI 15 and price at min20 indicate reversal, not decline",
+  "chart": "Price below 20‑day low, RSI ultra‑low, negative trend and big drop",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-21",
  "last_rules": {
-  "utc": "2026-11-21T06:08Z",
+  "utc": "2026-11-21T06:13Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
