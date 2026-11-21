@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-21T15:13Z",
+  "utc": "2026-11-21T15:18Z",
   "news": "Bitcoin fell below $59k, breaching recent support",
   "news_sym": "BTC-USD",
-  "chart": "RSI basso e prezzo sotto EMA, ma oggi rallentamento",
+  "chart": "Price up 1.53%, RSI low, downtrend",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-21",
  "last_rules": {
-  "utc": "2026-11-21T15:13Z",
+  "utc": "2026-11-21T15:18Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
