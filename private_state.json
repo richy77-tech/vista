@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-21T00:19Z",
+  "utc": "2026-11-21T00:24Z",
   "news": "BTC fell below 59k, unexpected drop triggers sell",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, downtrend, RSI 18 confirms weakness",
+  "chart": "Price at 0% of 20‑day range, trend down, RSI low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-21",
  "last_rules": {
-  "utc": "2026-11-21T00:19Z",
+  "utc": "2026-11-21T00:24Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
@@ -22,7 +22,7 @@
    "trend": "giu",
    "rsi": 31.6
   },
-  "skip": "risk: cooldown: GBPUSD=X uscita 4.3h fa, cooldown 6h",
+  "skip": "risk: cooldown: GBPUSD=X uscita 4.4h fa, cooldown 6h",
   "stats": {
    "n": 90,
    "moved": 68,
