@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-21T10:21Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-21T10:27Z",
+  "news": "Bitcoin breaks key support, bearish pressure",
   "news_sym": "BTC-USD",
-  "chart": "Price near recent low, RSI 17 in downtrend, negative move today.",
+  "chart": "Trend down, RSI 17, price near low, volume 2.46x, today negative",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-21",
  "last_rules": {
-  "utc": "2026-11-21T10:22Z",
+  "utc": "2026-11-21T10:27Z",
   "pick": {
    "sym": "GBPUSD=X",
    "side": "short",
