@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-22T15:02Z",
-  "news": "Nvidia 48% crash shocks tech, likely equity short",
-  "news_sym": "^IXIC",
-  "chart": "Price still above recent low, flat trend, no breakout confirmed",
+  "utc": "2026-11-22T15:07Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price near top, strong uptrend, RSI high, position 95%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-22",
  "last_rules": {
-  "utc": "2026-11-22T15:02Z",
+  "utc": "2026-11-22T15:07Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
