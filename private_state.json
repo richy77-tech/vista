@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-22T22:02Z",
-  "news": "Port cyber attack threatens oil supply, bullish pressure",
+  "utc": "2026-11-22T22:07Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "CL=F",
-  "chart": "Price near 20‑day low, flat trend, RSI moderate, no breakout",
+  "chart": "Trend flat, RSI 35 not overbought, price near low but not strong short signal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-22",
  "last_rules": {
-  "utc": "2026-11-22T22:02Z",
+  "utc": "2026-11-22T22:07Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
