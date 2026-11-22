@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-22T12:36Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price near top, strong uptrend, RSI high, position 95%",
+  "utc": "2026-11-22T12:41Z",
+  "news": "Nvidia 48% crash shocks AI sector, likely drags S&P down",
+  "news_sym": "^GSPC",
+  "chart": "Price near lower bound, RSI low but trend flat, no clear bearish pressure.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-22",
  "last_rules": {
-  "utc": "2026-11-22T12:36Z",
+  "utc": "2026-11-22T12:41Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
