@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T14:40Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend o movimento non confermano",
+  "utc": "2026-11-23T14:53Z",
+  "news": "Nvidia 30% jump boosts tech weight, lifts Nasdaq fast",
+  "news_sym": "^IXIC",
+  "chart": "Trend neutro, RSI medio, volume basso, prezzo vicino minimo",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T14:40Z",
+  "utc": "2026-11-23T14:53Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
