@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T18:33Z",
-  "news": "Nasdaq surges 7% on AI hype",
-  "news_sym": "^IXIC",
-  "chart": "Price 41% range, RSI neutral, low volume, flat trend.",
+  "utc": "2026-11-23T18:38Z",
+  "news": "notizie forti ma su asset non seguiti: NVDA (Nvidia reinstates Jensen Huang as chief executive) | NVIDIA (NVDA) (Jensen Huang’s Wealth Rises $36 Billion as Nvidia Surge Burns Short Se) | NVIDIA (NVDA) (Huang’s return is a triumph of money over morals)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T18:33Z",
+  "utc": "2026-11-23T18:38Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
