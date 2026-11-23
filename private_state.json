@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T16:31Z",
-  "news": "Nasdaq surges 7% on AI hype",
-  "news_sym": "^IXIC",
-  "chart": "Price in mid-range, flat trend, low RSI, weak volume.",
+  "utc": "2026-11-23T16:37Z",
+  "news": "Binance hack likely pressures BTC down",
+  "news_sym": "BTC-USD",
+  "chart": "RSI low, price near low, trend down, volume up",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T16:32Z",
+  "utc": "2026-11-23T16:37Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
