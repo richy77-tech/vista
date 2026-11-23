@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T16:37Z",
+  "utc": "2026-11-23T16:48Z",
   "news": "Binance hack likely pressures BTC down",
   "news_sym": "BTC-USD",
-  "chart": "RSI low, price near low, trend down, volume up",
+  "chart": "Trend down, RSI low, price 27% up, ATR high",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T16:37Z",
+  "utc": "2026-11-23T16:48Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
