@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T02:06Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "Price below 20‑day low, RSI low, but today up",
+  "utc": "2026-11-23T02:17Z",
+  "news": "Nvidia crash shocks tech, weakens S&P",
+  "news_sym": "^GSPC",
+  "chart": "Price near lower bound, RSI low but trend flat, no clear bearish pressure.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T02:06Z",
+  "utc": "2026-11-23T02:17Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
