@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T23:30Z",
-  "news": "North Korea moving $247M hack loot spooks BTC market",
+  "utc": "2026-11-23T23:36Z",
+  "news": "N. Korea 247 M flow, supply spike",
   "news_sym": "BTC-USD",
-  "chart": "Trend down but price rebounded, RSI low not enough",
+  "chart": "RSI 28, downtrend, price near lower range, ATR high, volume 1.32x",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T23:30Z",
+  "utc": "2026-11-23T23:36Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
