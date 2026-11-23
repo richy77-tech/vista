@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T04:43Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-23T04:48Z",
+  "news": "Fed rate bet shift erases 50bps",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, high RSI, price at 20‑day high",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T04:43Z",
+  "utc": "2026-11-23T04:48Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
