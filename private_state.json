@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T06:07Z",
-  "news": "Unexpected flash crash to $17k",
+  "utc": "2026-11-23T06:12Z",
+  "news": "Unexpected flash crash suggests bearish pressure",
   "news_sym": "BTC-USD",
-  "chart": "Price above prior max amid downtrend, RSI low implausible for short",
+  "chart": "RSI too low for short in downtrend, no volume confirmation",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T06:07Z",
+  "utc": "2026-11-23T06:12Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
