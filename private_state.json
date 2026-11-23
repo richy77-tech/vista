@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T18:12Z",
+  "utc": "2026-11-23T18:17Z",
   "news": "Board reinstates Huang, Nasdaq rally",
   "news_sym": "^IXIC",
-  "chart": "RSI 42, price 39% in range, weak volume, ATR 3.34%",
+  "chart": "Price rests 40% up range, flat trend, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T18:12Z",
+  "utc": "2026-11-23T18:17Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
