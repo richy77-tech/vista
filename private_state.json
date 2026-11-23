@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T14:53Z",
+  "utc": "2026-11-23T15:05Z",
   "news": "Nvidia 30% jump boosts tech weight, lifts Nasdaq fast",
   "news_sym": "^IXIC",
-  "chart": "Trend neutro, RSI medio, volume basso, prezzo vicino minimo",
+  "chart": "Low volume and flat trend reduce long likelihood",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T14:53Z",
+  "utc": "2026-11-23T15:05Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
