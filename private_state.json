@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T17:56Z",
-  "news": "Board reinstates Huang, Nasdaq rally",
+  "utc": "2026-11-23T18:01Z",
+  "news": "Board reinstates Huang, unexpected, boosts Nvidia, Nasdaq",
   "news_sym": "^IXIC",
-  "chart": "Trend flat, RSI neutral, price 39% in range, no breakout confirmation",
+  "chart": "Price near low of range, flat trend, weak volume, moderate RSI",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T17:56Z",
+  "utc": "2026-11-23T18:01Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
