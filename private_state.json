@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T16:07Z",
-  "news": "Grande ransomware, ordini misteriosi, scatta forte, volume alto, rischi di rilevo sulla liquidità",
+  "utc": "2026-11-23T16:13Z",
+  "news": "hack $247M injects bullish sentiment",
   "news_sym": "BTC-USD",
-  "chart": "Trend down, RSI low, price near bottom, no strength for long",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T16:08Z",
+  "utc": "2026-11-23T16:13Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
