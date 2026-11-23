@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-23T02:51Z",
+  "utc": "2026-11-23T02:56Z",
   "news": "Nvidia crash shocks tech, weakens S&P",
   "news_sym": "^GSPC",
   "chart": "Price near lower bound, RSI low but trend flat, no clear bearish pressure.",
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-23",
  "last_rules": {
-  "utc": "2026-11-23T02:51Z",
+  "utc": "2026-11-23T02:56Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
