@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T00:51Z",
+  "utc": "2026-11-24T01:02Z",
   "news": "N. Korea 247 M flow, supply spike",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near low, trend down, RSI 27, but today's move up",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T00:51Z",
+  "utc": "2026-11-24T01:02Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
