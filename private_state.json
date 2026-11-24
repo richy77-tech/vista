@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T13:10Z",
-  "news": "notizie forti ma su asset non seguiti: ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-24T13:23Z",
+  "news": "Tariffs re‑enter, BTC pulls below $60k",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend e movimento dalla stessa parte",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T13:10Z",
+  "utc": "2026-11-24T13:23Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 7.93,
+   "change": 8.0,
    "trend": "su",
    "rsi": 58.2
   },
-  "skip": "risk: cooldown: ^VIX uscita 4.1h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 4.3h fa, cooldown 6h",
   "stats": {
    "n": 95,
    "moved": 71,
