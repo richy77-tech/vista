@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T12:00Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "SI=F",
-  "chart": "regola: trend o movimento non confermano",
+  "utc": "2026-11-24T12:10Z",
+  "news": "notizie forti ma su asset non seguiti: USDC (U.S. seeks $1.1 billion seized in Binance hack as North Korean funds k) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T12:00Z",
+  "utc": "2026-11-24T12:10Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 6.42,
+   "change": 6.24,
    "trend": "su",
    "rsi": 57.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 2.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 3.1h fa, cooldown 6h",
   "stats": {
    "n": 95,
    "moved": 71,
