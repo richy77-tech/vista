@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T04:25Z",
-  "news": "NKorea moves $247M hack loot via mixers, bearish pressure on BTC",
+  "utc": "2026-11-24T04:30Z",
+  "news": "N. Korea 247 M flow, supply spike",
   "news_sym": "BTC-USD",
-  "chart": "Price near lower 20% of range, trend down, RSI low, volume up",
+  "chart": "Price near low, RSI low, trend down – short lacks confirmation",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T04:25Z",
+  "utc": "2026-11-24T04:30Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.56,
+   "change": -0.55,
    "trend": "giu",
    "rsi": 32.4
   },
-  "skip": "risk: cooldown: GC=F uscita 1.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 1.1h fa, cooldown 6h",
   "stats": {
    "n": 94,
    "moved": 70,
