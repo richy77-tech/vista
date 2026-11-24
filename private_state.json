@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T17:21Z",
+  "utc": "2026-11-24T17:26Z",
   "news": "notizie forti ma su asset non seguiti: USDC (Justice Department Moves to Forfeit $1.1B in USDC From North Korea's B) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
@@ -13,23 +13,23 @@
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T17:21Z",
+  "utc": "2026-11-24T17:26Z",
   "pick": {
-   "sym": "^VIX",
-   "side": "long",
+   "sym": "GC=F",
+   "side": "short",
    "rr": 2.0,
-   "change": 4.06,
-   "trend": "su",
-   "rsi": 57.1
+   "change": -2.29,
+   "trend": "giu",
+   "rsi": 30.2
   },
-  "skip": "^VIX: quota giornaliera esaurita",
+  "skip": null,
   "stats": {
    "n": 96,
    "moved": 72,
    "avg": -0.012,
    "total": -0.9,
    "wr": 49,
-   "open": 0
+   "open": 1
   }
  },
  "paused": false
