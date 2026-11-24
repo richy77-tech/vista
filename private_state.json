@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T11:12Z",
-  "news": "notizie forti ma su asset non seguiti: USDC (U.S. seeks $1.1 billion seized in Binance hack as North Korean funds k) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr) | USDC (US seeks to recover $1.1B in crypto stolen in North Korea-linked Binan)",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-24T11:17Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "CL=F",
+  "chart": "Price near 20‑day low, flat trend, low volume, modest down move",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T11:12Z",
+  "utc": "2026-11-24T11:17Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 7.1,
+   "change": 7.51,
    "trend": "su",
-   "rsi": 57.9
+   "rsi": 58.0
   },
-  "skip": "risk: cooldown: ^VIX uscita 2.1h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 2.2h fa, cooldown 6h",
   "stats": {
    "n": 95,
    "moved": 71,
