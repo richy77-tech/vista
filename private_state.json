@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T07:29Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "^IXIC",
-  "chart": "Price up 6.51%, mid-range, flat trend, RSI 42, ATR 3.35%",
+  "utc": "2026-11-24T07:34Z",
+  "news": "N. Korea 247 M flow, supply spike",
+  "news_sym": "BTC-USD",
+  "chart": "Trend is down but price right at bottom 20% contradicts short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T07:29Z",
+  "utc": "2026-11-24T07:34Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.92,
+   "change": -0.85,
    "trend": "giu",
-   "rsi": 31.9
+   "rsi": 32.0
   },
-  "skip": "risk: cooldown: GC=F uscita 4.1h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 4.2h fa, cooldown 6h",
   "stats": {
    "n": 94,
    "moved": 70,
