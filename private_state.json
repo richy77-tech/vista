@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T07:56Z",
-  "news": "NKorea moves $247M hack loot via mixers, bearish pressure on BTC",
-  "news_sym": "BTC-USD",
-  "chart": "Price heads down, RSI low, near lowest 20% of 20‑day range.",
+  "utc": "2026-11-24T08:01Z",
+  "news": "notizie forti ma su asset non seguiti: NVDA (Tech stocks surge on Jensen Huang’s return) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr) | USDC (US seeks to recover $1.1B in crypto stolen in North Korea-linked Binan)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T07:56Z",
+  "utc": "2026-11-24T08:01Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.81,
+   "change": -0.84,
    "trend": "giu",
-   "rsi": 32.1
+   "rsi": 32.0
   },
   "skip": "risk: cooldown: GC=F uscita 4.6h fa, cooldown 6h",
   "stats": {
