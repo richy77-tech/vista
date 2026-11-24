@@ -9416,3 +9416,5 @@
 {"ts": "2026-11-24T04:50Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.59, "trend": "giu", "rsi": 32.4}, "skip": "risk: cooldown: GC=F uscita 1.5h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.5h fa, cooldown 6h"}
 {"ts": "2026-11-24T04:53Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.59, "trend": "giu", "rsi": 32.4}, "skip": "risk: cooldown: GC=F uscita 1.5h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.5h fa, cooldown 6h"}
 {"ts": "2026-11-24T04:55Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.53, "trend": "giu", "rsi": 32.5}, "skip": "risk: cooldown: GC=F uscita 1.5h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.5h fa, cooldown 6h"}
+{"ts": "2026-11-24T04:58Z", "kind": "skip", "pick": {"sym": "GC=F", "side": "short", "rr": 2.0, "change": -0.42, "trend": "giu", "rsi": 32.6}, "skip": "risk: cooldown: GC=F uscita 1.6h fa, cooldown 6h", "risk": "cooldown: GC=F uscita 1.6h fa, cooldown 6h"}
+{"ts": "2026-11-24T05:00Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
