@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T23:48Z",
-  "news": "Coldcard exploit sparks Bitcoin security concerns",
+  "utc": "2026-11-24T23:53Z",
+  "news": "Nuovo exploit bitcoïn viene scoperto",
   "news_sym": "BTC-USD",
-  "chart": "RSI 25 signals potential reversal, price near recent low",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T23:48Z",
+  "utc": "2026-11-24T23:53Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
