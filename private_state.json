@@ -1,11 +1,11 @@
 {
- "last_brief": "2026-11-23",
+ "last_brief": "2026-11-24",
  "last_in": "2026-11-22T16:05:20Z",
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T06:56Z",
-  "news": "notizie forti ma su asset non seguiti: TAIWAN (Asian stocks rally as Taiwan surges 9% on Nvidia-led AI rebound) | NVDA (Tech stocks surge on Jensen Huang’s return) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr)",
+  "utc": "2026-11-24T07:07Z",
+  "news": "notizie forti ma su asset non seguiti: TAIWAN STOCK INDEX (Asian stocks rally as Taiwan surges 9% on Nvidia-led AI rebound) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr) | USDC (US seeks to recover $1.1B in crypto stolen in North Korea-linked Binan)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T06:56Z",
+  "utc": "2026-11-24T07:07Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.83,
+   "change": -0.69,
    "trend": "giu",
-   "rsi": 32.0
+   "rsi": 32.2
   },
-  "skip": "risk: cooldown: GC=F uscita 3.6h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 3.7h fa, cooldown 6h",
   "stats": {
    "n": 94,
    "moved": 70,
