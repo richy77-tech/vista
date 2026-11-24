@@ -1,5 +1,24 @@
 {
- "open": {},
+ "open": {
+  "^VIX": {
+   "symbol": "^VIX",
+   "side": "long",
+   "entry": 27.790000915527344,
+   "stop": 17.87392967087882,
+   "target": 47.62214340482439,
+   "atr": 6.610714163099017,
+   "bars": 0,
+   "entry_ts": "2026-11-24T15:05+00:00",
+   "reason": "regole: trend su, movimento +4.40%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 57.176771960981256,
+    "change": 4.395191733313405
+   }
+  }
+ },
  "closed": [
   {
    "symbol": "GC=F",
