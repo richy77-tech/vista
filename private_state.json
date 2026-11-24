@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T01:02Z",
-  "news": "N. Korea 247 M flow, supply spike",
-  "news_sym": "BTC-USD",
-  "chart": "Price near low, trend down, RSI 27, but today's move up",
+  "utc": "2026-11-24T01:13Z",
+  "news": "notizie forti ma su asset non seguiti: BINANCE (Un’ordinanza di un tribunale USA può congelare le tue crypto anche se ) | NVDA (Asian tech stocks surge in wake of Jensen Huang’s return) | NVIDIA (Nvidia surge: What investors should do with the stock and the AI trade)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T01:02Z",
+  "utc": "2026-11-24T01:13Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
