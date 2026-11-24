@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T00:24Z",
+  "utc": "2026-11-24T00:29Z",
   "news": "North Korea hauls stake through mixers, rattles crypto trust",
   "news_sym": "BTC-USD",
-  "chart": "Price at 61,194, 20‑day high 81,080, today’s move down 0.05%, RSI 27, ATR 5.03%, trend down",
+  "chart": "Trend down, RSI low, price 23% in range, volume up 1.33x",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T00:24Z",
+  "utc": "2026-11-24T00:29Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
