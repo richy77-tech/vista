@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T09:11Z",
-  "news": "NKorea moves $247M hack loot via mixers, bearish pressure on BTC",
-  "news_sym": "BTC-USD",
-  "chart": "Downward trend, low RSI, price near low, today declining",
+  "utc": "2026-11-24T09:16Z",
+  "news": "notizie forti ma su asset non seguiti: ICOP (ICOP shares surge nearly 10% on €74.5m contract wins) | NVDA (Tech stocks surge on Jensen Huang’s return) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T09:11Z",
+  "utc": "2026-11-24T09:16Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 1.54,
+   "change": 2.89,
    "trend": "su",
-   "rsi": 56.4
+   "rsi": 56.7
   },
-  "skip": "risk: cooldown: ^VIX uscita 0.1h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 0.2h fa, cooldown 6h",
   "stats": {
    "n": 95,
    "moved": 71,
