@@ -4,25 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T02:59Z",
-  "news": "North Korea laundering 247m via Binance hack—surprise, breaks market",
+  "utc": "2026-11-24T03:10Z",
+  "news": "N. Korea 247 M flow, supply spike",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20d low, downtrend, RSI 25",
+  "chart": "RSI indicates potential reversal, undermining short thesis",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T02:59Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-24T03:10Z",
+  "pick": {
+   "sym": "GC=F",
+   "side": "short",
+   "rr": 2.0,
+   "change": -0.38,
+   "trend": "giu",
+   "rsi": 32.7
+  },
+  "skip": null,
   "stats": {
    "n": 93,
    "moved": 69,
    "avg": -0.013,
    "total": -0.9,
    "wr": 49,
-   "open": 0
+   "open": 1
   }
  },
  "paused": false
