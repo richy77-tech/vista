@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T06:46Z",
+  "utc": "2026-11-24T06:51Z",
   "news": "N. Korea 247 M flow, supply spike",
   "news_sym": "BTC-USD",
-  "chart": "RSI remains low despite downtrend, hinting potential reversal",
+  "chart": "Trend down supports short, but RSI 26 indicates oversold, opposing thesis; price near lower 20‑day low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T06:46Z",
+  "utc": "2026-11-24T06:51Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.92,
+   "change": -0.87,
    "trend": "giu",
-   "rsi": 31.9
+   "rsi": 32.0
   },
-  "skip": "risk: cooldown: GC=F uscita 3.4h fa, cooldown 6h",
+  "skip": "risk: cooldown: GC=F uscita 3.5h fa, cooldown 6h",
   "stats": {
    "n": 94,
    "moved": 70,
