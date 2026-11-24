@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T14:02Z",
-  "news": "Tariffs re‑enter, BTC pulls below $60k",
+  "utc": "2026-11-24T14:13Z",
+  "news": "Tariff shock likely depresses risk assets",
   "news_sym": "BTC-USD",
-  "chart": "Price near 20‑day low, downtrend, low RSI, negative today",
+  "chart": "regola: trend e movimento dalla stessa parte",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T14:02Z",
+  "utc": "2026-11-24T14:13Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 10.97,
+   "change": 11.72,
    "trend": "su",
-   "rsi": 59.0
+   "rsi": 59.2
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.0h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 5.1h fa, cooldown 6h",
   "stats": {
    "n": 95,
    "moved": 71,
