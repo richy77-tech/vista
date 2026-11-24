@@ -4,7 +4,7 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T09:52Z",
+  "utc": "2026-11-24T09:57Z",
   "news": "notizie forti ma su asset non seguiti: SANOFI (Sanofi shares surge to more than one-year high after $41 bln Insmed de) | NVDA (Tech stocks surge on Jensen Huang’s return) | HORMUZ MINES (Iran says three tankers hit mines in Hormuz despite U.S. escort, as Tr)",
   "news_sym": null,
   "chart": null,
@@ -13,16 +13,16 @@
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T09:52Z",
+  "utc": "2026-11-24T09:57Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 3.16,
+   "change": 3.01,
    "trend": "su",
    "rsi": 56.8
   },
-  "skip": "risk: cooldown: ^VIX uscita 0.8h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 0.9h fa, cooldown 6h",
   "stats": {
    "n": 95,
    "moved": 71,
