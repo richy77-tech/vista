@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-24T03:15Z",
-  "news": "North Korea moving hack loot via mixers spooks Bitcoin",
+  "utc": "2026-11-24T03:20Z",
+  "news": "N. Korea 247 M flow, supply spike",
   "news_sym": "BTC-USD",
-  "chart": "RSI 25 indicates oversold, not supporting a short in a downtrend",
+  "chart": "Price below trend, ATR 5.36%, low RSI, today decline confirms short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-24",
  "last_rules": {
-  "utc": "2026-11-24T03:15Z",
+  "utc": "2026-11-24T03:20Z",
   "pick": {
    "sym": "GC=F",
    "side": "short",
    "rr": 2.0,
-   "change": -0.47,
+   "change": -0.5,
    "trend": "giu",
    "rsi": 32.5
   },
