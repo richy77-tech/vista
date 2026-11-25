@@ -4,25 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T08:25Z",
+  "utc": "2026-11-25T08:30Z",
   "news": "Trump shelved Russia deals, weakening financial markets",
   "news_sym": "GC=F",
-  "chart": "Trend down, RSI low, price near lower 20‑day min, low volume",
+  "chart": "Trend down, price near 20‑day low, RSI low, weak volume.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T08:25Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-25T08:30Z",
+  "pick": {
+   "sym": "^VIX",
+   "side": "long",
+   "rr": 2.0,
+   "change": 6.79,
+   "trend": "su",
+   "rsi": 57.6
+  },
+  "skip": null,
   "stats": {
    "n": 98,
    "moved": 74,
    "avg": -0.01,
    "total": -0.7,
    "wr": 50,
-   "open": 0
+   "open": 1
   }
  },
  "paused": false
