@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T03:18Z",
-  "news": "Scoperta vulnerabilità Coldcard, sicurezza forniture Bitcoin, mercato reagisce positivamente",
+  "utc": "2026-11-25T03:23Z",
+  "news": "Exploit news likely triggers BTC sell‑off",
   "news_sym": "BTC-USD",
-  "chart": "Trend down, RSI low, price near bottom, volume weak.",
+  "chart": "Price below yesterday’s low, downtrend, low RSI, 17% range bottom",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T03:18Z",
+  "utc": "2026-11-25T03:23Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
