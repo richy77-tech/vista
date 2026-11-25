@@ -1,9 +1,9 @@
 {
  "twin": "hb_private.txt",
- "twin_last": "2026-11-25T23:48:35Z",
+ "twin_last": "2026-11-25T23:54:01Z",
  "age_min": 1,
  "limit_min": 45,
  "stale": false,
- "checked": "2026-11-25T23:50:06Z",
+ "checked": "2026-11-25T23:55:28Z",
  "alert_at": "2026-11-25T16:52:19Z"
 }
