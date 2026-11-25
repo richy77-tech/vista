@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T06:29Z",
+  "utc": "2026-11-25T06:34Z",
   "news": "Trump shelved Russia deals, weakening financial markets",
   "news_sym": "GC=F",
-  "chart": "Strong downtrend, low RSI, price near support, short bias",
+  "chart": "Price near min, downtrend, low RSI support short",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T06:29Z",
+  "utc": "2026-11-25T06:34Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
