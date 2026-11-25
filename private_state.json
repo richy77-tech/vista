@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T10:39Z",
+  "utc": "2026-11-25T10:44Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "DX-Y.NYB",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price uptrend, high RSI, near upper range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T10:39Z",
+  "utc": "2026-11-25T10:44Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 11.31,
+   "change": 11.42,
    "trend": "su",
    "rsi": 58.9
   },
-  "skip": "risk: cooldown: ^VIX uscita 1.9h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 2.0h fa, cooldown 6h",
   "stats": {
    "n": 99,
    "moved": 75,
