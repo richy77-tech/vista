@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T09:05Z",
-  "news": "Trump cancels Russia deals, spurring dollar and gold sell.",
+  "utc": "2026-11-25T09:10Z",
+  "news": "Trump shelved Russia deals, weakening financial markets",
   "news_sym": "GC=F",
-  "chart": "Price near recent low, RSI low, trend down, little upside",
+  "chart": "Price near 20‑day low, trend down, RSI 30, ATR 3.13%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T09:05Z",
+  "utc": "2026-11-25T09:10Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 5.77,
+   "change": 6.34,
    "trend": "su",
-   "rsi": 57.3
+   "rsi": 57.5
   },
   "skip": "risk: cooldown: ^VIX uscita 0.4h fa, cooldown 6h",
   "stats": {
