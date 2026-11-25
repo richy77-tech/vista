@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T20:45Z",
-  "news": "CPI 3.8% surprise fuels risk-off, crypto likely drops",
+  "utc": "2026-11-25T20:50Z",
+  "news": "Higher‑than‑expected US inflation hurts crypto risk appetite",
   "news_sym": "BTC-USD",
-  "chart": "Price up, low RSI, near 20‑day low",
+  "chart": "Price up, low RSI, near low range",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T20:45Z",
+  "utc": "2026-11-25T20:50Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 7.97,
+   "change": 8.19,
    "trend": "su",
-   "rsi": 57.9
+   "rsi": 58.0
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
