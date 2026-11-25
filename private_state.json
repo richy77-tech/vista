@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T23:22Z",
-  "news": "Tariff announcement shocks USD index",
-  "news_sym": "DX-Y.NYB",
-  "chart": "RSI high, trend up, price near top, 0.11% drop insufficient",
+  "utc": "2026-11-25T23:28Z",
+  "news": "Braiins warns of large-scale attacks, injects risk",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend o movimento non confermano",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T23:22Z",
+  "utc": "2026-11-25T23:28Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
