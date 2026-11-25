@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T06:34Z",
-  "news": "Trump shelved Russia deals, weakening financial markets",
-  "news_sym": "GC=F",
-  "chart": "Price near min, downtrend, low RSI support short",
+  "utc": "2026-11-25T06:39Z",
+  "news": "Coldcard exploit raises security concerns, likely BTC price drop",
+  "news_sym": "BTC-USD",
+  "chart": "Price below yesterday’s low, RSI low, trend down, 16% of range.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T06:34Z",
+  "utc": "2026-11-25T06:39Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
