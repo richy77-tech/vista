@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T21:47Z",
+  "utc": "2026-11-25T21:52Z",
   "news": "Fed signals sustained inflation, likely rate hike",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price in up trend, RSI high, short contrarian",
+  "chart": "RSI high, trend up, price near lower 20% not strong",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T21:47Z",
+  "utc": "2026-11-25T21:52Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
