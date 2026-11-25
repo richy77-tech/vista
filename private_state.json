@@ -4,25 +4,18 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T05:07Z",
+  "utc": "2026-11-25T05:12Z",
   "news": "Scoperta vulnerabilità Coldcard, sicurezza forniture Bitcoin, mercato reagisce positivamente",
   "news_sym": "BTC-USD",
-  "chart": "Trend and RSI do not support a long",
+  "chart": "Trend down, price below recent low, low RSI contradicts trend, weak volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T05:07Z",
-  "pick": {
-   "sym": "GC=F",
-   "side": "short",
-   "rr": 2.0,
-   "change": -2.45,
-   "trend": "giu",
-   "rsi": 30.0
-  },
-  "skip": "GC=F: gia' aperta",
+  "utc": "2026-11-25T05:12Z",
+  "pick": null,
+  "skip": "nessun asset con trend e movimento concordi",
   "stats": {
    "n": 97,
    "moved": 73,
