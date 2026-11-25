@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T14:15Z",
-  "news": "Fed gauge hit 3.8%, unexpected raise in 2027 stakes",
-  "news_sym": "DX-Y.NYB",
-  "chart": "Price 84% in range, trend up, RSI 65, no bearish confirmation",
+  "utc": "2026-11-25T14:26Z",
+  "news": "Fed hike expected, gold likely to decline",
+  "news_sym": "GC=F",
+  "chart": "RSI 28 in down trend, price near 20‑day low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T14:15Z",
+  "utc": "2026-11-25T14:26Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 19.58,
+   "change": 19.69,
    "trend": "su",
-   "rsi": 61.0
+   "rsi": 61.1
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.5h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 5.7h fa, cooldown 6h",
   "stats": {
    "n": 99,
    "moved": 75,
