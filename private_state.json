@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T06:15Z",
-  "news": "Coldcard exploit surprise triggers sell‑off",
-  "news_sym": "BTC-USD",
-  "chart": "Price already below EMA, RSI 24, 3.22% decline, 5.64% ATR",
+  "utc": "2026-11-25T06:20Z",
+  "news": "Trump shelved Russia deals, weakening financial markets",
+  "news_sym": "GC=F",
+  "chart": "Price near 20‑day low, downtrend, low RSI, negative change",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T06:15Z",
+  "utc": "2026-11-25T06:20Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
