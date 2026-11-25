@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T23:28Z",
+  "utc": "2026-11-25T23:33Z",
   "news": "Braiins warns of large-scale attacks, injects risk",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price in lower 24%, downtrend, ATR moderate, short aligns with trend.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T23:28Z",
+  "utc": "2026-11-25T23:33Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
