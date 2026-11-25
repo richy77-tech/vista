@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T23:12Z",
+  "utc": "2026-11-25T23:17Z",
   "news": "Tariff announcement shocks USD index",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend up, RSI 62, price near top",
+  "chart": "RSI high, trend up, price near top, 0.11% drop insufficient",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T23:12Z",
+  "utc": "2026-11-25T23:17Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
