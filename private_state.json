@@ -4,21 +4,21 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T11:17Z",
-  "news": "Trump's Russia deal cancel boosts dollar, hits gold",
-  "news_sym": "GC=F",
-  "chart": "Price near low, downtrend, RSI 30, weak volume",
+  "utc": "2026-11-25T11:22Z",
+  "news": "Coldcard exploit revealed, security risk likely triggers BTC sell‑off",
+  "news_sym": "BTC-USD",
+  "chart": "Price trending lower, RSI 23, near bottom, today down",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T11:17Z",
+  "utc": "2026-11-25T11:22Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 10.85,
+   "change": 11.08,
    "trend": "su",
    "rsi": 58.8
   },
