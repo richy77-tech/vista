@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T14:26Z",
-  "news": "Fed hike expected, gold likely to decline",
-  "news_sym": "GC=F",
-  "chart": "RSI 28 in down trend, price near 20‑day low",
+  "utc": "2026-11-25T14:32Z",
+  "news": "Coldcard exploit revealed, Bitcoin security questioned",
+  "news_sym": "BTC-USD",
+  "chart": "regola: trend e movimento dalla stessa parte",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T14:26Z",
+  "utc": "2026-11-25T14:32Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 19.69,
+   "change": 20.3,
    "trend": "su",
-   "rsi": 61.1
+   "rsi": 61.2
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 5.8h fa, cooldown 6h",
   "stats": {
    "n": 99,
    "moved": 75,
