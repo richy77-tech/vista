@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T08:41Z",
+  "utc": "2026-11-25T08:46Z",
   "news": "Trump shelved Russia deals, weakening financial markets",
   "news_sym": "GC=F",
-  "chart": "RSI30 indicates oversold, contradicts downtrend momentum",
+  "chart": "Trend down, low RSI, low volume, price near prior low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T08:41Z",
+  "utc": "2026-11-25T08:46Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 7.28,
+   "change": 5.12,
    "trend": "su",
-   "rsi": 57.7
+   "rsi": 57.1
   },
-  "skip": "^VIX: gia' aperta",
+  "skip": "risk: cooldown: ^VIX uscita 0.0h fa, cooldown 6h",
   "stats": {
-   "n": 98,
-   "moved": 74,
+   "n": 99,
+   "moved": 75,
    "avg": -0.01,
    "total": -0.7,
-   "wr": 50,
-   "open": 1
+   "wr": 51,
+   "open": 0
   }
  },
  "paused": false
