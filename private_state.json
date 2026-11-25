@@ -4,32 +4,32 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T14:53Z",
-  "news": "Trump cancels Russia deals, shocks gold prices",
-  "news_sym": "GC=F",
-  "chart": "Trend down but RSI 28 indicates oversold, weak volume",
+  "utc": "2026-11-25T14:58Z",
+  "news": "Tether 20% fee raises crypto liquidity concerns",
+  "news_sym": "ETH-USD",
+  "chart": "Price near 20‑day low, strong downtrend, RSI low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T14:53Z",
+  "utc": "2026-11-25T14:58Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 25.38,
+   "change": 28.95,
    "trend": "su",
-   "rsi": 62.4
+   "rsi": 63.2
   },
-  "skip": "^VIX: gia' aperta",
+  "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
-   "n": 99,
-   "moved": 75,
-   "avg": -0.01,
-   "total": -0.7,
+   "n": 100,
+   "moved": 76,
+   "avg": -0.007,
+   "total": -0.5,
    "wr": 51,
-   "open": 1
+   "open": 0
   }
  },
  "paused": false
