@@ -4,23 +4,23 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-25T14:58Z",
-  "news": "Tether 20% fee raises crypto liquidity concerns",
-  "news_sym": "ETH-USD",
-  "chart": "Price near 20‑day low, strong downtrend, RSI low",
+  "utc": "2026-11-25T15:03Z",
+  "news": "Trump cancels Russia deals, shocks gold prices",
+  "news_sym": "GC=F",
+  "chart": "Price sits above 20‑day low, RSI oversold, trend down",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-25",
  "last_rules": {
-  "utc": "2026-11-25T14:58Z",
+  "utc": "2026-11-25T15:03Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 28.95,
+   "change": 28.41,
    "trend": "su",
-   "rsi": 63.2
+   "rsi": 63.1
   },
   "skip": "^VIX: quota giornaliera esaurita",
   "stats": {
