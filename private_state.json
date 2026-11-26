@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T04:04Z",
-  "news": "US tariff fears + hot PCE data shift sentiment",
+  "utc": "2026-11-26T04:10Z",
+  "news": "Hot PCE surprise strengthens USD, pushes dollar index up",
   "news_sym": "DX-Y.NYB",
-  "chart": "Price near upper, RSI high, today up",
+  "chart": "Price near 79% of recent range, max20 close, RSI high, minimal momentum today",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T04:04Z",
+  "utc": "2026-11-26T04:10Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,7 +22,7 @@
    "trend": "su",
    "rsi": 57.8
   },
-  "skip": "risk: cooldown: ^VIX uscita 3.7h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 3.8h fa, cooldown 6h",
   "stats": {
    "n": 100,
    "moved": 75,
