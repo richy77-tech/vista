@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T15:13Z",
-  "news": "notizie forti ma su asset non seguiti: EMBRAER (Brazil’s Embraer CEO says US aircraft tariff will hurt airlines) | DOW (Switzerland’s biggest bank set for showdown with lawmakers as capital )",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-26T15:18Z",
+  "news": "Unexpected hawkish Fed raises rates, equities likely to fall",
+  "news_sym": "^GSPC",
+  "chart": "Price near lower range, weak RSI, low volume",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T15:13Z",
+  "utc": "2026-11-26T15:18Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
