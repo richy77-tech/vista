@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T03:54Z",
-  "news": "Hot PCE surprise lifts USD, pressures equities",
+  "utc": "2026-11-26T03:59Z",
+  "news": "US tariff fears + hot PCE data shift sentiment",
   "news_sym": "DX-Y.NYB",
-  "chart": "Prezzo sotto massimo recente, RSI alto, trend alto non conferma long",
+  "chart": "Trend up, RSI high, price near 20g max, short unsupported",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T03:54Z",
+  "utc": "2026-11-26T03:59Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
