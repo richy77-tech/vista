@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T09:16Z",
-  "news": "Braiins warns of large-scale attacks, injects risk",
+  "utc": "2026-11-26T09:28Z",
+  "news": "hashrate hijacking attack raises security concerns",
   "news_sym": "BTC-USD",
-  "chart": "Prezzo in trend giù, RSI basso, ma oggi in salita contraria all’idea short",
+  "chart": "Price 60.7 below ATR and near low end opposes shorting",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T09:16Z",
+  "utc": "2026-11-26T09:28Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
