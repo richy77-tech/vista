@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T06:13Z",
+  "utc": "2026-11-26T06:24Z",
   "news": "Braiins warns of large-scale attacks, injects risk",
   "news_sym": "BTC-USD",
-  "chart": "Price up breaks downtrend, RSI low insufficient",
+  "chart": "RSI 28 in downtrend, price above prior max",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T06:13Z",
+  "utc": "2026-11-26T06:24Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,14 +22,14 @@
    "trend": "su",
    "rsi": 57.8
   },
-  "skip": "risk: cooldown: ^VIX uscita 5.9h fa, cooldown 6h",
+  "skip": "^VIX: gia' aperta",
   "stats": {
    "n": 100,
    "moved": 75,
    "avg": -0.006,
    "total": -0.5,
    "wr": 52,
-   "open": 0
+   "open": 1
   }
  },
  "paused": false
