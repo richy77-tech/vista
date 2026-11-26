@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T13:21Z",
-  "news": "notizie forti ma su asset non seguiti: NORSE ATLANTIC AIRWAYS (Airline Norse Atlantic flags bankruptcy risk as flights suspended) | NAA (Norse Atlantic suspends all flights, warns it may file for bankruptcy )",
-  "news_sym": null,
-  "chart": null,
+  "utc": "2026-11-26T13:26Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "BTC-USD",
+  "chart": "Trend down, RSI low, price near low, but today up 0.64%",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T13:21Z",
+  "utc": "2026-11-26T13:26Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
