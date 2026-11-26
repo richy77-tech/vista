@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T17:50Z",
-  "news": "Fed hawkish risk sparks buying",
+  "utc": "2026-11-26T18:02Z",
+  "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "regola: trend o movimento non confermano",
+  "chart": "Price near 25% of range, low RSI, weak volume, no break of yesterday’s low",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T17:50Z",
+  "utc": "2026-11-26T18:02Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
