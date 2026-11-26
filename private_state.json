@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T12:34Z",
-  "news": "regola: notizia forte agganciata all'asset",
+  "utc": "2026-11-26T12:40Z",
+  "news": "hashrate hijacking attack shocks market",
   "news_sym": "BTC-USD",
-  "chart": "Price near low, trend down, RSI low.",
+  "chart": "RSI low, price near bottom, trend down may reverse",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T12:34Z",
+  "utc": "2026-11-26T12:40Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
