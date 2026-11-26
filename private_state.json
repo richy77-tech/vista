@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T07:16Z",
+  "utc": "2026-11-26T07:22Z",
   "news": "Braiins warns of large-scale attacks, injects risk",
   "news_sym": "BTC-USD",
-  "chart": "Trend down, RSI weak, price near low, not confirming short",
+  "chart": "RSI low, no clear break of min20; price not below recent support",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T07:16Z",
+  "utc": "2026-11-26T07:22Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
