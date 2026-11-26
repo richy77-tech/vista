@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T20:57Z",
+  "utc": "2026-11-26T21:02Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Prezzo sopra max giorno prima, trend ribassista, RSI basso, indicazioni contrastanti.",
+  "chart": "Trend down but RSI 29 suggests potential reversal",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T20:57Z",
+  "utc": "2026-11-26T21:02Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
