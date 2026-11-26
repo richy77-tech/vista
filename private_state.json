@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T13:58Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "Down trend, low RSI, price near range max, ATR supports stop.",
+  "utc": "2026-11-26T14:03Z",
+  "news": "notizie forti ma su asset non seguiti: NAA (Norse Atlantic suspends all flights, warns it may file for bankruptcy ) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T13:58Z",
+  "utc": "2026-11-26T14:04Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
