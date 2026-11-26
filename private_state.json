@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T00:16Z",
-  "news": "Tariff proposal shocks USD, risk-off pressure",
+  "utc": "2026-11-26T00:21Z",
+  "news": "Tariff announcement shocks USD index",
   "news_sym": "DX-Y.NYB",
   "chart": "RSI high, trend up, price near top, 0.11% drop insufficient",
   "verdict": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T00:16Z",
+  "utc": "2026-11-26T00:21Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
@@ -22,14 +22,14 @@
    "trend": "su",
    "rsi": 57.8
   },
-  "skip": "^VIX: gia' aperta",
+  "skip": "risk: cooldown: ^VIX uscita 0.0h fa, cooldown 6h",
   "stats": {
    "n": 100,
-   "moved": 76,
-   "avg": -0.007,
+   "moved": 75,
+   "avg": -0.006,
    "total": -0.5,
-   "wr": 51,
-   "open": 1
+   "wr": 52,
+   "open": 0
   }
  },
  "paused": false
