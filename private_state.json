@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T12:02Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "Price 60,828 in lower 27% of 20‑day range, RSI 29, trend down, but today moved up",
+  "utc": "2026-11-26T12:07Z",
+  "news": "notizie forti ma su asset non seguiti: NAA (Norse Atlantic suspends all flights, warns it may file for bankruptcy ) | SKY (Sky proposes emergency vote on $25M transfer amid liquidity stress)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T12:02Z",
+  "utc": "2026-11-26T12:07Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
