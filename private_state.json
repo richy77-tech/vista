@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-26T15:18Z",
-  "news": "Unexpected hawkish Fed raises rates, equities likely to fall",
-  "news_sym": "^GSPC",
-  "chart": "Price near lower range, weak RSI, low volume",
+  "utc": "2026-11-26T15:29Z",
+  "news": "regola: notizia forte agganciata all'asset",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Price near 20‑day high, uptrend, RSI elevated—contradicts short thesis",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-26",
  "last_rules": {
-  "utc": "2026-11-26T15:18Z",
+  "utc": "2026-11-26T15:29Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
