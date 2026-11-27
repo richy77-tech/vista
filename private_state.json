@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T03:24Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "BTC-USD",
-  "chart": "Trend ribassista, ma il rialzo odierno contrasta la tesi; volumi deboli e RSI non bastano.",
+  "utc": "2026-11-27T03:29Z",
+  "news": "Fed hike surprise weakens equities, strengthens USD",
+  "news_sym": "DX-Y.NYB",
+  "chart": "Trend su, RSI 61 e giornata quasi invariata; i numeri non confermano una spinta ribassista.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T03:24Z",
+  "utc": "2026-11-27T03:29Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
