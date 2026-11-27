@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T01:14Z",
+  "utc": "2026-11-27T01:19Z",
   "news": "Fed hike surprise weakens equities, strengthens USD",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend su e variazione odierna positiva contraddicono lo short; la posizione alta nel range non conferma un’inversione.",
+  "chart": "Trend rialzista e giornata positiva contraddicono lo short; reazione alla notizia non documentata.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T01:14Z",
+  "utc": "2026-11-27T01:19Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
