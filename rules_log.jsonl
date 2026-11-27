@@ -10804,3 +10804,5 @@
 {"ts": "2026-11-27T15:23Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.93, "trend": "su", "rsi": 55.8}, "skip": "risk: cooldown: ^VIX uscita 0.3h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.3h fa, cooldown 6h"}
 {"ts": "2026-11-27T15:26Z", "kind": "skip", "pick": {"sym": "^VIX", "side": "long", "rr": 2.0, "change": 0.86, "trend": "su", "rsi": 55.7}, "skip": "risk: cooldown: ^VIX uscita 0.3h fa, cooldown 6h", "risk": "cooldown: ^VIX uscita 0.3h fa, cooldown 6h"}
 {"ts": "2026-11-27T15:29Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-27T15:31Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-27T15:34Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
