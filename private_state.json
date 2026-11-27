@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T14:41Z",
+  "utc": "2026-11-27T14:46Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "^GSPC",
-  "chart": "Trend piatto, RSI 42 e posizione al 41%; rialzo odierno con volumi molto bassi non conferma il long.",
+  "chart": "Trend piatto, RSI 42 e volumi 0,04x; il rialzo odierno non conferma solidamente la tesi long.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T14:41Z",
+  "utc": "2026-11-27T14:46Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
