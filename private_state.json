@@ -4,18 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T18:19Z",
+  "utc": "2026-11-27T18:24Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Trend giù e giornata -1,07% confermano lo short; RSI 27 è debole, volumi 0,95x neutrali.",
+  "chart": "Trend giù, RSI 27, giornata -1,17% e prezzo nel 22% basso del range; volumi nella media.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T18:19Z",
-  "pick": null,
-  "skip": "nessun asset con trend e movimento concordi",
+  "utc": "2026-11-27T18:24Z",
+  "pick": {
+   "sym": "DX-Y.NYB",
+   "side": "long",
+   "rr": 2.0,
+   "change": 0.35,
+   "trend": "su",
+   "rsi": 64.8
+  },
+  "skip": "risk: cooldown: DX-Y.NYB uscita 2.2h fa, cooldown 6h",
   "stats": {
    "n": 100,
    "moved": 74,
