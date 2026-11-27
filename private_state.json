@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T02:18Z",
+  "utc": "2026-11-27T02:23Z",
   "news": "Fed hike surprise weakens equities, strengthens USD",
   "news_sym": "DX-Y.NYB",
-  "chart": "Trend in salita, RSI 62 e oggi +0,04% contraddicono lo short; la notizia non prova pressione ribassista.",
+  "chart": "Trend rialzista, RSI 62 e variazione odierna positiva; posizione al 76% del range non sostiene lo short.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T02:18Z",
+  "utc": "2026-11-27T02:23Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
