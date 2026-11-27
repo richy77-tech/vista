@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T10:43Z",
-  "news": "regola: notizia forte agganciata all'asset",
-  "news_sym": "^IXIC",
-  "chart": "Oggi -0,62%, RSI 39 e posizione al 28%; trend piatto, volumi 1,17x.",
+  "utc": "2026-11-27T10:54Z",
+  "news": "notizie forti ma su asset non seguiti: ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
+  "news_sym": null,
+  "chart": null,
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T10:43Z",
+  "utc": "2026-11-27T10:54Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
