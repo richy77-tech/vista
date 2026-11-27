@@ -1,24 +1,5 @@
 {
- "open": {
-  "DX-Y.NYB": {
-   "symbol": "DX-Y.NYB",
-   "side": "long",
-   "entry": 104.03600311279297,
-   "stop": 103.21132387433734,
-   "target": 105.68536158970424,
-   "atr": 0.5497861589704242,
-   "bars": 3,
-   "entry_ts": "2026-11-27T15:57+00:00",
-   "reason": "regole: trend su, movimento +0.35%",
-   "headline": "",
-   "rules": true,
-   "context": {
-    "trend": "su",
-    "rsi": 64.84444338321117,
-    "change": 0.35304808557167916
-   }
-  }
- },
+ "open": {},
  "closed": [
   {
    "symbol": "GC=F",
@@ -2285,6 +2266,28 @@
    "exit_ts": "2026-11-27T15:07+00:00",
    "exit_reason": "time",
    "r": 0.012
+  },
+  {
+   "symbol": "DX-Y.NYB",
+   "side": "long",
+   "entry": 104.03600311279297,
+   "stop": 103.21132387433734,
+   "target": 105.68536158970424,
+   "atr": 0.5497861589704242,
+   "bars": 5,
+   "entry_ts": "2026-11-27T15:57+00:00",
+   "reason": "regole: trend su, movimento +0.35%",
+   "headline": "",
+   "rules": true,
+   "context": {
+    "trend": "su",
+    "rsi": 64.84444338321117,
+    "change": 0.35304808557167916
+   },
+   "exit": 104.00900268554688,
+   "exit_ts": "2026-11-27T16:11+00:00",
+   "exit_reason": "time",
+   "r": -0.033
   }
  ]
 }
