@@ -4,8 +4,8 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T08:42Z",
-  "news": "notizie forti ma su asset non seguiti: BITCOIN (BTC) (Bitcoin e Fed: inizia il blackout, ultimo stop prima del rialzo dei ta) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
+  "utc": "2026-11-27T08:54Z",
+  "news": "notizie forti ma su asset non seguiti: CSI 300 (Chinese shares soar after Beijing signals more support) | BITCOIN (BTC) (Bitcoin e Fed: inizia il blackout, ultimo stop prima del rialzo dei ta) | ARABICA COFFEE (Arabica Coffee Prices Hit Record on U.S., Colombia Tariff Spat)",
   "news_sym": null,
   "chart": null,
   "verdict": null,
@@ -13,7 +13,7 @@
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T08:43Z",
+  "utc": "2026-11-27T08:54Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
