@@ -10932,3 +10932,5 @@
 {"ts": "2026-11-27T21:41Z", "kind": "skip", "pick": {"sym": "DX-Y.NYB", "side": "long", "rr": 2.0, "change": 0.36, "trend": "su", "rsi": 64.9}, "skip": "risk: cooldown: DX-Y.NYB uscita 5.5h fa, cooldown 6h", "risk": "cooldown: DX-Y.NYB uscita 5.5h fa, cooldown 6h"}
 {"ts": "2026-11-27T21:44Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
 {"ts": "2026-11-27T21:46Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-27T21:49Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
+{"ts": "2026-11-27T21:51Z", "kind": "skip", "pick": null, "skip": "nessun asset con trend e movimento concordi", "risk": null}
