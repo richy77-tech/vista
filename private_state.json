@@ -4,16 +4,16 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T14:25Z",
+  "utc": "2026-11-27T14:30Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "^GSPC",
-  "chart": "Trend flat, RSI 40, price below yesterday high",
+  "chart": "Prezzo sopra il massimo precedente e giornata positiva, ma trend piatto e RSI 44 non confermano; volume 0,02×.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T14:25Z",
+  "utc": "2026-11-27T14:30Z",
   "pick": null,
   "skip": "nessun asset con trend e movimento concordi",
   "stats": {
