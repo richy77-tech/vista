@@ -4,25 +4,25 @@
  "last_in_text": "",
  "last_reply": "",
  "last_roles": {
-  "utc": "2026-11-27T15:18Z",
+  "utc": "2026-11-27T15:23Z",
   "news": "regola: notizia forte agganciata all'asset",
   "news_sym": "BTC-USD",
-  "chart": "Trend giù, oggi -1,63%, prezzo nel 21% basso del range; RSI 26 non basta a invalidare lo short.",
+  "chart": "Trend giù, oggi -1.46%, RSI 27 e posizione al 21% confermano pressione short; volumi sotto media.",
   "verdict": null,
   "action": null
  },
  "last_audit": "2026-11-27",
  "last_rules": {
-  "utc": "2026-11-27T15:18Z",
+  "utc": "2026-11-27T15:23Z",
   "pick": {
    "sym": "^VIX",
    "side": "long",
    "rr": 2.0,
-   "change": 2.09,
+   "change": 0.93,
    "trend": "su",
-   "rsi": 56.2
+   "rsi": 55.8
   },
-  "skip": "risk: cooldown: ^VIX uscita 0.2h fa, cooldown 6h",
+  "skip": "risk: cooldown: ^VIX uscita 0.3h fa, cooldown 6h",
   "stats": {
    "n": 100,
    "moved": 74,
