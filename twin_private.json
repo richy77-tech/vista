@@ -1,8 +1,8 @@
 {
  "twin": "hb_tn.txt",
- "twin_last": "2026-11-28T06:31:19Z",
- "age_min": 1,
+ "twin_last": "2026-11-28T06:36:51Z",
+ "age_min": 0,
  "limit_min": 480,
  "stale": false,
- "checked": "2026-11-28T06:32:33Z"
+ "checked": "2026-11-28T06:37:47Z"
 }
